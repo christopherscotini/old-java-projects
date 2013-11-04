@@ -1,0 +1,65 @@
+<?xml version='1.0' encoding='ISO-8859-1' ?>
+<ui:composition template="/template/template_main.xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+
+	<ui:define name="body_content">
+		<h:form id="formConsultaListagem" prependId="false">
+			<div class="divCentral" style="width: 550px;">
+				<h1 class="titulo">Consulta de Tarifas</h1>
+				<div class="divCampos">
+					<h:panelGrid columns="2">
+						<h:outputText value="Cliente:" />
+						<h:selectOneMenu id="Cliente" value="#{exportacaoBean.pesquisaExportacao.idCliente}" disabled="true">
+							<f:selectItem itemValue="" itemLabel="::SELECIONE::"/>
+							<f:selectItems value="#{exportacaoBean.listaClientes}"
+							 		var="cliente" itemLabel="#{cliente.nome}" itemValue="#{cliente.id}" />
+						</h:selectOneMenu>
+	
+						<h:outputText value="UF:" />
+						<h:selectOneMenu id="uf" value="#{exportacaoBean.pesquisaExportacao.idUf}" disabled="true">
+							<f:selectItem itemValue="" itemLabel="::SELECIONE::"/>
+							<f:selectItems value="#{exportacaoBean.listaUfs}"
+							 		var="uf" itemLabel="#{uf.estado}" itemValue="#{uf.id}" />
+						</h:selectOneMenu>
+	
+						<h:outputText value="N° Contrato" />
+						<h:selectOneMenu id="contrato" value="#{exportacaoBean.pesquisaExportacao.idContrato}" disabled="true">
+							<f:selectItem itemValue="" itemLabel="::SELECIONE::"/>
+							<f:selectItems value="#{exportacaoBean.listaContratos}"
+							 		var="contrato" itemLabel="#{contrato.descricao}" itemValue="#{contrato.id}" />
+						</h:selectOneMenu>
+					</h:panelGrid>
+				</div>
+
+				<div style="margin-top: 25px;">
+					<p:dataTable id="dataTableTarifa" value="#{exportacaoBean.listaTarifas}" var="tarifa" emptyMessage="">
+						<p:column headerText="Serviço" width="30%">
+							<h:outputText value="#{tarifa.subServico.servico.descricao}" />
+						</p:column>
+						<p:column headerText="Sub-Serviço" width="30%">
+							<h:outputText value="#{tarifa.subServico.descricao}" />
+						</p:column>
+						<p:column headerText="Tipo Tarifa" width="20%">
+							<h:outputText value="#{tarifa.tipoTarifa.nome}" />
+						</p:column>
+						<p:column headerText="Tarifa" width="20%" styleClass="colRight">
+							<h:outputText value="#{tarifa.valor}" converter="reaisBigDecimalConverter" />
+						</p:column>
+					</p:dataTable>
+				</div>
+	
+				<h:panelGrid width="100%">
+					<f:facet name="footer">
+						<h:panelGroup layout="block" style="float:right;">
+							<h:commandButton id="btnCancelar" value="Cancelar" action="exportarArquivos.xhtml" styleClass="button-light-blue" />
+							<h:commandButton id="btnConfirmar" value="Confirmar" action="#{exportacaoBean.confirmar}" styleClass="button-light-blue button-right" />
+						</h:panelGroup>
+					</f:facet>
+				</h:panelGrid>
+			</div>
+		</h:form>
+	</ui:define>
+</ui:composition>

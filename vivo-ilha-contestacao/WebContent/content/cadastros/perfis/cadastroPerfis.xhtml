@@ -1,0 +1,34 @@
+<?xml version='1.0' encoding='ISO-8859-1' ?>
+<ui:composition template="/template/template_main.xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+
+	<ui:define name="body_content">
+		<div class="divCentral" style="width: 550px;">
+			<h1 class="titulo">Cadastro de Perfis</h1>
+			<p:messages closable="true" />
+			<h:form id="formPerfis" prependId="false">
+				<div class="divCampos">
+					<h:panelGrid id="perfilGrid" columns="2" style="margin-top:9px" cellpadding="0" cellspacing="0">
+						<h:outputText value="Perfil" />
+						<h:inputText id="txtPerfil" value="#{perfilBean.perfilCadastro.nome}" required="true"
+						 label="Perfil" size="40" maxlength="100" />
+
+						<h:outputText value="Ações:"/>
+						<p:pickList id="pickList" value="#{perfilBean.perfis}" required="true" label="Ações"
+						 var="perfil" itemLabel="#{perfil.label}" itemValue="#{perfil}" converter="valueLabelListModelConverter" />
+	
+						<f:facet name="footer">
+							<h:panelGroup layout="block" style="float:right;">
+								<h:commandButton value="Cancelar" action="/content/principal.xhtml" immediate="true" styleClass="button-light-blue" />
+								<h:commandButton value="Confirmar" action="#{perfilBean.confirmar}" styleClass="button-light-blue button-right" />
+							</h:panelGroup>					
+						</f:facet>
+					</h:panelGrid>
+				</div>
+			</h:form>
+		</div>
+	</ui:define>
+</ui:composition>

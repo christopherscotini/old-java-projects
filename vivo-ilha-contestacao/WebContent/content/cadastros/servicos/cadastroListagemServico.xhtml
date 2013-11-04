@@ -1,0 +1,63 @@
+<?xml version='1.0' encoding='ISO-8859-1' ?>
+<ui:composition template="/template/template_main.xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+
+	<ui:define name="body_content">
+		<div class="divCentral" style="width: 550px;">
+			<h1 class="titulo">Cadastro de Serviço</h1>
+			<p:messages closable="true" />
+			<h:form id="formCadastroServico" prependId="false">
+				<div class="divCampos">
+					<h:panelGrid columns="4">
+						<h:outputLabel value="Descrição:" for="descricaoCadastro" />
+						<h:inputText id="descricaoCadastro" value="#{servicoBean.entidadeCadastro.descricao}" size="40" required="true" label="Descrição" maxlength="100" />
+	
+						<h:selectBooleanCheckbox id="ativo" value="#{servicoBean.flagAtivo}" />
+						<h:outputText value="Ativo" />
+	
+						<f:facet name="footer">
+							<h:panelGroup layout="block" style="float:right;">
+								<h:commandButton id="btnCancelar" value="Cancelar" action="/content/principal.xhtml" immediate="true" styleClass="button-light-blue" />
+								<h:commandButton id="btnConfirmar" value="Confirmar" action="#{servicoBean.confirmar}" styleClass="button-light-blue button-right" />
+							</h:panelGroup>
+						</f:facet>
+					</h:panelGrid>
+				</div>
+			</h:form>
+	
+			<h1 class="titulo">Listagem de Serviços</h1>
+			<h:form id="formPesquisaServico" prependId="false">
+				<div class="divCampos">
+					<h:panelGrid columns="3">
+						<h:outputLabel value="Descrição:" for="descricaoListagem" />
+						<h:inputText id="descricaoListagem" value="#{servicoBean.entidadePesquisa.descricao}" size="40" maxlength="100" />
+	
+						<h:commandButton id="btnPesquisar" value="Pesquisar" action="#{servicoBean.pesquisar}" styleClass="button" />
+					</h:panelGrid>
+				</div>
+	
+				<div style="margin-top: 25px;">
+					<p:dataTable id="dataTableServicos" value="#{servicoBean.listaPesquisa}" var="servico" rowIndexVar="indexServico"
+					 emptyMessage="" rows="10" paginator="true" paginatorPosition="bottom"
+					 paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} Página: {JumpToPageDropdown} {NextPageLink} {LastPageLink}"
+					 currentPageReportTemplate="Total de Registros: {totalRecords} registros">
+						<p:column headerText="Descrição" sortBy="#{servico.descricao}" width="80%">
+							<h:outputText value="#{servico.descricao}" />
+						</p:column>
+						<p:column headerText="Ativo" width="10%" sortBy="#{servico.ativo.descricao}" styleClass="colCenter">
+							<h:outputText value="#{servico.ativo.descricao}" />
+						</p:column>
+						<p:column headerText="Editar" width="10%" styleClass="colCenter">
+							<h:commandLink action="#{servicoBean.editar(indexServico)}">
+								<h:graphicImage name="edit-icon.png" library="images" />
+							</h:commandLink>
+						</p:column>
+					</p:dataTable>
+				</div>
+			</h:form>
+		</div>
+	</ui:define>
+</ui:composition>

@@ -1,0 +1,91 @@
+a#btn-adicionar { background:url(#{resource['assets:images/btn-adicionar.gif']}); }
+a#logo { background:url(#{resource['assets:images/tguidance.png']}) 0 0 no-repeat; }
+#header { background:url(#{resource['assets:images/bg-header.gif']}); }
+#content-top { background:url(#{resource['assets:images/bg-top-content.gif']}) 0 0 no-repeat; }
+#content-bottom { background:url(#{resource['assets:images/bg-bottom-content.gif']}) 0 0 no-repeat; }
+#tgcm-menu li.tgcm-has-current-submenu.tgcm-menu-open .tgcm-menu-toggle,#tgcm-menu li.tgcm-has-current-submenu:hover .tgcm-menu-toggle{background:transparent url(#{resource['assets:images/menu-bits.png']}) no-repeat scroll left -207px;}
+#tgcm-menu .tgcm-has-submenu:hover .tgcm-menu-toggle,#tgcm-menu .tgcm-menu-open .tgcm-menu-toggle{background:transparent url(#{resource['assets:images/menu-bits.png']}) no-repeat scroll left -109px;}
+#tgcm-menu a.menu-top{background:#dddddd url(#{resource['assets:images/menu-bits.png']}) repeat-x scroll left -379px;}
+#tgcm-menu .tgcm-submenu a{background:#f7f7f7 url(#{resource['assets:images/menu-bits.png']}) no-repeat scroll 0 -310px;}
+#tgcm-menu .tgcm-has-current-submenu ul li a.current{background:url(#{resource['assets:images/menu-dark.png']}) top left no-repeat!important;}
+#tgcm-menu li.tgcm-has-current-submenu a.tgcm-has-current-submenu,#tgcm-menu li.current a.menu-top{background:#e0e0e0 url(#{resource['assets:images/menu-bits.png']}) top left repeat-x;}
+#tgcm-menu li.tgcm-has-current-submenu ul li a{background:url(#{resource['assets:images/menu-dark.png']}) bottom left no-repeat!important;}
+#tgcm-menu .tgcm-submenu .current a.current{background:transparent url(#{resource['assets:images/menu-bits.png']}) no-repeat scroll 0 -289px;}
+#tgcm-menu .menu-icon-vdn div.tgcm-menu-image{background:transparent url('#{resource['assets:images/menu-vs.png']}') no-repeat scroll -1px -1px;}
+#tgcm-menu .menu-icon-vdn:hover div.tgcm-menu-image,#tgcm-menu .menu-icon-vdn.tgcm-has-current-submenu div.tgcm-menu-image{background:transparent url('#{resource['assets:images/menu-vs.png']}') no-repeat scroll -1px -1px;}
+#tgcm-menu .menu-icon-skill div.tgcm-menu-image{background:transparent url('#{resource['assets:images/menu-vs.png']}') no-repeat scroll -31px -1px;}
+#tgcm-menu .menu-icon-skill:hover div.tgcm-menu-image,#tgcm-menu .menu-icon-skill.tgcm-has-current-submenu div.tgcm-menu-image{background:transparent url('#{resource['assets:images/menu-vs.png']}') no-repeat scroll -31px -1px;}
+#tgcm-menu .menu-icon-skillsimples div.tgcm-menu-image{background:transparent url('#{resource['assets:images/menu-vs.png']}') no-repeat scroll -31px -1px;}
+#tgcm-menu .menu-icon-skillsimples:hover div.tgcm-menu-image,#tgcm-menu .menu-icon-skillsimples.tgcm-has-current-submenu div.tgcm-menu-image{background:transparent url('#{resource['assets:images/menu-vs.png']}') no-repeat scroll -31px -1px;}
+#tgcm-menu .menu-icon-agente div.tgcm-menu-image{background:transparent url('#{resource['assets:images/menu-vs.png']}') no-repeat scroll -61px -1px;}
+#tgcm-menu .menu-icon-agente:hover div.tgcm-menu-image,#tgcm-menu .menu-icon-agente.tgcm-has-current-submenu div.tgcm-menu-image{background:transparent url('#{resource['assets:images/menu-vs.png']}') no-repeat scroll -61px -1px;}
+#tgcm-menu .menu-icon-perfil div.tgcm-menu-image{background:transparent url('#{resource['assets:images/menu-vs.png']}') no-repeat scroll -91px -1px;}
+#tgcm-menu .menu-icon-perfil:hover div.tgcm-menu-image,#tgcm-menu .menu-icon-perfil.tgcm-has-current-submenu div.tgcm-menu-image{background:transparent url('#{resource['assets:images/menu-vs.png']}') no-repeat scroll -91px -1px;}
+#tgcm-menu .menu-icon-pausa div.tgcm-menu-image{background:transparent url('#{resource['assets:images/menu-vs.png']}') no-repeat scroll -241px -1px;}
+#tgcm-menu .menu-icon-pausa:hover div.tgcm-menu-image,#tgcm-menu .menu-icon-pausa.tgcm-has-current-submenu div.tgcm-menu-image{background:transparent url('#{resource['assets:images/menu-vs.png']}') no-repeat scroll -241px -1px;}
+#tgcm-menu .menu-icon-matriz div.tgcm-menu-image{background:transparent url('#{resource['assets:images/menu-vs.png']}') no-repeat scroll -271px -1px;}
+#tgcm-menu .menu-icon-matriz:hover div.tgcm-menu-image,#tgcm-menu .menu-icon-matriz.tgcm-has-current-submenu div.tgcm-menu-image{background:transparent url('#{resource['assets:images/menu-vs.png']}') no-repeat scroll -271px -1px;}
+#tgcm-menu .menu-icon-fila div.tgcm-menu-image{background:transparent url('#{resource['assets:images/menu-vs.png']}') no-repeat scroll -301px -1px;}
+#tgcm-menu .menu-icon-fila:hover div.tgcm-menu-image,#tgcm-menu .menu-icon-fila.tgcm-has-current-submenu div.tgcm-menu-image{background:transparent url('#{resource['assets:images/menu-vs.png']}') no-repeat scroll -301px -1px;}
+#tgcm-menu .menu-icon-distribuicao div.tgcm-menu-image{background:transparent url('#{resource['assets:images/menu-vs.png']}') no-repeat scroll -331px -1px;}
+#tgcm-menu .menu-icon-distribuicao:hover div.tgcm-menu-image,#tgcm-menu .menu-icon-distribuicao.tgcm-has-current-submenu div.tgcm-menu-image{background:transparent url('#{resource['assets:images/menu-vs.png']}') no-repeat scroll -331px -1px;}
+#tgcm-menu .menu-icon-configuracao div.tgcm-menu-image{background:transparent url('#{resource['assets:images/menu-vs.png']}') no-repeat scroll -211px -1px;}
+#tgcm-menu .menu-icon-configuracao:hover div.tgcm-menu-image,#tgcm-menu .menu-icon-configuracao.tgcm-has-current-submenu div.tgcm-menu-image{background:transparent url('#{resource['assets:images/menu-vs.png']}') no-repeat scroll -211px -1px;}
+#tgcm-menu .menu-icon-usuarios div.tgcm-menu-image{background:transparent url('#{resource['assets:images/menu-vs.png']}') no-repeat scroll -181px -1px;}
+#tgcm-menu .menu-icon-usuarios:hover div.tgcm-menu-image, #tgcm-menu .menu-icon-usuarios.tgcm-has-current-submenu div.tgcm-menu-image{background:transparent url('#{resource['assets:images/menu-vs.png']}') no-repeat scroll -181px -1px;}
+#tgcm-menu .menu-icon-perfilador div.tgcm-menu-image{background:transparent url('#{resource['assets:images/menu-vs.png']}') no-repeat scroll -121px -1px;}
+#tgcm-menu .menu-icon-perfilador:hover div.tgcm-menu-image, #tgcm-menu .menu-icon-perfilador.tgcm-has-current-submenu div.tgcm-menu-image{background:transparent url('#{resource['assets:images/menu-vs.png']}') no-repeat scroll -121px -1px;}
+#tgcm-menu .menu-icon-rel-perfilador div.tgcm-menu-image{background:transparent url('#{resource['assets:images/menu-vs.png']}') no-repeat scroll -151px -1px;}
+#tgcm-menu .menu-icon-rel-perfilador:hover div.tgcm-menu-image, #tgcm-menu .menu-icon-rel-perfilador.tgcm-has-current-submenu div.tgcm-menu-image{background:transparent url('#{resource['assets:images/menu-vs.png']}') no-repeat scroll -151px -1px;}
+#tgcm-menu .menu-icon-profile div.tgcm-menu-image{background:transparent url('#{resource['assets:images/menu-vs.png']}') no-repeat scroll -211px -1px;}
+#tgcm-menu .menu-icon-profile:hover div.tgcm-menu-image, #tgcm-menu .menu-icon-profile.tgcm-has-current-submenu div.tgcm-menu-image{background:transparent url('#{resource['assets:images/menu-vs.png']}') no-repeat scroll -211px -1px;}
+#tgcm-menu .menu-icon-operacao div.tgcm-menu-image{background:transparent url('#{resource['assets:images/menu-vs.png']}') no-repeat scroll -361px -1px;}
+#tgcm-menu .menu-icon-operacao:hover div.tgcm-menu-image,#tgcm-menu .menu-icon-operacao.tgcm-has-current-submenu div.tgcm-menu-image{background:transparent url('#{resource['assets:images/menu-vs.png']}') no-repeat scroll -361px -1px;}
+#tgcm-menu .menu-icon-operacaosimples div.tgcm-menu-image{background:transparent url('#{resource['assets:images/menu-vs.png']}') no-repeat scroll -361px -1px;}
+#tgcm-menu .menu-icon-operacaosimples:hover div.tgcm-menu-image,#tgcm-menu .menu-icon-operacaosimples.tgcm-has-current-submenu div.tgcm-menu-image{background:transparent url('#{resource['assets:images/menu-vs.png']}') no-repeat scroll -361px -1px;}
+#tgcm-menu .menu-icon-grupoagente div.tgcm-menu-image{background:transparent url('#{resource['assets:images/menu-vs.png']}') no-repeat scroll -181px -1px;}
+#tgcm-menu .menu-icon-grupoagente:hover div.tgcm-menu-image, #tgcm-menu .menu-icon-grupoagente.tgcm-has-current-submenu div.tgcm-menu-image{background:transparent url('#{resource['assets:images/menu-vs.png']}') no-repeat scroll -181px -1px;}
+#tgcm-menu .menu-icon-formatouui div.tgcm-menu-image{background:transparent url('#{resource['assets:images/menu-vs.png']}') no-repeat scroll -421px -1px;}
+#tgcm-menu .menu-icon-formatouui:hover div.tgcm-menu-image, #tgcm-menu .menu-icon-formatouui.tgcm-has-current-submenu div.tgcm-menu-image{background:transparent url('#{resource['assets:images/menu-vs.png']}') no-repeat scroll -421px -1px;}
+#tgcm-menu .menu-icon-servidorcontexto div.tgcm-menu-image{background:transparent url('#{resource['assets:images/menu-vs.png']}') no-repeat scroll -421px -1px;}
+#tgcm-menu .menu-icon-servidorcontexto:hover div.tgcm-menu-image, #tgcm-menu .menu-icon-servidorcontexto.tgcm-has-current-submenu div.tgcm-menu-image{background:transparent url('#{resource['assets:images/menu-vs.png']}') no-repeat scroll -421px -1px;}
+#tgcm-menu .menu-icon-screenpop div.tgcm-menu-image{background:transparent url('#{resource['assets:images/menu-vs.png']}') no-repeat scroll -421px -1px;}
+#tgcm-menu .menu-icon-screenpop:hover div.tgcm-menu-image, #tgcm-menu .menu-icon-screenpop.tgcm-has-current-submenu div.tgcm-menu-image{background:transparent url('#{resource['assets:images/menu-vs.png']}') no-repeat scroll -421px -1px;}
+.sucess-msg {background:#ddf5d4 url(#{resource['assets:images/sucess-msg.gif']}) 10px 10px no-repeat}
+.error-msg {background:#fab3b3 url(#{resource['assets:images/error-msg.gif']}) 10px 9px no-repeat}
+.fatal-msg {background:#FF0009 url(#{resource['assets:images/fatal-msg.gif']}) 10px 10px no-repeat}
+.warning-msg {background:#FFFFE0 url(#{resource['assets:images/warning-msg.gif']}) 10px 10px no-repeat}
+div.box-matriz-origem ul li a.arrow, div.box-matriz-destino ul li a.arrow{background:url(#{resource['assets:images/add-arrow.gif']}) -14px 0}
+div.box-matriz-destino ul li a.toggle{background:url(#{resource['assets:images/toggle.gif']}) -14px 0}
+.ordenador{background-image:url(#{resource['assets:images/sort.gif']})}
+.resultados thead tr th,.resultados tfoot tr th {background:#dfdfdf url(#{resource['assets:images/gray-grad.png']}) repeat-x scroll left top}
+#footer {background:url(#{resource['assets:images/bg-footer.gif']}) repeat-x;}
+.button-blue {background:url(#{resource['assets:images/btn-blue2.gif']})}
+.button-light-blue {background:url(#{resource['images/btn-light-blue.gif']})}
+.button-gray {background:url(#{resource['assets:images/btn-gray2.gif']}) !important}
+.button-gray-small {background:url(#{resource['assets:images/btn-gray2-small.gif']}) !important}
+.button-incluir {background:url(#{resource['assets:images/btn-incluir.gif']}) !important}
+.button-csv {background:url(#{resource['assets:images/btn-csv.png']}) !important}
+.button-excluir {background:url(#{resource['assets:images/btn-excluir.gif']}) !important}
+.btn-producao {background:url(#{resource['assets:images/btn-producao.png']}) !important}
+.btn-producao[disabled] {background:url(#{resource['assets:images/btn-producao-disabled.png']}) !important}
+.button-remover {background:url(#{resource['assets:images/btn-remover.gif']}) !important}
+.button-red {background:url(#{resource['assets:images/btn-red.gif']})}
+a#logo-in {background:url(#{resource['assets:images/logo-in.png']})}
+a.link-config:hover {background:#eee url(#{resource['assets:images/link-config.png']}) right 4px no-repeat;}
+#btn-incluir-shuttle {background:url(#{resource['assets:images/btn-incluir-shuttle.png']});}
+#btn-remocao {background:url(#{resource['assets:images/btn-remover-selecao.png']});}
+#btn-remocao2 {background:url(#{resource['assets:images/btn-remover-item.png']});}
+
+#btn-pesquisar {background:url(#{resource['assets:images/btn-pesquisar.png']});}
+
+.btn-toggle {background:url(#{resource['assets:images/toggle.gif']}); 0 0 no-repeat}
+
+.listshuttleR { background: url(#{resource['assets:images/r_arrow.png']}) no-repeat #fff right 5px !important; border:1px solid #BBBBBB; }
+.listshuttleL { background: url(#{resource['assets:images/l_arrow.gif']}) no-repeat #fff 5px 5px !important; border:1px solid #BBBBBB; }
+
+.listshuttleR:hover { background: url(#{resource['assets:images/r_arrow.png']}) no-repeat #FFF6E4 right 5px !important; border:1px solid #BBBBBB; }
+.listshuttleL:hover { background: url(#{resource['assets:images/l_arrow.gif']}) no-repeat #FFF6E4 5px 5px !important; border:1px solid #BBBBBB; }
+
+a.button-fancy {background:url(#{resource['assets:images/btn-fancy-span.gif']}) no-repeat scroll top right;}
+a.button-fancy span {background:url(#{resource['assets:images/btn-fancy.gif']}) no-repeat;}

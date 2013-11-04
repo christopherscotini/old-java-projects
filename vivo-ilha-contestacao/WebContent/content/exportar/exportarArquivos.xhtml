@@ -1,0 +1,79 @@
+<?xml version='1.0' encoding='ISO-8859-1' ?>
+<ui:composition template="/template/template_main.xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+
+	<ui:define name="body_content">
+		<h:form id="formExportarArquivos" prependId="false" enctype="multipart/form-data">
+			<div class="divCentral" style="width: 500px;">
+				<h1 class="titulo">Exportar Arquivos</h1>
+				<p:messages closable="true" />
+				<div class="divCampos">
+					<h:panelGrid columns="3" cellpadding="0" cellspacing="0">
+						<h:outputLabel value="Fatura:" rendered="#{exportacaoBean.exibeListaTarifa}" />
+						<p:fileUpload value="#{exportacaoBean.arquivo}" mode="simple" rendered="#{exportacaoBean.exibeListaTarifa}"
+									  required="true" label="Fatura" 
+									  allowTypes="/(\.|\/)(xls)$/" />
+						<h:panelGroup rendered="#{exportacaoBean.exibeListaTarifa}" />
+						<h:outputLabel value="Cliente:" />
+						<h:selectOneMenu id="Cliente" value="#{exportacaoBean.pesquisaExportacao.idCliente}" required="true"
+						 disabled="#{exportacaoBean.exibeListaTarifa}" label="Cliente">
+							<f:selectItem itemValue="" itemLabel="::SELECIONE::"/>
+							<f:selectItems value="#{exportacaoBean.listaClientes}"
+							 		var="cliente" itemLabel="#{cliente.nome}" itemValue="#{cliente.id}" />
+						</h:selectOneMenu>
+						<h:panelGroup/>
+						<h:outputLabel value="UF:" />
+						<h:selectOneMenu id="uf" value="#{exportacaoBean.pesquisaExportacao.idUf}" required="true"
+						 disabled="#{exportacaoBean.exibeListaTarifa}" label="UF">
+							<f:selectItem itemValue="" itemLabel="::SELECIONE::"/>
+							<f:selectItems value="#{exportacaoBean.listaUfs}"
+							 		var="uf" itemLabel="#{uf.estado}" itemValue="#{uf.id}" />
+						</h:selectOneMenu>
+						<h:panelGroup/>
+						<h:outputLabel value="Contrato:" />
+						<h:selectOneMenu id="contrato" value="#{exportacaoBean.pesquisaExportacao.idContrato}" required="true"
+						 disabled="#{exportacaoBean.exibeListaTarifa}" label="Contrato">
+							<f:selectItem itemValue="" itemLabel="::SELECIONE::"/>
+							<f:selectItems value="#{exportacaoBean.listaContratos}"
+							 		var="contrato" itemLabel="#{contrato.descricao}" itemValue="#{contrato.id}" />
+						</h:selectOneMenu>
+						<h:panelGroup/>
+					</h:panelGrid>
+				</div>
+		
+				<h:panelGroup layout="block" style="float:right;margin-top: 25px;" rendered="#{not exportacaoBean.exibeListaTarifa}">
+					<h:commandButton id="btnCancelarTarifas" value="Cancelar" action="/content/principal.xhtml" immediate="true" styleClass="button-light-blue" />
+					<h:commandButton id="btnExportarTarifas" value="Exportar" action="#{exportacaoBean.consultarTarifa}" styleClass="button-light-blue button-right" />
+				</h:panelGroup>
+
+				<h:panelGroup layout="block" style="margin-top: 25px;" rendered="#{exportacaoBean.exibeListaTarifa}">
+					<p:dataTable id="dataTableTarifa" value="#{exportacaoBean.listaTarifas}" var="tarifa" emptyMessage="">
+						<p:column headerText="Serviço" width="25%">
+							<h:outputText value="#{tarifa.subServico.servico.descricao}" />
+						</p:column>
+						<p:column headerText="Sub-Serviço" width="25%">
+							<h:outputText value="#{tarifa.subServico.descricao}" />
+						</p:column>
+						<p:column headerText="Tipo Tarifa" width="15%">
+							<h:outputText value="#{tarifa.tipoTarifa.nome}" />
+						</p:column>
+						<p:column headerText="Tarifa" width="15%" styleClass="colRight">
+							<h:outputText value="#{tarifa.valor}" converter="reaisBigDecimalConverter" />
+						</p:column>
+						<p:column headerText="Selecionar" width="20%" styleClass="colCenter">
+							<h:selectBooleanCheckbox value="#{exportacaoBean.tarifasSelecionadas[tarifa.id]}" />
+						</p:column>
+					</p:dataTable>
+
+					<h:panelGroup layout="block" style="float:right;margin-top: 25px;">
+						<h:commandButton id="btnCancelar" value="Cancelar" action="/content/principal.xhtml" immediate="true" styleClass="button-light-blue" />
+						<h:commandButton id="btnExportar" value="Exportar" action="#{exportacaoBean.exportarPlanilha}" styleClass="button-light-blue button-right" />
+					</h:panelGroup>
+				</h:panelGroup>
+			</div>
+		</h:form>
+	</ui:define>
+</ui:composition>

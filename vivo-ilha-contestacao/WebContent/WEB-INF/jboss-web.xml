@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jboss-web>
+	<context-root>vivocontestacao</context-root>
+	<security-domain>vivo</security-domain>
+	<resource-ref>
+		<res-ref-name>datasources/VivoContestacaoDS</res-ref-name>
+		<jndi-name>datasources/VivoContestacaoDS</jndi-name>
+	</resource-ref>
+</jboss-web>

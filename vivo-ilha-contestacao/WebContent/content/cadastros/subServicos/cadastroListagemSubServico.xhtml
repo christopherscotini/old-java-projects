@@ -1,0 +1,75 @@
+<?xml version='1.0' encoding='ISO-8859-1' ?>
+<ui:composition template="/template/template_main.xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+
+	<ui:define name="body_content">
+		<div class="divCentral" style="width: 550px;">
+			<h1 class="titulo">Cadastro de Sub-Serviço</h1>
+			<p:messages closable="true" />
+			<h:form id="formCadastroSubServico" prependId="false">
+				<div class="divCampos">
+					<h:panelGrid columns="4">
+						<h:outputLabel value="Serviço:" />
+						<h:selectOneMenu id="servico" value="#{subServicoBean.entidadeCadastro.servico.id}" required="true" label="Serviço">
+							<f:selectItem itemValue="" itemLabel="::SELECIONE::"/>
+							<f:selectItems value="#{subServicoBean.listaServicosAtivos}"
+							 var="servico" itemLabel="#{servico.descricao}" itemValue="#{servico.id}" />
+						</h:selectOneMenu>
+						<h:panelGroup />
+						<h:panelGroup />
+	
+						<h:outputLabel value="Sub-Serviço:" for="subServicoCadastro" />
+						<h:inputText id="subServicoCadastro" value="#{subServicoBean.entidadeCadastro.descricao}" size="40" required="true" label="Sub-Serviço" maxlength="100"  />
+	
+						<h:selectBooleanCheckbox id="ativo" value="#{subServicoBean.flagAtivo}" />
+						<h:outputText value="Ativo" />
+	
+						<f:facet name="footer">
+							<h:panelGroup layout="block" style="float:right;">
+								<h:commandButton id="btnCancelar" value="Cancelar" action="/content/principal.xhtml" immediate="true" styleClass="button-light-blue" />
+								<h:commandButton id="btnConfirmar" value="Confirmar" action="#{subServicoBean.confirmar}" styleClass="button-light-blue button-right" />
+							</h:panelGroup>
+						</f:facet>
+					</h:panelGrid>
+				</div>
+			</h:form>
+	
+			<h1 class="titulo">Listagem de Sub-Serviços</h1>
+			<h:form id="formPesquisaSubServico" prependId="false">
+				<div class="divCampos">
+					<h:panelGrid columns="3">
+						<h:outputLabel value="Sub-serviço:" for="subServicoListagem" />
+						<h:inputText id="subServicoListagem" value="#{subServicoBean.entidadePesquisa.descricao}" size="40" maxlength="100" />
+	
+						<h:commandButton id="btnPesquisar" value="Pesquisar" action="#{subServicoBean.pesquisar}" styleClass="button" />
+					</h:panelGrid>
+				</div>
+	
+				<div style="margin-top: 25px;">
+					<p:dataTable id="dataTableSubServicos" value="#{subServicoBean.listaPesquisa}" var="subServico" rowIndexVar="indexSubServico"
+					 emptyMessage="" rows="10" paginator="true" paginatorPosition="bottom"
+					 paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} Página: {JumpToPageDropdown} {NextPageLink} {LastPageLink}"
+					 currentPageReportTemplate="Total de Registros: {totalRecords} registros">
+					 <!-- <p:column headerText="Cliente" sortBy="cliente" styleClass="colLeft">
+							<h:outputText value="#{subServico}" />
+						</p:column> -->
+						<p:column headerText="Serviço" sortBy="#{subServico.servico.descricao}">
+							<h:outputText value="#{subServico.servico.descricao}" />
+						</p:column>
+						<p:column headerText="Sub-Serviço" sortBy="#{subServico.descricao}">
+							<h:outputText value="#{subServico.descricao}" />
+						</p:column>
+						<p:column headerText="Editar" width="10%" styleClass="colCenter">
+							<h:commandLink action="#{subServicoBean.editar(indexSubServico)}">
+								<h:graphicImage name="edit-icon.png" library="images" />
+							</h:commandLink>
+						</p:column>
+					</p:dataTable>
+				</div>
+			</h:form>
+		</div>
+	</ui:define>
+</ui:composition>

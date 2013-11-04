@@ -1,0 +1,89 @@
+<?xml version='1.0' encoding='ISO-8859-1' ?>
+<ui:composition template="/template/template_main.xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+
+	<ui:define name="custom_head">
+		<h:outputScript name="jquery.mask.min.js" library="js" />
+		<h:outputScript name="mascara.js" library="js" />
+	</ui:define>
+	<ui:define name="body_content">
+		<div class="divCentral" style="width: 580px;">
+			<h1 class="titulo">Cadastro de Usuário</h1>
+			<p:messages closable="true" />
+			<h:form id="formCadastroUsuario" prependId="false">
+				<div class="divCampos">
+					<h:panelGrid>
+						<h:panelGrid columns="4" cellpadding="0" cellspacing="0">
+							<h:outputText value="Nome:" />
+							<h:inputText id="txtNomeUsuario" size="40" maxlength="100" required="true" label="Nome"
+							 value="#{usuarioBean.usuarioCadastro.nome}" />
+							<h:panelGroup/>
+							<h:panelGroup/>
+							<h:outputText value="CPF:" />
+							<h:inputText id="txtCpf" size="20" maxlength="14" required="true" label="CPF"
+							 value="#{usuarioBean.usuarioCadastro.cpf}" converter="cpfConverter" styleClass="cpf" />
+							<h:outputText value="Perfil:" />
+							<h:selectOneMenu value="#{usuarioBean.idPerfilCadastro}" required="true" label="Perfil">
+								<f:selectItem itemValue="" itemLabel="::SELECIONE::"/>
+								<f:selectItems value="#{usuarioBean.listaPerfis}"
+							 		var="perfil" itemLabel="#{perfil.nome}" itemValue="#{perfil.id}" />
+							</h:selectOneMenu>
+							<h:outputText value="Login:" />
+							<h:inputText id="txtLogin" size="20" maxlength="100" required="true" label="Login"
+							 value="#{usuarioBean.usuarioCadastro.login}" />
+							<h:outputText value="Senha:" />
+							<h:inputSecret id="txtSenha" maxlength="50" required="true" label="Senha"
+							 value="#{usuarioBean.usuarioCadastro.senha}" />
+						</h:panelGrid>
+						
+						<h:panelGroup layout="block" style="float:right;">
+							<h:commandButton value="Cancelar" action="/content/principal.xhtml" immediate="true" styleClass="button-light-blue" />
+							<h:commandButton value="Confirmar" action="#{usuarioBean.confirmar}" styleClass="button-light-blue button-right" />
+						</h:panelGroup>
+					</h:panelGrid>		
+				</div>
+			</h:form>
+
+			<h1 class="titulo">Listagem de Usuários</h1>
+			<h:form id="formPesquisaUsuario" prependId="false">
+				<div class="divCampos">
+					<h:panelGrid columns="3" style="margin-left:70px;margin-top:9px" cellpadding="0" cellspacing="0">
+						<h:outputText value="Nome:" />
+						<h:inputText id="descricaoListagem" value="#{usuarioBean.usuarioPesquisa.nome}" size="40" maxlength="100" />
+						<h:commandButton id="btnPesquisar" value="Pesquisar" action="#{usuarioBean.pesquisar}" styleClass="button" />
+					</h:panelGrid>
+				</div>
+	
+				<div style="margin-top: 25px;">
+					<p:dataTable id="dataTableUsuarios" value="#{usuarioBean.listaPesquisa}" var="usuario" rowIndexVar="indexUsuario"
+					 emptyMessage="" rows="10" paginator="true" paginatorPosition="bottom"
+					 paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} Página: {JumpToPageDropdown} {NextPageLink} {LastPageLink}"
+					 currentPageReportTemplate="Total de Registros: {totalRecords} registros">
+						<p:column headerText="CPF" width="20%" sortBy="#{usuario.cpf}" styleClass="colCenter">
+							<h:outputText value="#{usuario.cpf}" converter="cpfConverter" />
+						</p:column>
+						<p:column headerText="Nome" sortBy="#{usuario.nome}">
+							<h:outputText value="#{usuario.nome}" />
+						</p:column>
+						<p:column headerText="Perfil" sortBy="#{usuario.nomePerfil}">
+							<h:outputText value="#{usuario.nomePerfil}" />
+						</p:column>
+						<p:column headerText="Editar" width="10%" styleClass="colCenter">
+							<h:commandLink action="#{usuarioBean.editar(indexUsuario)}">
+								<h:graphicImage name="edit-icon.png" library="images" />
+							</h:commandLink>
+						</p:column>
+					</p:dataTable>
+				</div>
+			</h:form>	
+		</div>
+		<script type="text/javascript">
+			$(document).ready(function(){
+				carregarMascaras();
+			});
+		</script>
+	</ui:define>
+</ui:composition>

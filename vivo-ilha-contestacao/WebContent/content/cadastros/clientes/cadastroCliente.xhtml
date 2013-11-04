@@ -1,0 +1,51 @@
+<?xml version='1.0' encoding='ISO-8859-1' ?>
+<ui:composition template="/template/template_main.xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+
+	<ui:define name="custom_head">
+		<h:outputScript name="jquery/jquery.js" library="primefaces" />
+		<h:outputScript name="jquery.mask.min.js" library="js" />
+		<h:outputScript name="mascara.js" library="js" />
+	</ui:define>
+	<ui:define name="body_content">
+		<div class="divCentral" style="width: 520px;">
+			<h1 class="titulo">Cadastro de Cliente</h1>
+			<p:messages closable="true" />
+			<h:form id="formCliente" prependId="false">
+				<div class="divCampos">
+					<h:panelGrid columns="4">
+						<h:outputLabel value="CNPJ:" for="cnpj" />
+						<h:inputText id="cnpj" value="#{clienteBean.clienteCadastro.cnpj}"
+							size="40" required="true" label="CNPJ" maxlength="100" styleClass="cnpj">
+							<f:validator validatorId="cnpjValidator" />
+						</h:inputText>
+						<h:panelGroup />
+						<h:panelGroup />
+
+						<h:outputLabel value="Nome Fantasia:" for="nomeFantasia" />
+						<h:inputText id="nomeFantasia" value="#{clienteBean.clienteCadastro.nome}"
+							size="40" required="true" label="Nome Fantasia" maxlength="100" />
+
+						<h:selectBooleanCheckbox id="ativo" value="#{clienteBean.clienteCadastro.flagAtivo}" />
+						<h:outputText value="Ativo" />
+
+						<f:facet name="footer">
+							<h:panelGroup layout="block" style="float:right;">
+								<h:commandButton id="btnCancelar" value="Cancelar" action="/content/principal.xhtml" immediate="true" styleClass="button-light-blue" />
+								<h:commandButton id="btnSalvar" value="Salvar" action="#{clienteBean.salvar}" styleClass="button-light-blue button-right" />
+							</h:panelGroup>
+						</f:facet>
+					</h:panelGrid>
+				</div>
+			</h:form>
+		</div>
+		<script type="text/javascript">
+			$(document).ready(function(){
+				carregarMascaras();
+			});
+		</script>
+	</ui:define>
+</ui:composition>

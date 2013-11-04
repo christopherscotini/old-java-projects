@@ -1,0 +1,38 @@
+<?xml version='1.0' encoding='ISO-8859-1' ?>
+<ui:composition template="/template/template_main.xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+
+	<ui:define name="body_content">
+		<style type="text/css">
+			html, body {height: 100%;}
+		</style>
+
+		<div class="divWrapperPrincipal">
+			<h:form id="formMenu" prependId="false">
+				<h:inputHidden value="#{sessaoBean.data}" />
+				<p:menubar id="menu">
+					<p:submenu label="Cadastros">
+						<p:menuitem value="Perfis" url="/content/cadastros/perfis/cadastroPerfis.xhtml" />
+						<p:menuitem value="Usuários" url="/content/cadastros/usuarios/cadastroListagemUsuario.xhtml" />
+						<p:menuitem value="Clientes" action="#{clienteBean.iniciar}" ajax="false" />
+						<p:menuitem value="Serviços" url="/content/cadastros/servicos/cadastroListagemServico.xhtml" />
+						<p:menuitem value="Sub-Serviços" url="/content/cadastros/subServicos/cadastroListagemSubServico.xhtml" />
+					</p:submenu>
+					<p:menuitem value="Exportar Arquivos" action="#{exportacaoBean.iniciar}" ajax="false" />
+					<p:menuitem value="Sair" action="#{sessaoBean.logout}" ajax="false" />
+				</p:menubar>
+			</h:form>
+			<div class="rodape">
+				<div id="divLogoVivo" style="float: left;">
+					<h:graphicImage name="logo-vivo.png" library="images" />
+				</div>
+				<div id="divLogoTodo" style="float:right; margin-top: 50px;">
+					<h:graphicImage name="logo-todo.png" library="images" />
+				</div>
+			</div>
+		</div>
+	</ui:define>
+</ui:composition>

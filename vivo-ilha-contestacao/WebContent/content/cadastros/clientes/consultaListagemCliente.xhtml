@@ -1,0 +1,167 @@
+<?xml version='1.0' encoding='ISO-8859-1' ?>
+<ui:composition template="/template/template_main.xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+
+	<ui:define name="custom_head">
+		<h:outputScript name="jquery.mask.min.js" library="js" />
+		<h:outputScript name="mascara.js" library="js" />
+	</ui:define>
+	<ui:define name="body_content">
+		<div class="divCentral" style="width: 610px;">
+			<h1 class="titulo">Consulta e Cadastro de Cliente</h1>
+			<p:messages closable="true" showDetail="false" />
+			<h:form id="formCadastroCliente" prependId="false">
+				<div class="divCampos">
+					<h:panelGrid id="painelCadastroCliente">
+						<h:panelGrid columns="2">
+							<h:outputLabel value="CNPJ:" for="cnpj" />
+							<h:inputText id="cnpj" value="#{clienteBean.clienteCadastro.cnpj}"
+								size="40" required="true" label="CNPJ" maxlength="100" styleClass="cnpj">
+								<f:validator validatorId="cnpjValidator" />
+							</h:inputText>
+
+							<h:outputLabel value="Nome Fantasia:" for="nomeFantasia" />
+							<h:inputText id="nomeFantasia" value="#{clienteBean.clienteCadastro.nome}"
+								size="40" required="true" label="Nome Fantasia" maxlength="100" />
+
+							<h:outputLabel value="UF:" for="uf" />
+							<h:selectOneMenu id="uf" value="#{clienteBean.clienteCadastro.uf}"
+								required="true" label="UF">
+								<f:selectItem itemValue="" itemLabel="::SELECIONE::" />
+								<f:selectItems value="#{clienteBean.listaUf}" var="uf" itemLabel="#{uf.estado}" itemValue="#{uf.id}" />
+							</h:selectOneMenu>
+
+							<h:outputLabel value="Contrato:" for="contrato" />
+							<h:inputText id="contrato" value="#{clienteBean.clienteCadastro.contrato}"
+								size="40" required="true" label="Contrato" maxlength="100" />
+
+							<h:outputLabel value="Serviço:" for="servico" />
+							<h:selectOneMenu id="servico" value="#{clienteBean.clienteCadastro.servico}"
+								required="true" label="Serviço">
+								<f:selectItem itemValue="" itemLabel="::SELECIONE::"/>
+								<f:selectItems value="#{clienteBean.listaServicosAtivos}" 
+									var="servico" itemLabel="#{servico.descricao}" itemValue="#{servico.id}" />
+								<f:ajax render="gridTarifas subServico" execute="@this" event="change" onevent="atualizarMascaraValor"
+								 listener="#{clienteBean.carregarComboSubServico(clienteBean.clienteCadastro.servico)}" />
+							</h:selectOneMenu>
+
+							<h:outputLabel value="Sub-Serviço:" for="subServico" />
+							<h:selectOneMenu id="subServico" value="#{clienteBean.clienteCadastro.subServico}"
+								required="true" label="Sub-Serviço">
+								<f:selectItem itemValue="" itemLabel="::SELECIONE::"/>
+								<f:selectItems value="#{clienteBean.listaSubServicosAtivos}"
+									var="subServico" itemLabel="#{subServico.descricao}" itemValue="#{subServico.id}" />
+							</h:selectOneMenu>
+						</h:panelGrid>
+						<h:panelGroup id="gridTarifas" layout="block">
+							<h:panelGroup id="servicoTelefonia" layout="block">
+								<h:panelGrid columns="6" rendered="#{clienteBean.clienteCadastro.servicoTelefonia}">
+									<h:outputLabel id="labelVc1" value="VC1:" for="vc1" style="margin-right:69px;" />
+									<h:inputText id="vc1" size="10" value="#{clienteBean.clienteCadastro.vc1}"
+										label="VC1" maxlength="10" converter="bigDecimalConverter" styleClass="valor" />
+
+									<h:outputLabel value="VC2:" for="vc2" />
+									<h:inputText id="vc2" size="10" value="#{clienteBean.clienteCadastro.vc2}"
+										label="VC2" maxlength="10" converter="bigDecimalConverter" styleClass="valor" />
+									
+									<h:outputLabel value="VC3:" for="vc3" />
+									<h:inputText id="vc3" size="10" value="#{clienteBean.clienteCadastro.vc3}"
+										label="VC3" maxlength="10" converter="bigDecimalConverter" styleClass="valor" />
+								</h:panelGrid>
+							</h:panelGroup>
+							<h:panelGroup id="servicoSMS" layout="block">
+								<h:panelGrid columns="4" rendered="#{clienteBean.clienteCadastro.servicoSms}">
+									<h:outputLabel value="Nacional:" for="nacional" style="margin-right:40px;" />
+									<h:inputText id="nacional" value="#{clienteBean.clienteCadastro.nacional}"
+										label="Nacional" maxlength="100" converter="bigDecimalConverter" styleClass="valor" />
+
+									<h:outputLabel value="Internacional:" for="internacional" />
+									<h:inputText id="internacional" value="#{clienteBean.clienteCadastro.internacional}"
+										label="Internacional" maxlength="100" converter="bigDecimalConverter" styleClass="valor" />
+								</h:panelGrid>
+							</h:panelGroup>
+							<h:panelGroup id="servicoInternetOutros" layout="block">
+								<h:panelGrid columns="2" rendered="#{clienteBean.clienteCadastro.servicoInternetOutros}">
+									<h:outputLabel value="Valor:" for="Valor" style="margin-right:60px;" />
+									<h:inputText id="Valor" value="#{clienteBean.clienteCadastro.valor}"
+										required="true" label="Valor" maxlength="100" converter="bigDecimalConverter" styleClass="valor" />
+								</h:panelGrid>
+							</h:panelGroup>
+						</h:panelGroup>
+						<h:panelGroup layout="block" style="float:right;margin-bottom:5px;">
+							<h:commandButton id="btnCancelar" value="Cancelar" action="/content/principal.xhtml"
+								immediate="true" styleClass="button-light-blue" />
+							<h:commandButton id="btnConfirmar" value="Confirmar" action="#{clienteBean.confirmar}" styleClass="button-light-blue button-right" />
+						</h:panelGroup>
+					</h:panelGrid>
+				</div>
+			</h:form>
+
+			<h1 class="titulo">Listagem de Clientes</h1>
+			<h:form id="formPesquisaCliente" prependId="false">
+				<div class="divCampos">
+					<h:panelGrid columns="3">
+						<h:outputLabel value="Serviço:" for="servicoListagem" />
+						<h:selectOneMenu id="servicoListagem" value="#{clienteBean.clientePesquisa.servico}" required="true" label="Serviço">
+							<f:selectItem itemValue="" itemLabel="::SELECIONE::"/>
+							<f:selectItems value="#{clienteBean.listaServicosAtivos}" 
+								var="servico" itemLabel="#{servico.descricao}" itemValue="#{servico.id}" />
+								<f:ajax render="subServicoListagem" execute="@this" event="change"
+								 listener="#{clienteBean.carregarComboSubServicoPesquisa(clienteBean.clientePesquisa.servico)}" />
+						</h:selectOneMenu>
+						<h:panelGroup />
+
+						<h:outputLabel value="Sub-serviço:" for="subServicoListagem" />
+						<h:selectOneMenu id="subServicoListagem" value="#{clienteBean.clientePesquisa.subServico}" label="Sub-serviço">
+							<f:selectItem itemValue="" itemLabel="::SELECIONE::"/>
+							<f:selectItems value="#{clienteBean.listaSubServicosAtivosPesquisa}"
+								var="subServico" itemLabel="#{subServico.descricao}" itemValue="#{subServico.id}" />
+						</h:selectOneMenu>
+
+						<h:commandButton id="btnPesquisar" value="Pesquisar" action="#{clienteBean.pesquisar}" styleClass="button" />
+					</h:panelGrid>
+				</div>
+
+				<h:panelGroup layout="block" style="margin-top: 25px;">
+					<p:dataTable id="dataTableCliente" value="#{clienteBean.listaPesquisa}" var="cliente" rowIndexVar="indexCliente"
+					 emptyMessage="" rows="10" paginator="true" paginatorPosition="bottom"
+					 paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} Página: {JumpToPageDropdown} {NextPageLink} {LastPageLink}"
+					 currentPageReportTemplate="Total de Registros: {totalRecords} registros" rendered="#{!empty clienteBean.listaPesquisa}">
+						<p:column headerText="Nome" sortBy="#{cliente.nome}">
+							<h:outputText value="#{cliente.nome}" />
+						</p:column>
+						<p:column headerText="UF" sortBy="#{cliente.uf}" styleClass="colCenter" width="6%">
+							<h:outputText value="#{cliente.uf}" />
+						</p:column>
+						<p:column headerText="Serviço" sortBy="#{cliente.nomeServico}">
+							<h:outputText value="#{cliente.nomeServico}" />
+						</p:column>
+						<p:column headerText="Sub-Serviço" sortBy="#{cliente.nomeSubServico}">
+							<h:outputText value="#{cliente.nomeSubServico}" />
+						</p:column>
+						<p:columns value="#{clienteBean.colunasDinamicas}" var="col"
+						 sortBy="#{cliente[col.property]}" width="#{col.width}" styleClass="colRight">
+							<f:facet name="header">
+								<h:outputText value="#{col.header}" />
+				            </f:facet>
+				            <h:outputText value="#{cliente[col.property]}" converter="reaisBigDecimalConverter" />
+						</p:columns>
+						<p:column headerText="Editar" width="8%" styleClass="colCenter">
+							<h:commandLink action="#{clienteBean.editar(indexCliente)}">
+								<h:graphicImage name="edit-icon.png" library="images" />
+							</h:commandLink>
+						</p:column>
+					</p:dataTable>
+				</h:panelGroup>
+			</h:form>
+		</div>
+		<script type="text/javascript">
+			$(document).ready(function(){
+				carregarMascaras();
+			});
+		</script>
+	</ui:define>
+</ui:composition>

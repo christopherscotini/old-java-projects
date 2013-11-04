@@ -1,0 +1,33 @@
+<persistence xmlns="http://java.sun.com/xml/ns/persistence"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd"
+	version="2.0">
+	<persistence-unit name="vivo-jpa">
+		<provider>org.hibernate.ejb.HibernatePersistence</provider>
+		<jta-data-source>datasources/VivoContestacaoDS</jta-data-source>
+		
+		<class>br.com.contestacao.model.Acao</class>
+		<class>br.com.contestacao.model.Cliente</class>
+		<class>br.com.contestacao.model.Contrato</class>
+		<class>br.com.contestacao.model.ContratoServico</class>
+		<class>br.com.contestacao.model.Perfil</class>
+		<class>br.com.contestacao.model.Permissao</class>
+		<class>br.com.contestacao.model.PermissaoPerfil</class>
+		<class>br.com.contestacao.model.Servico</class>
+		<class>br.com.contestacao.model.SubServico</class>
+		<class>br.com.contestacao.model.Tarifa</class>
+		<class>br.com.contestacao.model.TipoTarifa</class>
+		<class>br.com.contestacao.model.Tela</class>
+		<class>br.com.contestacao.model.Uf</class>
+		<class>br.com.contestacao.model.Usuario</class>
+		<class>br.com.contestacao.model.UsuarioPerfil</class>
+		
+		<properties>
+			<property name="hibernate.dialect" value="org.hibernate.dialect.Oracle10gDialect" />
+		    <property name="hibernate.default_schema" value="VIVO_CONTESTACAO"/>
+			<property name="hibernate.id.new_generator_mappings" value="false" />
+			<!-- <property name="hibernate.hbm2ddl.auto" value="validate"/> -->
+			<property name="hibernate.show_sql" value="false" />
+		</properties>
+	</persistence-unit>
+</persistence>
