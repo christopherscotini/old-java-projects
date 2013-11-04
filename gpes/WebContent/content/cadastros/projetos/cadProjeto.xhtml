@@ -1,0 +1,38 @@
+<?xml version='1.0' encoding='ISO-8859-1' ?>
+<ui:composition template="../../../template/template_main.xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+	
+	<ui:param name="titulo" value="Cadastro de Projetos" />
+
+	<ui:define name="body_content">
+		<h:form id="cadProjetoForm">
+			<table>
+				<tr>
+					<td><p:outputLabel for="proposta" value="Proposta:" /></td>
+					<td><p:inputText id="proposta" style="width: 150px;"/></td>
+				</tr>
+				<tr>
+					<td><p:outputLabel for="centroCusto" value="Centro de custo:" /></td>
+					<td>
+						<p:selectOneMenu id="centroCusto" style="width: 150px;">
+							<f:selectItem itemValue="0" itemLabel="CBPC"/>
+							<f:selectItem itemValue="1" itemLabel="PGIT"/>
+							<f:selectItem itemValue="2" itemLabel="LEAS"/>
+						</p:selectOneMenu>
+					</td>
+				</tr>
+			</table>
+			<h:panelGrid columns="2" cellspacing="10">
+				<h:panelGroup>
+					<h:commandButton value="Voltar" action="conProjetos" />
+				</h:panelGroup>
+				<h:panelGroup>
+					<h:commandButton value="Incluir" />
+				</h:panelGroup>
+			</h:panelGrid>
+		</h:form>
+	</ui:define>
+</ui:composition>

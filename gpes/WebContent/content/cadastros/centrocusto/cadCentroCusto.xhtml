@@ -1,0 +1,72 @@
+<?xml version='1.0' encoding='ISO-8859-1' ?>
+<ui:composition template="../../../template/template_main.xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+	<ui:param name="titulo" value="Cadastro de Centro de Custo" />
+
+	<ui:define name="body_content">
+		<h:form id="formMain">
+
+			<table>
+				<tr>
+					<td style="text-align: right;"><p:outputLabel for="inputFabrica" value="Centro de Custo" />:</td>
+					<td><p:inputText id="inputFabrica" value="" /></td>
+				</tr>
+				<tr>
+					<td style="text-align: right;"><p:outputLabel for="inputDescricao" value="Descrição" />:</td>
+					<td><p:inputText id="inputDescricao" value="" /></td>
+				</tr>
+				<tr>
+					<td style="text-align: right;"><p:outputLabel for="comboTorreNegocio" value="Torre de Negocio" />:</td>
+					<td><p:selectOneMenu id="comboTorreNegocio">
+							<f:selectItem itemLabel=".:SELECIONE:." itemValue="0" />
+							<f:selectItem itemLabel="Alphaville" itemValue="1" />
+						</p:selectOneMenu>
+					</td>
+				</tr>
+				<tr>
+					<td style="text-align: right;"><p:outputLabel for="comboDiretoria" value="Diretoria" />:</td>
+					<td><p:selectOneMenu id="comboDiretoria">
+							<f:selectItem itemLabel=".:SELECIONE:." itemValue="0" />
+							<f:selectItem itemLabel="Diretoria RH" itemValue="1" />
+						</p:selectOneMenu>
+					</td>
+				</tr>
+				<tr>
+					<td style="text-align: right;"><p:outputLabel for="comboArea" value="Área" />:</td>
+					<td><p:selectOneMenu id="comboArea">
+							<f:selectItem itemLabel=".:SELECIONE:." itemValue="0" />
+							<f:selectItem itemLabel="Fabrica Software" itemValue="1" />
+						</p:selectOneMenu>
+					</td>
+				</tr>
+				<tr>
+					<td style="text-align: right;"><p:outputLabel for="comboTipo" value="Tipo" />:</td>
+					<td><p:selectOneMenu id="comboTipo">
+							<f:selectItem itemLabel=".:SELECIONE:." itemValue="0" />
+							<f:selectItem itemLabel="Fabrica Java" itemValue="1" />
+						</p:selectOneMenu>
+					</td>
+				</tr>
+				<tr>
+					<td style="text-align: right;"><p:outputLabel for="comboStatus" value="Status" />:</td>
+					<td><p:selectOneMenu id="comboStatus">
+							<f:selectItem itemLabel=".:SELECIONE:." itemValue="0" />
+							<f:selectItem itemLabel="Operando" itemValue="1" />
+						</p:selectOneMenu>
+					</td>
+				</tr>
+			</table>
+
+			<h:panelGrid columns="2" cellspacing="5" cellpading="0" style="margin-top:5px;">
+				<h:commandButton value="Voltar" action="conCentroCusto"/>
+				<h:commandButton value="Incluir" />
+			</h:panelGrid>
+
+		</h:form>
+	</ui:define>
+
+</ui:composition>

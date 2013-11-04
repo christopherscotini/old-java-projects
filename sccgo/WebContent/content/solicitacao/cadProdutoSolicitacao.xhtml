@@ -1,0 +1,52 @@
+<?xml version='1.0' encoding='ISO-8859-1' ?>
+<ui:composition template="../../template/template_main.xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:rich="http://richfaces.org/rich">
+
+	<ui:param name="titulo" value="#{produtoBean.tituloTelaIncAltSolicitacao}" />
+	<ui:define name="body_content">
+
+		<h:panelGrid columns="2">
+			<h:panelGroup>
+				<h:outputLabel value="Nome do produto:" for="txtNomeProduto" />
+			</h:panelGroup>
+			<h:panelGroup>
+				<h:inputText id="txtNomeProduto" value="#{produtoBean.produto.nome}" size="60" maxlength="40" />
+			</h:panelGroup>
+			
+			<h:panelGroup>
+				<h:outputLabel value="Descricao do produto:" for="txtDescricaoProduto" />
+			</h:panelGroup>
+			<h:panelGroup>
+				<h:inputText id="txtDescricaoProduto" value="#{produtoBean.produto.descricao}" />
+			</h:panelGroup>
+
+			<h:panelGroup>
+				<h:outputLabel value="Medida:" for="selectEscala" />
+			</h:panelGroup>
+			<h:panelGroup>
+				<h:selectOneMenu id="selectEscala" value="#{produtoBean.produto.medidaDeVenda}" >
+					<f:selectItem  itemLabel="Kg" itemValue="Kg"/>
+					<f:selectItem  itemLabel="Metros Cubicos" itemValue="Metros Cubicos"/>
+					<f:selectItem  itemLabel="Metros" itemValue="Metros"/>
+				</h:selectOneMenu>
+			</h:panelGroup>
+			
+			<h:panelGroup>
+				<h:outputLabel value="Quantidade:" for="txtQuantidade" />
+			</h:panelGroup>
+			<h:panelGroup>
+				<rich:inputNumberSpinner id="txtQuantidade" value="#{produtoBean.produto.quantidadeProduto}" />
+			</h:panelGroup>
+		</h:panelGrid>
+		
+		
+		<div class="buttonFooter">
+			<h:commandButton value="Confirmar" action="#{produtoBean.adicionarProdutoNaSolicitacaoDeCompra}" style="margin-left: 5px" />
+		</div>
+	</ui:define>
+
+</ui:composition>

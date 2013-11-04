@@ -1,0 +1,15 @@
+<ui:composition template="template/template_main.xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:rich="http://richfaces.org/rich"
+	xmlns:t="http://myfaces.apache.org/tomahawk">
+
+	<ui:param name="titulo" value="Erro Inesperado" />
+
+	<ui:define name="body_content">
+		<p>Contate o administrador do sistema.</p>
+		<h:commandButton value="Voltar" action="index" />
+	</ui:define>
+</ui:composition>

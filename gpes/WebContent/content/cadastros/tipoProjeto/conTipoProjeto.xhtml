@@ -1,0 +1,63 @@
+<?xml version='1.0' encoding='ISO-8859-1' ?>
+<ui:composition template="../../../template/template_main.xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:rich="http://richfaces.org/rich"
+	xmlns:t="http://myfaces.apache.org/tomahawk">
+
+	<ui:param name="titulo" value="Tipo de Projeto" />
+
+	<ui:define name="body_content">
+		<div style="width: 100%; text-align: left">
+			<h:panelGrid columns="4" cellspacing="0" cellpading="0" align="left" style="width:30%">
+				<h:panelGroup>
+					<h:outputLabel value="Tipo de Projeto:" for="txtTipoProjeto" style="text-align:right;width:130px;" />
+				</h:panelGroup>
+				<h:panelGroup>
+					<h:inputText id="txtTipoProjeto" style="width:250px; margin-left:5px;" />
+				</h:panelGroup>
+				<h:panelGroup>
+					<h:outputLabel value="Status:" for="txtStatus" style="float:right;margin-left:15px;" />
+				</h:panelGroup>
+				<h:panelGroup>
+					<h:selectOneMenu id="txtStatus" value="" style="margin-left:5px; width:250px;">
+				 		<f:selectItems value="" />
+				 	</h:selectOneMenu>
+				</h:panelGroup>
+			</h:panelGrid>
+		</div>
+			
+		<div style="width: 100%; text-align: right; margin-top: 5px; margin-bottom: 5px">
+			<h:commandButton value="Pesquisar" action="#{tipoProjetoBean.pesquisar}" />
+		</div>
+
+		<rich:dataTable id="dataTableTipoProjeto" value="" styleClass="dataTable">
+			<rich:column>
+				<f:facet name="header">
+					<h:outputText value="" />
+				</f:facet>
+			</rich:column>
+			<rich:column>
+				<f:facet name="header">
+					<h:outputText value="Tipo de Projeto" />
+				</f:facet>
+				<h:outputText value="" />
+			</rich:column>
+			<rich:column>
+				<f:facet name="header">
+					<h:outputText value="Status" />
+				</f:facet>
+				<h:outputText value="" />
+			</rich:column>
+		</rich:dataTable>
+		<rich:dataScroller for="dataTableTipoProjeto" fastControls="hide" stepControls="hide" />
+
+		<div class="buttonFooter">
+			<h:commandButton value="Novo" action="#{tipoProjetoBean.cadastrarTipoProjeto}" />
+			<h:commandButton value="Alterar" action="#{tipoProjetoBean.alterarTipoProjeto}" style="margin-left: 5px" />
+		</div>
+	</ui:define>
+
+</ui:composition>

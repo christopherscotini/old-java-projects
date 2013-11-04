@@ -1,0 +1,54 @@
+<?xml version='1.0' encoding='ISO-8859-1' ?>
+<ui:composition template="../../../template/template_main.xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:rich="http://richfaces.org/rich">
+
+	<ui:param name="titulo" value="#{cargoBean.tituloCadastro}" />
+	<ui:define name="body_content">
+		<script src="#{facesContext.externalContext.requestContextPath}/faces/javax.faces.resource/jquery.js" type="text/javascript"></script>
+		<script src="../../../javascript/jquery.meio.mask.js" type="text/javascript"></script>
+		<script src="../../../javascript/cadastros/cargos.js" type="text/javascript"></script>
+		<script>loadMasksJQuery();</script>
+
+		<h:panelGrid columns="2">
+			<h:panelGroup>
+				<h:outputLabel value="Código:" for="txtCodigo" />
+			</h:panelGroup>
+			<h:panelGroup>
+				<h:inputText id="txtCodigo" value="#{cargoBean.cargo.codigo}" size="5" maxlength="3" disabled="#{cargoBean.alteracao}" onkeypress="onlyNum()" onfocus="cleanClipboard()" />
+			</h:panelGroup>
+			<h:panelGroup>
+				<h:outputLabel value="Cargo:" for="txtCargo" />
+			</h:panelGroup>
+			<h:panelGroup>
+				<h:inputText id="txtCargo" value="#{cargoBean.cargo.descCargo}" size="60" maxlength="40" />
+			</h:panelGroup>
+			<h:panelGroup>
+				<h:outputLabel value="Salário:" for="txtSalario" />
+			</h:panelGroup>
+			<h:panelGroup>
+				<h:inputText id="txtSalario" value="#{cargoBean.cargo.salario}" size="15" maxlength="10" converter="decimalConverter" alt="decimalBr8" />
+			</h:panelGroup>
+			<h:panelGroup rendered="#{cargoBean.alteracao}">
+				<h:panelGroup>
+					<h:outputLabel value="Situação:" />
+				</h:panelGroup>
+				<h:panelGroup>
+					<h:selectOneRadio id="rdoSituacao" value="#{cargoBean.cargo.situacao}">
+						<f:selectItems value="#{cargoBean.situacoes}" var="situacao" itemValue="#{situacao.codigo}" itemLabel="#{situacao}" />
+					</h:selectOneRadio>
+				</h:panelGroup>
+			</h:panelGroup>
+		</h:panelGrid>
+
+		<div class="buttonFooter">
+			<h:commandButton value="Voltar" action="#{cargoBean.voltar}" />
+			<h:commandButton value="Limpar" action="#{cargoBean.limparCadastro}" style="margin-left: 5px" />
+			<h:commandButton value="Salvar" action="#{cargoBean.salvar}" onclick="return validarInclusaoAlteracao(this.form)" style="margin-left: 5px" />
+		</div>
+	</ui:define>
+
+</ui:composition>

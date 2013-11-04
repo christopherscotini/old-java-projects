@@ -1,0 +1,41 @@
+<?xml version='1.0' encoding='ISO-8859-1' ?>
+<ui:composition template="../../../template/template_main.xhtml"  
+    xmlns:ui="http://java.sun.com/jsf/facelets"  
+    xmlns:h="http://java.sun.com/jsf/html"  
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:p="http://primefaces.org/ui">
+
+    <ui:param name="titulo" value="Cadastro de Programas" />
+    <ui:define name="body_content">
+		<h:form id="incluirPrograma">
+		<p:growl id="messages" life="10000"/>
+			<table align="center">
+				<tr>
+					<td><h:outputLabel value="Programa: "/></td>
+					<td><p:inputText value="#{programaBean.programa.programa}"/></td>
+				</tr>
+				<tr>
+					<td><h:outputLabel value="Descrição: "/></td>
+					<td><p:inputText value="#{programaBean.programa.descricao}"/></td>
+				</tr>
+			</table>
+			<table>
+				<tr>
+					<td><h:outputLabel value="Projetos "/></td>
+				</tr>
+				<tr>
+					<td>
+						<p:pickList value="#{programaBean.listaDeProjetos}" 
+						var="city"  
+		                itemLabel="#{city}"  
+		                itemValue="#{city}" />
+					</td>
+				</tr>
+			</table>
+			
+			<h:commandButton value="Voltar" action="conProgramas"/>
+			<h:commandButton value="Incluir" action="#{programaBean.incluir}" style="margin-left:3px;"/>
+		</h:form>
+    </ui:define>
+    
+</ui:composition>

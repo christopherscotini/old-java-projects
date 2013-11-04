@@ -1,0 +1,26 @@
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a img {
+	border: none;
+}
+
+.ui-widget {
+    font-size: 11px !important;
+}
+
+.ui-datatable-footer {
+	text-align: right !important;
+}
+
+.ui-button-text {
+    padding: 3px !important;
+}
+.ui-selectonemenu .ui-selectonemenu-trigger {
+    padding: 0 !important;
+}

@@ -1,0 +1,67 @@
+<?xml version='1.0' encoding='ISO-8859-1' ?>
+<ui:composition template="../../../template/template_main.xhtml"  
+    xmlns:ui="http://java.sun.com/jsf/facelets"  
+    xmlns:h="http://java.sun.com/jsf/html"  
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:p="http://primefaces.org/ui"
+    xmlns:rich="http://richfaces.org/rich"
+	xmlns:a4j="http://richfaces.org/a4j">
+
+    <ui:param name="titulo" value="Apontamento de Atividades" />
+    <ui:define name="body_content">
+    	<h:form id="conApontamentoForm">
+    		<table align="center">
+    			<tr>
+    				<td><h:outputLabel value="Elemento:"/></td>
+    				<td>
+    					<p:selectOneMenu id="comboElemento" value="#{apontamentoBean.apontamento.elemento}">
+					    	<f:selectItem itemValue="SELECIONE" itemLabel="::SELECIONE::" />
+					    	<f:selectItem itemValue="CBPC" itemLabel="CBPC" />
+					    	<f:selectItem itemValue="LEAS" itemLabel="LEAS" />
+					    	<f:selectItem itemValue="DBTO" itemLabel="DBTO" />
+					    </p:selectOneMenu>
+    				</td>
+    				<td><h:outputLabel value="Período:"/></td>
+    				<td>
+    					<p:calendar pattern="dd/MM/yyyy" value="#{apontamentoBean.dataInicial}" size="10" maxlength="10" showOn="button" />
+    					<h:outputLabel value="a" style="margin-right: 5px; " />
+    					<p:calendar pattern="dd/MM/yyyy" value="#{apontamentoBean.dataFinal}" size="10" maxlength="10" showOn="button"/>
+    				</td>
+    				<td>
+						<h:commandButton id="btnBuscar" value="Buscar" action="#{apontamentoBean.buscarApontamento}" style="margin-right: 10px; margin-left: 10px; "/>
+						<h:commandButton id="btnExportar" value="Exportar" />
+    				</td>
+    			</tr>
+    		</table>
+    		 <br />
+    		<rich:dataTable id="tabelaApontamentos" value="#{apontamentoBean.apontamentos}" var="result" styleClass="dataTable" rows="5">
+	    		<rich:column>
+	    			<f:facet name="header">
+	    				<h:outputText value="Elemento"/>
+	    			</f:facet>
+	    			<h:outputText value="#{result.elemento}" style="width: 100px;"/>
+	    		</rich:column>		    	
+	    		<rich:column>
+	    			<f:facet name="header">
+	    				<h:outputText value="Data"/>
+	    			</f:facet>
+	    			<h:outputText value="#{result.data}" style="width: 100px;"/>
+	    		</rich:column>
+	    		<rich:column>
+	    			<f:facet name="header">
+	    				<h:outputText value="Horário"/>
+	    			</f:facet>
+	    			<h:outputText value="#{result.horarioInicial}" />
+	    				às
+	    			<h:outputText value="#{result.horarioFinal}" />
+	    		</rich:column>		
+	    		<rich:column>
+	    			<f:facet name="header">
+	    				<h:outputText value="Atividade"/>
+	    			</f:facet>
+	    			<h:outputText value="#{result.atividade}" />
+	    		</rich:column>		
+	    	</rich:dataTable>	    	
+    	</h:form>
+	</ui:define>
+</ui:composition>

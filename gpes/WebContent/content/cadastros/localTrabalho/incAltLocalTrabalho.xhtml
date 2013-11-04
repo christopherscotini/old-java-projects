@@ -1,0 +1,59 @@
+<?xml version='1.0' encoding='ISO-8859-1' ?>
+<ui:composition template="../../../template/template_main.xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:rich="http://richfaces.org/rich">
+
+	<ui:param name="titulo" value="#{localTrabalhoBean.tituloTelaIncluirAlterar}" />
+
+	<ui:define name="body_content">
+		
+		<h:panelGrid columns="2" >
+			<h:panelGroup style="float:right;margin-right:10px;"><h:outputLabel value="Cliente: " /> </h:panelGroup>
+			<h:panelGroup>
+				<h:selectOneMenu style="widht:100px;" value="#{localTrabalhoBean.localTrabalho.cliente}">
+			 		<f:selectItems value="#{localTrabalhoBean.listaSelectItemComboCliente}"/>
+			 	</h:selectOneMenu>
+			</h:panelGroup>
+			
+			<h:panelGroup style="float:right;margin-right:10px;"><h:outputLabel value="Descrição: " /> </h:panelGroup>
+			<h:panelGroup><h:inputText value="#{localTrabalhoBean.localTrabalho.descricao}" size="50"/> </h:panelGroup>
+			
+			<h:panelGroup style="float:right;margin-right:10px;"><h:outputLabel value="Rua/Avenida: " /> </h:panelGroup>
+			<h:panelGroup><h:inputText value="#{localTrabalhoBean.localTrabalho.ruaAv}" size="50"/> </h:panelGroup>
+			
+			<h:panelGroup style="float:right;margin-right:10px;"><h:outputLabel value="N°: " /></h:panelGroup>
+			<h:panelGroup><h:inputText value="#{localTrabalhoBean.localTrabalho.numero}" size="7" /></h:panelGroup>
+
+			<h:panelGroup style="float:right;margin-right:10px;"><h:outputLabel value="Bairro: " /> </h:panelGroup>
+			<h:panelGroup><h:inputText value="#{localTrabalhoBean.localTrabalho.bairro}" /> </h:panelGroup>
+			
+			<h:panelGroup style="float:right;margin-right:10px;"><h:outputLabel value="Cidade: " /> </h:panelGroup>
+			<h:panelGroup><h:inputText value="#{localTrabalhoBean.localTrabalho.cidade}" /> </h:panelGroup>
+			
+			<h:panelGroup style="float:right;margin-right:10px;"><h:outputLabel value="Estado: " /> </h:panelGroup>
+			<h:panelGroup><h:inputText value="#{localTrabalhoBean.localTrabalho.estado}" /> </h:panelGroup>
+			
+			<h:panelGroup style="float:right;margin-right:10px;"><h:outputLabel value="CEP: " /> </h:panelGroup>
+			<h:panelGroup><h:inputText value="#{localTrabalhoBean.localTrabalho.cep}" /> </h:panelGroup>
+		
+			<h:panelGroup rendered="#{localTrabalhoBean.cadastrar == false}" style="float:right;margin-right:10px;">
+				<h:outputLabel value="Status: " />
+			</h:panelGroup>
+			<h:panelGroup rendered="#{localTrabalhoBean.cadastrar == false}">
+				<h:selectOneRadio value="#{localTrabalhoBean.localTrabalho.status}">
+					<f:selectItem itemLabel="Ativo" itemValue="true"/>
+					<f:selectItem itemLabel="Inativo" itemValue="false"/>
+				</h:selectOneRadio>
+			</h:panelGroup>
+		</h:panelGrid>
+			
+		<div class="buttonFooter"> 
+			<h:commandButton value="Voltar" action="#{localTrabalhoBean.voltar}"/>
+			<h:commandButton value="Limpar" action="#{localTrabalhoBean.limpar}" style="margin-left:5px;"/>
+			<h:commandButton value="Salvar" action="#{localTrabalhoBean.salvarLocalTrabalho}" style="margin-left:5px;"/>
+		</div>
+	</ui:define>
+</ui:composition>

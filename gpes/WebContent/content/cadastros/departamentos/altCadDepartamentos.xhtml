@@ -1,0 +1,68 @@
+<?xml version='1.0' encoding='ISO-8859-1' ?>
+<ui:composition template="../../../template/template_main.xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:rich="http://richfaces.org/rich">
+
+	<ui:param name="titulo" value="#{departamentoBean.tituloDepartamento}" />
+	<ui:define name="body_content">
+		<h:form id="formCadDepartamentos">
+		<p:growl id="messages" />
+		
+		<h:panelGrid columns="2">
+			<h:panelGroup>
+				<h:outputLabel value="Cliente:" for="comboCliente"/>
+			</h:panelGroup>
+			<h:panelGroup>
+				<h:selectOneMenu id="comboCliente" style="margin-left: 5px" value="#{departamentoBean.departamento.nomeCliente}">
+					<f:selectItems value="#{departamentoBean.comboCliente}"/>
+				</h:selectOneMenu>
+			</h:panelGroup>
+			<h:panelGroup>
+				<h:outputLabel value="Departamento/Setor:" for="txtDepartamento"/>
+			</h:panelGroup>
+			<h:panelGroup>
+				<h:inputText id="txtDepartamento" style="margin-left: 5px" value="#{departamentoBean.departamento.departamento}"/>
+			</h:panelGroup>
+			<h:panelGroup>
+				<h:outputLabel value="Código Junção:"/>
+			</h:panelGroup>
+			<h:panelGroup>
+				<h:inputText style="margin-left: 5px" value="#{departamentoBean.departamento.codigoJuncao}"/>
+			</h:panelGroup>
+			<h:panelGroup>
+				<h:outputLabel value="Local:" for="comboLocal"/>
+			</h:panelGroup>
+			<h:panelGroup>
+				<h:selectOneMenu id="comboLocal" style="margin-left: 5px" value="#{departamentoBean.departamento.local}">
+					<f:selectItems value="#{departamentoBean.comboLocal}"/>
+				</h:selectOneMenu>
+			</h:panelGroup>
+			<h:panelGroup>
+				<h:outputLabel value="Complemento:"/>
+			</h:panelGroup>
+			<h:panelGroup>
+				<h:inputText style="margin-left: 5px" value="#{departamentoBean.departamento.complemento}"/>
+			</h:panelGroup>
+			<h:panelGroup>
+				<h:outputLabel value="Situação:"/>
+			</h:panelGroup>
+			<h:panelGroup>
+				<h:selectOneRadio value="#{departamentoBean.departamento.status}">
+					<f:selectItems value="#{departamentoBean.selectItemsStatus}"/>
+				</h:selectOneRadio>
+			</h:panelGroup>
+		</h:panelGrid>
+
+		<div class="buttonFooter">
+			<h:commandButton value="Voltar" action="#{departamentoBean.voltar}" />
+			<h:commandButton value="Limpar" action="#{departamentoBean.limparCadastro}" style="margin-left: 5px" />
+			<h:commandButton value="Salvar" action="#{departamentoBean.salvar}" style="margin-left: 5px" />
+		</div>
+
+		</h:form>
+	</ui:define>
+
+</ui:composition>

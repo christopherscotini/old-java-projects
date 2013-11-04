@@ -1,0 +1,73 @@
+<?xml version='1.0' encoding='ISO-8859-1' ?>
+<ui:composition template="../../../template/template_main.xhtml"  
+    xmlns:ui="http://java.sun.com/jsf/facelets"  
+    xmlns:h="http://java.sun.com/jsf/html"  
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:p="http://primefaces.org/ui"
+    xmlns:rich="http://richfaces.org/rich"
+	xmlns:a4j="http://richfaces.org/a4j">
+
+    <ui:param name="titulo" value="Consulta de Funcionários" />
+    
+    <ui:define name="body_content">
+		<h:form id="formMain">
+
+			<rich:dataTable styleClass="dataTable" value="#{funcionarioBean.listaFuncionarios}" var="funcionario">
+				<rich:column>
+					<f:facet name="header">
+						<h:outputText value="RE" />
+					</f:facet>
+					<h:outputText value="#{funcionario.matricula}" />
+				</rich:column>
+				<rich:column>
+					<f:facet name="header">
+						<h:outputText value="Nome" />
+					</f:facet>
+					<h:outputText value="#{funcionario.nome}" />
+				</rich:column>
+				<rich:column>
+					<f:facet name="header">
+						<h:outputText value="Login" />
+					</f:facet>
+					<h:outputText value="" />
+				</rich:column>
+				<rich:column>
+					<f:facet name="header">
+						<h:outputText value="Cargo" />
+					</f:facet>
+					<h:outputText value="" />
+				</rich:column>
+				<rich:column>
+					<f:facet name="header">
+						<h:outputText value="Situação" />
+					</f:facet>
+					<h:outputText value="" />
+				</rich:column>
+				<rich:column>
+					<f:facet name="header">
+						<h:outputText value="Site" />
+					</f:facet>
+					<h:outputText value="" />
+				</rich:column>
+				<rich:column>
+					<f:facet name="header">
+						<h:outputText value="Data admissão" />
+					</f:facet>
+					<h:outputText value="" />
+				</rich:column>
+				<rich:column>
+					<f:facet name="header">
+						<h:outputText value="Data desligamento" />
+					</f:facet>
+					<h:outputText value="" />
+				</rich:column>
+			</rich:dataTable>
+			
+			<div class="buttonFooter">
+				<h:commandButton id="btnIncluir" value="Incluir" action="cadFuncionario" />
+			</div>
+			
+		</h:form>
+    </ui:define>
+    
+</ui:composition>

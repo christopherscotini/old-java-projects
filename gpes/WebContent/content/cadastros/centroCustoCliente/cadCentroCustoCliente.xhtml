@@ -1,0 +1,32 @@
+<?xml version='1.0' encoding='ISO-8859-1' ?>
+<ui:composition template="../../../template/template_main.xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+	<ui:param name="titulo" value="Cadastro de Centro de Custo Cliente" />
+
+	<ui:define name="body_content">
+		<h:form id="formMain">
+
+			<table>
+				<tr>
+					<td style="text-align: right;"><p:outputLabel for="inputFabrica" value="Centro de Custo" />:</td>
+					<td><p:inputText id="inputFabrica" value="" /></td>
+				</tr>
+				<tr>
+					<td style="text-align: right;"><p:outputLabel for="inputDescricao" value="Descrição" />:</td>
+					<td><p:inputText id="inputDescricao" value="" /></td>
+				</tr>
+		</table>
+		
+		<h:panelGrid columns="2" cellspacing="5" cellpading="0" style="margin-top:5px;">
+			<h:commandButton value="Voltar" action="conCentroCustoCliente"/>
+			<h:commandButton value="Incluir" />
+		</h:panelGrid>
+
+		</h:form>
+	</ui:define>
+
+</ui:composition>

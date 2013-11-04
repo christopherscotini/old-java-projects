@@ -1,0 +1,73 @@
+<?xml version='1.0' encoding='ISO-8859-1' ?>
+<ui:composition template="../../../template/template_main.xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:rich="http://richfaces.org/rich">
+	
+	<ui:param name="titulo" value="#{clienteBean.tituloTelaIncluirAlterar}" />
+
+	<ui:define name="body_content">
+		<h:panelGrid columns="2" >
+			<h:panelGroup><h:outputLabel value="CNPJ: " /> </h:panelGroup>
+			<h:panelGroup><h:inputText size="9" maxlength="9" value="#{clienteBean.cliente.numeroCnpj}"/> <h:outputLabel value=" / " /> <h:inputText size="4" maxlength="4" value="#{clienteBean.cliente.filialCnpj}"/> <h:outputLabel value=" - " /> <h:inputText size="2" maxlength="2" value="#{clienteBean.cliente.controleCnpj}"/></h:panelGroup>
+			
+			<h:panelGroup><h:outputLabel value="Nome: " /> </h:panelGroup>
+			<h:panelGroup><h:inputText  size="50" maxlength="50" value="#{clienteBean.cliente.descCliente}"/> </h:panelGroup>
+			
+			<h:panelGroup><h:outputLabel value="Razão Social: " /> </h:panelGroup>
+			<h:panelGroup><h:inputText size="100" maxlength="100" value="#{clienteBean.cliente.descRazaoSocial}"/> </h:panelGroup>
+			
+			<h:panelGroup><h:outputLabel value="Rua/Avenida: " /> </h:panelGroup>
+			<h:panelGroup><h:inputText size="100" maxlength="100" value="#{clienteBean.endereco.descEndereco}"/> </h:panelGroup>
+			
+			<h:panelGroup>
+				<h:outputLabel value="N°: " />
+			</h:panelGroup>
+			<h:panelGroup>
+				<h:inputText  size="6" maxlength="6" value="#{clienteBean.endereco.numEndereco}"/>
+				<h:outputLabel style="margin-left:17px;" value="Complemento: " /><h:inputText size="50" maxlength="50" value="#{clienteBean.endereco.descComplementoEndereco}"/>
+			</h:panelGroup>
+
+			<h:panelGroup><h:outputLabel value="Bairro: " /> </h:panelGroup>
+			<h:panelGroup><h:inputText size="50" maxlength="50" value="#{clienteBean.endereco.descBairro}"/> </h:panelGroup>
+			
+			<h:panelGroup><h:outputLabel value="Estado: " /> </h:panelGroup>
+			<h:panelGroup>
+				<h:selectOneMenu id="comboEstado" value="#{clienteBean.estadoSelecionado}" converter="chaveEstadoConverter">
+					<f:selectItem itemLabel="::Selecione::" itemValue=""/>
+					<f:selectItems value="#{clienteBean.listaEstados}" var="estado" itemValue="#{estado.chave}" itemLabel="#{estado.descEstado}"/>
+					<a4j:ajax event="change" render="painelMunicipio" listener="#{clienteBean.carregaMunicipio}" />
+				</h:selectOneMenu>
+			</h:panelGroup>
+			
+			<h:panelGroup><h:outputLabel value="Cidade: " /> </h:panelGroup>
+			<h:panelGroup id="painelMunicipio">
+				<h:selectOneMenu id="comboMunicipio" value="#{clienteBean.municipioSelecionado}" converter="chaveMunicipioConverter">
+					<f:selectItem itemLabel="::Selecione::" itemValue=""/>
+					<f:selectItems value="#{clienteBean.listaMunicipio}" var="municipio" itemValue="#{municipio.chave}" itemLabel="#{municipio.descMunicipio}"/>
+				</h:selectOneMenu>
+			</h:panelGroup>
+			
+			<h:panelGroup><h:outputLabel value="CEP: " /> </h:panelGroup>
+			<h:panelGroup><h:inputText size="5" maxlength="5" value="#{clienteBean.endereco.numCep}" /> <h:outputLabel value=" - " /> <h:inputText size="3" maxlength="3" value="#{clienteBean.endereco.controleCep}"/></h:panelGroup>
+		
+			<h:panelGroup rendered="#{clienteBean.cadastrar == false}">
+				<h:outputLabel value="Status: " />
+			</h:panelGroup>
+			<h:panelGroup rendered="#{clienteBean.cadastrar == false}">
+				<h:selectOneRadio id="rdoSituacao" value="#{clienteBean.cliente.situacao}">
+					<f:selectItems value="#{clienteBean.situacoes}" var="situacao" itemValue="#{situacao.codigo}" itemLabel="#{situacao}" />
+				</h:selectOneRadio>
+			</h:panelGroup>
+		</h:panelGrid>
+			
+		<div class="buttonFooter">
+			<h:commandButton value="Voltar" action="#{clienteBean.voltar}" />
+			<h:commandButton value="Limpar" action="#{clienteBean.limparCadastro}" style="margin-left: 5px" />
+			<h:commandButton value="Salvar" action="#{clienteBean.salvarCliente}" onclick="return validarInclusaoAlteracao(this.form)" style="margin-left: 5px" />
+		</div>
+	</ui:define>
+</ui:composition>

@@ -1,0 +1,78 @@
+<?xml version='1.0' encoding='ISO-8859-1' ?>
+<ui:composition template="../../../template/template_main.xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:rich="http://richfaces.org/rich"
+	xmlns:t="http://myfaces.apache.org/tomahawk">
+
+	<ui:param name="titulo" value="Tipo de Contato" />
+
+	<ui:define name="body_content">
+		<div style="width: 100%; text-align: left">
+			<h:panelGrid columns="2" cellspacing="0" cellpading="0" align="left" style="width:30%">
+				<h:panelGroup>
+					<h:outputLabel value="Tipo Contato:" for="txtContato" style="width:90px" />
+				</h:panelGroup>
+				<h:panelGroup>
+					<h:inputText id="txtTipoContato" value="#{tipoContatoBean.filtroDescTipoContato}" size="50" maxlength="50" /> 
+				</h:panelGroup>
+				<h:panelGroup>
+					<h:outputLabel value="Status:" for="txtStatus" />
+				</h:panelGroup>
+				<h:panelGroup>
+			 		<h:selectOneMenu id="txtStatus" style="widht:100px;" value="#{tipoContatoBean.filtroSituacao}">
+				 		<f:selectItem itemLabel="::Selecione::" itemValue="" />
+				 		<f:selectItems value="#{tipoContatoBean.situacoes}" var="situacao" itemValue="#{situacao.codigo}" itemLabel="#{situacao}" />
+				 	</h:selectOneMenu>
+				</h:panelGroup>
+			</h:panelGrid>
+		</div>
+			
+		<div style="width: 100%; text-align: right; margin-top: 5px; margin-bottom: 5px">
+			<h:commandButton value="Pesquisar" action="#{tipoContatoBean.pesquisar}"/>
+		</div>
+		
+		<t:selectOneRadio id="listaRadio" value="#{tipoContatoBean.posicaoLista}" layout="spread" forceId="true" forceIdIndex="false" converter="javax.faces.Integer">
+			<f:selectItems value="#{tipoContatoBean.listaRadios}" />
+		</t:selectOneRadio>
+
+		<rich:dataTable id="dataTableTipoContato" var="var" value="#{tipoContatoBean.listaTipoContato}" rows="10" styleClass="dataTable" rowKeyVar="rowKeyIndex">
+			<rich:column style="width:2%;text-align: center">
+				<f:facet name="header">
+					<h:outputText value="" />
+				</f:facet>
+				<t:radio for=":formGlobal:listaRadio" index="#{rowKeyIndex}" />
+			</rich:column>
+			<rich:column style="width:18%;text-align: right">
+				<f:facet name="header">
+					<h:outputText value="Código" />
+				</f:facet>
+				<h:outputText value="#{var.codigoTipoContato}" style="text-align: right" />
+			</rich:column>
+			<rich:column style="width:50%;text-align: left">
+				<f:facet name="header">
+					<h:outputText value="Descrição do Cargo" />
+				</f:facet>
+				<h:outputText value="#{var.descTipoContato}" />
+			</rich:column>
+			<rich:column style="width:10%;text-align: center">
+				<f:facet name="header">
+					<h:outputText value="Situação" />
+				</f:facet>
+				<h:outputText value="#{var.descSituacao}" />
+			</rich:column>
+			
+			<f:facet name="footer">
+				<rich:dataScroller for="dataTableTipoContato" fastControls="hide" stepControls="hide" rendered="#{not empty tipoContatoBean.listaTipoContato}" />
+			</f:facet>
+		</rich:dataTable>
+
+		<div class="buttonFooter">
+			<h:commandButton value="Novo" action="#{tipoContatoBean.cadastrarTipoContato}" />
+			<h:commandButton value="Alterar" action="#{tipoContatoBean.alterarTipoContato}" style="margin-left: 5px" />
+		</div>
+	</ui:define>
+
+</ui:composition>

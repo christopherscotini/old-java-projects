@@ -1,0 +1,90 @@
+<?xml version='1.0' encoding='ISO-8859-1' ?>
+<ui:composition template="../../../template/template_main.xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:rich="http://richfaces.org/rich"
+	xmlns:t="http://myfaces.apache.org/tomahawk">
+
+	<ui:param name="titulo" value="Consulta de Grupos e Equipes" />
+
+	<ui:define name="body_content">
+		<div style="width: 100%; text-align: left">
+			<h:panelGrid columns="2" align="left">
+				<h:panelGrid columns="2" align="left">
+					<h:panelGroup><h:outputLabel value="Departamento:" for="comboDepartamento"/></h:panelGroup>
+					<h:panelGroup>
+						<h:selectOneMenu id="comboDepartamento" style="margin-left: 5px">
+							<f:selectItem itemLabel=".:SELECIONE:." itemValue="0" />
+						</h:selectOneMenu>
+					</h:panelGroup>
+					<h:panelGroup><h:outputLabel value="Seção:" for="comboSecao" style="float:right;"/></h:panelGroup>
+					<h:panelGroup>
+						<h:selectOneMenu id="comboSecao" style="margin-left: 5px">
+							<f:selectItem itemLabel=".:SELECIONE:." itemValue="0" />
+						</h:selectOneMenu>
+					</h:panelGroup>
+				</h:panelGrid>
+				<h:panelGrid columns="2" align="left">
+					<h:panelGroup><h:outputLabel value="Grupo/Equipe:" for="txtGrupoEquipe"/></h:panelGroup>
+					<h:panelGroup><h:inputText id="txtGrupoEquipe" style="margin-left: 5px" /></h:panelGroup>
+					<h:panelGroup><h:outputLabel value="Status:" for="comboStatus" style="float:right;"/></h:panelGroup>
+					<h:panelGroup>
+						<h:selectOneMenu id="comboStatus" style="margin-left: 5px">
+							<f:selectItem itemLabel=".:SELECIONE:." itemValue="0" />
+						</h:selectOneMenu>
+					</h:panelGroup>
+				</h:panelGrid>
+			</h:panelGrid>
+		</div>
+		<div style="width: 100%; text-align: right; margin-top: 5px; margin-bottom: 5px">
+			<h:commandButton value="Pesquisar" action="#"/>
+		</div>
+		
+		<t:selectOneRadio id="listaRadioGrupoEquipe" value="#{grupoEquipeBean.itemSelecionadoGrupoEquipe}" layout="spread" forceId="true" forceIdIndex="false" converter="javax.faces.Integer">
+			<f:selectItems value="#{grupoEquipeBean.listaSelectItemGrupoEquipe}" />
+		</t:selectOneRadio>
+		
+		<rich:dataTable id="grupoEquipeTable" var="var" value="#{grupoEquipeBean.listaGrupoEquipes}" styleClass="dataTable" rowKeyVar="rowKeyIndex">
+			<rich:column style="width:2%;text-align: center">
+				<f:facet name="header">
+					<h:outputText value="" />
+				</f:facet>
+				<t:radio for=":formGlobal:listaRadioGrupoEquipe" index="#{rowKeyIndex}" />
+			</rich:column>
+			<rich:column style="width:35%;text-align: center">
+				<f:facet name="header">
+					<h:outputText value="Código Grupo/Equipe" />
+				</f:facet>
+					<h:outputText value="#{var.codGrupoEquipe}" />
+			</rich:column>
+			<rich:column style="width:33%;text-align: left">
+				<f:facet name="header">
+					<h:outputText value="Grupo/Equipe" />
+				</f:facet>
+					<h:outputText value="#{var.descGrupoEquipe}" />
+			</rich:column>
+			<rich:column style="width:25%;text-align: left">
+				<f:facet name="header">
+					<h:outputText value="Seção" />
+				</f:facet>
+					<h:outputText value="#{var.descSecao}" />
+			</rich:column>
+			<rich:column style="width:25%;text-align: center">
+				<f:facet name="header">
+					<h:outputText value="Status" />
+				</f:facet>
+					<h:outputText value="#{var.status}" />
+			</rich:column>
+		</rich:dataTable>
+		<rich:dataScroller for="grupoEquipeTable" fastControls="hide" stepControls="hide" />
+		
+		<div class="buttonFooter">
+			<h:commandButton value="Novo" action="#{grupoEquipeBean.cadastrarGrupoEquipe}" />
+			<h:commandButton value="Alterar" action="#{grupoEquipeBean.alterarGrupoEquipe}" style="margin-left: 5px" />
+		</div>
+		
+	</ui:define>
+
+</ui:composition>

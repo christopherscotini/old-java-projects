@@ -1,0 +1,99 @@
+<?xml version='1.0' encoding='ISO-8859-1' ?>
+<ui:composition template="../../../template/template_main.xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:rich="http://richfaces.org/rich"
+	xmlns:t="http://myfaces.apache.org/tomahawk">
+
+	<ui:param name="titulo" value="Consulta de Contratos" />
+
+	<ui:define name="body_content">
+		<div style="width: 100%; text-align: left">
+			<h:panelGrid columns="4">
+			
+				<h:panelGroup><h:outputLabel value="Departamento/Setor: "/></h:panelGroup>
+				<h:panelGroup>
+					<h:selectOneMenu style="widht:100px;">
+				 		<f:selectItems value="#{contratoBean.listaSelectItemComboDepartamento}"/>
+				 	</h:selectOneMenu>
+			 	</h:panelGroup>
+				
+				<h:panelGroup style="margin-left:340px;"><h:outputLabel value="Contratante/Cliente: "/></h:panelGroup>
+				<h:panelGroup>
+					<h:selectOneMenu style="widht:100px;">
+				 		<f:selectItems value="#{contratoBean.listaSelectItemComboCliente}"/>
+				 	</h:selectOneMenu>
+			 	</h:panelGroup>
+			 	
+				<h:panelGroup style="float:right"><h:outputLabel value="Numero Contrato: "/></h:panelGroup>
+				<h:panelGroup><h:inputText /></h:panelGroup>
+
+				 <h:panelGroup style="margin-left:340px;float:right;"><h:outputLabel value="Status: "/></h:panelGroup>
+				 <h:panelGroup>
+				 	<h:selectOneMenu>
+				 		<f:selectItem itemLabel="" itemValue="0" />
+				 		<f:selectItem itemLabel="Ativo" itemValue="1" />
+				 		<f:selectItem itemLabel="Inativo" itemValue="2" />
+				 	</h:selectOneMenu>
+				 </h:panelGroup>
+
+			</h:panelGrid>
+		</div>
+
+		<div style="width: 100%; text-align: right; margin-top: 5px; margin-bottom: 5px">
+			<h:commandButton value="pesquisar" action="#{contratoBean.consultarContrato}" />
+		</div>
+				 
+		<t:selectOneRadio id="listaRadioContrato" value="#{contratoBean.itemSelecionadoContrato}" layout="spread" forceId="true" forceIdIndex="false" converter="javax.faces.Integer">
+			<f:selectItems value="#{contratoBean.listaSelectItemContrato}"/>
+		</t:selectOneRadio>
+			
+		<rich:dataTable id="ContratoTable" var="var" value="#{contratoBean.listaContrato}" styleClass="dataTable" rowKeyVar="rowKeyIndex">
+			
+			<rich:column style="width:2%;text-align: center">
+				<f:facet name="header">
+					<h:outputText value="" />
+				</f:facet>
+				<t:radio for=":formGlobal:listaRadioContrato" index="#{rowKeyIndex}" />
+			</rich:column>
+			
+			<rich:column style="width:35%;text-align: left">
+				<f:facet name="header">
+					<h:outputText value="Cliente" />
+				</f:facet>
+					<h:outputText value="#{var.chave.codigoCliente}" />
+			</rich:column>
+			
+			<rich:column style="width:20%;text-align: left">
+				<f:facet name="header">
+					<h:outputText value="NÚmero Contrato" />
+				</f:facet>
+					<h:outputText value="#{var.numeroContrato}" />
+			</rich:column>
+			
+			<rich:column style="width:25%;text-align: left">
+				<f:facet name="header">
+					<h:outputText value="Departamento" />
+				</f:facet>
+					<h:outputText value="#{var.chave.codigoDepartamentoCliente}" />
+			</rich:column>
+			
+			<rich:column style="width:18%;text-align: center">
+				<f:facet name="header">
+					<h:outputText value="Status" />
+				</f:facet>
+					<h:outputText value="Ativo" rendered="#{var.situacao == 'A'}" />
+					<h:outputText value="Inativo" rendered="#{var.situacao == 'I'}" />
+			</rich:column>
+		</rich:dataTable>
+		
+		<rich:dataScroller for="ContratoTable" fastControls="hide" stepControls="hide" />
+			
+		<div class="buttonFooter">
+			<h:commandButton value="Novo" action="#{contratoBean.cadastrarContrato}" />
+			<h:commandButton value="Alterar" action="#{contratoBean.alterarContrato}" style="margin-left: 5px" />
+		</div>
+	</ui:define>
+</ui:composition>

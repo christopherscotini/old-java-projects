@@ -1,0 +1,53 @@
+<?xml version='1.0' encoding='ISO-8859-1' ?>
+<ui:composition template="../../../template/template_main.xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:rich="http://richfaces.org/rich">
+
+	<ui:param name="titulo" value="#{secaoBean.tituloTelaIncluirAlterar}" />
+
+	<ui:define name="body_content">
+		<h:panelGrid columns="2" >
+			<h:panelGroup style="float:right;margin-right:10px;"><h:outputLabel value="Departamento: " /> </h:panelGroup>
+			<h:panelGroup>
+				<h:selectOneMenu style="widht:100px;" value="#{secaoBean.secao.departamento}">
+			 		<f:selectItems value="#{secaoBean.listaSelectItemComboDepartamento}"/>
+			 	</h:selectOneMenu>
+			</h:panelGroup>
+			
+			<h:panelGroup style="float:right;margin-right:10px;width:100px;"><h:outputLabel value="Código Junção: " /> </h:panelGroup>
+			<h:panelGroup><h:inputText value="#{secaoBean.secao.codigoJuncao}" size="50"/> </h:panelGroup>
+			
+			<h:panelGroup style="float:right;margin-right:10px;"><h:outputLabel value="Seção: " /> </h:panelGroup>
+			<h:panelGroup><h:inputText value="#{secaoBean.secao.secao}" size="50"/> </h:panelGroup>
+			
+			<h:panelGroup style="float:right;margin-right:10px;"><h:outputLabel value="Local: " /></h:panelGroup>
+			<h:panelGroup>
+				<h:selectOneMenu value="#{secaoBean.secao.local}">
+					<f:selectItems value="#{secaoBean.listaSelectItemComboLocal}"/>
+				</h:selectOneMenu>
+			</h:panelGroup>
+
+			<h:panelGroup style="float:right;margin-right:10px;"><h:outputLabel value="Complemento: " /> </h:panelGroup>
+			<h:panelGroup><h:inputText value="#{secaoBean.secao.complemento}" /> </h:panelGroup>
+			
+			<h:panelGroup rendered="#{secaoBean.cadastrar == false}" style="float:right;margin-right:10px;">
+				<h:outputLabel value="Status: " />
+			</h:panelGroup>
+			<h:panelGroup rendered="#{secaoBean.cadastrar == false}">
+				<h:selectOneRadio value="#{secaoBean.secao.status}">
+					<f:selectItem itemLabel="Ativo" itemValue="true"/>
+					<f:selectItem itemLabel="Inativo" itemValue="false"/>
+				</h:selectOneRadio>
+			</h:panelGroup>
+		</h:panelGrid>
+		
+		<div class="buttonFooter">
+			<h:commandButton value="Voltar" action="/content/cadastros/secao/conSecao" />
+			<h:commandButton value="Limpar" action="#{secaoBean.limpar}" style="margin-left: 5px" />
+			<h:commandButton value="Salvar" action="#{secaoBean.salvarSecao}" onclick="return validarInclusaoAlteracao(this.form)" style="margin-left: 5px" />
+		</div>
+	</ui:define>
+</ui:composition>

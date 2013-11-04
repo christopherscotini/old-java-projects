@@ -1,0 +1,53 @@
+<?xml version='1.0' encoding='ISO-8859-1' ?>
+<ui:composition template="../../template/template_main.xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:rich="http://richfaces.org/rich">
+
+	<ui:param name="titulo" value="#{produtoBean.tituloTelaIncAltSolicitacao}" />
+	<ui:define name="body_content">
+		
+		<h:panelGrid columns="2" style="margin-bottom:50px;">
+			<h:panelGroup>
+					<h:outputLabel value="Obra:" for="selectObra" />
+				</h:panelGroup>
+				<h:panelGroup>
+					<h:selectOneMenu id="selectObra"  value="#{produtoBean.obraComboSelecionada}">
+						<f:selectItems value="#{produtoBean.obraSelectItem}"/>
+					</h:selectOneMenu>
+					<h:commandButton value="+ obras" action="#{produtoBean.maisObra}" style="margin-left:5px;"/>
+			</h:panelGroup>
+		</h:panelGrid>
+		
+		
+		<p:dataTable id="ProdutoTable" var="var" value="#{produtoBean.solicitacao.produtos}" styleClass="dataTable" rowKeyVar="rowKeyIndex"> 
+			
+			<p:column style="width:35%;text-align: left" headerText="nome_item">
+				<h:outputText value="#{var.nome}" />
+			</p:column>
+			
+			<p:column style="width:20%;text-align: left" headerText="descricao_item">
+				<h:outputText value="#{var.descricao}" />
+			</p:column>
+
+			<p:column style="width:20%;text-align: left" headerText="escala_item">
+				<h:outputText value="#{var.medidaDeVenda}" />
+			</p:column>
+
+			<p:column style="width:20%;text-align: left" headerText="qtde_item">
+				<h:outputText value="#{var.quantidadeProduto}" />
+			</p:column>
+			
+		</p:dataTable>
+		
+		<div class="buttonFooter">
+			<h:commandButton value="Voltar" action="#{produtoBean.voltar_detSolicitacao}" />
+			<h:commandButton value="Limpar" action="#" style="margin-left: 5px" />
+			<h:commandButton value="Novo produto" action="#{produtoBean.telaAddProdutoNaSolicitacaoDeCompra}" style="margin-left: 5px" />
+			<h:commandButton value="Salvar" action="#{produtoBean.salvarSolicitacaoDeCompra}" style="margin-left: 5px" disabled="#{empty produtoBean.solicitacao.produtos}"/>
+		</div>
+	</ui:define>
+
+</ui:composition>

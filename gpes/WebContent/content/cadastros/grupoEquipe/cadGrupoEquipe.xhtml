@@ -1,0 +1,70 @@
+<?xml version='1.0' encoding='ISO-8859-1' ?>
+<ui:composition template="../../../template/template_main.xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:rich="http://richfaces.org/rich">
+
+	<ui:param name="titulo" value="#{grupoEquipeBean.tituloTelaIncluirAlterar}" />
+	<ui:define name="body_content">
+
+		<h:panelGrid columns="2">
+			<h:panelGroup>
+				<h:outputLabel value="Departamento:" for="comboDepartamento" />
+			</h:panelGroup>
+			<h:panelGroup>
+				<h:selectOneMenu id="comboDepartamento">
+					<f:selectItem itemLabel=".:SELECIONE:." itemValue="0" />
+				</h:selectOneMenu>
+			</h:panelGroup>
+			<h:panelGroup>
+				<h:outputLabel value="Código Junção:" for="txtCodigoJuncao" />
+			</h:panelGroup>
+			<h:panelGroup>
+				<h:inputText id="txtCodigoJuncao" size="60" maxlength="40" />
+			</h:panelGroup>
+			<h:panelGroup>
+				<h:outputLabel value="Seção:" style="float:right;" for="comboSecao"/>
+			</h:panelGroup>
+			<h:panelGroup>
+				<h:selectOneMenu id="comboSecao">
+					<f:selectItem itemLabel=".:SELECIONE:." itemValue="0" />
+				</h:selectOneMenu>
+			</h:panelGroup>
+			<h:panelGroup>
+				<h:outputLabel value="Grupo/Equipe:" for="txtGrupoEquipe"/>
+			</h:panelGroup>
+			<h:panelGroup>
+				<h:inputText id="txtGrupoEquipe" size="60" maxlength="40" />
+			</h:panelGroup>
+			<h:panelGroup>
+				<h:outputLabel value="Complemento:" for="txtComplemento"/>
+			</h:panelGroup>
+			<h:panelGroup>
+				<h:inputText id="txtComplemento" size="60" maxlength="40" />
+			</h:panelGroup>
+			
+			<h:panelGroup rendered="#{grupoEquipeBean.cadastrar == false}">
+				<h:outputLabel value="Status: " style="float:right;" for="rdoSituacao"/>
+			</h:panelGroup>
+			<h:panelGroup rendered="#{grupoEquipeBean.cadastrar == false}">
+					<h:selectOneRadio id="rdoSituacao" >
+						<f:selectItem itemLabel="Ativo" itemValue="1" />
+						<f:selectItem itemLabel="Inativo" itemValue="0" />
+					</h:selectOneRadio>
+			</h:panelGroup>
+			
+		</h:panelGrid>
+
+		<div class="buttonFooter">
+			<h:commandButton value="Salvar" action="#{grupoEquipeBean.salvarGrupoEquipe}" style="margin-left: 5px" />
+			<h:commandButton value="Limpar" action="#{grupoEquipeBean.limparCadastro}" style="margin-left: 5px" />
+			<h:commandButton value="Voltar" action="#{grupoEquipeBean.voltar}" style="margin-left: 5px" />
+		</div>
+		
+		
+		
+	</ui:define>
+
+</ui:composition>

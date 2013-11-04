@@ -1,0 +1,74 @@
+<?xml version='1.0' encoding='ISO-8859-1' ?>
+<ui:composition template="../../../template/template_main.xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:rich="http://richfaces.org/rich"
+	xmlns:t="http://myfaces.apache.org/tomahawk">
+
+	<ui:param name="titulo" value="Consulta de Clientes" />
+
+	<ui:define name="body_content">
+		<div style="width: 100%; text-align: right; margin-top: 5px; margin-bottom: 5px">
+			<h:panelGrid columns="2" align="left">
+				<h:panelGroup><h:outputLabel value="Nome:" for="txtNome" /></h:panelGroup>
+				<h:panelGroup><h:inputText id="txtNome" size="50" maxlength="50" value="#{clienteBean.filtroNomeCliente}"/></h:panelGroup>
+				
+				<h:panelGroup><h:outputLabel value="CNPJ:" for="txtCnpj" /></h:panelGroup>
+				<h:panelGroup><h:inputText size="9" maxlength="9" value="#{clienteBean.filtroNumeroCnpj}"/> <h:outputLabel value=" / " /> <h:inputText size="4" maxlength="4" value="#{clienteBean.filtroFilialCnpj}"/> <h:outputLabel value=" - " /> <h:inputText size="2" maxlength="2" value="#{clienteBean.filtroControleCnpj}"/>
+					<h:outputLabel value="Status: " style="margin-left: 10px"/>
+					<h:selectOneMenu style="widht:100px;" value="#{clienteBean.filtroSituacao}">
+				 		<f:selectItem itemLabel="::Selecione::" itemValue="" />
+				 		<f:selectItems value="#{clienteBean.situacoes}" var="situacao" itemValue="#{situacao.codigo}" itemLabel="#{situacao}" />
+				 	</h:selectOneMenu>
+				</h:panelGroup>
+			</h:panelGrid>
+		</div>
+		 
+		<div style="width: 100%; text-align: right; margin-top: 5px; margin-bottom: 5px">
+			<h:commandButton value="Pesquisar" action="#"/>
+		</div>
+		
+		<t:selectOneRadio id="listaRadioCliente" value="#{clienteBean.itemSelecionadoCliente}" layout="spread" forceId="true" forceIdIndex="false" converter="javax.faces.Integer">
+			<f:selectItems value="#{clienteBean.listaSelectItemCliente}" />
+		</t:selectOneRadio>
+			
+		<rich:dataTable id="clienteTable" var="var" value="#{clienteBean.listaClientes}" styleClass="dataTable" rowKeyVar="rowKeyIndex">
+			<rich:column style="width:2%;text-align: center">
+				<f:facet name="header">
+					<h:outputText value="" />
+				</f:facet>
+				<t:radio for=":formGlobal:listaRadioCliente" index="#{rowKeyIndex}" />
+			</rich:column>
+			<rich:column style="width:50%;text-align: left">
+				<f:facet name="header">
+					<h:outputText value="Nome do Cliente" />
+				</f:facet>
+					<h:outputText value="#{var.nome}" />
+			</rich:column>
+			<rich:column style="width:28%;text-align: left">
+				<f:facet name="header">
+					<h:outputText value="CNPJ" />
+				</f:facet>
+					<h:outputText value="#{var.cnpj}" />
+			</rich:column>
+			<rich:column style="width:20%;text-align: center">
+				<f:facet name="header">
+					<h:outputText value="Status" />
+				</f:facet>
+					<h:outputText value="Ativo" rendered="#{var.status == 'true'}" />
+					<h:outputText value="Inativo" rendered="#{var.status == 'false'}" />
+			</rich:column>
+			
+			<f:facet name="footer">
+				<rich:dataScroller for="clienteTable" fastControls="hide" stepControls="hide" rendered="#{not empty clienteBean.listaClientes}" />
+			</f:facet>
+		</rich:dataTable>
+			
+		<div class="buttonFooter">
+			<h:commandButton value="Novo" action="#{clienteBean.cadastrarCliente}" />
+			<h:commandButton value="Alterar" action="#{clienteBean.alterarCliente}" style="margin-left: 5px" />
+		</div>
+	</ui:define>
+</ui:composition>

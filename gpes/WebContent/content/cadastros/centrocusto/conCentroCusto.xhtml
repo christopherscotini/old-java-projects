@@ -1,0 +1,54 @@
+<?xml version='1.0' encoding='ISO-8859-1' ?>
+<ui:composition template="../../../template/template_main.xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:rich="http://richfaces.org/rich">
+
+	<ui:param name="titulo" value="Consulta de Centro de Custo" />
+
+	<ui:define name="body_content">
+		<h:form id="formMain">
+		
+		
+		<rich:dataTable id="dataTableCentroCusto" var="var" value="#{centroCustoBean.listaCentroCusto}" styleClass="dataTable">
+
+			<rich:column>
+				<f:facet name="header">
+					<h:outputText value="Centro de Custo" />
+				</f:facet>
+				<h:outputText value="#{var.centroCusto}" />
+			</rich:column>
+
+			<rich:column>
+				<f:facet name="header">
+					<h:outputText value="Descrição" />
+				</f:facet>
+				<h:outputText value="#{var.descricao}" />
+			</rich:column>
+
+			<rich:column>
+				<f:facet name="header">
+					<h:outputText value="Torre de Negócio" />
+				</f:facet>
+				<h:outputText value="Alphaville" rendered="#{var.torreDeNegocio == 1}"/>
+			</rich:column>
+
+			<rich:column>
+				<f:facet name="header">
+					<h:outputText value="Diretoria" />
+				</f:facet>
+				<h:outputText value="Diretoria RH" rendered="#{var.diretoria == 1}" />
+			</rich:column>
+
+		</rich:dataTable>
+		
+		<div class="buttonFooter">
+			<h:commandButton value="Incluir" action="/content/cadastros/centrocusto/cadCentroCusto" />
+		</div>
+		
+		</h:form>
+	</ui:define>
+
+</ui:composition>

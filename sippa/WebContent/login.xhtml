@@ -1,0 +1,49 @@
+<?xml version='1.0' encoding='ISO-8859-1' ?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+
+<h:head>
+	<meta http-equiv="Content-Type" content="text/html;CHARSET=ISO-8859-1" />
+	<link type="text/css" rel="stylesheet" href="#{facesContext.externalContext.requestContextPath}/css/estilos.css" />
+</h:head>
+
+<f:view locale="#{sessao.locale}"> 
+<f:loadBundle basename="view.bundle.Messages" var="msgs" />
+
+	<h:body>
+		<div id="header">
+			<h:graphicImage value="/images/banner.png" />
+		</div>
+		<div id="main_title" align="center">
+			<h1 class="portal_titulo"> <h:outputText value="#{msgs.login_lbl_login}" /> </h1>
+		</div>
+		<div id="main_body" align="center">
+			<div id="body_content">
+				<div align="center">
+					<form action="j_spring_security_check" method="post">
+						<h:panelGrid columns="2">
+							<h:outputLabel value="#{msgs.lbl_usuario}:" for="j_username" />
+							<p:inputText id="j_username" required="true" requiredMessage="#{msgs.login_informe_login}" />
+							<h:outputLabel value="#{msgs.lbl_senha}:" for="j_password" />
+							<p:password id="j_password" required="true"	requiredMessage="#{msgs.login_informe_senha}" />
+						</h:panelGrid>
+						<h:commandButton type="submit" value="#{msgs.lbl_entrar}" />
+					</form>
+				</div>
+			</div>
+		</div>
+		<div style="margin-top: 30px;margin-left: 450px;">
+			<h:form>  
+	           <h:commandLink id="en" action="#{sessao.troca}" actionListener="#{sessao.setLanguage}" value="#{msgs.lbl_en}" /> |  
+	           <h:commandLink id="pt" action="#{sessao.troca}" actionListener="#{sessao.setLanguage}" value="#{msgs.lbl_pt}" /><br />  
+	           <br />  
+	       	</h:form> 
+		</div>
+	</h:body>
+</f:view>
+
+</html>

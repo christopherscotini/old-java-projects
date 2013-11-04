@@ -1,0 +1,77 @@
+<?xml version='1.0' encoding='ISO-8859-1' ?>
+<ui:composition template="../../template/template_main.xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:rich="http://richfaces.org/rich"
+	xmlns:t="http://myfaces.apache.org/tomahawk">
+
+	<ui:param name="titulo" value="Consulta de Produtos" />
+
+<ui:define name="body_content">
+
+		<t:selectOneRadio id="listaRadioProdutos" value="#{produtoBean.produtoRadioSelecionado}" layout="spread" forceId="true" forceIdIndex="false" 
+			converter="javax.faces.Integer">
+			<f:selectItems value="#{produtoBean.listaRadioProdutos}" />
+				<p:ajax event="change"  update=":formGlobal:produtosTable" />
+		</t:selectOneRadio>
+		
+		<rich:dataTable id="produtosTable" var="var" value="#{produtoBean.listaDeProdutos}" rows="10" styleClass="dataTable" rowKeyVar="rowKeyIndex">
+			<rich:column style="width:2%;text-align: center">
+				<f:facet name="header">
+					<h:outputText value="" />
+				</f:facet>
+				<t:radio for=":formGlobal:listaRadioProdutos" index="#{rowKeyIndex}" />	
+			</rich:column>
+			<rich:column style="text-align: left;">
+				<f:facet name="header">
+					<h:outputText value="nome_item" />
+				</f:facet>
+				<h:outputText value="#{var.nome}" style="text-align: left" />
+			</rich:column>
+			<rich:column style="text-align: left;">
+				<f:facet name="header">
+					<h:outputText value="descrição_item" />
+				</f:facet>
+				<h:outputText value="#{var.descricao}" style="text-align: left" />
+			</rich:column>
+			<rich:column style="text-align: center;">
+				<f:facet name="header">
+					<h:outputText value="escala_item" />
+				</f:facet>
+				<h:outputText value="#{var.medidaDeVenda}" style="text-align: center" />
+			</rich:column>
+			<rich:column style="text-align: center;">
+				<f:facet name="header">
+					<h:outputText value="qtde_item" />
+				</f:facet>
+				<h:outputText value="#{var.quantidadeProduto}" style="text-align: center" />
+			</rich:column>
+			<rich:column style="width:11%;text-align: center;">
+				<f:facet name="header">
+					<h:outputText value="status" />
+				</f:facet>
+				<h:commandLink actionListener="#{produtoBean.trocarStatusProduto}" rendered="#{var.comprado}" disabled="#{produtoBean.produtoRadioSelecionado != rowKeyIndex}">
+					<h:outputText value="comprado" />
+				</h:commandLink>
+				<h:commandLink actionListener="#{produtoBean.trocarStatusProduto}" rendered="#{!var.comprado}" disabled="#{produtoBean.produtoRadioSelecionado != rowKeyIndex}">
+					<h:outputText value="não comprado" />
+				</h:commandLink>
+			</rich:column>
+			
+			<f:facet name="footer">
+				<rich:dataScroller for="produtosTable" fastControls="hide" stepControls="hide" rendered="#{not empty produtoBean.listaDeProdutos}" />
+			</f:facet>
+		</rich:dataTable>		
+			
+		<div class="buttonFooter">
+			<h:panelGroup id="botoesFooter">
+				<h:commandButton value="Voltar" action="#{produtoBean.voltar_detSolicitacao}" />
+			</h:panelGroup>
+		</div>
+		
+		
+	
+</ui:define>
+</ui:composition>

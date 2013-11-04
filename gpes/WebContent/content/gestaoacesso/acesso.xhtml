@@ -1,0 +1,45 @@
+<?xml version='1.0' encoding='ISO-8859-1' ?>
+<ui:composition template="../../template/template_main.xhtml"  
+    xmlns:ui="http://java.sun.com/jsf/facelets"  
+    xmlns:h="http://java.sun.com/jsf/html"  
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:p="http://primefaces.org/ui">
+
+    <ui:param name="titulo" value="Acessos" />
+    
+    <ui:define name="body_content">
+		<h:form id="formMain">
+			<table align="center">
+				<tr>
+					<td>
+						<h:outputLabel value="Funcionário: "/>	
+					</td>
+					<td>
+						<p:selectOneMenu>
+							<f:selectItem itemLabel="Rafael" itemValue="Rafael"/>
+							<f:selectItem itemLabel="Nicanor" itemValue="Nicanor"/>
+							<f:selectItem itemLabel="Lucas" itemValue="Lucas"/>
+							<f:selectItem itemLabel="Guilherme" itemValue="Guilherme"/>
+						</p:selectOneMenu>
+					</td>
+				</tr>
+			</table>
+			<table>
+				<tr>
+					<td>
+						<h:outputLabel value="Perfil"/>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<p:pickList value="#{gestaoAcessoBean.listaDePerfis}" 
+						var="perfil"  
+		                itemLabel="#{perfil}"  
+		                itemValue="#{perfil}" />
+					</td>
+				</tr>
+			</table>
+		</h:form>
+    </ui:define>
+    
+</ui:composition>

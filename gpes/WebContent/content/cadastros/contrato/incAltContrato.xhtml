@@ -1,0 +1,62 @@
+<?xml version='1.0' encoding='ISO-8859-1' ?>
+<ui:composition template="../../../template/template_main.xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:rich="http://richfaces.org/rich">
+
+	<ui:param name="titulo" value="#{contratoBean.tituloTelaIncluirAlterar}" />
+
+	<ui:define name="body_content">
+		<h:panelGrid columns="2" >
+			
+			<h:panelGroup style="float:right;margin-right:10px;"><h:outputLabel value="No. Contrato: " /> </h:panelGroup>
+			<h:panelGroup><h:inputText value="#{contratoBean.contrato.nroContrato}" size="15" maxlength="15"/> </h:panelGroup>
+
+			<h:panelGroup style="float:right;margin-right:10px;"><h:outputLabel value="No. Processo: " /> </h:panelGroup>
+			<h:panelGroup><h:inputText value="#{contratoBean.contrato.nroProcesso}" size="15" maxlength="15"/> </h:panelGroup>
+			
+			<h:panelGroup style="float:right;margin-right:10px;"><h:outputLabel value="Contratante/Cliente: " /> </h:panelGroup>
+			<h:panelGroup>
+				<h:selectOneMenu style="widht:100px;" value="#{contratoBean.contrato.cliente}">
+			 		<f:selectItems value="#{contratoBean.listaSelectItemComboCliente}"/>
+			 	</h:selectOneMenu>
+			</h:panelGroup>
+			
+			<h:panelGroup style="float:right;margin-right:10px;"><h:outputLabel value="Departamento/Setor: " /> </h:panelGroup>
+			<h:panelGroup>
+				<h:selectOneMenu style="widht:100px;" value="#{contratoBean.contrato.nomeDpto}">
+			 		<f:selectItems value="#{contratoBean.listaSelectItemComboDepartamento}"/>
+			 	</h:selectOneMenu>
+			</h:panelGroup>
+			
+			
+			
+			<h:panelGroup style="float:right;margin-right:10px;"><h:outputLabel value="Data Início: " /> </h:panelGroup>
+			<h:panelGroup><p:calendar value="#{contratoBean.contrato.dtInicio}" size="10" pattern="dd/MM/yyyy" maxlength="10"/> </h:panelGroup>
+			
+			<h:panelGroup style="float:right;margin-right:10px;"><h:outputLabel value="Data Fim: " /> </h:panelGroup>
+			<h:panelGroup><p:calendar value="#{contratoBean.contrato.dtFim}" size="10" pattern="dd/MM/yyyy" maxlength="10"/> </h:panelGroup>
+			
+			<h:panelGroup style="float:right;margin-right:10px;width:119px;"><h:outputLabel value="Data Prorrogação: " /> </h:panelGroup>
+			<h:panelGroup><p:calendar value="#{contratoBean.contrato.dtProrrogacao}" size="10" pattern="dd/MM/yyyy" maxlength="10"/> </h:panelGroup>
+			
+			<h:panelGroup rendered="#{contratoBean.cadastrar == false}" style="float:right;margin-right:10px;">
+				<h:outputLabel value="Status: " />
+			</h:panelGroup>
+			<h:panelGroup rendered="#{contratoBean.cadastrar == false}">
+				<h:selectOneRadio value="#{contratoBean.contrato.status}">
+					<f:selectItem itemLabel="Ativo" itemValue="true"/>
+					<f:selectItem itemLabel="Inativo" itemValue="false"/>
+				</h:selectOneRadio>
+			</h:panelGroup>
+		</h:panelGrid>
+		
+		<div class="buttonFooter">
+			<h:commandButton value="Voltar" action="/content/cadastros/contrato/conContrato" />
+			<h:commandButton value="Limpar" action="#{contratoBean.limpar}" style="margin-left: 5px"/>
+			<h:commandButton value="Salvar" action="#{contratoBean.salvarContrato}" onclick="return validarInclusaoAlteracao(this.form)" style="margin-left: 5px" />
+		</div>
+	</ui:define>
+</ui:composition>

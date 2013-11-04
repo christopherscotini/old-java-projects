@@ -1,0 +1,45 @@
+<?xml version='1.0' encoding='ISO-8859-1' ?>
+<ui:composition template="../../template/template_main.xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:rich="http://richfaces.org/rich">
+
+	<ui:param name="titulo" value="#{produtoBean.tituloTelaIncAltSolicitacao}" />
+	<ui:define name="body_content">
+		
+		<h:panelGrid columns="2">
+		
+			<h:panelGroup>
+				<h:outputLabel value="Endereço da Obra:" for="txtEndereco" />
+			</h:panelGroup>
+			<h:panelGroup>
+				<h:inputText id="txtNomeProduto" value="#{produtoBean.obra.endereco}" size="60" maxlength="40" />
+			</h:panelGroup>
+			
+			<h:panelGroup>
+				<h:outputLabel value="Registro de Licença da Obra:" for="txtRegObra" />
+			</h:panelGroup>
+			<h:panelGroup>
+				<h:inputText id="txtRegObra" value="#{produtoBean.obra.registro}" />
+			</h:panelGroup>
+
+			<h:panelGroup>
+				<h:outputLabel value="Mestre da Obra:" for="txtMestreObra" />
+			</h:panelGroup>
+			<h:panelGroup>
+				<h:inputText id="txtMestreObra" value="#{produtoBean.obra.responsavelPelaObra}" />
+			</h:panelGroup>
+			
+		</h:panelGrid>
+		
+		
+		<div class="buttonFooter">
+			<h:commandButton value="Voltar" action="#" />
+			<h:commandButton value="Limpar" action="#" style="margin-left: 5px" />
+			<h:commandButton value="Salvar" action="#{produtoBean.salvarObra}" style="margin-left: 5px" onclick="return validarInclusaoAlteracao(this.form)" />
+		</div>
+	</ui:define>
+
+</ui:composition>

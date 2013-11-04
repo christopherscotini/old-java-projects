@@ -1,0 +1,70 @@
+<?xml version='1.0' encoding='ISO-8859-1' ?>
+<ui:composition template="../../../template/template_main.xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:rich="http://richfaces.org/rich"
+	xmlns:t="http://myfaces.apache.org/tomahawk">
+
+	<ui:param name="titulo" value="Consulta de Cargos e Salários" />
+
+	<ui:define name="body_content">
+		<div style="width: 100%; text-align: left">
+			<h:outputLabel value="Cargo:" for="txtCargo" />
+			<h:inputText id="txtCargo" value="#{cargoBean.filtroDescricao}" size="60" maxlength="40" style="margin-left: 5px" />
+		</div>
+		<div style="width: 100%; text-align: right; margin-top: 5px; margin-bottom: 5px">
+			<h:commandButton value="Pesquisar" action="#{cargoBean.pesquisar}"/>
+		</div>
+
+		<t:selectOneRadio id="listaRadioCargo" value="#{cargoBean.posicaoLista}" layout="spread" forceId="true" forceIdIndex="false" converter="javax.faces.Integer">
+			<f:selectItems value="#{cargoBean.listaRadiosCargos}" />
+		</t:selectOneRadio>
+
+		<rich:dataTable id="dataTableCentroCusto" var="var" value="#{cargoBean.listaCargos}" rows="10" styleClass="dataTable" rowKeyVar="rowKeyIndex">
+			<rich:column style="width:2%;text-align: center">
+				<f:facet name="header">
+					<h:outputText value="" />
+				</f:facet>
+				<t:radio for=":formGlobal:listaRadioCargo" index="#{rowKeyIndex}" />
+			</rich:column>
+			<rich:column style="width:18%;text-align: right">
+				<f:facet name="header">
+					<h:outputText value="Código" />
+				</f:facet>
+				<h:outputText value="#{var.codigo}" style="text-align: right" />
+			</rich:column>
+			<rich:column style="width:50%;text-align: left">
+				<f:facet name="header">
+					<h:outputText value="Descrição do Cargo" />
+				</f:facet>
+				<h:outputText value="#{var.descCargo}" />
+			</rich:column>
+			<rich:column style="width:20%;text-align: right">
+				<f:facet name="header">
+					<h:outputText value="Salário" />
+				</f:facet>
+				<h:outputText value="#{var.salario}" converter="decimalConverter" />
+			</rich:column>
+			<rich:column style="width:10%;text-align: center">
+				<f:facet name="header">
+					<h:outputText value="Situação" />
+				</f:facet>
+				<h:outputText value="#{var.descSituacao}" />
+			</rich:column>
+			
+			<f:facet name="footer">
+				<rich:dataScroller for="dataTableCentroCusto" fastControls="hide" stepControls="hide" rendered="#{not empty cargoBean.listaCargos}" />
+			</f:facet>
+		</rich:dataTable>
+		
+		
+
+		<div class="buttonFooter">
+			<h:commandButton value="Novo" action="#{cargoBean.navegarNovo}" />
+			<h:commandButton value="Alterar" action="#{cargoBean.navegarAlteracao}" onclick="return verificarRadioListaSelecionado('listaRadioCargo')" style="margin-left: 5px" />
+		</div>
+	</ui:define>
+
+</ui:composition>

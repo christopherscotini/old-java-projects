@@ -1,0 +1,122 @@
+<?xml version='1.0' encoding='ISO-8859-1' ?>
+<ui:composition template="../../../template/template_main.xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:rich="http://richfaces.org/rich"
+	xmlns:t="http://myfaces.apache.org/tomahawk">
+
+	<ui:param name="titulo" value="Contato" />
+
+	<ui:define name="body_content">
+		<div style="width: 100%; text-align: left; ">
+		<h:panelGrid columns="2" cellspacing="0" cellpading="0">
+			<h:panelGrid columns="2" cellspacing="0" cellpading="0">
+				<h:panelGroup>
+					<h:outputLabel value="Contato:" for="txtContato" style="float:right;" />
+				</h:panelGroup>
+				<h:panelGroup>
+					<h:inputText id="txtContato" value="" size="50" maxlength="40" style="margin-left: 5px" />
+				</h:panelGroup>
+				<h:panelGroup>
+					<h:outputLabel value="Email:" for="txtEmail" style="float:right" />
+				</h:panelGroup>
+				<h:panelGroup>
+					<h:inputText id="txtEmail" value="" size="50" maxlength="40" style="margin-left: 5px" />
+				</h:panelGroup>
+				<h:panelGroup>
+					<h:outputLabel value="Telefone:" for="txtTelefone" style="float:right" />
+				</h:panelGroup>
+				<h:panelGroup>
+					<h:inputText id="txtTelefone" value="" size="50" maxlength="40" style="margin-left: 5px" />
+				</h:panelGroup>
+			</h:panelGrid>
+			<h:panelGrid columns="2" cellspacing="0" cellpading="0" style="margin-right:30px;">
+				<h:panelGroup>
+					<h:outputLabel value="Cliente:" for="txtCliente" style="float:right;margin-left:40px;" />
+				</h:panelGroup>
+				<h:panelGroup>
+					<h:selectOneMenu id="txtCliente" value="" style="margin-left:5px; width:280px;">
+				 		<f:selectItems value="" />
+				 	</h:selectOneMenu>
+				</h:panelGroup>
+				<h:panelGroup>
+					<h:outputLabel value="Tipo Contato:" for="txtTipoContato" style="float:right;margin-left:40px;" />
+				</h:panelGroup>
+				<h:panelGroup>
+					<h:selectOneMenu id="txtTipoContato" value="#{secaoBean.secao.departamento}" style="margin-left:5px; width:280px;">
+				 		<f:selectItems value="" />
+				 	</h:selectOneMenu>				
+				 </h:panelGroup>
+				<h:panelGroup>
+					<h:outputLabel value="Departamento/Setor:" for="txtDeptoSetor" style="float:right;margin-left:40px;" />
+				</h:panelGroup>
+				<h:panelGroup>
+					<h:selectOneMenu id="txtDeptoSetor" value="" style="margin-left:5px; width:280px;">
+				 		<f:selectItems value="" />
+				 	</h:selectOneMenu>				
+				 </h:panelGroup>
+				<h:panelGroup>
+					<h:outputLabel value="Local:" for="txtLocal" style="float:right;margin-left:40px;" />
+				</h:panelGroup>
+				<h:panelGroup>
+					<h:selectOneMenu id="txtLocal" value="" style="margin-left:5px; width:280px;">
+				 		<f:selectItems value="" />
+				 	</h:selectOneMenu>
+				</h:panelGroup>
+				<h:panelGroup>
+					<h:outputLabel value="Seção:" for="txtSecao" style="float:right;margin-left:40px;" />
+				</h:panelGroup>
+				<h:panelGroup>
+					<h:selectOneMenu id="txtSecao" value="" style="margin-left:5px; width:280px;">
+				 		<f:selectItems value="" />
+				 	</h:selectOneMenu>
+				</h:panelGroup>
+			</h:panelGrid>
+		</h:panelGrid>
+		</div>
+		<div style="width: 100%; text-align: right; margin-top: 5px; margin-bottom: 5px">
+			<h:commandButton value="Pesquisar" action="#{contatoClienteBean.pesquisar}"/>
+		</div>
+
+		<rich:dataTable id="dataTableContatoCliente" value="" rows="10" styleClass="dataTable" rowKeyVar="rowKeyIndex">
+			<rich:column style="width:2%;text-align: center">
+				<f:facet name="header">
+					<h:outputText value="" />
+				</f:facet>
+			</rich:column>
+			<rich:column style="width:18%;text-align: right">
+				<f:facet name="header">
+					<h:outputText value="Cliente" />
+				</f:facet>
+				<h:outputText value="" style="text-align: right" />
+			</rich:column>
+			<rich:column style="width:50%;text-align: left">
+				<f:facet name="header">
+					<h:outputText value="Contato" />
+				</f:facet>
+				<h:outputText value="" />
+			</rich:column>
+			<rich:column style="width:20%;text-align: right">
+				<f:facet name="header">
+					<h:outputText value="Departamento/Setor" />
+				</f:facet>
+				<h:outputText value="" />
+			</rich:column>
+			<rich:column style="width:10%;text-align: center">
+				<f:facet name="header">
+					<h:outputText value="Seção" />
+				</f:facet>
+				<h:outputText value="" />
+			</rich:column>
+		</rich:dataTable>
+		<rich:dataScroller for="dataTableContatoCliente" fastControls="hide" stepControls="hide" />
+
+		<div class="buttonFooter">
+			<h:commandButton value="Novo" action="#{contatoClienteBean.cadastrarContatoCliente}" />
+			<h:commandButton value="Alterar" action="#{contatoClienteBean.alterarContatoCliente}" style="margin-left: 5px" />
+		</div>
+	</ui:define>
+
+</ui:composition>

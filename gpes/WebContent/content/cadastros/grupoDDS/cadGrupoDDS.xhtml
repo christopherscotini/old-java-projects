@@ -1,0 +1,75 @@
+<?xml version='1.0' encoding='ISO-8859-1' ?>
+<ui:composition template="../../../template/template_main.xhtml"  
+    xmlns:ui="http://java.sun.com/jsf/facelets"  
+    xmlns:h="http://java.sun.com/jsf/html"  
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:p="http://primefaces.org/ui">
+
+    <ui:param name="titulo" value="Cadastro de Grupo DDS" />
+    
+    <ui:define name="body_content">
+		<h:form id="cadGrupoDDSForm">
+			
+			<h:panelGrid columns="2" cellspacing="5" cellpading="0" >
+					
+				<h:panelGroup>
+					<p:outputLabel for="numero" value="Número:" />
+				</h:panelGroup>
+				
+				<h:panelGroup>
+					<p:inputText id="numero" />
+				</h:panelGroup>
+				
+				<h:panelGroup>
+					<p:outputLabel for="nome" value="Nome:" />
+				</h:panelGroup>
+				
+				<h:panelGroup>
+					<p:inputText id="nome" />
+				</h:panelGroup>
+					
+				<h:panelGroup>
+					<p:outputLabel for="gt" value="GT:" />
+				</h:panelGroup>
+				
+				<h:panelGroup>
+					<p:selectOneMenu id="gt">  
+			            <f:selectItem itemLabel="Selecione" itemValue="" />  
+        			</p:selectOneMenu>  
+				</h:panelGroup>
+				
+				<h:panelGroup>
+					<p:outputLabel for="gi" value="GI:" />
+				</h:panelGroup>
+					
+				<h:panelGroup>
+					<p:selectOneMenu id="gi">  
+			            <f:selectItem itemLabel="Selecione" itemValue="" />  
+        			</p:selectOneMenu>  
+				</h:panelGroup>
+
+				<h:panelGroup>
+					<p:outputLabel for="gerenteInfo" value="Gerente de Info:" />
+				</h:panelGroup>
+					
+				<h:panelGroup>
+					<p:selectOneMenu id="gerenteInfo">  
+			            <f:selectItem itemLabel="Selecione" itemValue="" />  
+        			</p:selectOneMenu>
+				</h:panelGroup>
+					
+			</h:panelGrid>
+
+			<h:panelGrid columns="2" cellspacing="10" style="margin-top: 5px;">
+				<h:panelGroup> 
+					<h:commandButton value="Voltar" action="conGrupoDDS" />
+				</h:panelGroup> 
+				<h:panelGroup> 
+					<h:commandButton value="Incluir" />
+				</h:panelGroup> 
+			</h:panelGrid>
+						
+		</h:form>
+    </ui:define>
+    
+</ui:composition>

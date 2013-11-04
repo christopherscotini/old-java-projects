@@ -1,0 +1,42 @@
+<?xml version='1.0' encoding='ISO-8859-1' ?>
+<ui:composition template="../../../template/template_main.xhtml"  
+    xmlns:ui="http://java.sun.com/jsf/facelets"  
+    xmlns:h="http://java.sun.com/jsf/html"  
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:p="http://primefaces.org/ui"
+    xmlns:rich="http://richfaces.org/rich"
+    xmlns:a4j="http://richfaces.org/a4j">
+
+    <ui:param name="titulo" value="Consulta de Facilitador DDS" />
+    <ui:define name="body_content">
+		<h:form id="consultarFacilitadorDDS">
+			<rich:dataTable styleClass="dataTable" id="tabela" value="#{facilitadorDDSBean.listaCadFacilitador}" var="result">
+				
+				<rich:column>
+					<f:facet name="header">
+						<h:outputText value="Nome"/>
+					</f:facet>
+					<h:outputText value="#{result.nome}"/>
+				</rich:column>
+				
+				<rich:column>
+					<f:facet name="header">
+						<h:outputText value="Grupo DDS" />
+					</f:facet>
+					<h:outputText value="#{result.grupoDDS}"/>
+				</rich:column>
+				
+				<rich:column>
+					<f:facet name="header">
+						<h:outputText value="Nome Antigo" />
+					</f:facet>
+				</rich:column>
+				
+			</rich:dataTable>
+			
+			<div class="buttonFooter">
+				<h:commandButton value="Incluir" action="#{facilitadorDDSBean.irCadastrar}"/>
+			</div>
+		</h:form>
+    </ui:define>
+</ui:composition>

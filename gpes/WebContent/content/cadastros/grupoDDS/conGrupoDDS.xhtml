@@ -1,0 +1,60 @@
+<?xml version='1.0' encoding='ISO-8859-1' ?>
+<ui:composition template="../../../template/template_main.xhtml"  
+    xmlns:ui="http://java.sun.com/jsf/facelets"  
+    xmlns:h="http://java.sun.com/jsf/html"  
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:p="http://primefaces.org/ui"
+    xmlns:rich="http://richfaces.org/rich"
+	xmlns:a4j="http://richfaces.org/a4j">
+
+    <ui:param name="titulo" value="Consulta de Grupo DDS" />
+    
+    <ui:define name="body_content">
+		<h:form id="conGrupoDDSForm">
+			<rich:dataTable styleClass="dataTable">
+				<rich:column>
+					<f:facet name="header"> 
+						<h:outputText value="Número Grupo" />
+					</f:facet>
+					<h:outputText  />
+				</rich:column>
+				<rich:column>
+					<f:facet name="header"> 
+						<h:outputText value="Nome" />
+					</f:facet>
+					<h:outputText  />
+				</rich:column>
+				<rich:column>
+					<f:facet name="header"> 
+						<h:outputText value="GT" />
+					</f:facet>
+					<h:outputText  />
+				</rich:column>
+				<rich:column>
+					<f:facet name="header"> 
+						<h:outputText value="GI" />
+					</f:facet>
+					<h:outputText  />
+				</rich:column>
+				<rich:column>
+					<f:facet name="header"> 
+						<h:outputText value="GT Antigo" />
+					</f:facet>
+					<h:outputText  />
+				</rich:column>
+				<rich:column>
+					<f:facet name="header"> 
+						<h:outputText value="GI Antigo" />
+					</f:facet>
+					<h:outputText  />
+				</rich:column>
+			</rich:dataTable>
+			
+			<div class="buttonFooter">
+				<h:commandButton id="btnIncluir" value="Incluir" action="cadGrupoDDS" />
+			</div>
+			
+		</h:form>
+    </ui:define>
+    
+</ui:composition>

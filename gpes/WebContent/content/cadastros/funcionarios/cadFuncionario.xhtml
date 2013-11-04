@@ -1,0 +1,174 @@
+<?xml version='1.0' encoding='ISO-8859-1' ?>
+<ui:composition template="../../../template/template_main.xhtml"  
+    xmlns:ui="http://java.sun.com/jsf/facelets"  
+    xmlns:h="http://java.sun.com/jsf/html"  
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:p="http://primefaces.org/ui"
+    xmlns:rich="http://richfaces.org/rich"
+	xmlns:a4j="http://richfaces.org/a4j">
+
+    <ui:param name="titulo" value="Cadastro de Funcionários" />
+    
+    <ui:define name="body_content">
+		<h:form id="formMain">
+			
+			<h:panelGrid columns="2" cellpadding="0" cellspacing="0" border="0">
+				<h:panelGrid columns="2" cellpading="5" cellspacing="5">
+					<h:panelGroup>
+						<h:outputLabel value="RE: " />
+					</h:panelGroup>
+					<h:panelGroup>
+						<h:inputText />
+					</h:panelGroup>
+					<h:panelGroup>
+						<h:outputLabel value="Nome: " />
+					</h:panelGroup>
+					<h:panelGroup>
+						<h:inputText />
+					</h:panelGroup>
+					<h:panelGroup>
+						<h:outputLabel for="cpf" value="CPF: " />
+					</h:panelGroup>
+					<h:panelGroup>
+						<h:inputText id="cpf" />
+					</h:panelGroup>
+					<h:panelGroup>
+						<h:outputLabel for="dataNascimento" value="Data Nascimento: " />
+					</h:panelGroup>
+					<h:panelGroup>
+			    		<p:calendar id="dataNascimento" pattern="dd/MM/yyyy" maxlength="10" showOn="button"/>
+					</h:panelGroup>
+						<h:panelGroup>
+						<h:outputLabel for="endereco" value="Endereço: " />
+					</h:panelGroup>
+					<h:panelGroup>
+						<h:inputText id="endereco" />
+					</h:panelGroup>
+					<h:panelGroup>
+						<h:outputLabel for="cep" value="CEP: " />
+					</h:panelGroup>
+					<h:panelGroup>
+						<h:inputText id="cep" />
+					</h:panelGroup>
+					<h:panelGroup>
+						<h:outputLabel for="telResidencial" value="Tel Residencial: " />
+					</h:panelGroup>
+					<h:panelGroup>
+						<h:inputText id="telResidencial" />
+					</h:panelGroup>
+					<h:panelGroup>
+						<h:outputLabel for="dataAdmissao" value="Data de admissão: " />
+					</h:panelGroup>
+					<h:panelGroup>
+			    		<p:calendar id="dataAdmissao" pattern="dd/MM/yyyy" maxlength="10" showOn="button"/>
+					</h:panelGroup>
+					<h:panelGroup>
+						<h:outputLabel for="salNominal" value="Salário Nominal: " />
+					</h:panelGroup>
+					<h:panelGroup>
+						<h:inputText id="salNominal" />
+					</h:panelGroup>
+					<h:panelGroup>
+						<h:outputLabel for="equipe" value="Equipe? " />
+					</h:panelGroup>
+					<p:selectOneMenu id="equipe" style="width:137px;">
+						<f:selectItem itemValue="0" itemLabel="::SELECIONE::" />
+						<f:selectItem itemValue="0" itemLabel="Desenvolvimento" />
+						<f:selectItem itemValue="1" itemLabel="Testes" />
+						<f:selectItem itemValue="2" itemLabel="Homologação" />
+					</p:selectOneMenu>
+					<h:panelGroup>
+						<h:outputLabel for="localTrabalho" value="Local de trabalho: " />
+					</h:panelGroup>
+					<p:selectOneMenu id="localTrabalho" style="width:137px;">
+						<f:selectItem itemValue="0" itemLabel="::SELECIONE::" />
+						<f:selectItem itemValue="1" itemLabel="Alphaville" />
+						<f:selectItem itemValue="2" itemLabel="Paulista" />
+					</p:selectOneMenu>
+				</h:panelGrid>
+				
+				<h:panelGrid columns="2" cellpadding="2" cellspacing="2">
+					<h:panelGroup /><h:panelGrid style="margin-bottom: 20px;" />
+					<h:panelGroup>
+						<h:outputLabel for="rg" value="RG: " />
+					</h:panelGroup>
+					<h:panelGroup>
+						<h:inputText id="rg" />
+					</h:panelGroup>
+					<h:panelGroup>
+						<h:outputLabel for="email" value="E-mail: " />
+					</h:panelGroup>
+					<h:panelGroup>
+						<h:inputText id="email" />
+					</h:panelGroup>
+					<h:panelGroup>
+						<h:outputLabel for="bairro" value="Bairro: " />
+					</h:panelGroup>
+					<h:panelGroup>
+						<h:inputText id="bairro" />
+					</h:panelGroup>
+					<h:panelGroup>
+						<h:outputLabel for="uf" value="UF: " />
+					</h:panelGroup>
+					<p:selectOneMenu id="uf" style="width:137px;">
+						<f:selectItem itemValue="0" itemLabel="::SELECIONE::" />
+						<f:selectItem itemValue="1" itemLabel="SP" />
+						<f:selectItem itemValue="2" itemLabel="MG" />
+					</p:selectOneMenu>
+					<h:panelGroup>
+						<h:outputLabel for="cidade" value="Cidade: " />
+					</h:panelGroup>
+					<p:selectOneMenu id="cidade" style="width:137px;">
+						<f:selectItem itemValue="0" itemLabel="::SELECIONE::" />
+						<f:selectItem itemValue="1" itemLabel="Barueri" />
+						<f:selectItem itemValue="2" itemLabel="São Paulo" />
+					</p:selectOneMenu>
+					<h:panelGroup>
+						<h:outputLabel for="telCel" value="Tel Cel: " />
+					</h:panelGroup>
+					<h:panelGroup>
+						<h:inputText id="telCel" />
+					</h:panelGroup>
+					<h:panelGroup>
+						<h:outputLabel for="dataDesligamento" value="Data desligamento: " />
+					</h:panelGroup>
+					<h:panelGroup>
+			    		<p:calendar id="dataDesligamento" pattern="dd/MM/yyyy" maxlength="10" showOn="button"/>
+					</h:panelGroup>
+					<h:panelGroup>
+						<h:outputLabel for="valorHora" value="Valor Hora: " />
+					</h:panelGroup>
+					<h:panelGroup>
+						<h:inputText id="valorHora" />
+					</h:panelGroup>
+					<h:panelGroup>
+						<h:outputLabel for="cargo" value="Cargo: " />
+					</h:panelGroup>
+					<p:selectOneMenu id="cargo" style="width:137px;">
+						<f:selectItem itemValue="0" itemLabel="::SELECIONE::" />
+						<f:selectItem itemValue="0" itemLabel="Estagiario" />
+						<f:selectItem itemValue="1" itemLabel="Programador" />
+						<f:selectItem itemValue="2" itemLabel="Analista" />
+					</p:selectOneMenu>
+						<h:panelGroup>
+						<h:outputLabel for="custoTotal" value="Custo Total: " />
+					</h:panelGroup>
+					<h:panelGroup>
+						<h:inputText id="custoTotal" />
+					</h:panelGroup>
+				</h:panelGrid>
+			</h:panelGrid>
+			
+			<h:panelGrid columns="2" cellspacing="10" style="margin-top: 15px;">
+				<h:panelGroup> 
+					<h:commandButton value="Voltar" action="conFuncionarios" />
+				</h:panelGroup> 
+				<h:panelGroup> 
+					<h:commandButton value="Incluir" />
+				</h:panelGroup> 
+			</h:panelGrid>
+						
+		</h:form>
+    </ui:define>
+    
+</ui:composition>

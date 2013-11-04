@@ -1,0 +1,30 @@
+<?xml version='1.0' encoding='ISO-8859-1' ?>
+<ui:composition template="../../../template/template_main.xhtml"  
+    xmlns:ui="http://java.sun.com/jsf/facelets"  
+    xmlns:h="http://java.sun.com/jsf/html"  
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:p="http://primefaces.org/ui">
+
+    <ui:param name="titulo" value="Cadastro de Funcionários DDS" />
+    
+    <ui:define name="body_content">
+		<h:form id="cadFuncionarioDDSForm">
+			
+			<h:panelGrid columns="2" cellpading="0" cellspacing="0">
+				<p:outputLabel for="nome" value="Nome:" />
+				<p:inputText id="nome" />
+			</h:panelGrid>
+			
+			<h:panelGrid columns="2" cellspacing="10" style="margin-top: 15px;">
+				<h:panelGroup> 
+					<h:commandButton value="Voltar" action="conFuncionariosDDS" />
+				</h:panelGroup> 
+				<h:panelGroup> 
+					<h:commandButton value="Incluir" />
+				</h:panelGroup> 
+			</h:panelGrid>
+						
+		</h:form>
+    </ui:define>
+    
+</ui:composition>

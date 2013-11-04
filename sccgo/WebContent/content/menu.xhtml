@@ -1,0 +1,34 @@
+<?xml version='1.0' encoding='ISO-8859-1' ?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:rich="http://richfaces.org/rich">
+
+	<h:form id="formMenu">
+		<rich:toolbar>
+			<rich:dropDownMenu label="Obra">
+			
+				<rich:menuGroup label="Materiais">
+                    <rich:menuItem label="Todos os Produtos" action="#{produtoBean.consultadeProdutos}" />
+                    <rich:menuItem label="Materiais Pendentes" action="#" />
+                    <rich:menuItem label="Materiais em Estoque" action="#" />
+                </rich:menuGroup>
+                <rich:menuGroup label="Solicitações">
+					<rich:menuItem label="Nova Solicitação de compra" action="#{produtoBean.novaSolicitacaoDeCompra}" />
+					<rich:menuItem label="Histórico de Solicitações" action="#{produtoBean.consultaSolicitacoes}" />
+					<rich:menuItem label="Solicitações Pendentes" action="#{produtoBean.consultarSolicitacoesStatus}" >
+						<f:setPropertyActionListener target="#{produtoBean.pendentesFinalizadas}" value="false" />
+					</rich:menuItem>
+					<rich:menuItem label="Solicitações Finalizadas" action="#{produtoBean.consultarSolicitacoesStatus}" >
+						<f:setPropertyActionListener target="#{produtoBean.pendentesFinalizadas}" value="true" />
+					</rich:menuItem>
+                </rich:menuGroup>
+                
+			</rich:dropDownMenu>
+			
+			<rich:menuItem label="Sair" action="#" />
+		</rich:toolbar>
+	</h:form>
+</ui:composition>

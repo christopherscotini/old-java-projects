@@ -1,0 +1,38 @@
+<?xml version='1.0' encoding='ISO-8859-1' ?>
+<ui:composition template="../../../template/template_main.xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:rich="http://richfaces.org/rich">
+
+	<ui:param name="titulo" value="#{tipoProjetoBean.tituloTelaIncluirAlterar}" />
+
+	<ui:define name="body_content">
+		<h:panelGrid columns="2" cellspacing="0" cellpading="0">
+			
+			<h:panelGroup style="text-align:right;margin-right:5px;width:106px;">
+				<h:outputLabel value="Nome: " for="txtNome" /> 
+			</h:panelGroup>
+			<h:panelGroup>
+				<h:inputText id="txtNome" value="" size="40" /> 
+			</h:panelGroup>
+			
+			<h:panelGroup rendered="#{tipoProjetoBean.cadastrar == false}" style="float:right;margin-right:5px;">
+				<h:outputLabel value="Status: " />
+			</h:panelGroup>
+			<h:panelGroup rendered="#{tipoProjetoBean.cadastrar == false}">
+				<h:selectOneRadio value="">
+					<f:selectItem itemLabel="Ativo" itemValue="true" />
+					<f:selectItem itemLabel="Inativo" itemValue="false" />
+				</h:selectOneRadio>
+			</h:panelGroup>
+		</h:panelGrid>
+		
+		<div class="buttonFooter">
+			<h:commandButton value="Voltar" action="#{tipoProjetoBean.voltarConsultaTipoProjeto}" />
+			<h:commandButton value="Limpar" action="#{tipoProjetoBean.limpar}" onclick="alert('implementar')" style="margin-left: 5px" />
+			<h:commandButton value="Salvar" action="#{tipoProjetoBean.salvarTipoProjeto}" onclick="alert('implementar')" style="margin-left: 5px" />
+		</div>
+	</ui:define>
+</ui:composition>

@@ -1,0 +1,37 @@
+<?xml version='1.0' encoding='ISO-8859-1' ?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+	<meta http-equiv="Content-Type" content="text/html;CHARSET=ISO-8859-1" />
+	<link type="text/css" rel="stylesheet" href="#{facesContext.externalContext.requestContextPath}/css/estilos.css" />
+	<script type="text/javascript" src="#{facesContext.externalContext.requestContextPath}/javascript/utils.js"></script>
+</h:head>
+
+<h:body>
+	<div id="header">
+		<h:graphicImage value="/images/banner.png" />
+		<h:panelGroup >
+			<ui:include src="../content/menu.xhtml"/>
+			<div id="user_title" align="right">
+				Usuário: <h:outputText value="Christopher Scotini" />
+			</div>
+		</h:panelGroup>
+	</div>
+	<div id="main_title" align="center">
+		<h1 class="portal_titulo"><h:outputText value="#{titulo}" /></h1>
+	</div>
+	<div id="main_body" align="center">
+		<div id="body_content">
+			<h:form id="formGlobal">
+				<p:growl id="messagesGlobal" globalOnly="true" escape="false" />
+
+				<ui:insert name="body_content" />
+			</h:form>
+		</div>
+	</div>
+</h:body>
+</html>

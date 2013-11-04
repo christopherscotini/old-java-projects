@@ -1,0 +1,83 @@
+<?xml version='1.0' encoding='ISO-8859-1' ?>
+<ui:composition 
+	template="../../template/template_main.xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:rich="http://richfaces.org/rich"
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:t="http://myfaces.apache.org/tomahawk">
+
+	<ui:param name="titulo" value="Consulta de Solicitações" />
+
+<ui:define name="body_content">
+
+		<t:selectOneRadio id="listaRadioSolicitacoes" value="#{produtoBean.solicitacaoRadioSelecionada}" layout="spread" forceId="true" forceIdIndex="false" 
+			converter="javax.faces.Integer">
+			<f:selectItems value="#{produtoBean.listaRadioSolicitacoes}" />
+				<p:ajax event="change"  update=":formGlobal:solicitacoesTable :formGlobal:botoesFooter" />
+		</t:selectOneRadio>
+		
+		
+		<rich:dataTable id="solicitacoesTable" var="var" value="#{produtoBean.listaDeSolicitacoes}" rows="10" styleClass="dataTable" rowKeyVar="rowKeyIndex">
+			<rich:column style="width:2%;text-align: center">
+				<f:facet name="header">
+					<h:outputText value="" />
+				</f:facet>
+				<t:radio for=":formGlobal:listaRadioSolicitacoes" index="#{rowKeyIndex}" />	
+			</rich:column>
+			<rich:column style="width:7%;text-align: center;">
+				<f:facet name="header">
+					<h:outputText value="num_solicitação" />
+				</f:facet>
+				<h:outputText value="#{var.id}" />
+			</rich:column>
+			<rich:column style="text-align: left;">
+				<f:facet name="header">
+					<h:outputText value="mestre_obra" />
+				</f:facet>
+				<h:outputText value="#{var.obra.responsavelPelaObra}"/>
+			</rich:column>
+			<rich:column style="text-align: left;">
+				<f:facet name="header">
+					<h:outputText value="endereço_obra" />
+				</f:facet>
+				<h:outputText value="#{var.obra.endereco}" />
+			</rich:column>
+			<rich:column style="width:11%;text-align: center;">
+				<f:facet name="header">
+					<h:outputText value="reg_obra" />
+				</f:facet>
+				<h:outputText value="#{var.obra.registro}"/>
+			</rich:column>
+			<rich:column id="status" style="width:11%;text-align: center;" >
+				<f:facet name="header">
+					<h:outputText value="status" />
+				</f:facet>
+				<h:commandLink actionListener="#{produtoBean.trocarStatusSolicitacao}" rendered="#{var.comprado}" disabled="#{produtoBean.solicitacaoRadioSelecionada != rowKeyIndex}">
+					<h:outputText value="Finalizada" />
+				</h:commandLink>
+				<h:commandLink actionListener="#{produtoBean.trocarStatusSolicitacao}" rendered="#{!var.comprado}" disabled="#{produtoBean.solicitacaoRadioSelecionada != rowKeyIndex}">
+					<h:outputText value="Aguardando aprovação" />
+				</h:commandLink>
+			</rich:column>
+			
+			<f:facet name="footer">
+				<rich:dataScroller for="solicitacoesTable" fastControls="hide" stepControls="hide" rendered="#{not empty produtoBean.listaDeSolicitacoes}" />
+			</f:facet>
+		</rich:dataTable>
+		
+			
+		<div class="buttonFooter">
+			<h:panelGroup id="botoesFooter">
+				<h:commandButton value="Nova Solicitação" action="#{produtoBean.novaSolicitacaoDeCompra}" />
+				<h:commandButton value="Detalhar Solicitacao" action="#{produtoBean.detalharSolcitacao}" style="margin-left: 5px" 
+					onclick="return verificarRadioListaSelecionado('listaRadioSolicitacoes')" disabled="#{produtoBean.solicitacaoRadioSelecionada == null}"/>
+			</h:panelGroup>
+		</div>
+		
+		
+	
+</ui:define>
+</ui:composition>

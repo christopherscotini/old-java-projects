@@ -1,0 +1,100 @@
+<?xml version='1.0' encoding='ISO-8859-1' ?>
+<ui:composition template="../../../template/template_main.xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:rich="http://richfaces.org/rich">
+
+	<ui:param name="titulo" value="Consulta de Departamento" />
+
+	<ui:define name="body_content">
+		<h:form id="formConDepartamentos">
+		<p:growl id="messages" />
+
+			<div style="width: 100%; text-align: left">
+				<h:panelGrid columns="4">
+					<h:panelGroup>
+						<h:outputLabel value="Cliente:" for="comboCliente" />
+					</h:panelGroup>
+					<h:panelGroup>
+						<h:selectOneMenu id="comboCliente" style="margin-left: 5px" value="#{departamentoBean.departamento.nomeCliente}">
+							<f:selectItems value="#{departamentoBean.comboCliente}"/>
+						</h:selectOneMenu>
+					</h:panelGroup>
+					<h:panelGroup style="margin-left:400px;">
+						<h:outputLabel value="Departamento:" for="txtDepartamento" />
+					</h:panelGroup>
+					<h:panelGroup>
+						<h:inputText id="txtDepartamento" style="margin-left: 5px" value="#{departamentoBean.departamento.departamento}"/>
+					</h:panelGroup>
+					<h:panelGroup>
+						<h:outputLabel value="Local:" for="comboLocal" />
+					</h:panelGroup>
+					<h:panelGroup>
+						<h:selectOneMenu id="comboLocal" style="margin-left: 5px" value="#{departamentoBean.departamento.local}">
+							<f:selectItems value="#{departamentoBean.comboLocal}"/>
+						</h:selectOneMenu>
+					</h:panelGroup>
+					<h:panelGroup style="margin-left:400px;">
+						<h:outputLabel value="Status:" for="comboStatus" />
+					</h:panelGroup>
+					<h:panelGroup>
+						<h:selectOneMenu id="comboStatus" style="margin-left: 5px" value="#{departamentoBean.departamento.status}">
+							<f:selectItems value="#{departamentoBean.selectItemsStatus}"/>
+						</h:selectOneMenu>
+					</h:panelGroup>
+				</h:panelGrid>
+			</div>
+			
+			<div style="width: 100%; text-align: right; margin-top: 5px; margin-bottom: 5px">
+				<h:commandButton value="Pesquisar" action="#{departamentoBean.pesquisar}"/>
+			</div>
+			
+			<p:selectOneRadio id="listaRadioDepartamento" value="#{departamentoBean.posicaoLista}" layout="custom">
+				<f:selectItems value="#{departamentoBean.listaRadios}"/>
+			</p:selectOneRadio>
+			
+			<rich:dataTable id="dataTableDepartamento" var="var" value="#{departamentoBean.listaDepartamentos}" styleClass="dataTable" rowKeyVar="rowKeyIndex">
+				<rich:column width="25px">
+					<f:facet name="header">
+						<h:outputText value="" />
+					</f:facet>
+					<p:radioButton for=":formConDepartamentos:listaRadioDepartamento" itemIndex="#{rowKeyIndex}" />
+				</rich:column>
+				<rich:column style="text-align: right">
+					<f:facet name="header">
+						<h:outputText value="Nome do Cliente" />
+					</f:facet>
+					<h:outputText value="#{var.nomeCliente}" style="text-align: right" />
+				</rich:column>
+				<rich:column>
+					<f:facet name="header">
+						<h:outputText value="Departamento" />
+					</f:facet>
+					<h:outputText value="#{var.departamento}" />
+				</rich:column>
+				<rich:column style="text-align: right">
+					<f:facet name="header">
+						<h:outputText value="Local" />
+					</f:facet>
+					<h:outputText value="#{var.local}" />
+				</rich:column>
+				<rich:column>
+					<f:facet name="header">
+						<h:outputText value="Status" />
+					</f:facet>
+					<h:outputText value="#{var.status}" />
+				</rich:column>
+			</rich:dataTable>
+	
+			<div class="buttonFooter">
+				<h:commandButton value="Novo" action="#{departamentoBean.navegarNovo}" />
+				<h:commandButton value="Alterar" action="#{departamentoBean.navegarAlteracao}" style="margin-left: 5px" />
+			</div>
+			
+			
+		</h:form>
+	</ui:define>
+
+</ui:composition>

@@ -1,0 +1,108 @@
+<?xml version='1.0' encoding='ISO-8859-1' ?>
+<ui:composition template="../../../template/template_main.xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+    xmlns:rich="http://richfaces.org/rich"
+	xmlns:a4j="http://richfaces.org/a4j">
+	
+    <ui:param name="titulo" value="Apontamento de Atividades" />
+	<ui:define name="body_content">
+		<h:form id="incApontamentoForm">
+			<p:growl id="messages" life="2000" showDetail="true"/>
+	    	<table> 
+	    		<tr>
+	    			<td style="text-align: right;"><h:outputLabel for="comboElemento" value="Elemento:"/></td>
+				    <td>
+				    	<p:selectOneMenu id="comboElemento" value="#{apontamentoBean.apontamento.elemento}" style="width: 150px;">
+				    		<f:selectItem itemValue="SELECIONE" itemLabel="::SELECIONE::" />
+					    	<f:selectItem itemValue="CBPC" itemLabel="CBPC" />
+	    					<f:selectItem itemValue="LEAS" itemLabel="LEAS" />
+					    	<f:selectItem itemValue="DBTO" itemLabel="DBTO" />
+				    	</p:selectOneMenu>
+    				</td>
+    			</tr>
+    			<tr>
+		    		<td style="text-align: right;"><h:outputLabel for="data" value="Período:"/></td>
+    			<td>
+    				<p:calendar id="data" value="#{apontamentoBean.data}" pattern="dd/MM/yyyy" 
+    				maxlength="10" showOn="button" popupIconOnly="true"/>
+	    		</td>
+	    		</tr>
+		    	<tr>
+		    		<td style="text-align: right;"><h:outputLabel for="horarioInicial" value="Horário:"/></td>
+		    		<td>
+			    		<p:calendar id="horarioInicial" locale="pt" value="#{apontamentoBean.horarioInicial}" 
+			    		pattern="HH:mm" timeOnly="true" 
+			    		size="5" maxlength="4" />
+			    		
+			    		<h:outputLabel for="horarioInicial" value="às"/>
+			    		
+			    		<p:calendar id="horarioFinal" locale="pt" value="#{apontamentoBean.horarioFinal}" 
+			    		pattern="HH:mm" timeOnly="true" 
+			    		size="5" maxlength="4"  />
+		    		</td>
+		    	</tr>
+		    	<tr>
+		    		<td style="text-align: right;"><h:outputLabel for="atividade" value="Atividade:" style="margin-bottom: 135px;"/></td>
+			    	<td>
+			    		<p:inputTextarea id="atividade" value="#{apontamentoBean.apontamento.atividade}" 
+			    		rows="6" cols="33"/>
+			    	</td>
+			    </tr>
+		    	<tr>
+			    	<td>
+		    			<h:commandButton id="btnIncluir" value="Incluir" action="#{apontamentoBean.incluirApontamento}">
+		    				<f:setPropertyActionListener value="#{request.userPrincipal.name}" target="#{apontamentoBean.apontamento.nome}" />
+		    				<f:ajax execute="@form" event="click" render="@form"/>
+		    			</h:commandButton>
+		    		</td>
+			    	<td>
+		    			<h:commandButton id="btnVoltar" value="Voltar" action="#{apontamentoBean.voltarIndex}" style="margin-left: 200px;" />
+		    		</td>
+			    </tr>
+	    	</table>
+		    <br />
+	    	<rich:dataTable id="tabelaApontamentos" value="#{apontamentoBean.apontamentos}" var="result" rows="5" styleClass="dataTable">
+	    		<rich:column style="text-align: center; ">
+	    			<f:facet name="header">
+	    				<h:outputText value="Elemento"/>
+	    			</f:facet>
+	    			<h:outputText value="#{result.elemento}" style="width: 100px;"/>
+	    		</rich:column>		    	
+	    		<rich:column style="text-align: center; ">
+	    			<f:facet name="header">
+	    				<h:outputText value="Data"/>
+	    			</f:facet>
+	    			<h:outputText value="#{result.data}" style="width: 100px;"/>
+	    		</rich:column>
+	    		<rich:column  style="text-align: center; ">
+	    			<f:facet name="header">
+	    				<h:outputText value="Horário"/>
+	    			</f:facet>
+	    			<h:outputText value="#{result.horarioInicial}" />
+	    				às
+	    			<h:outputText value="#{result.horarioFinal}" />
+	    		</rich:column>		
+	    		<rich:column style="text-align: left; ">
+	    			<f:facet name="header">
+	    				<h:outputText value="Atividade"/>
+	    			</f:facet>
+	    			<h:outputText value="#{result.atividade}" />
+	    		</rich:column>
+	    		<rich:column style="text-align: center; ">
+	    			<f:facet name="header">
+	    				<h:outputText value="Ações"/>
+	    			</f:facet>		
+	    			<p:commandLink update="@form" action="#{apontamentoBean.excluirApontamento}"
+						onclick="if(!(confirm('Deseja excluir apontamento ?'))){return true;}" >
+						<h:graphicImage url="/images/btnExcluir.jpg"/>
+						<f:setPropertyActionListener value="#{result}" target="#{apontamentoBean.obj}" />
+					</p:commandLink>
+				</rich:column>			
+	    	</rich:dataTable>	    	
+		</h:form>
+    </ui:define>
+</ui:composition>
+	

@@ -1,0 +1,45 @@
+<?xml version='1.0' encoding='ISO-8859-1' ?>
+<ui:composition template="../../../template/template_main.xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:rich="http://richfaces.org/rich">
+
+	<ui:param name="titulo" value="#{tipoContatoBean.tituloTelaIncluirAlterar}" />
+
+	<ui:define name="body_content">
+		<script src="../../../javascript/cadastros/tipoContato.js" type="text/javascript"></script>
+		
+		<h:panelGrid columns="2">
+			<h:panelGroup >
+				<h:outputLabel value="Código: " for="txtCodigo"/> 
+			</h:panelGroup>
+			<h:panelGroup>
+				<h:inputText id="txtCodigo" value="#{tipoContatoBean.tipoContato.codigoTipoContato}" size="2" maxlength="2" disabled="#{!tipoContatoBean.cadastrar}" onkeypress="onlyNum()" onfocus="cleanClipboard()"/> 
+			</h:panelGroup>
+			
+			<h:panelGroup style="width:120px">
+				<h:outputLabel value="Tipo de Contato: " for="txtTipoContato"/> 
+			</h:panelGroup>
+			<h:panelGroup>
+				<h:inputText id="txtTipoContato" value="#{tipoContatoBean.tipoContato.descTipoContato}" size="50" maxlength="50" /> 
+			</h:panelGroup>
+			
+			<h:panelGroup rendered="#{!tipoContatoBean.cadastrar}">
+				<h:outputLabel value="Status: " for="rdoSituacao"/>
+			</h:panelGroup>
+			<h:panelGroup rendered="#{!tipoContatoBean.cadastrar}">
+				<h:selectOneRadio id="rdoSituacao" value="#{tipoContatoBean.tipoContato.situacao}">
+					<f:selectItems value="#{tipoContatoBean.situacoes}" var="situacao" itemValue="#{situacao.codigo}" itemLabel="#{situacao}" />
+				</h:selectOneRadio>
+			</h:panelGroup>
+		</h:panelGrid>
+		
+		<div class="buttonFooter">
+			<h:commandButton value="Voltar" action="#{tipoContatoBean.voltarConsultaTipoContato}" />
+			<h:commandButton value="Limpar" action="#{tipoContatoBean.limpar}"  style="margin-left: 5px" />
+			<h:commandButton value="Salvar" action="#{tipoContatoBean.salvar}" onclick="return validarInclusaoAlteracao(this.form)" style="margin-left: 5px" />
+		</div>
+	</ui:define>
+</ui:composition>

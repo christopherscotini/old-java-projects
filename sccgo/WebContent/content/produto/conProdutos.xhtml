@@ -1,0 +1,77 @@
+<?xml version='1.0' encoding='ISO-8859-1' ?>
+<ui:composition template="../../template/template_main.xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:rich="http://richfaces.org/rich"
+	xmlns:t="http://myfaces.apache.org/tomahawk">
+
+	<ui:param name="titulo" value="Consulta de Produtos" />
+
+<ui:define name="body_content">
+
+		<t:selectOneRadio id="listaRadioProdutos" value="#{produtoBean.solicitacaoRadioSelecionada}" layout="spread" forceId="true" forceIdIndex="false" 
+			converter="javax.faces.Integer">
+			<f:selectItems value="#{produtoBean.listaRadioProdutos}" />
+		</t:selectOneRadio>
+		
+		<rich:dataTable id="produtosTable" var="var" value="#{produtoBean.listaDeProdutos}" rows="10" styleClass="dataTable" rowKeyVar="rowKeyIndex">
+			<rich:column style="width:2%;text-align: center">
+				<f:facet name="header">
+					<h:outputText value="" />
+				</f:facet>
+				<t:radio for=":formGlobal:listaRadioProdutos" index="#{rowKeyIndex}" />	
+			</rich:column>
+			<rich:column style="width:35%;text-align: left;">
+				<f:facet name="header">
+					<h:outputText value="nome_prod" />
+				</f:facet>
+				<h:outputText value="#{var.nome}" />
+			</rich:column>
+			<rich:column style="text-align: left;">
+				<f:facet name="header">
+					<h:outputText value="desc_prod" />
+				</f:facet>
+				<h:outputText value="#{var.descricao}"/>
+			</rich:column>
+			<rich:column style="text-align: center;">
+				<f:facet name="header">
+					<h:outputText value="esc_prod" />
+				</f:facet>
+				<h:outputText value="#{var.medidaDeVenda}" />
+			</rich:column>
+			<rich:column style="width:11%;text-align: center;">
+				<f:facet name="header">
+					<h:outputText value="qtde_prod" />
+				</f:facet>
+				<h:outputText value="#{var.quantidadeProduto}"/>
+			</rich:column>
+			<rich:column style="width:11%;text-align: center;">
+				<f:facet name="header">
+					<h:outputText value="valor_und_prod" />
+				</f:facet>
+				<h:outputText value="#{var.valorUnitario}"/>
+			</rich:column>
+			<rich:column style="width:11%;text-align: center;">
+				<f:facet name="header">
+					<h:outputText value="Total R$" />
+				</f:facet>
+				<h:outputText value="#{var.soma}"/>
+			</rich:column>
+			
+			<f:facet name="footer">
+				<rich:dataScroller for="produtosTable" fastControls="hide" stepControls="hide" rendered="#{not empty produtoBean.listaDeProdutos}" />
+			</f:facet>
+		</rich:dataTable>
+		
+			
+		<div class="buttonFooter">
+			<h:commandButton value="Novo" action="#" />
+			<h:commandButton value="Alterar" action="#" style="margin-left: 5px" />
+		</div>
+		
+		
+	
+</ui:define>
+</ui:composition>
