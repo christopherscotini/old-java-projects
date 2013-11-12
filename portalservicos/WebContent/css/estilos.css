@@ -1,0 +1,162 @@
+body {
+	margin:0;padding:0;overflow-x:hidden;}
+
+
+a:link {color:color:#E23C41; text-decoration: none;}      /* unvisited link */
+a:visited {color:color:#E23C41; text-decoration: none;}  /* visited link */
+a:hover {color:color:#E23C41; text-decoration: none; font-weight: bold;}  /* mouse over link */
+a:active {color:color:#E23C41; text-decoration: none;}  /* selected link */
+
+* img {border:none}
+
+.EspacamentoLinhas{margin-top: 9px;}
+.CorpoPagina{width: 100%;padding: 0;margin: 0 auto;background-color: #F9F9F9;}
+.centralizar-conteudo{margin: 0 auto;padding: 0;width: 100%;}
+
+label.HtmlOutputTextResposta{
+	font-size: 14px;
+	font-family: 'Verdana';
+	font-weight: bold;
+	margin-left: 5px;
+	color:#000000;
+}
+label.HtmlOutputLabelResposta{
+	float: right;
+	margin-left: 5px;
+}
+
+label.HtmlOutputTextLabelSubtitle{
+	font-size: 18px;
+	font-family: 'Verdana';
+	font-weight: bold;
+	margin-left: 5px;
+	color:#000000;
+}
+
+label {
+	font-size: 13px;
+	font-family: 'Verdana';
+	color: #000000;
+	font-weight: normal; 
+	cursor:default;
+}
+
+input, textarea, select {
+	font-size: 11px !important;
+	font-family: 'Verdana' !important;
+	color: #000000 !important;
+	font-weight: normal !important;
+	-moz-border-radius:4px !important;
+	-webkit-border-radius:4px !important;
+	-khtml-border-radius:4px !important;
+	border-radius:4px !important;
+}
+
+input[type="checkbox"] {
+	border: none;
+}
+
+img#fundo-login{
+	position: fixed; /* posição fixa para que a possível rolagem da tela não revele espaços em branco */
+    width: 100%;
+    height: 100%;
+}
+
+#fundo-login img {
+    width: 100%; /* com isso imagem ocupará toda a largura da tela. Se colocarmos height: 100% também, a imagem irá distorcer */
+    position: absolute;
+}
+#header {
+	background-image: url("../images/header.jpg");
+	background-repeat:repeat-x;
+	height: 71px;	
+}
+
+#formMenu {
+	border:0;
+	margin:0;
+	padding:0
+}
+
+#user_title {
+	font-family: 'Verdana';
+	font-size: 12px;
+	font-weight: bold;
+}
+
+#main_body {
+	width: 100%;
+	height: 500px;
+	background-color: #FFFFFF;
+}
+
+#body_content {
+	margin: 0 auto;
+	width: 98%;
+	height: 100%;
+	background-color: #F9F9F9;
+}
+
+#menu_bar {}
+
+.botoes-avanco-pagina{
+	margin-left: 5px;
+}
+
+#beadcrumBar{width: 100%}
+
+.ui-growl {top: 155px;}
+
+.portal_titulo {
+	font-size: 20px;
+	font-family: 'Verdana';
+	margin-top:10px;
+	font-weight: bold;
+}
+
+.dataTable {margin-top: 10px;}
+
+.buttonFooter {
+	width: 100%;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	text-align: right;
+}
+
+.buttonFilter {
+	width: 100%;
+	margin-top: 5px;
+	text-align: right;
+}
+
+.lin
+{
+    FONT-WEIGHT: bold;
+    margin-top: 10px;
+    FONT-SIZE: 1px;
+    COLOR: #C6C6CB;
+    FONT-FAMILY: Verdana
+}
+
+label.label-5left{margin-left:5px;}
+input.input-5left{margin-left:5px;}
+
+span.painel-contas-footer{
+	float: right ;
+	margin:15px 5px 15px !important;
+	
+	
+}
+label.painel-contas-footer{
+	font-size: 24px;
+	font-family: 'Verdana';
+	font-weight: bold;
+	color:#731A42;
+}
+
+.botao-voltar{float: left;}
+
+.datalist-parcelas{
+	background: url("") repeat scroll 50% 50% transparent;
+    border: opx;
+}

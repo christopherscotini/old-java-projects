@@ -1,0 +1,89 @@
+<?xml version='1.0' encoding='ISO-8859-1' ?>
+<ui:composition template="/template/template_main.xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+	<ui:define name="cssImports">
+		<link type="text/css" rel="stylesheet" href="#{facesContext.externalContext.requestContextPath}/css/cadastro/clientes.css" />
+	</ui:define>
+	
+	<ui:define name="jsImports">
+	</ui:define>
+
+	<ui:param name="titulo" value="Lista de solicitações" />
+
+	<ui:define name="body_content">
+
+		<h:panelGrid cellpadding="0" cellspacing="0" columns="1" styleClass="CorpoPagina" border="0" >
+		
+			<h:panelGroup id="tabela-listagem-clientes" >
+				<h:panelGrid cellpadding="0" cellspacing="0" columns="1" styleClass="centralizar-conteudo" >
+					<p:dataTable id="tableConClientes" 
+							style="margin-top:20px;"
+							var="result" 
+							rows="10" 
+							rowKey="#{result}" 
+							selectionMode="single"
+							filteredValue="#{clienteBean.filteredSolicitacao}"
+							selection="#{clienteBean.solicitacaoSelecionada}"
+							value="#{clienteBean.solicitacoes}" 
+							paginator="true"
+							paginatorPosition="bottom" 
+							emptyMessage="Você não possui solicitações">
+
+						<p:ajax event="rowSelect"
+							update=":formGlobal:btnDetalhar " />
+						<p:ajax event="rowUnselect"
+							update=" :formGlobal:btnDetalhar " />
+	
+						<f:facet name="header">  
+				           Solicitações efetuadas
+				        </f:facet>
+				        
+						<p:column headerText="Descriçãop" width="35%" sortBy="#{result.descricaoSolicitacao}"
+							filterValue="#{result.descricaoSolicitacao}" filterMatchMode="contains">
+							<h:outputLabel value="#{result.descricaoSolicitacao.subSequence(0, 35)}" style="text-align: left;" />
+						</p:column>
+						<p:column headerText="E-MAIL" width="35%" sortBy="#{result.empresaPrestadoraServico.razaoSocial}"
+							filterValue="#{result.empresaPrestadoraServico.razaoSocial}" filterMatchMode="contains">
+							<h:outputLabel value="#{result.empresaPrestadoraServico.razaoSocial}"
+								style="text-align: left;" />
+						</p:column>
+						<p:column headerText="Data da solicitação" style="text-align: center;"
+							width="10%" sortBy="#{result.dataSolicitacao}">
+							<h:outputLabel value="#{result.dataSolicitacao}"
+								style="text-align: center;" >
+								<f:convertDateTime pattern="dd/MM/yyyy" />
+							</h:outputLabel>
+						</p:column>
+						<p:column headerText="Data da resposta fornecedor" sortBy="#{result.dataRespostaFornecedor}"
+							style="text-align: center;" width="10%">
+							<h:outputLabel value="#{result.dataRespostaFornecedor}"
+								style="text-align: center;">
+								<f:convertDateTime pattern="dd/MM/yyyy" />
+							</h:outputLabel>
+						</p:column>
+						<p:column headerText="Status" style="text-align: center;"
+							width="10%" sortBy="#{result.statusDescricao}">
+							<h:outputLabel value="#{result.statusDescricao}"
+								style="text-align: center;" />
+						</p:column>
+					</p:dataTable>
+				</h:panelGrid>
+			</h:panelGroup>
+			
+			<hr class="lin" />
+	
+	<h:panelGroup>
+		<div class="buttonFooter">
+			<p:commandButton id="btnVoltar" value="Voltar" ajax="false" action="/index.xhtml" style="float:left" immediate="true" />
+			<p:commandButton id="btnDetalhar" value="Detalhar" ajax="false" action="#{clienteBean.navegarDetalharSolicitacao()}" style="margin-left:5px;"  />
+			<p:commandButton id="btnEfetSolicitacao" value="Efetuar solicitação de serviço" ajax="false" action="#{clienteBean.navegarIncluirSolicitacao()}" style="margin-left:5px;"  />
+		</div>
+		</h:panelGroup>
+	</h:panelGrid>
+</ui:define>
+
+</ui:composition>

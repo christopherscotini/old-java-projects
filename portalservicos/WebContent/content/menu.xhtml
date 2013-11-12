@@ -1,0 +1,34 @@
+<?xml version='1.0' encoding='ISO-8859-1' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:sec="http://www.springframework.org/security/tags">
+
+	<h:form id="formMenu">
+
+		<p:messages id="messages" />
+
+		<p:menubar>
+			<p:submenu label="Menu Administrador" icon="ui-icon-document" rendered="#{loginBean.controladorAcesso.permissaoAdministrador}">
+				<p:menuitem value="Manter Perfil" ajax="false" action="#" />
+				<p:menuitem value="Manter Usuarios" ajax="false" action="#" />
+			</p:submenu>
+			
+			<p:submenu label="Menu do Cliente" icon="ui-icon-document" rendered="#{loginBean.controladorAcesso.permissaoUsuarioCliente}">
+				<p:menuitem value="Visualizar Solicitações" ajax="false" action="#{clienteBean.iniciarTela()}" />
+				<p:menuitem value="Abrir solicitação de serviço" ajax="false" action="#{clienteBean.navegarIncluirSolicitacao()}" />
+			</p:submenu>
+			
+			<p:submenu label="Empresas" icon="ui-icon-document">
+			
+			</p:submenu>
+		
+		</p:menubar>
+		
+		
+	</h:form>
+
+</ui:composition>

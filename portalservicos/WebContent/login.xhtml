@@ -1,0 +1,58 @@
+<?xml version='1.0' encoding='ISO-8859-1' ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+	<title>Portal de Serviços</title>
+
+	<link type="text/css" rel="stylesheet" href="#{facesContext.externalContext.requestContextPath}/css/estilos.css" />
+
+	<style type="text/css">
+		.ui-widget {
+			font-size: 90% !important;
+		}
+	</style>
+</h:head>
+
+<h:body>
+
+	<div >
+        <img id="fundo-login" src="#{facesContext.externalContext.requestContextPath}/images/background-login/#{configuracaoPadraoBean.configuration.imgFundoTelaLogin}" alt="" />
+	</div>
+
+	<h:form >
+		<p:growl id="messagesGlobal" globalOnly="true" escape="false" />
+
+		<p:dialog header=".: Entrar no Portal de Serviços :." visible="true" closable="false"
+			draggable="false" resizable="false" width="420">
+			<h:panelGrid columns="2" cellpadding="5">
+					<h:outputLabel value="Usuario:" styleClass="required_labels" />
+					<p:inputText value="#{loginBean.usuario.username}" size="25"
+						id="campo_usuario" />
+
+					<h:outputLabel value="Senha:" styleClass="required_labels" />
+					<p:password value="#{loginBean.usuario.password}"
+						id="campo_senha" 
+						maxlength="20"
+						size="25" />
+
+				<p:commandButton ajax="false" value="Entrar" styleClass="comandos"
+					action="#{loginBean.doLogin()}" />
+				<h:panelGroup></h:panelGroup>
+				<h:panelGroup></h:panelGroup>
+
+				<h:outputText value="Usuário ou senha incorretos!"
+					rendered="#{loginBean.erro}" style="color: darkred;margin:0 auto;" />
+			</h:panelGrid>
+			
+			<h:commandLink action="#{formularioBean.navegarIncluir()}" value="Cadastre-se" />			
+		</p:dialog>
+	</h:form>
+</h:body>
+
+
+
+</html>
+

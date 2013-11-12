@@ -1,0 +1,47 @@
+<?xml version='1.0' encoding='ISO-8859-1' ?>
+<ui:composition template="/template/template_main.xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+	<ui:define name="cssImports">
+		<link type="text/css" rel="stylesheet" href="#{facesContext.externalContext.requestContextPath}/css/cadastro/clientes.css" />
+	</ui:define>
+	
+	<ui:define name="jsImports">
+	</ui:define>
+
+	<ui:param name="titulo" value="Cadastro do Cliente" />
+
+	<ui:define name="body_content">
+
+		<h:panelGrid cellpadding="0" cellspacing="0" columns="1" styleClass="CorpoPagina" border="0" >
+			<h:panelGroup id="tabela-dados-cliente" >
+				<h:panelGrid cellpadding="0" cellspacing="1" columns="2" style="margin-top:5px;margin-bottom:25px;">
+				
+					<p:outputLabel value="Empresa:" for="cboEmpresa" styleClass="HtmlOutputLabelResposta" />
+					<p:selectOneMenu id="cboEmpresa" value="#{clienteBean.solicitacaoCadastro.empresaPrestadoraServico}" style="width:500px;" styleClass="input-5left" required="true" 
+						requiredMessage="O campo EMPRESA é necessario." converter="genericEntityConverter">
+						<f:selectItems value="#{clienteBean.empresas}" var="e" itemLabel="#{e.razaoSocial}" itemValue="#{e}" />
+					</p:selectOneMenu>
+
+					<p:outputLabel value="Descrição do serviço:" for="txtDescServico" styleClass="HtmlOutputLabelResposta"/>
+					<p:inputTextarea id="txtDescServico" value="#{clienteBean.solicitacaoCadastro.descricaoSolicitacao}" cols="163" rows="10" autoResize="true" style="margin-top:5px;" required="true" requiredMessage="O campo DESCRIÇÃO DA SOLICITAÇÃO é obrigatório."/>
+
+			</h:panelGrid>
+		</h:panelGroup>
+		
+	<hr class="lin"/>
+	
+	<h:panelGroup>
+		<div class="buttonFooter">
+			<p:commandButton id="btnVoltar" value="Voltar" ajax="false" action="#{clienteBean.navegarVoltarEfetuarSolicitacao()}" style="float:left" immediate="true" />
+			<p:commandButton id="btnLimpar" value="Limpar" ajax="false"  action="#{clienteBean.resetarFormulario()}"  immediate="true" style="margin-left:5px;"/>
+			<p:commandButton id="btnSalvar" value="Enviar" ajax="false" action="#{clienteBean.executeSave()}" style="margin-left:5px;"  />
+		</div>
+		</h:panelGroup>
+	</h:panelGrid>
+</ui:define>
+
+</ui:composition>
