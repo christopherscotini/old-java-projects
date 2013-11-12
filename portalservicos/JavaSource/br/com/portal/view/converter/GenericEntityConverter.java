@@ -49,8 +49,7 @@ public class GenericEntityConverter implements Converter{
     
     private Long getIdByReflection(Object bean){
     	try{
-    		GenericEntity entity = (GenericEntity) bean;
-    		Field idField = entity.getClass().getDeclaredField("id");
+    		Field idField = bean.getClass().getDeclaredField("id");
     		idField.setAccessible(true);
     		return (Long) idField.get(bean);
     	}catch(Exception ex){

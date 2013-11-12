@@ -63,6 +63,9 @@ public class ClienteBean extends AbstractModelBean {
 		resetarFormulario();
 		empresas = getEmpresaBO().listarTodos();
 		solicitacaoCadastro.setEmpresaPrestadoraServico(empresas.get(0));
+		if(cliente == null){
+			cliente = getClienteBO().buscarClientePorUserID(login.getUsuario());
+		}
 		
 		return TELA_INCLUIR_SOLICITACAO_CLIENTE;
 	}

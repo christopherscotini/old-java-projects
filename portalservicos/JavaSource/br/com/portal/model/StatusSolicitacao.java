@@ -3,9 +3,9 @@ package br.com.portal.model;
 
 public enum StatusSolicitacao {
 
-	PENDENTE(0, "Aguardando aprovação"),
-	CONFIRMADO(1, "Solicitação aprovada"),
-	RECUSADO(2, "Solicitação recusada");
+	PENDENTE(0, "Aguardando aprovaÃ§Ã£o"),
+	CONFIRMADO(1, "SolicitaÃ§Ã£o aprovada"),
+	RECUSADO(2, "SolicitaÃ§Ã£o recusada");
 
 	private Integer codigo = null;
 
