@@ -46,6 +46,24 @@ public class ControladorAcesso {
 		}
 		return permissaoUsuarioCliente;
 	}
+	
+	public boolean isPermissaoUsuarioEmpresa() {
+		HttpSession sessao = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(true);
+		UserEntity usuarioSessao = (UserEntity) sessao.getAttribute(SessionContants.SESSION_USER);
+		
+		if (usuarioSessao != null) {
+			permissaoAdministrador = (usuarioSessao.getPerfil().getDescPerfil().equals("ADMINISTRADOR"));
+			if (permissaoAdministrador) {
+				permissaoUsuarioEmpresa = true;
+			} else {
+				permissaoUsuarioEmpresa = (usuarioSessao.getPerfil().getDescPerfil().equals("EMPRESA"));
+			}
+		} else {
+			permissaoUsuarioEmpresa = false;
+		}
+		
+		return permissaoUsuarioEmpresa;
+	}
 
 	/**
 	 * * M�todo utilizado para configurar o perfil de acesso do usu�rio logado
@@ -56,15 +74,20 @@ public class ControladorAcesso {
 			if(isPermissaoAdministrador()){
 				System.out.println(">>>  Usuário da sessão tem tipo: ADMINISTRADOR   <<<");
 				permissaoUsuarioCliente = true;
-				permissaoUsuarioEmpresa = true;
+				setPermissaoUsuarioEmpresa(true);
 			}else{
 				if (isPermissaoUsuarioCliente()) {
 					System.out.println(">>>  Usuário da sessão tem tipo: CLIENTE   <<<");
 				} else {
-					permissaoUsuarioEmpresa = true;
-					System.out.println(">>>  Usuário da sessão tem tipo: EMPRESA   <<<");
+					if(isPermissaoUsuarioEmpresa()){
+						System.out.println(">>>  Usuário da sessão tem tipo: EMPRESA   <<<");
+					}
 				}
 			}
+	}
+
+	public void setPermissaoUsuarioEmpresa(boolean permissaoUsuarioEmpresa) {
+		this.permissaoUsuarioEmpresa = permissaoUsuarioEmpresa;
 	}
 	
 }

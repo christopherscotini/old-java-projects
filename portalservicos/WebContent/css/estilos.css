@@ -67,7 +67,7 @@ img#fundo-login{
     position: absolute;
 }
 #header {
-	background-image: url("../images/header.jpg");
+	background-image: url("../images/header2.gif");
 	background-repeat:repeat-x;
 	height: 71px;	
 }
@@ -155,8 +155,3 @@ label.painel-contas-footer{
 }
 
 .botao-voltar{float: left;}
-
-.datalist-parcelas{
-	background: url("") repeat scroll 50% 50% transparent;
-    border: opx;
-}

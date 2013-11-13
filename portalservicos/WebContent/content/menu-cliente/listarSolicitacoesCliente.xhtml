@@ -46,7 +46,7 @@
 							filterValue="#{result.descricaoSolicitacao}" filterMatchMode="contains">
 							<h:outputLabel value="#{result.descricaoSolicitacao}" style="text-align: left;" />
 						</p:column>
-						<p:column headerText="E-MAIL" width="35%" sortBy="#{result.empresaPrestadoraServico.razaoSocial}"
+						<p:column headerText="Razão Social" width="35%" sortBy="#{result.empresaPrestadoraServico.razaoSocial}"
 							filterValue="#{result.empresaPrestadoraServico.razaoSocial}" filterMatchMode="contains">
 							<h:outputLabel value="#{result.empresaPrestadoraServico.razaoSocial}"
 								style="text-align: left;" />
@@ -79,7 +79,7 @@
 	<h:panelGroup>
 		<div class="buttonFooter">
 			<p:commandButton id="btnVoltar" value="Voltar" ajax="false" action="/index.xhtml" style="float:left" immediate="true" />
-			<p:commandButton id="btnDetalhar" value="Detalhar" ajax="false" action="#{clienteBean.navegarDetalharSolicitacao()}" style="margin-left:5px;"  />
+			<p:commandButton id="btnDetalhar" value="Detalhar" ajax="false" disabled="#{empty clienteBean.solicitacaoSelecionada}" action="#{clienteBean.navegarDetalharSolicitacao()}" style="margin-left:5px;"  />
 			<p:commandButton id="btnEfetSolicitacao" value="Efetuar solicitação de serviço" ajax="false" action="#{clienteBean.navegarIncluirSolicitacao()}" style="margin-left:5px;"  />
 		</div>
 		</h:panelGroup>

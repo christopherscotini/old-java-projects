@@ -19,6 +19,7 @@ public class ClienteBean extends AbstractModelBean {
 
 	private final String TELA_LISTAR_SOLICITACOES_CLIENTE = "/content/menu-cliente/listarSolicitacoesCliente.xhtml";
 	private final String TELA_INCLUIR_SOLICITACAO_CLIENTE = "/content/menu-cliente/efetuarSolicitacao.xhtml";
+	private final String TELA_DETALHAR_SOLICITACOES = "/content/menu-cliente/detalharSolicitacao.xhtml";
 
 	@ManagedProperty(value = "#{loginBean}")
 	private LoginBean login = null;
@@ -56,7 +57,7 @@ public class ClienteBean extends AbstractModelBean {
 
 	public String navegarDetalharSolicitacao() {
 
-		return "";
+		return TELA_DETALHAR_SOLICITACOES;
 	}
 
 	public String navegarIncluirSolicitacao() {

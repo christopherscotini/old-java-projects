@@ -34,6 +34,12 @@ public class SolicitacaoBOImpl implements SolicitacaoBO {
 	}
 
 	@Override
+	public void atualizarStatusSolicitacaoEmpresa(SolicitacaoEntity solicitacao) {
+		solicitacao.setDataRespostaFornecedor(new Date());
+		dao.update(solicitacao);
+	}
+	
+	@Override
 	public SolicitacaoEntity adicionarEntidade(SolicitacaoEntity entidade) {
 		entidade.setStatus(StatusSolicitacao.PENDENTE.getCodigo());
 		entidade.setDataSolicitacao(new Date());

@@ -98,7 +98,7 @@ public class LoginBean implements Serializable {
 		
 		context.getExternalContext().invalidateSession();
 		
-		return PagesContants.PAGINA_LOGIN;
+		return PagesContants.PAGINA_LOGIN+"?faces-redirect=true";
 	}
 
 	/**

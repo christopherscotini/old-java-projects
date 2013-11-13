@@ -9,8 +9,6 @@
 
 	<h:form id="formMenu">
 
-		<p:messages id="messages" />
-
 		<p:menubar>
 			<p:submenu label="Menu Administrador" icon="ui-icon-document" rendered="#{loginBean.controladorAcesso.permissaoAdministrador}">
 				<p:menuitem value="Manter Perfil" ajax="false" action="#" />
@@ -22,10 +20,12 @@
 				<p:menuitem value="Abrir solicitação de serviço" ajax="false" action="#{clienteBean.navegarIncluirSolicitacao()}" />
 			</p:submenu>
 			
-			<p:submenu label="Empresas" icon="ui-icon-document">
-			
+			<p:submenu label="Empresas" icon="ui-icon-document" rendered="#{loginBean.controladorAcesso.permissaoUsuarioEmpresa}">
+				<p:menuitem value="Visualizar Solicitações" ajax="false" action="#{empresaBean.iniciarTela()}" />
 			</p:submenu>
 		
+			<p:menuitem value="Sair" action="#{loginBean.doLogout()}" />
+			
 		</p:menubar>
 		
 		

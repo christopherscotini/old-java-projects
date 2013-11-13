@@ -1,4 +1,4 @@
-<?xml version='1.0' encoding='ISO-8859-1' ?>
+<?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
@@ -7,7 +7,7 @@
 	xmlns:p="http://primefaces.org/ui">
 
 <h:head>
-	<meta http-equiv="Content-Type" content="text/html;CHARSET=ISO-8859-1" />
+	<meta http-equiv="Content-Type" content="text/html;CHARSET=UTF-8" />
 	<link type="text/css" rel="stylesheet" href="#{facesContext.externalContext.requestContextPath}/css/estilos.css" />
 	<link type="text/css" rel="stylesheet" href="#{facesContext.externalContext.requestContextPath}/css/defaultPrimefaces.css" />
 	<ui:insert name="cssImports" />
@@ -16,7 +16,7 @@
 	<script type="text/javascript" src="#{facesContext.externalContext.requestContextPath}/javascript/utils.js"></script>
 	<script type="text/javascript" src="#{facesContext.externalContext.requestContextPath}/javascript/primefaces-locale.js"></script>
 	<ui:insert name="jsImports" />
-	<title>.:: Porta de Serviços ::.</title>
+	<title>.:: Porta de ServiÃ§os ::.</title>
 </h:head>
 
 <h:body onload="loadMasksJQuery();">
@@ -43,7 +43,7 @@
 								<h1 class="portal_titulo"> <h:outputText value="#{titulo}" /> </h1>
 							</div>
 							
-							<p:messages id="messagesGlobal" globalOnly="true" escape="false" />
+							<p:growl id="messagesGlobal" globalOnly="true" escape="false" />
 							
 							<p:dialog modal="true"  widgetVar="statusDialog" draggable="false" resizable="false" closable="false">  
 							    <p:graphicImage value="/images/ajaxloadingbar.gif" />  

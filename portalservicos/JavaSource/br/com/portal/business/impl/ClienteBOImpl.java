@@ -16,6 +16,7 @@ import br.com.portal.dao.cadastro.UserDao;
 import br.com.portal.model.ClienteEntity;
 import br.com.portal.model.UserEntity;
 import br.com.portal.utils.CriptografiaUtil;
+import br.com.portal.utils.ProjetoUtils;
 
 /**
  * @author christopher.rozario
@@ -49,16 +50,30 @@ public class ClienteBOImpl implements ClienteBO{
 			throw new RegistroJaCadastradoException("Esse cliente já esta cadastrado.");
 		}
 		
+		
 		entidade.getUsuario().setPassword(CriptografiaUtil.criptografar(entidade.getUsuario().getPassword()));
 		entidade.setUsuario(usuarioDao.insert(entidade.getUsuario()));
 		
-		return dao.insert(entidade);
+		return dao.insert(removerMascaras(entidade));
 	}
 
 	@Override
 	public ClienteEntity editarEntidade(ClienteEntity entidade) {
 		// TODO Auto-generated method stub
 		return null;
+	}
+	
+	private ClienteEntity removerMascaras(ClienteEntity entity){
+		if(!(entity.getNumCpfString() == null || entity.getNumCpfString().equals(""))){
+			entity.setCpf(Long.valueOf(ProjetoUtils.verificaStringCpfCnpjToLong(entity.getNumCpfString())));
+		}
+		if(!(entity.getNumTelefoneString() == null || entity.getNumTelefoneString().equals(""))){
+			entity.setNumTelefone(ProjetoUtils.removerFormatacaoTelefone(entity.getNumTelefoneString()));
+		}
+		if(!(entity.getNumCelularString() == null || entity.getNumCelularString().equals(""))){
+			entity.setNumCelular(ProjetoUtils.removerFormatacaoTelefone(entity.getNumCelularString()));
+		}
+		return entity;
 	}
 
 	@Override

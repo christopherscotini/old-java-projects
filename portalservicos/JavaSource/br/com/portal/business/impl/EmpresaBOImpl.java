@@ -13,7 +13,9 @@ import br.com.portal.business.exception.RegistroJaCadastradoException;
 import br.com.portal.dao.cadastro.EmpresaDao;
 import br.com.portal.dao.cadastro.UserDao;
 import br.com.portal.model.EmpresaEntity;
+import br.com.portal.model.UserEntity;
 import br.com.portal.utils.CriptografiaUtil;
+import br.com.portal.utils.ProjetoUtils;
 
 /**
  * @author christopher.rozario
@@ -33,6 +35,11 @@ public class EmpresaBOImpl implements EmpresaBO{
 	public List<EmpresaEntity> listarTodos() {
 		return dao.findAll();
 	}
+	
+	@Override
+	public EmpresaEntity buscarEmpresaPorUserID(UserEntity user) {
+		return dao.findByUserId(user);
+	}
 
 	@Override
 	public EmpresaEntity adicionarEntidade(EmpresaEntity entidade) {
@@ -48,8 +55,24 @@ public class EmpresaBOImpl implements EmpresaBO{
 		entidade.getUsuario().setPassword(CriptografiaUtil.criptografar(entidade.getUsuario().getPassword()));
 		entidade.setUsuario(userDao.insert(entidade.getUsuario()));
 		
-		return dao.insert(entidade);
+		return dao.insert(removerMascaras(entidade));
 		
+	}
+	
+	private EmpresaEntity removerMascaras(EmpresaEntity entity){
+		if(!(entity.getCnpjString() == null || entity.getCnpjString().equals(""))){
+			entity.setCnpj(Long.valueOf(ProjetoUtils.verificaStringCpfCnpjToLong(entity.getCnpjString())));
+		}
+		if(!(entity.getTelefone1String() == null || entity.getTelefone1String().equals(""))){
+			entity.setTelefone1(ProjetoUtils.removerFormatacaoTelefone(entity.getTelefone1String()));
+		}
+		if(!(entity.getTelefone2String() == null || entity.getTelefone2String().equals(""))){
+			entity.setTelefone2(ProjetoUtils.removerFormatacaoTelefone(entity.getTelefone2String()));
+		}
+		if(!(entity.getTelefone3String() == null || entity.getTelefone3String().equals(""))){
+			entity.setTelefone3(ProjetoUtils.removerFormatacaoTelefone(entity.getTelefone3String()));
+		}
+		return entity;
 	}
 
 	@Override

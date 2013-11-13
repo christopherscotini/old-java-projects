@@ -1,0 +1,56 @@
+<?xml version='1.0' encoding='ISO-8859-1' ?>
+<ui:composition template="/template/template_main.xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+	<ui:define name="cssImports">
+		<link type="text/css" rel="stylesheet" href="#{facesContext.externalContext.requestContextPath}/css/cadastro/clientes.css" />
+	</ui:define>
+	
+	<ui:define name="jsImports">
+	</ui:define>
+
+	<ui:param name="titulo" value="Solicitação do Cliente" />
+
+	<ui:define name="body_content">
+
+		<h:panelGrid cellpadding="0" cellspacing="0" columns="1" styleClass="CorpoPagina" border="0" >
+			<h:panelGroup id="tabela-dados-cliente" >
+				<h:panelGrid cellpadding="0" cellspacing="1" columns="2" style="margin-top:5px;margin-bottom:25px;">
+					<p:outputLabel value="Cod. Solicitação:" for="txtCodSolicitacao" styleClass="HtmlOutputLabelResposta" />
+					<h:outputLabel id="txtCodSolicitacao" value="#{empresaBean.solicitacaoSelecionada.id}" styleClass="HtmlOutputTextResposta"/>
+					<p:outputLabel value="Cliente:" for="txtCliente" styleClass="HtmlOutputLabelResposta" />
+					<h:outputLabel id="txtCliente" value="#{empresaBean.solicitacaoSelecionada.clienteSolicitante.nome}" styleClass="HtmlOutputTextResposta"/>
+				</h:panelGrid>
+						<h:panelGrid columns="1">
+						<p:outputLabel value="Descrição do serviço:" for="txtDescServico" styleClass=""/>
+						<p:inputTextarea id="txtDescServico" disabled="true" value="#{empresaBean.solicitacaoSelecionada.descricaoSolicitacao}" cols="163" rows="10" autoResize="true" style="margin-top:5px;" required="true" requiredMessage="O campo DESCRIÇÃO DA SOLICITAÇÃO é obrigatório."/>
+						</h:panelGrid>
+			</h:panelGroup>
+			
+			<h:panelGroup >
+				<h:panelGrid cellpadding="0" cellspacing="1" columns="2" style="margin-top:5px;margin-bottom:25px;">
+					<p:outputLabel value="Status:" for="txtStatus" styleClass="HtmlOutputLabelResposta" style="margin-left:5px;" />
+					<p:selectOneButton id="txtStatus" value="#{empresaBean.solicitacaoSelecionada.status}" >
+						<f:selectItem itemValue="0" itemLabel="Deixar em espera" />
+						<f:selectItem itemValue="1" itemLabel="Aprovar" />
+						<f:selectItem itemValue="2" itemLabel="Recusar" />
+					</p:selectOneButton>
+				</h:panelGrid>
+			</h:panelGroup>
+
+		
+		<hr class="lin"/>
+		
+		<h:panelGroup>
+			<div class="buttonFooter">
+				<p:commandButton id="btnVoltar" value="Voltar" ajax="false" action="#{empresaBean.navegarVoltarEfetuarSolicitacao()}" style="float:left" immediate="true" />
+				<p:commandButton id="btnSalvar" value="Enviar" ajax="false" action="#{empresaBean.executeChangeStatus()}" style="margin-left:5px;"  />
+			</div>
+		</h:panelGroup>
+	</h:panelGrid>
+</ui:define>
+
+</ui:composition>
