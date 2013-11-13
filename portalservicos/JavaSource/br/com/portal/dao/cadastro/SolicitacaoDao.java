@@ -11,5 +11,6 @@ public interface SolicitacaoDao extends Dao<SolicitacaoEntity, Long> {
 
 	List<SolicitacaoEntity>findByClientId(ClienteEntity cliente);
 	List<SolicitacaoEntity>findByEmpresaId(EmpresaEntity empresa);
+	List<SolicitacaoEntity>findAllAdmin();
 	
 }

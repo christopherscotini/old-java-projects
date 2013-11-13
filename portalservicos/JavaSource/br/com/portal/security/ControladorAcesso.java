@@ -1,7 +1,5 @@
 package br.com.portal.security;
 
-import java.util.Set;
-
 import javax.faces.context.FacesContext;
 import javax.servlet.http.HttpSession;
 
@@ -35,12 +33,7 @@ public class ControladorAcesso {
 		HttpSession sessao = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(true);
 		UserEntity usuarioSessao = (UserEntity) sessao.getAttribute(SessionContants.SESSION_USER);
 		if (usuarioSessao != null) {
-			permissaoAdministrador = (usuarioSessao.getPerfil().getDescPerfil().equals("ADMINISTRADOR"));
-			if (permissaoAdministrador) {
-				permissaoUsuarioCliente = true;
-			} else {
-				permissaoUsuarioCliente = (usuarioSessao.getPerfil().getDescPerfil().equals("CLIENTE"));
-			}
+			permissaoUsuarioCliente = (usuarioSessao.getPerfil().getDescPerfil().equals("CLIENTE"));
 		} else {
 			permissaoUsuarioCliente = false;
 		}
@@ -52,12 +45,7 @@ public class ControladorAcesso {
 		UserEntity usuarioSessao = (UserEntity) sessao.getAttribute(SessionContants.SESSION_USER);
 		
 		if (usuarioSessao != null) {
-			permissaoAdministrador = (usuarioSessao.getPerfil().getDescPerfil().equals("ADMINISTRADOR"));
-			if (permissaoAdministrador) {
-				permissaoUsuarioEmpresa = true;
-			} else {
 				permissaoUsuarioEmpresa = (usuarioSessao.getPerfil().getDescPerfil().equals("EMPRESA"));
-			}
 		} else {
 			permissaoUsuarioEmpresa = false;
 		}

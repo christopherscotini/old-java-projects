@@ -1,4 +1,4 @@
-<?xml version='1.0' encoding='ISO-8859-1' ?>
+<?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <ui:composition xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
@@ -11,17 +11,18 @@
 
 		<p:menubar>
 			<p:submenu label="Menu Administrador" icon="ui-icon-document" rendered="#{loginBean.controladorAcesso.permissaoAdministrador}">
-				<p:menuitem value="Manter Perfil" ajax="false" action="#" />
-				<p:menuitem value="Manter Usuarios" ajax="false" action="#" />
+				<p:menuitem value="Lista de clientes" ajax="false" action="#{administradorBean.iniciarTelaClientes()}" />
+				<p:menuitem value="Lista de Empresas" ajax="false" action="#{administradorBean.iniciarTelaEmpresas()}" />
+				<p:menuitem value="Lista de solicitaÃ§Ãµes" ajax="false" action="#{administradorBean.iniciarTelaSolicitacoes()}" />
 			</p:submenu>
 			
 			<p:submenu label="Menu do Cliente" icon="ui-icon-document" rendered="#{loginBean.controladorAcesso.permissaoUsuarioCliente}">
-				<p:menuitem value="Visualizar Solicitações" ajax="false" action="#{clienteBean.iniciarTela()}" />
-				<p:menuitem value="Abrir solicitação de serviço" ajax="false" action="#{clienteBean.navegarIncluirSolicitacao()}" />
+				<p:menuitem value="Visualizar SolicitaÃ§Ãµes" ajax="false" action="#{clienteBean.iniciarTela()}" />
+				<p:menuitem value="Abrir solicitaÃ§Ã£o de serviÃ§o" ajax="false" action="#{clienteBean.navegarIncluirSolicitacao()}" />
 			</p:submenu>
 			
 			<p:submenu label="Empresas" icon="ui-icon-document" rendered="#{loginBean.controladorAcesso.permissaoUsuarioEmpresa}">
-				<p:menuitem value="Visualizar Solicitações" ajax="false" action="#{empresaBean.iniciarTela()}" />
+				<p:menuitem value="Visualizar SolicitaÃ§Ãµes" ajax="false" action="#{empresaBean.iniciarTela()}" />
 			</p:submenu>
 		
 			<p:menuitem value="Sair" action="#{loginBean.doLogout()}" />

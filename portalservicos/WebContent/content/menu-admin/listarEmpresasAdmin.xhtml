@@ -1,0 +1,79 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<ui:composition template="/template/template_main.xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+	<ui:define name="cssImports">
+		<link type="text/css" rel="stylesheet" href="#{facesContext.externalContext.requestContextPath}/css/cadastro/clientes.css" />
+	</ui:define>
+	
+	<ui:define name="jsImports">
+	</ui:define>
+
+	<ui:param name="titulo" value="Lista de empresas" />
+
+	<ui:define name="body_content">
+
+		<h:panelGrid cellpadding="0" cellspacing="0" columns="1" styleClass="CorpoPagina" border="0" >
+		
+		<h:panelGroup id="tabela-listagem-empresa" >
+			<h:panelGrid cellpadding="0" cellspacing="0" columns="1" styleClass="centralizar-conteudo" >
+				<p:dataTable id="tableConClientes" 
+						style="margin-top:20px;"
+						var="result" 
+						rows="10" 
+						rowKey="#{result}" 
+						selectionMode="single"
+						filteredValue="#{administradorBean.filteredEmpresas}"
+						selection="#{administradorBean.empresaSelecionada}"
+						value="#{administradorBean.empresas}" 
+						paginator="true"
+						paginatorPosition="bottom" 
+						emptyMessage="Você não possui solicitações">
+
+					<p:ajax event="rowSelect"
+						update=":formGlobal:btnDetalhar " />
+					<p:ajax event="rowUnselect"
+						update=" :formGlobal:btnDetalhar" />
+
+					<f:facet name="header">  
+			           Empresas cadastradas
+			        </f:facet>
+			        
+					<p:column headerText="Razão Social" width="35%" sortBy="#{result.razaoSocial}"
+						filterValue="#{result.razaoSocial}" filterMatchMode="contains">
+						<h:outputLabel value="#{result.razaoSocial}" style="text-align: left;" />
+					</p:column>
+					<p:column headerText="TELEFONE" width="15%" sortBy="#{result.telefone1String}"
+						filterValue="#{result.telefone1String}" filterMatchMode="contains">
+						<h:outputLabel value="#{result.telefone1String}"
+							style="text-align: left;" />
+					</p:column>
+					<p:column headerText="CNPJ" width="15%" sortBy="#{result.cnpjString}"
+						filterValue="#{result.cnpjString}" filterMatchMode="contains">
+						<h:outputLabel value="#{result.cnpjString}"
+							style="text-align: left;" />
+					</p:column>
+					<p:column headerText="UF" style="text-align: center;"
+						width="10%" sortBy="#{result.endereco.estado}">
+						<h:outputLabel value="#{result.endereco.estado}"
+							style="text-align: center;" >
+						</h:outputLabel>
+					</p:column>
+				</p:dataTable>
+			</h:panelGrid>
+		</h:panelGroup>
+			
+		<hr class="lin" />
+	
+		<h:panelGroup>
+			<div class="buttonFooter">
+				<p:commandButton id="btnDetalhar" value="Detalhar" disabled="#{empty administradorBean.empresaSelecionada}" ajax="false" action="#{administradorBean.navegarDetalharEmpresa()}" style="margin-left:5px;"  />
+			</div>
+		</h:panelGroup>
+	</h:panelGrid>
+</ui:define>
+
+</ui:composition>

@@ -20,24 +20,22 @@
 			<h:panelGroup id="tabela-dados-cliente" >
 				<h:panelGrid cellpadding="0" cellspacing="1" columns="2" style="margin-top:5px;margin-bottom:25px;">
 					<p:outputLabel value="Cod. Solicitação:" for="txtCodSolicitacao" styleClass="HtmlOutputLabelResposta" />
-					<h:outputLabel id="txtCodSolicitacao" value="#{empresaBean.solicitacaoSelecionada.id}" styleClass="HtmlOutputTextResposta"/>
+					<h:outputLabel id="txtCodSolicitacao" value="#{administradorBean.solicitacaoSelecionada.id}" styleClass="HtmlOutputTextResposta"/>
 					<p:outputLabel value="Cliente:" for="txtCliente" styleClass="HtmlOutputLabelResposta" />
-					<h:outputLabel id="txtCliente" value="#{empresaBean.solicitacaoSelecionada.clienteSolicitante.nome}" styleClass="HtmlOutputTextResposta"/>
+					<h:outputLabel id="txtCliente" value="#{administradorBean.solicitacaoSelecionada.clienteSolicitante.nome}" styleClass="HtmlOutputTextResposta"/>
+					<p:outputLabel value="Empresa:" for="txtCliente" styleClass="HtmlOutputLabelResposta" />
+					<h:outputLabel id="txtEmpresa" value="#{administradorBean.solicitacaoSelecionada.empresaPrestadoraServico.razaoSocial}" styleClass="HtmlOutputTextResposta"/>
 				</h:panelGrid>
-						<h:panelGrid columns="1">
-						<p:outputLabel value="Descrição do serviço:" for="txtDescServico" styleClass=""/>
-						<p:inputTextarea id="txtDescServico" disabled="true" value="#{empresaBean.solicitacaoSelecionada.descricaoSolicitacao}" cols="163" rows="10" autoResize="true" style="margin-top:5px;" required="true" requiredMessage="O campo DESCRIÇÃO DA SOLICITAÇÃO É obrigatário."/>
-						</h:panelGrid>
+				<h:panelGrid columns="1">
+					<p:outputLabel value="Descrição do serviço:" for="txtDescServico" styleClass=""/>
+					<p:inputTextarea id="txtDescServico" disabled="true" value="#{administradorBean.solicitacaoSelecionada.descricaoSolicitacao}" cols="163" rows="10" autoResize="true" style="margin-top:5px;" required="true" requiredMessage="O campo DESCRIÇÃO DA SOLICITAÇÃO É obrigatário."/>
+				</h:panelGrid>
 			</h:panelGroup>
 			
 			<h:panelGroup >
 				<h:panelGrid cellpadding="0" cellspacing="1" columns="2" style="margin-top:5px;margin-bottom:25px;">
 					<p:outputLabel value="Status:" for="txtStatus" styleClass="HtmlOutputLabelResposta" style="margin-left:5px;" />
-					<p:selectOneButton id="txtStatus" value="#{empresaBean.solicitacaoSelecionada.status}" >
-						<f:selectItem itemValue="0" itemLabel="Deixar em espera" />
-						<f:selectItem itemValue="1" itemLabel="Aprovar" />
-						<f:selectItem itemValue="2" itemLabel="Recusar" />
-					</p:selectOneButton>
+					<h:outputLabel id="txtStatus" value="#{administradorBean.solicitacaoSelecionada.statusDescricao}" styleClass="HtmlOutputTextResposta" />
 				</h:panelGrid>
 			</h:panelGroup>
 
@@ -46,8 +44,7 @@
 		
 		<h:panelGroup>
 			<div class="buttonFooter">
-				<p:commandButton id="btnVoltar" value="Voltar" ajax="false" action="#{empresaBean.navegarVoltarEfetuarSolicitacao()}" style="float:left" immediate="true" />
-				<p:commandButton id="btnSalvar" value="Enviar" ajax="false" action="#{empresaBean.executeChangeStatus()}" style="margin-left:5px;"  />
+				<p:commandButton id="btnVoltar" value="Voltar" ajax="false" action="#{administradorBean.iniciarTelaSolicitacoes()}" style="float:left" immediate="true" />
 			</div>
 		</h:panelGroup>
 	</h:panelGrid>

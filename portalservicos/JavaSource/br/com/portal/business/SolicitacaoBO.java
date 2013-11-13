@@ -11,6 +11,7 @@ public interface SolicitacaoBO extends ServiceModel<SolicitacaoEntity>{
 
 	public List<SolicitacaoEntity> listarSolicitacaoCliente(ClienteEntity cliente);
 	public List<SolicitacaoEntity> listarSolicitacaoEmpresa(EmpresaEntity empresa);
+	public List<SolicitacaoEntity> listarSolicitacaoAdmin();
 	public void atualizarStatusSolicitacaoEmpresa(SolicitacaoEntity solicitacao);
 	
 }

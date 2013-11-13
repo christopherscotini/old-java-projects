@@ -23,7 +23,11 @@ public final class CnpjUtils {
 		}
 
 		String cnpjNumeros = cnpj.trim().replaceAll("\\.|/|\\-", "");
-
+		
+		if(cnpjNumeros.length() != 14){
+			return false;
+		}
+		
 		if (!validarRepeticoes(cnpjNumeros)) {
 			return false;
 		}

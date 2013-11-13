@@ -213,6 +213,7 @@ public final class ProjetoUtils {
 		} else {
 			str = str.replace(".", "");
 			str = str.replace("-", "");
+			str = str.replace("/", "");
 			return Long.valueOf(StringUtil.trim(str, ' '));
 		}
 	}

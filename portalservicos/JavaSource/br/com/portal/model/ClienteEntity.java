@@ -143,7 +143,11 @@ public class ClienteEntity implements Serializable {
 	}
 	
 	public String getDataNascimentoFormatado() {
-		return ProjetoUtils.converterDataString(dataNascimento, "dd/MM/yyyy");
+		if(dataNascimento != null){
+			return ProjetoUtils.converterDataString(dataNascimento, "dd/MM/yyyy");
+		}else{
+			return null;
+		}
 	}
 	
 	public String getNumCpfString() {

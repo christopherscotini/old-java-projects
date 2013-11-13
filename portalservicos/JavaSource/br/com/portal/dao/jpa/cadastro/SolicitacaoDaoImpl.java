@@ -32,4 +32,8 @@ public class SolicitacaoDaoImpl extends JpaGenericDao<SolicitacaoEntity, Long> i
 		return getEntityManager().createQuery("FROM SolicitacaoEntity s WHERE s.empresaPrestadoraServico = "+empresa.getId()).getResultList();
 	}
 
+	@Override
+	public List<SolicitacaoEntity> findAllAdmin() {
+		return getEntityManager().createQuery("FROM SolicitacaoEntity s ORDER BY s.dataSolicitacao, s.status ASC").getResultList();
+	}
 }

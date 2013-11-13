@@ -23,7 +23,7 @@ public class ClienteDaoImpl extends JpaGenericDao<ClienteEntity, Long> implement
 	@Override
 	public boolean existsCliente(ClienteEntity cliente) {
 		StringBuilder query = new StringBuilder();
-		query.append("FROM ClienteEntity c WHERE c.cpf <> "+cliente.getCpf());
+		query.append("FROM ClienteEntity c WHERE c.cpf = "+cliente.getCpf());
 		if(cliente.getId() != null){
 			query.append("AND c.id <> "+cliente.getId());
 		}

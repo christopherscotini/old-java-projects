@@ -1,4 +1,4 @@
-<?xml version='1.0' encoding='ISO-8859-1' ?>
+<?xml version='1.0' encoding='UTF-8' ?>
 <ui:composition template="/template/template_main.xhtml"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:h="http://java.sun.com/jsf/html"
@@ -12,7 +12,7 @@
 	<ui:define name="jsImports">
 	</ui:define>
 
-	<ui:param name="titulo" value="Lista de solicitações" />
+	<ui:param name="titulo" value="Lista de solicitaÃ§Ãµes" />
 
 	<ui:define name="body_content">
 
@@ -31,7 +31,7 @@
 						value="#{empresaBean.solicitacoes}" 
 						paginator="true"
 						paginatorPosition="bottom" 
-						emptyMessage="Você não possui solicitações">
+						emptyMessage="VocÃª nÃ£o possui solicitaÃ§Ãµes">
 
 					<p:ajax event="rowSelect"
 						update=":formGlobal:btnVisualizar " />
@@ -39,10 +39,10 @@
 						update=" :formGlobal:btnVisualizar" />
 
 					<f:facet name="header">  
-			           Solicitações efetuadas
+			           SolicitaÃ§Ãµes efetuadas
 			        </f:facet>
 			        
-					<p:column headerText="Descrição" width="35%" sortBy="#{result.descricaoSolicitacao}"
+					<p:column headerText="DescriÃ§Ã£o" width="35%" sortBy="#{result.descricaoSolicitacao}"
 						filterValue="#{result.descricaoSolicitacao}" filterMatchMode="contains">
 						<h:outputLabel value="#{result.descricaoSolicitacao}" style="text-align: left;" />
 					</p:column>
@@ -51,7 +51,7 @@
 						<h:outputLabel value="#{result.clienteSolicitante.nome}"
 							style="text-align: left;" />
 					</p:column>
-					<p:column headerText="Data da solicitação" style="text-align: center;"
+					<p:column headerText="Data da solicitaÃ§Ã£o" style="text-align: center;"
 						width="10%" sortBy="#{result.dataSolicitacao}">
 						<h:outputLabel value="#{result.dataSolicitacao}"
 							style="text-align: center;" >
@@ -79,7 +79,7 @@
 		<h:panelGroup>
 			<div class="buttonFooter">
 				<p:commandButton id="btnVoltar" value="Voltar" ajax="false" action="/index.xhtml" style="float:left" immediate="true" />
-				<p:commandButton id="btnVisualizar" value="Visualizar solicitação de serviço" disabled="#{empty empresaBean.solicitacaoSelecionada}" ajax="false" action="#{empresaBean.prepareChangeStatus()}" style="margin-left:5px;"  />
+				<p:commandButton id="btnVisualizar" value="Visualizar solicitaÃ§Ã£o de serviÃ§o" disabled="#{empty empresaBean.solicitacaoSelecionada}" ajax="false" action="#{empresaBean.prepareChangeStatus()}" style="margin-left:5px;"  />
 			</div>
 		</h:panelGroup>
 	</h:panelGrid>

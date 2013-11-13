@@ -1,11 +1,11 @@
-<?xml version='1.0' encoding='ISO-8859-1' ?>
+<?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:p="http://primefaces.org/ui">
 
 <h:head>
-	<title>Portal de Serviços</title>
+	<title>Portal de ServiÃ§os</title>
 
 	<link type="text/css" rel="stylesheet" href="#{facesContext.externalContext.requestContextPath}/css/estilos.css" />
 
@@ -19,13 +19,13 @@
 <h:body>
 
 	<div >
-        <img id="fundo-login" src="#{facesContext.externalContext.requestContextPath}/images/background-login/#{configuracaoPadraoBean.configuration.imgFundoTelaLogin}" alt="" />
+        <img id="fundo-login" src="#{facesContext.externalContext.requestContextPath}/images/background-login/background1.jpg" alt="" />
 	</div>
 
 	<h:form >
 		<p:growl id="messagesGlobal" globalOnly="true" escape="false" />
 
-		<p:dialog header=".: Entrar no Portal de Serviços :." visible="true" closable="false"
+		<p:dialog header=".: Entrar no Portal de ServiÃ§os :." visible="true" closable="false"
 			draggable="false" resizable="false" width="420">
 			<h:panelGrid columns="2" cellpadding="5">
 					<h:outputLabel value="Usuario:" styleClass="required_labels" />
@@ -43,7 +43,7 @@
 				<h:panelGroup></h:panelGroup>
 				<h:panelGroup></h:panelGroup>
 
-				<h:outputText value="Usuário ou senha incorretos!"
+				<h:outputText value="UsuÃ¡rio ou senha incorretos!"
 					rendered="#{loginBean.erro}" style="color: darkred;margin:0 auto;" />
 			</h:panelGrid>
 			

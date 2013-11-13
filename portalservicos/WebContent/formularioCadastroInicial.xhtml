@@ -1,4 +1,4 @@
-<?xml version='1.0' encoding='ISO-8859-1' ?>
+<?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:h="http://java.sun.com/jsf/html"
@@ -19,7 +19,7 @@
 		src="#{facesContext.externalContext.requestContextPath}/javascript/utils.js"></script>
 	<script type="text/javascript"
 		src="#{facesContext.externalContext.requestContextPath}/javascript/primefaces-locale.js"></script>
-	<title>.:: Porta de Serviços ::.</title>
+	<title>.:: Porta de ServiÃ§os ::.</title>
 </h:head>
 
 
@@ -31,21 +31,22 @@
 	</div>
 	<div id="main_title" align="center">
 		<h1 class="portal_titulo">
-			<h:outputText value="Formulário de Cadastro" />
+			<h:outputText value="FormulÃ¡rio de Cadastro" />
 		</h1>
 	</div>
-	<h:form>
-		<p:messages id="messagesGlobal" globalOnly="true" escape="false" />
 
+	<p:messages closable="true" />
+
+	<h:form>
 		<h:panelGrid cellpadding="0" cellspacing="0" columns="1"
 			styleClass="CorpoPagina" border="0">
 			<h:panelGrid columns="2">
-				<p:outputLabel value="Você é: " />
+				<p:outputLabel value="VocÃª Ã©: " />
 				<p:selectOneRadio id="options"
 					value="#{formularioBean.tipoFormulario}">
 					<f:selectItem itemLabel="Cliente" itemValue="2" />
 					<f:selectItem itemLabel="Empresa" itemValue="1" />
-					<p:ajax update="tabela-dados-formulario painelLoginUsuario"
+					<p:ajax update="@form" listener="#{formularioBean.limparFormulario()}"
 						oncomplete="loadMasksJQuery();" />
 				</p:selectOneRadio>
 			</h:panelGrid>
@@ -59,7 +60,7 @@
 					<p:inputText rendered="#{formularioBean.painelCliente}"
 						id="txtNome" value="#{formularioBean.clienteCadastro.nome}"
 						size="50" styleClass="input-5left" required="true"
-						requiredMessage="O campo NOME é necessário.">
+						requiredMessage="O campo NOME Ã© necessÃ¡rio.">
 						<f:validateLength minimum="3" for="txtNome" />
 					</p:inputText>
 					<p:outputLabel rendered="#{formularioBean.painelCliente}"
@@ -72,17 +73,18 @@
 					<p:outputLabel rendered="#{formularioBean.painelCliente}"
 						value="CPF:" for="txtCpf" styleClass="HtmlOutputLabelResposta" />
 					<p:inputText rendered="#{formularioBean.painelCliente}" id="txtCpf"
-						value="#{formularioBean.clienteCadastro.numCpfString}" size="18"
-						maxlength="14" styleClass="input-5left" required="true" alt="cpf"
-						requiredMessage="O campo CPF é necessário." />
+						value="#{formularioBean.clienteCadastro.numCpfString}"
+						validator="cpfConverter" label="CPF" size="18" maxlength="14"
+						styleClass="input-5left" required="true" alt="cpf"
+						requiredMessage="O campo CPF Ã© necessÃ¡rio." />
 
 					<p:outputLabel rendered="#{formularioBean.painelCliente}"
 						value="Email:" for="txtEmail" styleClass="HtmlOutputLabelResposta" />
 					<p:inputText rendered="#{formularioBean.painelCliente}"
 						id="txtEmail" value="#{formularioBean.clienteCadastro.email}"
 						size="45" styleClass="input-5left" required="true"
-						validatorMessage="Informe um EMAIL válido."
-						requiredMessage="O campo EMAIL é inválido.">
+						validatorMessage="Informe um EMAIL vÃ¡lido."
+						requiredMessage="O campo EMAIL Ã© invÃ¡lido.">
 						<f:validateRegex
 							pattern="[\w\.-]*[a-zA-Z0-9_]@[\w\.-]*[a-zA-Z0-9]\.[a-zA-Z][a-zA-Z\.]*[a-zA-Z]" />
 					</p:inputText>
@@ -100,17 +102,17 @@
 						id="txtTelefoneCel"
 						value="#{formularioBean.clienteCadastro.numCelularString}"
 						size="15" styleClass="input-5left" alt="cell9" required="true"
-						requiredMessage="O campo CELULAR é necessário." />
+						requiredMessage="O campo CELULAR Ã© necessÃ¡rio." />
 
 
 					<p:outputLabel rendered="#{formularioBean.painelEmpresa}"
-						value="Razão Social:" for="txtRazao"
+						value="RazÃ£o Social:" for="txtRazao"
 						styleClass="HtmlOutputLabelResposta" />
 					<p:inputText rendered="#{formularioBean.painelEmpresa}"
 						id="txtRazao"
 						value="#{formularioBean.empresaCadastro.razaoSocial}" size="50"
 						styleClass="input-5left" required="true"
-						requiredMessage="O campo RAZÃO SOCIAL é necessário.">
+						requiredMessage="O campo RAZÃƒO SOCIAL Ã© necessÃ¡rio.">
 						<f:validateLength minimum="3" for="txtRazao" />
 					</p:inputText>
 					<p:outputLabel rendered="#{formularioBean.painelEmpresa}"
@@ -118,9 +120,9 @@
 					<p:inputText rendered="#{formularioBean.painelEmpresa}"
 						id="txtCnpj" value="#{formularioBean.empresaCadastro.cnpjString}"
 						size="21" styleClass="input-5left" required="true" alt="cnpj"
-						requiredMessage="O campo CNPJ é necessário." label="CNPJ" >
-							<f:validator validatorId="cnpjValidator" />
-					</p:inputText> 
+						requiredMessage="O campo CNPJ Ã© necessÃ¡rio." label="CNPJ">
+						<f:validator validatorId="cnpjValidator" />
+					</p:inputText>
 					<h:panelGroup rendered="#{formularioBean.painelEmpresa}"></h:panelGroup>
 					<h:panelGroup rendered="#{formularioBean.painelEmpresa}"></h:panelGroup>
 
@@ -131,7 +133,7 @@
 						id="txtTelefone1"
 						value="#{formularioBean.empresaCadastro.telefone1String}"
 						size="15" styleClass="input-5left" alt="phone" required="true"
-						requiredMessage="O campo TELEFONE 1 é necessário." />
+						requiredMessage="O campo TELEFONE 1 Ã© necessÃ¡rio." />
 
 					<p:outputLabel rendered="#{formularioBean.painelEmpresa}"
 						value="Telefone 2:" for="txtTelefone1"
@@ -151,36 +153,36 @@
 
 
 					<p:outputLabel rendered="#{formularioBean.tipoFormulario != 0}"
-						value="Endereço:" for="txtAddress"
+						value="EndereÃ§o:" for="txtAddress"
 						styleClass="HtmlOutputLabelResposta" />
 					<p:inputText rendered="#{formularioBean.tipoFormulario != 0}"
 						id="txtAddress"
-						value="#{formularioBean.clienteCadastro.endereco.logradouro}"
+						value="#{formularioBean.enderecoCadastro.logradouro}"
 						size="50" styleClass="input-5left" required="true"
-						requiredMessage="O campo ENDEREÇO é necessário." />
+						requiredMessage="O campo ENDEREÃ‡O Ã© necessÃ¡rio." />
 					<p:outputLabel rendered="#{formularioBean.tipoFormulario != 0}"
-						value="N°" for="txtNum" styleClass="HtmlOutputLabelResposta" />
+						value="NÂ°" for="txtNum" styleClass="HtmlOutputLabelResposta" />
 					<p:inputText rendered="#{formularioBean.tipoFormulario != 0}"
 						id="txtNum"
-						value="#{formularioBean.clienteCadastro.endereco.numero}" size="5"
+						value="#{formularioBean.enderecoCadastro.numero}" size="5"
 						maxlength="7" onkeypress="return onlyNum(event)"
 						styleClass="input-5left" required="true"
-						requiredMessage="O campo NÚMERO é necessário." />
+						requiredMessage="O campo NÃšMERO Ã© necessÃ¡rio." />
 					<p:outputLabel rendered="#{formularioBean.tipoFormulario != 0}"
 						value="Bairro:" for="txtBairro"
 						styleClass="HtmlOutputLabelResposta" />
 					<p:inputText rendered="#{formularioBean.tipoFormulario != 0}"
 						id="txtBairro"
-						value="#{formularioBean.clienteCadastro.endereco.bairro}"
+						value="#{formularioBean.enderecoCadastro.bairro}"
 						size="20" styleClass="input-5left" required="true"
-						requiredMessage="O campo BAIRRO é necessário." />
+						requiredMessage="O campo BAIRRO Ã© necessÃ¡rio." />
 
 					<p:outputLabel rendered="#{formularioBean.tipoFormulario != 0}"
 						value="Complemento:" for="txtComplemento"
 						styleClass="HtmlOutputLabelResposta" />
 					<p:inputText rendered="#{formularioBean.tipoFormulario != 0}"
 						id="txtComplemento"
-						value="#{formularioBean.clienteCadastro.endereco.complemento}"
+						value="#{formularioBean.enderecoCadastro.complemento}"
 						size="50" styleClass="input-5left" />
 					<h:panelGroup></h:panelGroup>
 					<h:panelGroup></h:panelGroup>
@@ -191,17 +193,17 @@
 						value="Cidade:" for="txtCity" styleClass="HtmlOutputLabelResposta" />
 					<p:inputText rendered="#{formularioBean.tipoFormulario != 0}"
 						id="txtCity"
-						value="#{formularioBean.clienteCadastro.endereco.cidade}"
+						value="#{formularioBean.enderecoCadastro.cidade}"
 						size="30" styleClass="input-5left" required="true"
-						requiredMessage="O campo CIDADE é necessário." />
+						requiredMessage="O campo CIDADE Ã© necessÃ¡rio." />
 					<p:outputLabel rendered="#{formularioBean.tipoFormulario != 0}"
 						value="Estado:" for="txtState"
 						styleClass="HtmlOutputLabelResposta" />
 					<p:selectOneMenu rendered="#{formularioBean.tipoFormulario != 0}"
 						id="txtState"
-						value="#{formularioBean.clienteCadastro.endereco.estado}" size="5"
+						value="#{formularioBean.enderecoCadastro.estado}" size="5"
 						styleClass="" style="margin-left:5px;" required="true"
-						requiredMessage="O campo ESTADO é necessário.">
+						requiredMessage="O campo ESTADO Ã© necessÃ¡rio.">
 						<f:selectItems value="#{formularioBean.comboUf}" var="_uf"
 							itemLabel="#{_uf.label}" itemValue="#{_uf.label}" />
 					</p:selectOneMenu>
@@ -209,9 +211,9 @@
 						value="CEP:" for="cep" styleClass="HtmlOutputLabelResposta" />
 					<h:panelGroup>
 						<p:inputText rendered="#{formularioBean.tipoFormulario != 0}"
-							id="cep" value="#{formularioBean.clienteCadastro.endereco.cep}"
+							id="cep" value="#{formularioBean.enderecoCadastro.cep}"
 							size="10" styleClass="input-5left" alt="cep" required="true"
-							requiredMessage="O campo CEP é necessário.">
+							requiredMessage="O campo CEP Ã© necessÃ¡rio.">
 							<f:validateLength minimum="9" for="cep" />
 						</p:inputText>
 					</h:panelGroup>
@@ -220,7 +222,7 @@
 			</h:panelGroup>
 
 			<h:panelGroup id="painelLoginUsuario">
-				<p:fieldset legend="Dados de Criação de Login"
+				<p:fieldset legend="Dados de CriaÃ§Ã£o de Login"
 					rendered="#{formularioBean.tipoFormulario != 0}">
 					<h:panelGrid cellpadding="0" cellspacing="0" columns="2">
 						<h:panelGroup>
@@ -228,7 +230,7 @@
 						</h:panelGroup>
 						<h:panelGroup>
 							<p:inputText id="txtLogin" required="true"
-								requiredMessage="O campo de Login é obrigatório."
+								requiredMessage="O campo de Login Ã© obrigatÃ³rio."
 								value="#{formularioBean.usuarioCadastro.username}" />
 						</h:panelGroup>
 
@@ -237,7 +239,7 @@
 						</h:panelGroup>
 						<h:panelGroup>
 							<p:inputText id="txtSenha" required="true"
-								requiredMessage="O campo de senha é obrigatório."
+								requiredMessage="O campo de senha Ã© obrigatÃ³rio."
 								value="#{formularioBean.usuarioCadastro.password}" />
 						</h:panelGroup>
 

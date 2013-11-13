@@ -1,4 +1,4 @@
-<?xml version='1.0' encoding='ISO-8859-1' ?>
+<?xml version='1.0' encoding='UTF-8' ?>
 <ui:composition template="/template/template_main.xhtml"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:h="http://java.sun.com/jsf/html"
@@ -12,7 +12,7 @@
 	<ui:define name="jsImports">
 	</ui:define>
 
-	<ui:param name="titulo" value="Cadastro do Cliente" />
+	<ui:param name="titulo" value="Efetuar solicitaÃ§Ã£o" />
 
 	<ui:define name="body_content">
 
@@ -22,12 +22,12 @@
 				
 					<p:outputLabel value="Empresa:" for="cboEmpresa" styleClass="HtmlOutputLabelResposta" />
 					<p:selectOneMenu id="cboEmpresa" value="#{clienteBean.solicitacaoCadastro.empresaPrestadoraServico}" style="width:500px;" styleClass="input-5left" required="true" 
-						requiredMessage="O campo EMPRESA é necessario." converter="genericEntityConverter">
+						requiredMessage="O campo EMPRESA Ã© necessario." converter="genericEntityConverter">
 						<f:selectItems value="#{clienteBean.empresas}" var="e" itemLabel="#{e.razaoSocial}" itemValue="#{e}" />
 					</p:selectOneMenu>
 
-					<p:outputLabel value="Descrição do serviço:" for="txtDescServico" styleClass="HtmlOutputLabelResposta"/>
-					<p:inputTextarea id="txtDescServico" value="#{clienteBean.solicitacaoCadastro.descricaoSolicitacao}" cols="163" rows="10" autoResize="true" style="margin-top:5px;" required="true" requiredMessage="O campo DESCRIÇÃO DA SOLICITAÇÃO é obrigatório."/>
+					<p:outputLabel value="DescriÃ§Ã£o do serviÃ§o:" for="txtDescServico" styleClass="HtmlOutputLabelResposta"/>
+					<p:inputTextarea id="txtDescServico" value="#{clienteBean.solicitacaoCadastro.descricaoSolicitacao}" cols="163" rows="10" autoResize="true" style="margin-top:5px;" required="true" requiredMessage="O campo DESCRIï¿½ï¿½O DA SOLICITAï¿½ï¿½O ï¿½ obrigatï¿½rio."/>
 
 			</h:panelGrid>
 		</h:panelGroup>

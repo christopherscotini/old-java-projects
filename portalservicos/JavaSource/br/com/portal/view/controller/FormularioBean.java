@@ -28,6 +28,7 @@ public class FormularioBean extends AbstractModelBean {
 	private UserEntity usuarioCadastro = null;
 	private ClienteEntity clienteCadastro = null;
 	private EmpresaEntity empresaCadastro = null;
+	private Endereco enderecoCadastro = null;
 	
 	
 	@Override
@@ -56,6 +57,7 @@ public class FormularioBean extends AbstractModelBean {
 						break;
 					}
 				}
+				empresaCadastro.setEndereco(enderecoCadastro);
 				empresaCadastro.setUsuario(usuarioCadastro);
 				getEmpresaBO().adicionarEntidade(empresaCadastro);
 			}else{
@@ -66,6 +68,8 @@ public class FormularioBean extends AbstractModelBean {
 							break;
 						}
 					}
+					
+					clienteCadastro.setEndereco(enderecoCadastro);
 					clienteCadastro.setUsuario(usuarioCadastro);
 					getClienteBO().adicionarEntidade(clienteCadastro);
 				}
@@ -80,6 +84,13 @@ public class FormularioBean extends AbstractModelBean {
 	
 	public void resetarFormulario(){
 		tipoFormulario = 0;
+		usuarioCadastro = new UserEntity();
+		clienteCadastro = new ClienteEntity();
+		empresaCadastro = new EmpresaEntity();
+		enderecoCadastro = new Endereco();
+	}
+	
+	public void limparFormulario(){
 		clienteCadastro = new ClienteEntity();
 		clienteCadastro.setEndereco(new Endereco());
 		usuarioCadastro = new UserEntity();
@@ -133,6 +144,14 @@ public class FormularioBean extends AbstractModelBean {
 
 	public void setComboPerfilUsuario(List<PerfilEntity> comboPerfilUsuario) {
 		this.comboPerfilUsuario = comboPerfilUsuario;
+	}
+
+	public Endereco getEnderecoCadastro() {
+		return enderecoCadastro;
+	}
+
+	public void setEnderecoCadastro(Endereco enderecoCadastro) {
+		this.enderecoCadastro = enderecoCadastro;
 	}
 
 }

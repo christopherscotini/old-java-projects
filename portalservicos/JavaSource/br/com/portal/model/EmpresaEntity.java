@@ -14,6 +14,7 @@ import javax.persistence.Transient;
 
 import br.com.portal.model.embeddable.Endereco;
 import br.com.portal.utils.CpfCnpjUtils;
+import br.com.portal.utils.ProjetoUtils;
 
 /**
  * Entity implementation class for Entity: EmpresaEntity
@@ -127,15 +128,22 @@ public class EmpresaEntity implements Serializable {
 		this.telefone3 = telefone3;
 	}
 
+	
 	public String getTelefone1String() {
+		if((telefone1String == null || telefone1String.equals("")) && !(telefone1 == null)){
+			return ProjetoUtils.formatarNumTelefoneCelularString(telefone1);
+		}
 		return telefone1String;
 	}
-
+	
 	public void setTelefone1String(String telefone1String) {
 		this.telefone1String = telefone1String;
 	}
 
 	public String getTelefone2String() {
+		if((telefone2String == null || telefone2String.equals("")) && !(telefone2 == null)){
+			return ProjetoUtils.formatarNumTelefoneCelularString(telefone2);
+		}
 		return telefone2String;
 	}
 
@@ -144,6 +152,9 @@ public class EmpresaEntity implements Serializable {
 	}
 
 	public String getTelefone3String() {
+		if((telefone3String == null || telefone3String.equals("")) && !(telefone3 == null)){
+			return ProjetoUtils.formatarNumTelefoneCelularString(telefone3);
+		}
 		return telefone3String;
 	}
 

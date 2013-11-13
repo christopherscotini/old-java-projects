@@ -35,8 +35,7 @@ public class ClienteBOImpl implements ClienteBO{
 
 	@Override
 	public List<ClienteEntity> listarTodos() {
-		// TODO Auto-generated method stub
-		return null;
+		return dao.findAll();
 	}
 
 	@Override

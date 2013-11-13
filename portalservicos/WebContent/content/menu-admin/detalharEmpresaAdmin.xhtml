@@ -1,0 +1,132 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<ui:composition template="/template/template_main.xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+	<ui:define name="cssImports">
+		<link type="text/css" rel="stylesheet" href="#{facesContext.externalContext.requestContextPath}/css/cadastro/clientes.css" />
+	</ui:define>
+	
+	<ui:define name="jsImports">
+	</ui:define>
+
+	<ui:param name="titulo" value="Detalhe da Empresa" />
+
+	<ui:define name="body_content">
+
+		<h:panelGrid cellpadding="0" cellspacing="0" columns="1" styleClass="CorpoPagina" border="0" >
+			<h:panelGroup id="tabela-dados-cliente" >
+				<h:panelGrid cellpadding="0" cellspacing="1" columns="6" style="margin-top:5px;margin-bottom:25px;" border="0">
+					
+					<p:outputLabel 
+						value="Razão Social:" for="txtRazao"
+						styleClass="HtmlOutputLabelResposta" />
+					<h:outputLabel 
+						id="txtRazao"
+						value="#{administradorBean.empresaSelecionada.razaoSocial}"
+						styleClass="HtmlOutputTextResposta" />
+					<p:outputLabel 
+						value="CNPJ:" for="txtCnpj" styleClass="HtmlOutputLabelResposta" />
+					<h:outputLabel 
+						id="txtCnpj" value="#{administradorBean.empresaSelecionada.cnpjString}"
+						styleClass="HtmlOutputTextResposta" />
+					<h:panelGroup ></h:panelGroup>
+					<h:panelGroup ></h:panelGroup>
+
+					<p:outputLabel 
+						value="Telefone 1:" for="txtTelefone1"
+						styleClass="HtmlOutputLabelResposta" />
+					<h:outputLabel 
+						id="txtTelefone1"
+						value="#{administradorBean.empresaSelecionada.telefone1String}"
+						styleClass="HtmlOutputTextResposta" />
+
+					<p:outputLabel 
+						value="Telefone 2:" for="txtTelefone1"
+						styleClass="HtmlOutputLabelResposta" />
+					<h:outputLabel 
+						id="txtTelefone2"
+						value="#{administradorBean.empresaSelecionada.telefone2String}"
+						styleClass="HtmlOutputTextResposta" />
+					<p:outputLabel 
+						value="Telefone 3:" for="txtTelefone1"
+						styleClass="HtmlOutputLabelResposta" />
+					<h:outputLabel 
+						id="txtTelefone3"
+						value="#{administradorBean.empresaSelecionada.telefone3String}"
+						styleClass="HtmlOutputTextResposta" />
+
+
+
+					<p:outputLabel 
+						value="Endereço:" for="txtAddress"
+						styleClass="HtmlOutputLabelResposta" />
+					<h:outputLabel 
+						id="txtAddress"
+						value="#{administradorBean.empresaSelecionada.endereco.logradouro}"
+						styleClass="HtmlOutputTextResposta" />
+					<p:outputLabel 
+						value="N°" for="txtNum" styleClass="HtmlOutputLabelResposta" />
+					<h:outputLabel 
+						id="txtNum"
+						value="#{administradorBean.empresaSelecionada.endereco.numero}"
+						onkeypress="return onlyNum(event)"
+						styleClass="HtmlOutputTextResposta" />
+					<p:outputLabel 
+						value="Bairro:" for="txtBairro"
+						styleClass="HtmlOutputLabelResposta" />
+					<h:outputLabel 
+						id="txtBairro"
+						value="#{administradorBean.empresaSelecionada.endereco.bairro}"
+						styleClass="HtmlOutputTextResposta" />
+
+					<p:outputLabel 
+						value="Complemento:" for="txtComplemento"
+						styleClass="HtmlOutputLabelResposta" />
+					<h:outputLabel 
+						id="txtComplemento"
+						value="#{administradorBean.empresaSelecionada.endereco.complemento}"
+						styleClass="HtmlOutputTextResposta" />
+					<h:panelGroup></h:panelGroup>
+					<h:panelGroup></h:panelGroup>
+					<h:panelGroup></h:panelGroup>
+					<h:panelGroup></h:panelGroup>
+
+					<p:outputLabel 
+						value="Cidade:" for="txtCity" styleClass="HtmlOutputLabelResposta" />
+					<h:outputLabel 
+						id="txtCity"
+						value="#{administradorBean.empresaSelecionada.endereco.cidade}"
+						styleClass="HtmlOutputTextResposta" />
+					<p:outputLabel 
+						value="Estado:" for="txtState"
+						styleClass="HtmlOutputLabelResposta" />
+					<h:outputLabel id="txtState" value="#{administradorBean.empresaSelecionada.endereco.estado}" styleClass="HtmlOutputTextResposta" style="margin-left:5px;" />
+					
+					<p:outputLabel value="CEP:" for="cep" styleClass="HtmlOutputLabelResposta" />
+					<h:outputLabel	id="cep" value="#{administradorBean.empresaSelecionada.endereco.cep}" styleClass="HtmlOutputTextResposta" />
+
+				</h:panelGrid>
+			</h:panelGroup>
+			
+			<h:panelGroup >
+				<h:panelGrid cellpadding="0" cellspacing="1" columns="2" style="margin-top:5px;margin-bottom:25px;">
+					<p:outputLabel value="Login:" for="txtStatus" styleClass="HtmlOutputLabelResposta" style="margin-left:5px;" />
+					<h:outputLabel id="txtStatus" value="#{administradorBean.empresaSelecionada.usuario.username}" styleClass="HtmlOutputTextResposta" />
+				</h:panelGrid>
+			</h:panelGroup>
+
+		
+		<hr class="lin"/>
+		
+		<h:panelGroup>
+			<div class="buttonFooter">
+				<p:commandButton id="btnVoltar" value="Voltar" ajax="false" action="#{administradorBean.iniciarTelaEmpresas()}" style="float:left" immediate="true" />
+			</div>
+		</h:panelGroup>
+	</h:panelGrid>
+</ui:define>
+
+</ui:composition>

@@ -29,10 +29,14 @@ public class SolicitacaoBOImpl implements SolicitacaoBO {
 
 	@Override
 	public List<SolicitacaoEntity> listarTodos() {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
+	@Override
+	public List<SolicitacaoEntity> listarSolicitacaoAdmin() {
+		return dao.findAllAdmin();
+	}
+	
 	@Override
 	public void atualizarStatusSolicitacaoEmpresa(SolicitacaoEntity solicitacao) {
 		solicitacao.setDataRespostaFornecedor(new Date());

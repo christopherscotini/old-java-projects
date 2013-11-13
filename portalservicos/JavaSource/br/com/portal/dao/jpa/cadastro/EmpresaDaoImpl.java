@@ -24,7 +24,7 @@ public class EmpresaDaoImpl extends JpaGenericDao<EmpresaEntity, Long> implement
 	public boolean existsEmpresa(EmpresaEntity empresa) {
 		
 		StringBuilder query = new StringBuilder();
-		query.append("FROM EmpresaEntity e WHERE e.cnpj <> "+empresa.getCnpj());
+		query.append("FROM EmpresaEntity e WHERE e.cnpj = "+empresa.getCnpj());
 		if(empresa.getId() != null){
 			query.append("AND e.id <> "+empresa.getId());
 		}
