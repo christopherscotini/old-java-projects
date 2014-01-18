@@ -1,0 +1,99 @@
+<?xml version='1.0' encoding='ISO-8859-1' ?>
+<ui:composition template="/template/template_main.xhtml"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+	<ui:define name="body_content">
+	
+		<h1 class="titulo">
+			<img src="#{facesContext.externalContext.requestContextPath}/resources/images/icon_cadastro.png" />
+			Incluir Jogador
+		</h1>
+
+		<p:messages closable="true" />
+	
+		<h:form id="formGlobal" styleClass="content">
+				
+			<fieldset>
+				<legend>Informações Bio Jogador</legend>	
+				<hr />
+				<div class="rowData">
+					<label class="rowCollunmData">
+						Posição<br />
+						<h:selectOneMenu id="cboPosicaoJogador" value="#{historicoPlatelBean.posicaoSelecionada}"  styleClass="rowCollunmInputData">
+							<f:selectItems value="#{historicoPlatelBean.listaPosicaoJogador}"  var="p" itemLabel="#{p.sigla}" itemValue="#{p.id}" />
+						</h:selectOneMenu>
+					</label>
+					<label class="rowCollunmData">
+						Nome do jogador<br />
+						<h:inputText id="txtNomejogador" size="60" value="#{historicoPlatelBean.jogadorCadastro.nomeJogador}" styleClass="rowCollunmInputData" />
+					</label>
+					<label class="rowCollunmData">
+						Categoria<br />
+						<h:selectOneMenu id="cboCategoria" value="#{historicoPlatelBean.categoriaSelecionada}"  styleClass="rowCollunmInputData">
+							<f:selectItems  value="#{historicoPlatelBean.listaCategoriaJogador}"  var="c" itemLabel="#{c.descricao}" itemValue="#{c.id}" />
+						</h:selectOneMenu>
+					</label>
+					<label class="rowCollunmData">
+						Rating<br />
+						<h:inputText id="txtRating" size="10" maxlength="3" value="#{historicoPlatelBean.jogadorCadastro.rating}" onkeypress="return onlyNum(event)" styleClass="rowCollunmInputData" />
+					</label>
+					<label class="rowCollunmData">
+						Categoria<br />
+						<h:selectOneMenu id="cboStatus" value="#{historicoPlatelBean.statusSelecionada}"  styleClass="rowCollunmInputData">
+							<f:selectItems  value="#{historicoPlatelBean.listaStatusJogador}"  var="s" itemLabel="#{s.descricao}" itemValue="#{s.id}" />
+						</h:selectOneMenu>
+					</label>
+				</div>
+				<div class="rowData">
+					<label class="rowCollunmData">
+						Nacionalidade<br />
+						<h:selectOneMenu id="txtNomeJogador" value="#{historicoPlatelBean.nacionalidadeSelecionada}"  styleClass="rowCollunmInputData">
+							<f:selectItems value="#{historicoPlatelBean.listaNacionalidadeJogador}"  var="n" itemLabel="#{n.descricao}" itemValue="#{n.id}" />
+						</h:selectOneMenu>
+					</label>
+					<label class="rowCollunmData">
+						Liga<br />
+						<h:selectOneMenu id="cboLiga" value="#{historicoPlatelBean.ligaSelecionada}"  styleClass="rowCollunmInputData">
+							<f:selectItems value="#{historicoPlatelBean.listaLigaJogador}"  var="l" itemLabel="#{l.descricao}" itemValue="#{l.id}" />
+							<p:ajax update="cboClube" />
+						</h:selectOneMenu>
+					</label>
+					<label class="rowCollunmData" >
+						Clube<br />
+						<h:selectOneMenu id="cboClube" value="#{historicoPlatelBean.clubeSelecionada}"  styleClass="rowCollunmInputData">
+							<f:selectItems  value="#{historicoPlatelBean.comboTime}"  var="c" itemLabel="#{c.descricao}" itemValue="#{c.id}" />
+						</h:selectOneMenu>
+					</label>
+				</div>
+				<div class="rowData">
+					<label class="rowCollunmData">
+						Valor Pago<br />
+						<h:inputText id="txtValorPago" size="30" value="#{historicoPlatelBean.jogadorCadastro.valorPago}" styleClass="rowCollunmInputData" />
+					</label>
+					<label class="rowCollunmData">
+						Valor sugerido de venda<br />
+						<h:inputText id="txtVlrSugeridoVenda" size="30" value="#{historicoPlatelBean.jogadorCadastro.valorMinSugeridoVenda}" styleClass="rowCollunmInputData" />
+					</label>
+				</div>
+			</fieldset>
+			
+			<h:panelGrid columns="1">
+				<f:facet name="footer">
+					<h:panelGroup layout="block" styleClass="buttonForm">
+						<h:commandButton value="Salvar"
+							action="#{historicoPlatelBean.executeSave()}" />
+						<h:commandButton value="Voltar" action="/index.xhtml"
+							immediate="true" />
+					</h:panelGroup>
+				</f:facet>
+			</h:panelGrid>
+				
+		</h:form>
+	
+	</ui:define>
+	
+</ui:composition>

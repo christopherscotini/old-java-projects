@@ -1,0 +1,47 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"> 
+
+<h:head onload="loadMasksJQuery();">
+	
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+	<title>UT Manager</title>
+	<link rel="shortcut icon" type="image/jpg" href="#{request.contextPath}/resources/images/favicon.jpg" />
+	
+	<link rel="stylesheet" type="text/css" href="#{request.contextPath}/resources/css/style.css" />
+	<ui:insert name="custom_css" />
+	
+	<script type="text/javascript" src="#{facesContext.externalContext.requestContextPath}/resources/js/jquery-1.3.2.js"></script>
+	<script type="text/javascript" src="#{facesContext.externalContext.requestContextPath}/resources/js/jquery.meio.mask.js"></script>
+	<script type="text/javascript" src="#{facesContext.externalContext.requestContextPath}/resources/js/utils.js"></script>
+	<script type="text/javascript" src="#{facesContext.externalContext.requestContextPath}/resources/js/primefaces-locale.js"></script>
+	
+	<ui:insert name="jsImports" />
+	
+</h:head> 
+
+
+<h:body onload="loadMasksJQuery();" style="position: relative; min-height: 100%; top: 0px;">
+	<div class="geral">
+		<div class="cabecalho">
+				<div id="info">
+					<h:form>
+						<h:commandLink id="menuSairLink" action="#{sessaoBean.logout}" value="Sair" />
+					</h:form>
+					<p>Seja bem-vindo(a) <span>Christopher Scotini Rozário</span> | </p>
+				</div>
+				
+			<h1>Ultimate Team Fifa14 Manager</h1>
+			<span class="logo-fifa14">utmanager</span>
+		
+		</div>
+		<div class="conteudo">
+			<ui:insert name="body_content" />
+		</div>
+	</div>
+
+</h:body>
+ 
+</html>

@@ -1,0 +1,106 @@
+<?xml version='1.0' encoding='ISO-8859-1' ?>
+<ui:composition template="/template/template_main.xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+	<ui:define name="body_content">
+	
+		<h1 class="titulo">
+			<img src="#{facesContext.externalContext.requestContextPath}/resources/images/icon-historico.png" />
+			Histórico do Plantel
+		</h1>
+
+		<p:messages closable="true" />
+	
+		<h:form id="formGlobal" styleClass="content">
+			<h:panelGrid columns="1" >
+				<p:dataTable id="dataTableContrato"
+					value="#{historicoPlatelBean.jogadores}" var="result"
+					filteredValue="#{historicoPlatelBean.filteredPlayers}"
+					rowKey="#{result}" rows="10" paginator="true"
+					paginatorPosition="bottom" emptyMessage="Dados não encontrados">
+					
+					<p:column headerText="ID" sortBy="#{result.id}" width="4%" styleClass="colCenter" >
+						<h:outputText value="#{result.id}" />
+					</p:column>
+
+					<p:column headerText="POS" sortBy="#{result.posicao.sigla}" width="5%" styleClass="colCenter" >
+						<h:outputText value="#{result.posicao.sigla}" />
+					</p:column>
+
+					<p:column headerText="PLAYER" sortBy="#{result.nomeJogador}" width="10%" 
+						filterBy="#{result.nomeJogador}" filterMatchMode="contains" >
+						<h:outputText value="#{result.nomeJogador}" />
+					</p:column>
+
+					<p:column headerText="STATUS" sortBy="#{result.status.descricao}" width="10%" >
+						<h:outputText value="#{result.status.descricao}" />
+					</p:column>
+					
+					<p:column headerText="QUALITY" sortBy="#{result.categoria.descricao}" width="10%" styleClass="colCenter" >
+						<h:outputText value="#{result.categoria.descricao}" />
+					</p:column>
+					
+					<p:column headerText="RATING" sortBy="#{result.rating}" width="5%" styleClass="colCenter" >
+						<h:outputText value="#{result.rating}" />
+					</p:column>
+					
+					<p:column headerText="NACIONALIDADE" sortBy="#{result.nacionalidade.descricao}" width="10%" >
+						<h:outputText value="#{result.nacionalidade.descricao}" />
+					</p:column>
+					
+					<p:column headerText="LIGA" sortBy="#{result.liga.descricao}" width="10%" >
+						<h:outputText value="#{result.liga.descricao}" />
+					</p:column>
+
+					<p:column headerText="CLUBE" sortBy="#{result.clube.descricao}" width="10%" >
+						<h:outputText value="#{result.clube.descricao}" />
+					</p:column>
+
+					<p:column headerText="VALOR PAGO" sortBy="#{result.valorPago}" width="6%" >
+						<h:outputLabel value="R$" style="text-align: center;" />
+						<h:outputText value="#{result.valorPago}" >
+							<f:converter converterId="decimalConverter" />
+						</h:outputText>
+					</p:column>
+
+					<p:column headerText="VL SUGERIDO VENDA" sortBy="#{result.valorMinSugeridoVenda}" width="6%" >
+						<h:outputLabel value="R$" style="text-align: center;" />
+						<h:outputText value="#{result.valorMinSugeridoVenda}" >
+							<f:converter converterId="decimalConverter" />
+						</h:outputText>
+					</p:column>
+
+					<p:column headerText="VALOR DA VENDA" sortBy="#{result.valorVenda}" width="6%" >
+						<h:outputLabel value="R$" style="text-align: center;" />
+						<h:outputText value="#{result.valorVenda}" >
+							<f:converter converterId="decimalConverter" />
+						</h:outputText>
+					</p:column>
+
+					<p:column headerText="LUCRO" sortBy="#{result.lucro}" width="6%" styleClass="colCenter" >
+						<h:outputLabel value="R$" style="text-align: center;" />
+						<h:outputText value="#{result.lucro}" >
+							<f:converter converterId="decimalConverter" />
+						</h:outputText>
+					</p:column>
+					
+				</p:dataTable>
+				
+				<f:facet name="footer">
+					<h:panelGroup layout="block" styleClass="buttonForm">
+						<h:commandButton value="Incluir Jogador"
+							action="#{historicoPlatelBean.navegarIncluir()}" />
+						<h:commandButton value="Voltar" action="/content/principal.xhtml"
+							immediate="true" />
+					</h:panelGroup>
+				</f:facet>
+				
+			</h:panelGrid>
+		</h:form>
+	
+	</ui:define>
+	
+</ui:composition>
