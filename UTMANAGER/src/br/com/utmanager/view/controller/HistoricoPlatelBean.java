@@ -5,6 +5,9 @@ import java.util.List;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 
+import org.omnifaces.util.Messages;
+
+import br.com.utmanager.exceptions.BusinessException;
 import br.com.utmanager.model.CategoriaJogador;
 import br.com.utmanager.model.ClubeJogador;
 import br.com.utmanager.model.Jogador;
@@ -74,10 +77,14 @@ public class HistoricoPlatelBean extends AbstractGenericBean{
 		jogadorCadastro.setPosicao(new PosicaoJogador(posicaoSelecionada));
 		jogadorCadastro.setStatus(new StatusJogador(statusSelecionada));
 		
-		if(cadastrar){
-			getJogadorBO().inserir(jogadorCadastro);
-		}else{
-			getJogadorBO().editar(jogadorCadastro);
+		try{
+			if(cadastrar){
+				getJogadorBO().inserir(jogadorCadastro);
+			}else{
+				getJogadorBO().editar(jogadorCadastro);
+			}
+		}catch(BusinessException b){
+			Messages.addError(null, b.getMessage());
 		}
 		
 		return iniciarTela();

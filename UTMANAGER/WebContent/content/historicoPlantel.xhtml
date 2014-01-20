@@ -15,6 +15,7 @@
 		<p:messages closable="true" />
 	
 		<h:form id="formGlobal" styleClass="content">
+			
 			<h:panelGrid columns="1" >
 				<p:dataTable id="dataTableContrato"
 					value="#{historicoPlatelBean.jogadores}" var="result"
@@ -31,7 +32,8 @@
 						<h:commandLink value="#{result.nomeJogador}" action="#{historicoPlatelBean.editarJogador(result)}" />
 					</p:column>
 
-					<p:column headerText="STATUS" sortBy="#{result.status.descricao}" width="10%" >
+					<p:column headerText="STATUS" sortBy="#{result.status.descricao}" width="10%" 
+						filterBy="#{result.status.descricao}" filterMatchMode="contains" >
 						<h:outputText value="#{result.status.descricao}" />
 					</p:column>
 					

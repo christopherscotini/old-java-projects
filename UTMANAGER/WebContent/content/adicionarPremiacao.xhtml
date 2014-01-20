@@ -1,0 +1,54 @@
+<?xml version='1.0' encoding='ISO-8859-1' ?>
+<ui:composition template="/template/template_main.xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+	<ui:define name="body_content">
+	
+		<h1 class="titulo">
+			<img src="#{facesContext.externalContext.requestContextPath}/resources/images/icon-historico.png" />
+			Adicionar Premiação
+		</h1>
+
+		<p:messages closable="true" />
+	
+		<h:form id="formGlobal" styleClass="content">
+			
+			<fieldset>
+				<legend>Informações da Premiação</legend>	
+				<hr />
+				<div class="rowData">
+					<label class="rowCollunmData">
+						Descrição<br />
+						<h:inputText id="txtNomejogador" size="60" value="#{financasBean.premiacaoCadastro.descricao}" styleClass="rowCollunmInputData" />
+					</label>
+				</div>
+				<div class="rowData">
+					<label class="rowCollunmData">
+						Valor do prêmio<br />
+						<h:inputText id="valorPrêmio" alt="decimal" size="10" value="#{financasBean.premiacaoCadastro.valorMovimentado}" styleClass="rowCollunmInputData" >
+							<f:converter converterId="decimalConverter" />
+						</h:inputText>
+					</label>
+				</div>
+			</fieldset>
+			
+			<h:panelGrid columns="1">
+				<f:facet name="footer">
+					<h:panelGroup layout="block" styleClass="buttonForm">
+						<h:commandButton value="Salvar"
+							action="#{financasBean.salvarPremiacao()}" />
+						<h:commandButton value="Voltar" action="/index.xhtml"
+							immediate="true" />
+					</h:panelGroup>
+				</f:facet>
+			</h:panelGrid>
+			
+		</h:form>
+		
+	
+	</ui:define>
+	
+</ui:composition>

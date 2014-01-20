@@ -248,6 +248,15 @@ public final class GlobalUtils {
 		return false;
 	}
 
+	public static boolean isBigDecimalNullOrZero(BigDecimal nro) {
+		
+		if(nro.compareTo(BigDecimal.ZERO) == 0){
+			return true;
+		}
+		
+		return isBigDecimalNull(nro);
+	}
+	
 	public static long verificaLongNulo(Long nro) {
 		if (nro == null) {
 			return 0l;

@@ -12,6 +12,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 @Entity
 @Table(name = "TB_JOGADORES_PLANTEL")
@@ -74,6 +75,9 @@ public class Jogador implements Serializable{
 
 	@Column(name = "DT_SAIDA")
 	private Date dataSaida;
+
+	@Transient
+	private boolean leilao;
 	
 	public Jogador() {
 		// TODO Auto-generated constructor stub
@@ -238,4 +242,19 @@ public class Jogador implements Serializable{
 		this.dataSaida = dataSaida;
 	}
 
+	@Transient
+	public boolean isVendido(){
+		return getDataSaida()==null?false:true;
+	}
+
+
+	public boolean isLeilao() {
+		return leilao;
+	}
+
+
+	public void setLeilao(boolean leilao) {
+		this.leilao = leilao;
+	}
+	
 }

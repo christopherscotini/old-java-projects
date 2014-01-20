@@ -38,9 +38,8 @@
 			<ui:include src="../content/menu.xhtml" />
 		
 		</div>
-		<div>
-			<h:outputText style="margin-left:10px;margin-top:10px;" value="Saldo: " />
-			<h:outputText value="R$ " />
+		<div id="saldoAtual">
+			<h:outputText value="Saldo: R$ " />
 			<h:outputText value="#{financasBean.saldoFinanceiro}" >
 				<f:converter converterId="decimalConverter" />
 			</h:outputText>

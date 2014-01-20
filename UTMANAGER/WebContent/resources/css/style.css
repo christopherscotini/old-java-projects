@@ -23,6 +23,9 @@ input[type="text"],input[type="password"],select,textarea,.ui-inputtext { border
 .logo-fifa14 { background: url(../images/logo-fifa14.jpg) no-repeat; display: block; width: 229px; height: 90px; float: right; text-indent: -9999px; margin: 40px 30px 0 0; }
 .saldo { display: block; width: 229px; height: 90px; float: right; text-indent: -9999px; margin: 40px 30px 0 0; }
 .logo-vs { background: url(../images/vs-icon.png) no-repeat center bottom; }
+#saldoAtual{
+	padding:10px; 
+}
 
 /* Conteúdo */
 .conteudo { display: block; overflow: hidden; border: 1px solid #CCC; margin: 10px; }
@@ -34,24 +37,14 @@ h1.titulo img { float: left; padding: 1px 10px 0 0;width: 32px;height: 32px; }
 /* Menu */
 #menu { clear: both; background: #DBDBDB; display: block; width: 100%; border: none; height: 65px; padding: 0 10px; }
 #menu li a { color: #444; padding: 50px 18px 7px 18px; margin-top: -10px; border-radius: 7px 7px 0 0; border: 0; }
-#menuHistoricoPlantel { background: url(../images/menu-historico-icon.png) no-repeat center bottom; }
-#menuHistoricoPlantel:hover { background: #315787 url(../images/menu-historico-icon.png) no-repeat center bottom; color: #FFF; border-color: #315787; }
-#menuHistoricoPartidas { background: url(../images/icon-menu-partida.png) no-repeat center bottom; }
-#menuHistoricoPartidas:hover { background: #315787 url(../images/icon-menu-partida.png) no-repeat center bottom; color: #FFF; }
-#menuFinancas { background: url(../images/menu-icon-financas.png) no-repeat center bottom; }
-#menuFinancas:hover { background: #315787 url(../images/menu-icon-financas.png) no-repeat center bottom; color: #FFF; }
+#menuHistoricoPlantel { background: url(../images/menu-historico-plantel-icon.png) no-repeat center bottom; }
+#menuHistoricoPlantel:hover { background: #315787 url(../images/menu-historico-plantel-icon.png) no-repeat center bottom; color: #FFF; border-color: #315787; }
+#menuHistoricoPartidas { background: url(../images/menu-partida-icon.png) no-repeat center bottom; }
+#menuHistoricoPartidas:hover { background: #315787 url(../images/menu-partida-icon.png) no-repeat center bottom; color: #FFF; }
+#menuFinancas { background: url(../images/menu-financas-icon.png) no-repeat center bottom; }
+#menuFinancas:hover { background: #315787 url(../images/menu-financas-icon.png) no-repeat center bottom; color: #FFF; }
 #menuContratos { background: url(../images/menu-contratos.png) no-repeat center bottom; }
 #menuContratos:hover { background: #315787 url(../images/menu-contratos-hover.png) no-repeat center bottom; color: #FFF; }
-#menuServicos { background: url(../images/menu-servicos.png) no-repeat center bottom; }
-#menuServicos:hover { background: #315787 url(../images/menu-servicos-hover.png) no-repeat center bottom; color: #FFF; }
-#menuSubServicos { background: url(../images/menu-subservicos.png) no-repeat center bottom; }
-#menuSubServicos:hover { background: #315787 url(../images/menu-subservicos-hover.png) no-repeat center bottom; color: #FFF; }
-#menuAlterarUsuarios { background: url(../images/menu-alterar-usuarios.png) no-repeat center bottom; }
-#menuAlterarUsuarios:hover { background: #315787 url(../images/menu-alterar-usuarios-hover.png) no-repeat center bottom; color: #FFF; }
-#menuExportar { background: url(../images/menu-exportar.png) no-repeat center bottom; }
-#menuExportar:hover { background: #315787 url(../images/menu-exportar-hover.png) no-repeat center bottom; color: #FFF; }
-#menuSair { background: url(../images/menu-sair.png) no-repeat center bottom; }
-#menuSair:hover { background: #315787 url(../images/menu-sair-hover.png) no-repeat center bottom; color: #FFF; }
 
 .content { margin: 20px; display: block; overflow: hidden; }
 .content table { width: 100% !important; }

@@ -9,6 +9,8 @@ import br.com.utmanager.business.GenericBO;
 import br.com.utmanager.business.bo.PartidasBO;
 import br.com.utmanager.model.Financa;
 import br.com.utmanager.model.Partida;
+import br.com.utmanager.model.TipoMovimentacaoEnum;
+import br.com.utmanager.view.utils.DataUtils;
 
 @Service
 public class PartidasBOImpl extends GenericBO implements PartidasBO{
@@ -21,13 +23,10 @@ public class PartidasBOImpl extends GenericBO implements PartidasBO{
 
 	@Override
 	public void inserir(Partida partida) {
-		getPartidaDao().insert(partida);
+		partida.setDataPartida(new Date());
+		Partida partidaReturn = getPartidaDao().insert(partida);
+		calculaFinancas(partidaReturn, TipoMovimentacaoEnum.GANHO_PARTIDA);
 		
-		Financa financa = new Financa();
-		financa.setValorMovimentado(partida.getValorGanhoPartida());
-		financa.setValorAtual(getFinancaDao().getSaldoAtual().add(financa.getValorMovimentado()));
-		financa.setDataMovimentacao(new Date());
-		getFinancaDao().insert(financa);
 		
 	}
 
@@ -39,7 +38,18 @@ public class PartidasBOImpl extends GenericBO implements PartidasBO{
 	@Override
 	public void deletar(Partida partida) {
 		// TODO Auto-generated method stub
+	}
+	
+	private void calculaFinancas(Partida partida, TipoMovimentacaoEnum tipoMov) {
+		Financa financa = new Financa();
 		
+		financa.setPartida(partida);
+		financa.setValorMovimentado(partida.getValorGanhoPartida());
+		financa.setDataMovimentacao(new Date());
+		financa.setValorAtual(getFinancaDao().getSaldoAtual().add(financa.getValorMovimentado()));
+		financa.setDescricao(partida.getDescricaoPartida() + " em "+DataUtils.parseString(partida.getDataPartida(), "dd/MM/yyyy - HH:mm") );
+		
+		getFinancaDao().insert(financa);
 	}
 
 }
