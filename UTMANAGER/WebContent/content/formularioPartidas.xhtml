@@ -1,0 +1,74 @@
+<?xml version='1.0' encoding='ISO-8859-1' ?>
+<ui:composition template="/template/template_main.xhtml"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+	<ui:define name="body_content">
+	
+		<h1 class="titulo">
+			<img src="#{facesContext.externalContext.requestContextPath}/resources/images/icon_cadastro.png" />
+			Incluir Partida Realizada
+		</h1>
+
+		<p:messages closable="true" />
+	
+		<h:form id="formGlobal" styleClass="content">
+				
+			<fieldset>
+				<legend>Informações Partida</legend>	
+				<hr />
+				<div class="rowData">
+					<label class="rowCollunmData">
+						Time da casa<br />
+						<h:inputText id="txtTimeCasa" size="20" value="#{historicoPartidasBean.partidaCadastro.timeCasa}" styleClass="rowCollunmInputData" />
+					</label>
+					<label class="rowCollunmData">
+						<img src="#{facesContext.externalContext.requestContextPath}/resources/images/vs-icon.png" style="margin-top:23px" />
+					</label>
+					<label class="rowCollunmData">
+						Time visitante<br />
+						<h:inputText id="txtTimeVisitante" size="20" value="#{historicoPartidasBean.partidaCadastro.timeVisitante}" styleClass="rowCollunmInputData" />
+					</label>
+				</div>
+				<div class="rowData">
+					<label class="rowCollunmData">
+						Gols time casa<br />
+						<h:inputText id="txtGolsCasa" size="10" maxlength="3" value="#{historicoPartidasBean.partidaCadastro.golsTimeCasa}" onkeypress="return onlyNum(event)"  styleClass="rowCollunmInputData" />
+					</label>
+				</div>
+				<div class="rowData">
+					<label class="rowCollunmData">
+						Gols time visitante<br />
+						<h:inputText id="txtGolsVisitante" size="10" maxlength="3" value="#{historicoPartidasBean.partidaCadastro.golsTimeVisitante}" onkeypress="return onlyNum(event)" styleClass="rowCollunmInputData" />
+					</label>
+				</div>
+				<div class="rowData">
+					<label class="rowCollunmData">
+						Ganho da partida<br />
+						<h:inputText id="valorGanho" size="10" maxlength="20" alt="decimal" value="#{historicoPartidasBean.partidaCadastro.valorGanhoPartida}" styleClass="rowCollunmInputData" >
+							<f:converter converterId="decimalConverter" />
+						</h:inputText>
+						
+					</label>
+				</div>
+			</fieldset>
+			
+			<h:panelGrid columns="1">
+				<f:facet name="footer">
+					<h:panelGroup layout="block" styleClass="buttonForm">
+						<h:commandButton value="Salvar"
+							action="#{historicoPartidasBean.executeSave()}" />
+						<h:commandButton value="Voltar" action="/index.xhtml"
+							immediate="true" />
+					</h:panelGroup>
+				</f:facet>
+			</h:panelGrid>
+				
+		</h:form>
+	
+	</ui:define>
+	
+</ui:composition>

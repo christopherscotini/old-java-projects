@@ -72,12 +72,32 @@
 				<div class="rowData">
 					<label class="rowCollunmData">
 						Valor Pago<br />
-						<h:inputText id="txtValorPago" size="30" value="#{historicoPlatelBean.jogadorCadastro.valorPago}" styleClass="rowCollunmInputData" />
+						<h:inputText id="txtValorPago" alt="decimal" size="10" value="#{historicoPlatelBean.jogadorCadastro.valorPago}" styleClass="rowCollunmInputData" >
+							<f:converter converterId="decimalConverter" />
+						</h:inputText>
 					</label>
 					<label class="rowCollunmData">
 						Valor sugerido de venda<br />
-						<h:inputText id="txtVlrSugeridoVenda" size="30" value="#{historicoPlatelBean.jogadorCadastro.valorMinSugeridoVenda}" styleClass="rowCollunmInputData" />
+						<h:inputText id="txtVlrSugeridoVenda" alt="decimal" size="10" value="#{historicoPlatelBean.jogadorCadastro.valorMinSugeridoVenda}" styleClass="rowCollunmInputData" >
+							<f:converter converterId="decimalConverter" />
+						</h:inputText>
 					</label>
+				</div>
+				<div class="rowData">
+					<label class="rowCollunmData">
+						Valor de venda<br />
+						<h:inputText id="txtVlrVenda" alt="decimal" size="10" value="#{historicoPlatelBean.jogadorCadastro.valorVenda}" styleClass="rowCollunmInputData" >
+							<f:converter converterId="decimalConverter" />
+						</h:inputText>
+					</label>
+					<h:panelGroup rendered="#{!historicoPlatelBean.cadastrar}" >
+						<label class="rowCollunmData">
+							Lucro<br />
+							<h:inputText id="txtLucro" disabled="true" alt="decimal" size="10" value="#{historicoPlatelBean.jogadorCadastro.lucro}" styleClass="rowCollunmInputData" >
+								<f:converter converterId="decimalConverter" />
+							</h:inputText>
+						</label>
+					</h:panelGroup>
 				</div>
 			</fieldset>
 			

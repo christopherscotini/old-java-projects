@@ -6,9 +6,11 @@ import javax.faces.bean.ManagedProperty;
 
 import br.com.utmanager.business.bo.CategoriaJogadorBO;
 import br.com.utmanager.business.bo.ClubeJogadorBO;
+import br.com.utmanager.business.bo.FinancaBO;
 import br.com.utmanager.business.bo.JogadorBO;
 import br.com.utmanager.business.bo.LigaJogadorBO;
 import br.com.utmanager.business.bo.NacionalidadeJogadorBO;
+import br.com.utmanager.business.bo.PartidasBO;
 import br.com.utmanager.business.bo.PosicaoJogadorBO;
 import br.com.utmanager.business.bo.StatusJogadorBO;
 import br.com.utmanager.model.CategoriaJogador;
@@ -40,7 +42,15 @@ public abstract class AbstractGenericBean {
 	
 	@ManagedProperty(value = "#{statusJogadorBOImpl}")
 	private StatusJogadorBO statusJogadorBO = null;
+	
+	@ManagedProperty(value = "#{partidasBOImpl}")
+	private PartidasBO partidasBO = null;
 
+	@ManagedProperty(value = "#{financaBOImpl}")
+	private FinancaBO financaBO = null;
+
+	public abstract String iniciarTela();
+	
 	
 	public List<PosicaoJogador>getListaPosicaoJogador(){
 		return getPosicaoJogadorBO().listarTodos();
@@ -121,6 +131,26 @@ public abstract class AbstractGenericBean {
 
 	public void setStatusJogadorBO(StatusJogadorBO statusJogadorBO) {
 		this.statusJogadorBO = statusJogadorBO;
+	}
+
+
+	public PartidasBO getPartidasBO() {
+		return partidasBO;
+	}
+
+
+	public void setPartidasBO(PartidasBO partidasBO) {
+		this.partidasBO = partidasBO;
+	}
+
+
+	public FinancaBO getFinancaBO() {
+		return financaBO;
+	}
+
+
+	public void setFinancaBO(FinancaBO financaBO) {
+		this.financaBO = financaBO;
 	}
 	
 }

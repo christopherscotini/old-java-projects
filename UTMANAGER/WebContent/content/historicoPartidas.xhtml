@@ -1,0 +1,56 @@
+<?xml version='1.0' encoding='ISO-8859-1' ?>
+<ui:composition template="/template/template_main.xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+	<ui:define name="body_content">
+	
+		<h1 class="titulo">
+			<img src="#{facesContext.externalContext.requestContextPath}/resources/images/icon-historico.png" />
+			Histórico de Partidas
+		</h1>
+
+		<p:messages closable="true" />
+	
+		<h:form id="formGlobal" styleClass="content">
+			<h:panelGrid columns="1" >
+				<p:dataTable id="dataTableContrato"
+					value="#{historicoPartidasBean.partidas}" var="result"
+					filteredValue="#{historicoPartidasBean.filteredPartidas}"
+					rowKey="#{result}" rows="50" paginator="true"
+					paginatorPosition="bottom" emptyMessage="Dados não encontrados">
+					
+					<p:column headerText="PARTIDA" sortBy="#{result.descricaoPartida}" width="50%" styleClass="colCenter" >
+						<h:outputText value="#{result.descricaoPartida}" />
+					</p:column>
+
+					<p:column headerText="GANHO" sortBy="#{result.valorGanhoPartida}" width="10%" >
+						<h:outputLabel value="R$" style="text-align: center;" />
+						<h:outputText value="#{result.valorGanhoPartida}" >
+							<f:converter converterId="decimalConverter" />
+						</h:outputText>
+					</p:column>
+					
+					<p:column headerText="DATA DA PARTIDA" sortBy="#{result.dataPartida}" width="10%" styleClass="colCenter" >
+						<h:outputText value="#{result.dataPartida}" >
+							<f:convertDateTime pattern="dd/MM/yyyy" />
+						</h:outputText>
+					</p:column>
+
+				</p:dataTable>
+				
+				<f:facet name="footer">
+					<h:panelGroup layout="block" styleClass="buttonForm">
+						<h:commandButton value="Incluir Partida" action="#{historicoPartidasBean.navegarIncluir()}" />
+						<h:commandButton value="Voltar" action="/index.xhtml" immediate="true" />
+					</h:panelGroup>
+				</f:facet>
+				
+			</h:panelGrid>
+		</h:form>
+	
+	</ui:define>
+	
+</ui:composition>

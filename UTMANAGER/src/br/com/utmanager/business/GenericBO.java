@@ -4,9 +4,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import br.com.utmanager.persistence.dao.CategoriaJogadorDAO;
 import br.com.utmanager.persistence.dao.ClubeJogadorDAO;
+import br.com.utmanager.persistence.dao.FinancaDAO;
 import br.com.utmanager.persistence.dao.JogadorDAO;
 import br.com.utmanager.persistence.dao.LigaJogadorDAO;
 import br.com.utmanager.persistence.dao.NacionalidadeJogadorDAO;
+import br.com.utmanager.persistence.dao.PartidaDAO;
 import br.com.utmanager.persistence.dao.PosicaoJogadorDAO;
 import br.com.utmanager.persistence.dao.StatusJogadorDAO;
 
@@ -32,6 +34,12 @@ public abstract class GenericBO {
 
 	@Autowired
 	private StatusJogadorDAO statusJogadorDao = null;
+	
+	@Autowired
+	private PartidaDAO partidaDao = null;
+
+	@Autowired
+	private FinancaDAO financaDao = null;
 	
 
 	public JogadorDAO getJogadorDao() {
@@ -90,6 +98,21 @@ public abstract class GenericBO {
 	public void setStatusJogadorDao(StatusJogadorDAO statusJogadorDao) {
 		this.statusJogadorDao = statusJogadorDao;
 	}
-	
+
+	public PartidaDAO getPartidaDao() {
+		return partidaDao;
+	}
+
+	public void setPartidaDao(PartidaDAO partidaDao) {
+		this.partidaDao = partidaDao;
+	}
+
+	public FinancaDAO getFinancaDao() {
+		return financaDao;
+	}
+
+	public void setFinancaDao(FinancaDAO financaDao) {
+		this.financaDao = financaDao;
+	}
 	
 }

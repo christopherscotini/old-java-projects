@@ -35,7 +35,15 @@
 				
 			<h1>Ultimate Team Fifa14 Manager</h1>
 			<span class="logo-fifa14">utmanager</span>
+			<ui:include src="../content/menu.xhtml" />
 		
+		</div>
+		<div>
+			<h:outputText style="margin-left:10px;margin-top:10px;" value="Saldo: " />
+			<h:outputText value="R$ " />
+			<h:outputText value="#{financasBean.saldoFinanceiro}" >
+				<f:converter converterId="decimalConverter" />
+			</h:outputText>
 		</div>
 		<div class="conteudo">
 			<ui:insert name="body_content" />

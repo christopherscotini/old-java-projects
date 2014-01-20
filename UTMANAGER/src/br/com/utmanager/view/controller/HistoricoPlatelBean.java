@@ -2,7 +2,6 @@ package br.com.utmanager.view.controller;
 
 import java.util.List;
 
-import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 
@@ -19,7 +18,8 @@ import br.com.utmanager.model.StatusJogador;
 @SessionScoped
 public class HistoricoPlatelBean extends AbstractGenericBean{
 	
-	private final String INCLUIR_JOGADOR = "/content/formularioJogador.xhtml";
+	private final String TELA_HISTORICO_PLANTEL = "/content/historicoPlantel.xhtml";
+	private final String TELA_INCLUIR_JOGADOR = "/content/formularioJogador.xhtml";
 	
 	private List<Jogador> filteredPlayers = null;
 	private List<Jogador> jogadores = null;
@@ -33,9 +33,13 @@ public class HistoricoPlatelBean extends AbstractGenericBean{
 	private Long posicaoSelecionada;
 	private Long statusSelecionada;
 	
-	@PostConstruct
-	public void init(){
+
+	@Override
+	public String iniciarTela(){
+		filteredPlayers = null;
 		jogadores = getJogadorBO().listarTodos();
+		
+		return TELA_HISTORICO_PLANTEL;
 	}
 
 	
@@ -45,21 +49,38 @@ public class HistoricoPlatelBean extends AbstractGenericBean{
 		cadastrar = true;
 		prepararCombosFormulario();
 		
-		return INCLUIR_JOGADOR;
+		return TELA_INCLUIR_JOGADOR;
+	}
+	
+	public String editarJogador(Jogador selecionado){
+		cadastrar = false;
+		
+		if(selecionado.getDataSaida() != null){
+			//encaminha tela de detalhe
+		}
+		
+		jogadorCadastro = selecionado;
+		prepararCombosFormulario();
+		
+		return TELA_INCLUIR_JOGADOR;
 	}
 
 	public String executeSave(){
+		
+		jogadorCadastro.setCategoria(new CategoriaJogador(categoriaSelecionada));
+		jogadorCadastro.setClube(new ClubeJogador(clubeSelecionada));
+		jogadorCadastro.setLiga(new LigaJogador(ligaSelecionada));
+		jogadorCadastro.setNacionalidade(new NacionalidadeJogador(nacionalidadeSelecionada));
+		jogadorCadastro.setPosicao(new PosicaoJogador(posicaoSelecionada));
+		jogadorCadastro.setStatus(new StatusJogador(statusSelecionada));
+		
 		if(cadastrar){
-			jogadorCadastro.setCategoria(new CategoriaJogador(categoriaSelecionada));
-			jogadorCadastro.setClube(new ClubeJogador(clubeSelecionada));
-			jogadorCadastro.setLiga(new LigaJogador(ligaSelecionada));
-			jogadorCadastro.setNacionalidade(new NacionalidadeJogador(nacionalidadeSelecionada));
-			jogadorCadastro.setPosicao(new PosicaoJogador(posicaoSelecionada));
-			jogadorCadastro.setStatus(new StatusJogador(statusSelecionada));
 			getJogadorBO().inserir(jogadorCadastro);
+		}else{
+			getJogadorBO().editar(jogadorCadastro);
 		}
 		
-		return "/index";
+		return iniciarTela();
 	}
 	
 	private void prepararCombosFormulario(){
@@ -70,6 +91,13 @@ public class HistoricoPlatelBean extends AbstractGenericBean{
 			nacionalidadeSelecionada = null;
 			posicaoSelecionada = null;
 			statusSelecionada = null;
+		}else{
+			categoriaSelecionada = jogadorCadastro.getCategoria().getId();
+			ligaSelecionada = jogadorCadastro.getLiga().getId();
+			clubeSelecionada = jogadorCadastro.getClube().getId();
+			nacionalidadeSelecionada = jogadorCadastro.getNacionalidade().getId();
+			posicaoSelecionada = jogadorCadastro.getPosicao().getId();
+			statusSelecionada = jogadorCadastro.getStatus().getId();
 		}
 	}
 	
@@ -144,16 +172,20 @@ public class HistoricoPlatelBean extends AbstractGenericBean{
 		this.statusSelecionada = statusSelecionada;
 	}
 
-
-
 	public List<Jogador> getFilteredPlayers() {
 		return filteredPlayers;
 	}
 
-
-
 	public void setFilteredPlayers(List<Jogador> filteredPlayers) {
 		this.filteredPlayers = filteredPlayers;
 	}
-	
+
+	public boolean isCadastrar() {
+		return cadastrar;
+	}
+
+	public void setCadastrar(boolean cadastrar) {
+		this.cadastrar = cadastrar;
+	}
+
 }
