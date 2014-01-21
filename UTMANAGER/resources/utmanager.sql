@@ -2,15 +2,15 @@
 Navicat MySQL Data Transfer
 
 Source Server         : local
-Source Server Version : 50612
+Source Server Version : 50522
 Source Host           : localhost:3306
 Source Database       : utmanager
 
 Target Server Type    : MYSQL
-Target Server Version : 50612
+Target Server Version : 50522
 File Encoding         : 65001
 
-Date: 2014-01-20 17:48:35
+Date: 2014-01-21 10:14:36
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -657,7 +657,7 @@ CREATE TABLE `tb_financa` (
   KEY `FKE63D3EE5363F5AD4` (`PARTIDA_FK`),
   CONSTRAINT `FKE63D3EE5363F5AD4` FOREIGN KEY (`PARTIDA_FK`) REFERENCES `tb_partida` (`ID`),
   CONSTRAINT `FKE63D3EE5676B2B4` FOREIGN KEY (`JOGADOR_FK`) REFERENCES `tb_jogadores_plantel` (`ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=latin1;
 
 -- ----------------------------
 -- Records of tb_financa
@@ -672,6 +672,8 @@ INSERT INTO `tb_financa` VALUES ('7', 'GANHO_PARTIDA', '19155.00', '490.00', '20
 INSERT INTO `tb_financa` VALUES ('11', 'VENDA_JOGADOR', '20960.00', '1805.00', '2014-01-20 00:20:08', null, '70', null);
 INSERT INTO `tb_financa` VALUES ('12', 'GANHO_PARTIDA', '21435.00', '475.00', '2014-01-20 00:51:20', null, null, null);
 INSERT INTO `tb_financa` VALUES ('13', 'GANHO_TORNEIO', '26435.00', '5000.00', '2014-01-20 00:53:11', null, null, null);
+INSERT INTO `tb_financa` VALUES ('14', null, '26854.00', '419.00', '2014-01-20 22:05:01', 'Herkot FC 2 X 0 Scoroz United A  em 20/01/2014 - 22:05', null, '8');
+INSERT INTO `tb_financa` VALUES ('15', null, '27297.00', '443.00', '2014-01-20 22:27:15', 'Haliyuu 3 X 1 Scoroz United A  em 20/01/2014 - 22:27', null, '9');
 
 -- ----------------------------
 -- Table structure for tb_jogadores_plantel
@@ -940,7 +942,7 @@ CREATE TABLE `tb_partida` (
   `DS_TIME_VISITANTE` varchar(255) DEFAULT NULL,
   `VL_GANHO_PARTIDA` decimal(19,2) DEFAULT NULL,
   PRIMARY KEY (`ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=latin1;
 
 -- ----------------------------
 -- Records of tb_partida
@@ -952,6 +954,8 @@ INSERT INTO `tb_partida` VALUES ('4', '2014-01-20 01:40:44', '3', '4', 'Fe Galac
 INSERT INTO `tb_partida` VALUES ('5', '2014-01-20 01:47:58', '0', '0', 'Colonos de Sc', 'Scoroz United A', '179.00');
 INSERT INTO `tb_partida` VALUES ('6', '2014-01-20 02:07:09', '1', '2', 'powerguido', 'Scoroz United A', '490.00');
 INSERT INTO `tb_partida` VALUES ('7', '2014-01-20 02:51:26', '2', '2', 'Class On Grass', 'Scoroz United A', '475.00');
+INSERT INTO `tb_partida` VALUES ('8', '2014-01-20 22:05:00', '2', '0', 'Herkot FC', 'Scoroz United A', '419.00');
+INSERT INTO `tb_partida` VALUES ('9', '2014-01-20 22:27:14', '3', '1', 'Haliyuu', 'Scoroz United A', '443.00');
 
 -- ----------------------------
 -- Table structure for tb_pos_jogador
