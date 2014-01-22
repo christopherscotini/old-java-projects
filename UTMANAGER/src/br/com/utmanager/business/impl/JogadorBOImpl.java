@@ -11,50 +11,47 @@ import br.com.utmanager.business.bo.JogadorBO;
 import br.com.utmanager.business.exceptions.FormInconsistenteException;
 import br.com.utmanager.model.Financa;
 import br.com.utmanager.model.Jogador;
+import br.com.utmanager.model.StatusJogadorEnum;
 import br.com.utmanager.model.TipoMovimentacaoEnum;
 import br.com.utmanager.view.utils.GlobalUtils;
 
 @Service
 public class JogadorBOImpl extends GenericBO implements JogadorBO{
 
-	private final Long STATUS_VENDIDO = 3L;
+	@Override
+	public void inserir(Jogador jogador) {
+		
+		verificaForm(jogador);
+		
+		jogador.setDataEntrada(new Date());
+		
+		if(jogador.getTipoMovJogador().getCodigo().equals(TipoMovimentacaoEnum.VENDA_JOGADOR)){
+			jogador.setDataSaida(new Date());
+			calculoLucroJogador(jogador);
+		}
+		
+		jogador = getJogadorDao().insert(jogador);
+		
+		atualizarFinanceiro(jogador);
+		
+//		calculaFinancas(jogador, TipoMovimentacaoEnum.COMPRA_JOGADOR);
+	}
+
+	@Override
+	public void editar(Jogador jogador) {
+		verificaForm(jogador);
+		
+		jogador.setDataAlteracao(new Date());
+		if(jogador.getStatus().getId().equals(StatusJogadorEnum.VENDIDO.getCodigo())){
+			jogador.setDataSaida(jogador.getDataSaida()==null?new Date():jogador.getDataSaida());
+			calculoLucroJogador(jogador);
+		}
+		
+		jogador = getJogadorDao().update(jogador);
+		
+		atualizarFinanceiro(jogador);
+	}
 	
-	@Override
-	public void inserir(Jogador plantel) {
-		
-		if(GlobalUtils.isBigDecimalNullOrZero(plantel.getValorVenda())){
-			if(plantel.getStatus().equals(STATUS_VENDIDO)){
-				throw new FormInconsistenteException("Adicione um valor de venda.");
-			}
-		}else{
-			if(!plantel.getStatus().equals(STATUS_VENDIDO)){
-				throw new FormInconsistenteException("Marque o STATUS como VENDIDO.");
-			}
-		}
-		
-		plantel.setDataEntrada(new Date());
-		plantel = getJogadorDao().insert(plantel);
-		
-		calculaFinancas(plantel, TipoMovimentacaoEnum.COMPRA_JOGADOR);
-	}
-
-	@Override
-	public void editar(Jogador plantel) {
-		
-		plantel.setDataAlteracao(new Date());
-
-		if(plantel.getStatus().getId().equals(STATUS_VENDIDO)){
-			plantel.setDataSaida(plantel.getDataSaida()==null?new Date():plantel.getDataSaida());
-			calculosDeLucroJogador(plantel);
-			calculaFinancas(plantel, TipoMovimentacaoEnum.VENDA_JOGADOR);
-		}else{
-			calculaFinancas(plantel, TipoMovimentacaoEnum.VENDA_JOGADOR);
-		}
-		
-		plantel = getJogadorDao().update(plantel);
-		
-	}
-
 	@Override
 	public void deletar(Jogador plantel) {
 		plantel.setDataAlteracao(new Date());
@@ -67,97 +64,105 @@ public class JogadorBOImpl extends GenericBO implements JogadorBO{
 		return getJogadorDao().findAll();
 	}
 	
-	private void calculosDeLucroJogador(Jogador jogador){
-		BigDecimal valorVenda5Porcento = BigDecimal.ZERO;
-		if(jogador.isLeilao()){
-			valorVenda5Porcento = jogador.getValorVenda().multiply(new BigDecimal("0.05"));
+	private void atualizarFinanceiro(Jogador jogador) {
+		Financa financa = new Financa();
+		if(!jogador.isVendido()){
+			if(jogador.getTipoMovJogador() != null){
+				if(jogador.getTipoMovJogador().getCodigo().equals(TipoMovimentacaoEnum.VENDA_JOGADOR.getCodigo())){
+					calcularFinanceiroVenda(jogador, financa);
+				}else{
+					calcularFinanceiroCompra(jogador, financa);
+				}
+			}
+		}else{
+//			calculaValorMovimentadoFinanca(financa, jogador);
+//			financa.setValorAtual(financa.getValorAtual().add(financa.getValorMovimentado()));
+//			addDescricaoFinanca(financa, tipoMov);
+//			getFinancaDao().update(financa);
 		}
+		
+	}
+	
+
+
+	private void calcularFinanceiroCompra(Jogador jogador, Financa financa) {
+		financa.setValorMovimentado(GlobalUtils.verificaBigDecimalNulo(jogador.getValorPago()));
+		financa.setValorAtual(getFinancaDao().getSaldoAtual().subtract(financa.getValorMovimentado()));
+		financa.setDataMovimentacao(new Date());
+		financa.setTipoMovimentacao(jogador.getTipoMovJogador());
+		financa.setJogador(jogador);
+		addDescricaoFinanca(financa, jogador);
+		getFinancaDao().insert(financa);
+	}
+
+	private void calcularFinanceiroVenda(Jogador jogador, Financa financa) {
+		BigDecimal valorVenda5Porcento = GlobalUtils.verificaBigDecimalNulo(jogador.getValorVenda()).multiply(new BigDecimal("0.05"));
+		BigDecimal valorVendaDescontado = GlobalUtils.verificaBigDecimalNulo(jogador.getValorVenda()).subtract(valorVenda5Porcento);
+		financa.setValorMovimentado(valorVendaDescontado);
+		financa.setValorAtual(getFinancaDao().getSaldoAtual().add(financa.getValorMovimentado()));
+		financa.setDataMovimentacao(new Date());
+		financa.setTipoMovimentacao(jogador.getTipoMovJogador());
+		financa.setJogador(jogador);
+		addDescricaoFinanca(financa, jogador);
+		getFinancaDao().insert(financa);
+	}
+
+
+
+	private void calculoLucroJogador(Jogador jogador){
+		BigDecimal valorVenda5Porcento = jogador.getValorVenda().multiply(new BigDecimal("0.05"));
 		BigDecimal valorVendaDescontado = jogador.getValorVenda().subtract(valorVenda5Porcento);
 		jogador.setLucro(valorVendaDescontado.subtract(jogador.getValorPago()));
 	
 	}
 
-	private void calculaFinancas(Jogador jogador, TipoMovimentacaoEnum tipoMov) {
-
-		Financa financa = new Financa();
-
-		if(jogador.isVendido()){
-			financa = getFinancaDao().verificaMovimentacaoJogador(jogador);
-			if(financa != null){
-				calculaValorMovimentadoFinanca(financa, jogador);
-				addDescricaoFinanca(financa, tipoMov);
-				getFinancaDao().update(financa);
-			}
-		}else{
-			financa = getFinancaDao().verificaMovimentacaoJogador(jogador);
-			if(financa == null){
-				if(!(GlobalUtils.isBigDecimalNullOrZero(jogador.getValorPago()) && GlobalUtils.isBigDecimalNullOrZero(jogador.getValorVenda()))){
-					if(!GlobalUtils.isLongNull(jogador.getId())){
-						if(!GlobalUtils.isBigDecimalNullOrZero(jogador.getValorVenda())){
-							financa = new Financa();
-							calculaValorMovimentadoFinanca(financa, jogador);
-							financa.setValorAtual(getFinancaDao().getSaldoAtual().add(financa.getValorMovimentado()));
-							financa.setDataMovimentacao(new Date());
-							financa.setTipoMovimentacao(tipoMov);
-							financa.setJogador(jogador);
-							addDescricaoFinanca(financa, tipoMov);
-							getFinancaDao().insert(financa);
-						}else{
-							if(!GlobalUtils.isBigDecimalNullOrZero(jogador.getValorPago())){
-								financa = new Financa();
-								calculaValorMovimentadoFinanca(financa, jogador);
-								financa.setValorAtual(getFinancaDao().getSaldoAtual().subtract(financa.getValorMovimentado()));
-								financa.setDataMovimentacao(new Date());
-								financa.setTipoMovimentacao(tipoMov);
-								financa.setJogador(jogador);
-								addDescricaoFinanca(financa, tipoMov);
-								getFinancaDao().insert(financa);
-							}
-						}
+	private void verificaForm(Jogador jogador) {
+		if(jogador.getTipoMovJogador() != null){
+			if(jogador.getTipoMovJogador().getCodigo().equals(TipoMovimentacaoEnum.VENDA_JOGADOR.getCodigo())){
+				if(GlobalUtils.isBigDecimalNullOrZero(jogador.getValorVenda())){
+					if(jogador.getStatus().equals(StatusJogadorEnum.VENDIDO.getCodigo())){
+						throw new FormInconsistenteException("Adicione um valor de venda.");
+					}
+				}else{
+					if(!jogador.getStatus().getId().equals(StatusJogadorEnum.VENDIDO.getCodigo())){
+						throw new FormInconsistenteException("Marque o STATUS como VENDIDO.");
 					}
 				}
-			}else{
-				calculaValorMovimentadoFinanca(financa, jogador);
-				financa.setValorAtual(financa.getValorAtual().add(financa.getValorMovimentado()));
-				addDescricaoFinanca(financa, tipoMov);
-				getFinancaDao().update(financa);
 			}
-		}
-		
-	}
-
-	private void calculaValorMovimentadoFinanca(Financa financa, Jogador jogador) {
-		
-		if(jogador.getValorVenda().compareTo(BigDecimal.ZERO) > 0){
-			BigDecimal valorVenda5Porcento = jogador.getValorVenda().multiply(new BigDecimal("0.05"));
-			BigDecimal valorVendaDescontado = jogador.getValorVenda().subtract(valorVenda5Porcento);
-			financa.setValorMovimentado(valorVendaDescontado);
 		}else{
-			if(jogador.getValorPago().compareTo(BigDecimal.ZERO) > 0){
-				financa.setValorMovimentado(jogador.getValorPago());
-			}else{
-				return;
+			if(!jogador.getStatus().getId().equals(StatusJogadorEnum.VENDIDO.getCodigo())){
+				if(GlobalUtils.isBigDecimalNullOrZero(jogador.getValorVenda())){
+					if(jogador.getStatus().equals(StatusJogadorEnum.VENDIDO.getCodigo())){
+						throw new FormInconsistenteException("Adicione um valor de venda.");
+					}
+				}else{
+					if(!jogador.getStatus().getId().equals(StatusJogadorEnum.VENDIDO.getCodigo())){
+						throw new FormInconsistenteException("Marque o STATUS como VENDIDO.");
+					}
+				}
 			}
 		}
-		
 	}
 	
-	private void addDescricaoFinanca(Financa financa, TipoMovimentacaoEnum tipoMov){
+	private void addDescricaoFinanca(Financa financa, Jogador jogador){
 		StringBuilder desc = new StringBuilder();
-		if(tipoMov.equals(TipoMovimentacaoEnum.VENDA_JOGADOR)){
+		if(jogador.getTipoMovJogador().equals(TipoMovimentacaoEnum.VENDA_JOGADOR)){
 			desc.append("Venda do jogador ");
 		}else{
-			if(tipoMov.equals(TipoMovimentacaoEnum.COMPRA_JOGADOR)){
+			if(jogador.getTipoMovJogador().equals(TipoMovimentacaoEnum.COMPRA_JOGADOR)){
 				desc.append("Compra do jogador ");
 			}			
 		}
-		desc.append(financa.getJogador().getPosicao().getSigla());
+		
+		jogador = getJogadorDao().findById(jogador.getId());
+		
+		desc.append(jogador.getPosicao().getSigla());
 		desc.append(" - ");
-		desc.append(financa.getJogador().getNomeJogador());
+		desc.append(jogador.getNomeJogador());
 		desc.append(" - ");
-		desc.append(financa.getJogador().getNacionalidade().getDescricao());
+		desc.append(jogador.getNacionalidade().getDescricao());
 		desc.append(" - ");
-		desc.append(financa.getJogador().getLiga().getDescricao());
+		desc.append(jogador.getLiga().getDescricao());
 		
 		financa.setDescricao(desc.toString());
 	}

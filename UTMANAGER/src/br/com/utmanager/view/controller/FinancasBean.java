@@ -16,7 +16,7 @@ import br.com.utmanager.model.Financa;
 @SessionScoped
 public class FinancasBean extends AbstractGenericBean{
 
-	private final String TELA_DASHBOARD_FINANCAS = "/content/dashboardFinancas.xhtml";
+	private final String TELA_DASHBOARD_FINANCAS = "/content/dashboard-financas/dashboardFinancas.xhtml";
 	private final String TELA_ADICONAR_PREMIACAO_FINANCAS = "/content/adicionarPremiacao.xhtml";
 	
 	private BigDecimal lucroTotalTransferencias;
@@ -49,8 +49,8 @@ public class FinancasBean extends AbstractGenericBean{
 		ganhoTotalPartidas = getFinancaBO().getGanhoTotalPartidas();
 		ganhoTotalPremiacoes = getFinancaBO().getGanhoTotalPremiacoes();
 		gastoTotalOutros = getFinancaBO().getGastoTotalOutros();
-		
 		extrato = getFinancaBO().getExtrato();
+		
 	}
 	
 	public String adicionarPremiacao(){
@@ -62,11 +62,10 @@ public class FinancasBean extends AbstractGenericBean{
 	public String salvarPremiacao(){
 		
 		try{
-			
 			getFinancaBO().adicionarPremiacao(premiacaoCadastro);
-			
 		}catch(BusinessException b){
 			Messages.addError(null, b.getMessage());
+			return "";
 		}
 		return iniciarTela();
 	}
@@ -138,5 +137,5 @@ public class FinancasBean extends AbstractGenericBean{
 	public void setPremiacaoCadastro(Financa premiacaoCadastro) {
 		this.premiacaoCadastro = premiacaoCadastro;
 	}
-	
+
 }

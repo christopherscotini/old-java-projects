@@ -1,0 +1,39 @@
+<?xml version='1.0' encoding='ISO-8859-1' ?>
+<ui:composition template="/template/template_main.xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+	<ui:define name="body_content">
+	
+		<h1 class="titulo">
+			<img src="#{facesContext.externalContext.requestContextPath}/resources/images/icon-historico.png" />
+			Dashboard das Finanças
+		</h1>
+
+	
+		<h:form id="formGlobal" styleClass="content">
+			<p:messages closable="true" id="messagesGlobal"/>
+			
+			<ui:include src="/content/dashboard-financas/resumo-dashboard.xhtml" />
+			
+			<fieldset style="margin-top: 10px;margin-bottom: 10px;">
+				<legend>Outras Ações</legend>	
+				<hr />
+				
+				<h:panelGroup layout="block" styleClass="buttonForm" style="margin-top:10px;">
+					<h:commandButton action="#{financasBean.adicionarItem()}" value="Comprar Itens para o clube" />
+					<h:commandButton action="#{financasBean.adicionarPremiacao()}" value="Adicionar Premiação" />
+				</h:panelGroup>
+
+			</fieldset>			
+			
+			<ui:include src="/content/dashboard-financas/extrato-dashboard.xhtml" />
+			
+			
+			
+		</h:form>
+		
+	</ui:define>
+</ui:composition>

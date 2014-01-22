@@ -29,7 +29,7 @@ public class FinancaDAOImpl extends JpaGenericDao<Financa, Long> implements Fina
 		
 		StringBuilder query = new StringBuilder();
 		query.append(" SELECT f.valorAtual FROM Financa f ");
-		query.append(" ORDER BY f.valorAtual DESC");
+		query.append(" ORDER BY f.id DESC");
 		query.append("");
 
 		try{
@@ -62,7 +62,7 @@ public class FinancaDAOImpl extends JpaGenericDao<Financa, Long> implements Fina
 	}
 	
 	@Override
-	public Financa verificaMovimentacaoJogador(Jogador jogador) {
+	public Financa recuperaMovimentacaoFinanceiraJogador(Jogador jogador) {
 		
 		StringBuilder query = new StringBuilder();
 		query.append(" SELECT f FROM Financa f ");

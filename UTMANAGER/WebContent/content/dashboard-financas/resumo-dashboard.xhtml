@@ -1,0 +1,60 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+
+	<fieldset>
+		<legend>Resumo</legend>	
+		<hr />
+		<h:panelGrid columns="3" style="width:40% !important"> 
+			<h:panelGroup>
+				<h3>Saldo Atual: <br />
+				<h:outputText value="R$ " />
+				<h:outputText id="valorSaldoAtual" value="#{financasBean.saldoFinanceiro}" styleClass="rowCollunmInputData" >
+					<f:converter converterId="decimalConverter" />
+				</h:outputText></h3>
+			</h:panelGroup>
+			<h:panelGroup></h:panelGroup>
+			<h:panelGroup></h:panelGroup>
+			<h:panelGroup>
+				Gasto com transferencias: <br />
+				<h:outputText value="R$ " />
+				<h:outputText id="valorGastoTotalTransferencias" value="#{financasBean.gastoTotalTransferencias}" styleClass="rowCollunmInputData" >
+					<f:converter converterId="decimalConverter" />
+				</h:outputText>
+			</h:panelGroup>
+			<h:panelGroup>
+				Ganhos com transferencias: <br />
+				<h:outputText value="R$ " />
+				<h:outputText id="valorGanhoTotalTransferencias" value="#{financasBean.ganhoTotalTransferencias}" styleClass="rowCollunmInputData" >
+					<f:converter converterId="decimalConverter" />
+				</h:outputText>
+			</h:panelGroup>						
+			<h:panelGroup>
+				Lucro com transferencias: <br />
+				<h:outputText value="R$ " />
+				<h:outputText id="valorLucroTotalTransferencias" value="#{financasBean.lucroTotalTransferencias}" styleClass="rowCollunmInputData" >
+					<f:converter converterId="decimalConverter" />
+				</h:outputText>
+			</h:panelGroup>						
+			
+			<h:panelGroup>
+				Ganhos com Partidas: <br />
+				<h:outputText value="R$ " />
+				<h:outputText id="valorGanhoTotalPartidas" value="#{financasBean.ganhoTotalPartidas}" styleClass="rowCollunmInputData" >
+					<f:converter converterId="decimalConverter" />
+				</h:outputText>
+			</h:panelGroup>						
+			<h:panelGroup>
+				Ganhos com Premiações/Torneios: <br />
+				<h:outputText value="R$ " />
+				<h:outputText id="valorGanhoTotalPremiacoes" value="#{financasBean.ganhoTotalPremiacoes}" styleClass="rowCollunmInputData" >
+					<f:converter converterId="decimalConverter" />
+				</h:outputText>
+			</h:panelGroup>						
+		</h:panelGrid>
+	</fieldset>
+	
+</ui:composition>

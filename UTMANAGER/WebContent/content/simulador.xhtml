@@ -1,0 +1,62 @@
+<?xml version='1.0' encoding='ISO-8859-1' ?>
+<ui:composition template="/template/template_main.xhtml"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+	
+	<ui:define name="body_content">
+	
+		<h1 class="titulo">
+			<img src="#{facesContext.externalContext.requestContextPath}/resources/images/icon-historico.png" />
+			Simulador
+		</h1>
+
+		<h:form id="formGlobal" styleClass="content">
+			<p:messages closable="true" id="messagesGlobal"/>
+			
+			<h:panelGrid columns="1">
+				<h:panelGroup>
+					<h:selectOneRadio value="#{simuladorBean.opcaoSimular}">
+						<f:selectItem itemValue="1" itemLabel="Simulador de Venda" />
+						<p:ajax update="painelSimuladorVendas" oncomplete="loadMasksJQuery();"/>
+					</h:selectOneRadio> 
+				</h:panelGroup>
+
+				<h:panelGroup id="painelSimuladorVendas" >
+					<h:panelGrid columns="2" rendered="#{simuladorBean.opcaoSimular == 1}" style="width:15% !important">
+						<h:panelGroup>Valor pago</h:panelGroup>
+						<h:panelGroup>
+							<h:inputText id="txtVlrPago" alt="decimal" size="10" value="#{simuladorBean.valorPago}" styleClass="rowCollunmInputData" >
+								<f:converter converterId="decimalConverter" />
+								<p:ajax event="blur" listener="#{simuladorBean.calculoSimuladorVenda}" update="resultadoSimulacaoVenda"/>
+							</h:inputText>
+						</h:panelGroup>
+						<h:panelGroup>Valor de venda </h:panelGroup>
+						<h:panelGroup>
+							<h:inputText id="txtVlrVendaLeilao" alt="decimal" size="10" value="#{simuladorBean.valorVenda}" styleClass="rowCollunmInputData" >
+								<f:converter converterId="decimalConverter" />
+								<p:ajax event="blur" listener="#{simuladorBean.calculoSimuladorVenda}" update="resultadoSimulacaoVenda"/>
+							</h:inputText>
+						</h:panelGroup>
+						<h:panelGroup>Resultado</h:panelGroup>
+						<h:panelGroup id="resultadoSimulacaoVenda" >
+							<h2>
+								<h:outputText value="R$ " rendered="#{not empty simuladorBean.resultadoSimuladorVenda}"/>
+								<h:outputText value="#{simuladorBean.resultadoSimuladorVenda}" >
+									<f:converter converterId="decimalConverter" />
+								</h:outputText>
+							</h2>
+						</h:panelGroup>
+					</h:panelGrid>
+				 </h:panelGroup>
+
+			</h:panelGrid>
+			
+			
+			
+		</h:form>
+		
+	</ui:define>
+</ui:composition>

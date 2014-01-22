@@ -1,0 +1,21 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+
+	<fieldset>
+		<legend>Balanço semanal de Compra/Venda</legend>	
+		<hr />
+		
+		<h:panelGrid columns="1" style="width:70% !important; padding:10px;" > 
+		
+			<p:lineChart id="linear" value="#{tradingBean.linearGraphBalancoCompraVendaDiario}" 
+				legendPosition="e"  title="" 
+				minY="0" maxY="30" style="height:100%;"/> 
+     
+		</h:panelGrid>
+	</fieldset>
+	
+</ui:composition>

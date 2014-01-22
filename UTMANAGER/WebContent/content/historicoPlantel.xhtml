@@ -12,10 +12,9 @@
 			Histórico do Plantel
 		</h1>
 
-		<p:messages closable="true" />
 	
 		<h:form id="formGlobal" styleClass="content">
-			
+			<p:messages closable="true" id="messagesGlobal"/>
 			<h:panelGrid columns="1" >
 				<p:dataTable id="dataTableContrato"
 					value="#{historicoPlatelBean.jogadores}" var="result"

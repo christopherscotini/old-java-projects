@@ -13,10 +13,9 @@
 			Incluir Jogador
 		</h1>
 
-		<p:messages closable="true" />
 	
 		<h:form id="formGlobal" styleClass="content">
-				
+			<p:messages closable="true" id="messagesGlobal"/>
 			<fieldset>
 				<legend>Informações Bio Jogador</legend>	
 				<hr />
@@ -43,7 +42,7 @@
 					</label>
 					<label class="rowCollunmData">
 						Categoria<br />
-						<h:selectOneMenu id="cboStatus" value="#{historicoPlatelBean.statusSelecionada}"  styleClass="rowCollunmInputData">
+						<h:selectOneMenu id="cboStatus" value="#{historicoPlatelBean.statusSelecionada}" disabled="#{historicoPlatelBean.jogadorCadastro.vendido}" styleClass="rowCollunmInputData">
 							<f:selectItems  value="#{historicoPlatelBean.listaStatusJogador}"  var="s" itemLabel="#{s.descricao}" itemValue="#{s.id}" />
 						</h:selectOneMenu>
 					</label>
@@ -72,7 +71,8 @@
 				<div class="rowData">
 					<label class="rowCollunmData">
 						Valor Pago<br />
-						<h:inputText id="txtValorPago" alt="decimal" size="10" value="#{historicoPlatelBean.jogadorCadastro.valorPago}" styleClass="rowCollunmInputData" >
+						<h:inputText id="txtValorPago" alt="decimal" size="10" disabled="#{not empty historicoPlatelBean.jogadorCadastro.id}"
+							value="#{historicoPlatelBean.jogadorCadastro.valorPago}" styleClass="rowCollunmInputData" >
 							<f:converter converterId="decimalConverter" />
 						</h:inputText>
 					</label>
@@ -86,24 +86,18 @@
 				<div class="rowData">
 					<label class="rowCollunmData">
 						Valor de venda<br />
-						<h:inputText id="txtVlrVenda" alt="decimal" size="10" value="#{historicoPlatelBean.jogadorCadastro.valorVenda}" styleClass="rowCollunmInputData" >
+						<h:inputText id="txtVlrVenda" alt="decimal" disabled="#{historicoPlatelBean.jogadorCadastro.vendido}" size="10" value="#{historicoPlatelBean.jogadorCadastro.valorVenda}" styleClass="rowCollunmInputData" >
 							<f:converter converterId="decimalConverter" />
 						</h:inputText>
 					</label>
 					<h:panelGroup rendered="#{!historicoPlatelBean.cadastrar}" >
 						<label class="rowCollunmData">
 							Lucro<br />
-							<h:inputText id="txtLucro" disabled="true" alt="decimal" size="10" value="#{historicoPlatelBean.jogadorCadastro.lucro}" styleClass="rowCollunmInputData" >
+							<h:outputText id="txtLucro" value="#{historicoPlatelBean.jogadorCadastro.lucro}" styleClass="rowCollunmInputData" >
 								<f:converter converterId="decimalConverter" />
-							</h:inputText>
+							</h:outputText>
 						</label>
 					</h:panelGroup>
-				</div>
-				<div class="rowData">
-					<label class="rowCollunmData">
-						Leilão
-						<h:selectBooleanCheckbox  id="flLeilao" value="#{historicoPlatelBean.jogadorCadastro.leilao}" styleClass="rowCollunmInputData" />
-					</label>
 				</div>
 			</fieldset>
 			

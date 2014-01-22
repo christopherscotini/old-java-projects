@@ -1,0 +1,36 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+
+	<fieldset style="margin-top: 10px;margin-bottom: 10px;">
+		<legend>Extrato</legend>	
+		<hr />
+		<p:dataTable id="dataTableContrato"
+				value="#{financasBean.extrato}" var="result"
+				rowKey="#{result}" rows="10" paginator="true" 
+				paginatorPosition="bottom" emptyMessage="Dados não encontrados">
+				
+			<p:column headerText="DESCRIÇÃO" sortBy="#{result.descricao}" width="60%" styleClass="colCenter" >
+				<h:outputText value="#{result.descricao}" />
+			</p:column>
+
+			<p:column headerText="VALOR" sortBy="#{result.valorMovimentado}" width="20%" styleClass="colCenter" >
+				<h:outputText value="R$ " />
+				<h:outputText value="#{result.valorMovimentado}" >
+					<f:converter converterId="decimalConverter" />
+				</h:outputText>
+			</p:column>
+
+			<p:column headerText="DATA" sortBy="#{result.dataMovimentacao}" width="20%" styleClass="colCenter" > 
+				<h:outputText value="#{result.dataMovimentacao}" >
+					<f:convertDateTime pattern="dd/MM/yyyy HH:mm"/>
+				</h:outputText>
+			</p:column>
+				
+		</p:dataTable>
+	</fieldset>
+	
+</ui:composition>

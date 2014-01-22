@@ -1,5 +1,6 @@
 package br.com.utmanager.view.controller;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 import javax.faces.bean.ManagedBean;
@@ -15,6 +16,9 @@ import br.com.utmanager.model.LigaJogador;
 import br.com.utmanager.model.NacionalidadeJogador;
 import br.com.utmanager.model.PosicaoJogador;
 import br.com.utmanager.model.StatusJogador;
+import br.com.utmanager.model.StatusJogadorEnum;
+import br.com.utmanager.model.TipoMovimentacaoEnum;
+import br.com.utmanager.view.utils.GlobalUtils;
 
 
 @ManagedBean
@@ -76,8 +80,10 @@ public class HistoricoPlatelBean extends AbstractGenericBean{
 		jogadorCadastro.setNacionalidade(new NacionalidadeJogador(nacionalidadeSelecionada));
 		jogadorCadastro.setPosicao(new PosicaoJogador(posicaoSelecionada));
 		jogadorCadastro.setStatus(new StatusJogador(statusSelecionada));
+		jogadorCadastro.setLucro(BigDecimal.ZERO);
 		
 		try{
+			verificaTipoMovimentacaoJogador();
 			if(cadastrar){
 				getJogadorBO().inserir(jogadorCadastro);
 			}else{
@@ -85,11 +91,26 @@ public class HistoricoPlatelBean extends AbstractGenericBean{
 			}
 		}catch(BusinessException b){
 			Messages.addError(null, b.getMessage());
+			return "";
 		}
 		
 		return iniciarTela();
 	}
 	
+	private void verificaTipoMovimentacaoJogador() {
+		if(jogadorCadastro.getStatus().getId().equals(StatusJogadorEnum.NO_CLUBE.getCodigo()) || jogadorCadastro.getStatus().getId().equals(StatusJogadorEnum.A_VENDA.getCodigo())){
+			if(jogadorCadastro.getId() == null){
+				jogadorCadastro.setTipoMovJogador(TipoMovimentacaoEnum.COMPRA_JOGADOR);
+			}
+		}else{
+			if(!GlobalUtils.isBigDecimalNullOrZero(jogadorCadastro.getValorVenda()) && !jogadorCadastro.isVendido()){
+				jogadorCadastro.setTipoMovJogador(TipoMovimentacaoEnum.VENDA_JOGADOR);
+			}
+		}
+	}
+
+
+
 	private void prepararCombosFormulario(){
 		if(cadastrar){
 			categoriaSelecionada = null;

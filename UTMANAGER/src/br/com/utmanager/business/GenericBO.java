@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import br.com.utmanager.persistence.dao.CategoriaJogadorDAO;
 import br.com.utmanager.persistence.dao.ClubeJogadorDAO;
+import br.com.utmanager.persistence.dao.DashboardTradingDAO;
 import br.com.utmanager.persistence.dao.FinancaDAO;
 import br.com.utmanager.persistence.dao.JogadorDAO;
 import br.com.utmanager.persistence.dao.LigaJogadorDAO;
@@ -12,7 +13,7 @@ import br.com.utmanager.persistence.dao.PartidaDAO;
 import br.com.utmanager.persistence.dao.PosicaoJogadorDAO;
 import br.com.utmanager.persistence.dao.StatusJogadorDAO;
 
-public abstract class GenericBO {
+public abstract class GenericBO<T> {
 	
 	@Autowired
 	private CategoriaJogadorDAO categoriaJogadorDao = null;
@@ -40,6 +41,9 @@ public abstract class GenericBO {
 
 	@Autowired
 	private FinancaDAO financaDao = null;
+	
+	@Autowired
+	private DashboardTradingDAO<T> dashboardTradingDao = null;
 	
 
 	public JogadorDAO getJogadorDao() {
@@ -113,6 +117,14 @@ public abstract class GenericBO {
 
 	public void setFinancaDao(FinancaDAO financaDao) {
 		this.financaDao = financaDao;
+	}
+
+	public DashboardTradingDAO<T> getDashboardTradingDao() {
+		return dashboardTradingDao;
+	}
+
+	public void setDashboardTradingDao(DashboardTradingDAO<T> dashboardTradingDao) {
+		this.dashboardTradingDao = dashboardTradingDao;
 	}
 	
 }

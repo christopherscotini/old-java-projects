@@ -6,6 +6,7 @@ import javax.faces.bean.ManagedProperty;
 
 import br.com.utmanager.business.bo.CategoriaJogadorBO;
 import br.com.utmanager.business.bo.ClubeJogadorBO;
+import br.com.utmanager.business.bo.DashboardTradingBO;
 import br.com.utmanager.business.bo.FinancaBO;
 import br.com.utmanager.business.bo.JogadorBO;
 import br.com.utmanager.business.bo.LigaJogadorBO;
@@ -48,6 +49,9 @@ public abstract class AbstractGenericBean {
 
 	@ManagedProperty(value = "#{financaBOImpl}")
 	private FinancaBO financaBO = null;
+
+	@ManagedProperty(value = "#{dashboardTradingBOImpl}")
+	private DashboardTradingBO dashboardTradingBO = null;
 
 	public abstract String iniciarTela();
 	
@@ -151,6 +155,16 @@ public abstract class AbstractGenericBean {
 
 	public void setFinancaBO(FinancaBO financaBO) {
 		this.financaBO = financaBO;
+	}
+
+
+	public DashboardTradingBO getDashboardTradingBO() {
+		return dashboardTradingBO;
+	}
+
+
+	public void setDashboardTradingBO(DashboardTradingBO dashboardTradingBO) {
+		this.dashboardTradingBO = dashboardTradingBO;
 	}
 	
 }

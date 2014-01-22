@@ -44,6 +44,7 @@ public class PartidasBOImpl extends GenericBO implements PartidasBO{
 		Financa financa = new Financa();
 		
 		financa.setPartida(partida);
+		financa.setTipoMovimentacao(tipoMov);
 		financa.setValorMovimentado(partida.getValorGanhoPartida());
 		financa.setDataMovimentacao(new Date());
 		financa.setValorAtual(getFinancaDao().getSaldoAtual().add(financa.getValorMovimentado()));

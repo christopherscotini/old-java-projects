@@ -9,25 +9,25 @@
 	
 		<h1 class="titulo">
 			<img src="#{facesContext.externalContext.requestContextPath}/resources/images/icon-historico.png" />
-			Adicionar Premiação
+			Adicionar Item Clube
 		</h1>
 
 	
 		<h:form id="formGlobal" styleClass="content">
 			<p:messages closable="true" id="messagesGlobal"/>
 			<fieldset>
-				<legend>Informações da Premiação</legend>	
+				<legend>Informações do Item</legend>	
 				<hr />
 				<div class="rowData">
 					<label class="rowCollunmData">
 						Descrição<br />
-						<h:inputText id="txtNomejogador" size="60" value="#{financasBean.premiacaoCadastro.descricao}" styleClass="rowCollunmInputData" />
+						<h:inputText id="txtNomejogador" size="60" value="#{financasBean.itemCadastro.descricao}" styleClass="rowCollunmInputData" />
 					</label>
 				</div>
 				<div class="rowData">
 					<label class="rowCollunmData">
-						Valor do prêmio<br />
-						<h:inputText id="valorPrêmio" alt="decimal" size="10" value="#{financasBean.premiacaoCadastro.valorMovimentado}" styleClass="rowCollunmInputData" >
+						Valor do item<br />
+						<h:inputText id="valorItem" alt="decimal" size="10" value="#{financasBean.itemCadastro.valorMovimentado}" styleClass="rowCollunmInputData" >
 							<f:converter converterId="decimalConverter" />
 						</h:inputText>
 					</label>
@@ -38,7 +38,7 @@
 				<f:facet name="footer">
 					<h:panelGroup layout="block" styleClass="buttonForm">
 						<h:commandButton value="Salvar"
-							action="#{financasBean.salvarPremiacao()}" />
+							action="#{financasBean.salvarItemClube()}" />
 						<h:commandButton value="Voltar" action="/index.xhtml"
 							immediate="true" />
 					</h:panelGroup>

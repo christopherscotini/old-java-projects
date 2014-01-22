@@ -10,7 +10,7 @@ public interface FinancaDAO extends Dao<Financa, Long>{
 
 	BigDecimal getSaldoAtual();
 
-	Financa verificaMovimentacaoJogador(Jogador jogador);
+	Financa recuperaMovimentacaoFinanceiraJogador(Jogador jogador);
 
 	BigDecimal getLucroTotalTransferencias();
 

@@ -67,4 +67,18 @@ public class FinancaBOImpl extends GenericBO implements FinancaBO{
 		premiacaoCadastro.setValorAtual(getSaldoAtual().add(premiacaoCadastro.getValorMovimentado()));
 		getFinancaDao().insert(premiacaoCadastro);
 	}
+
+	@Override
+	public void adicionarItemClube(Financa itemCadastro) {
+		
+		if(GlobalUtils.isBigDecimalNullOrZero((itemCadastro.getValorMovimentado()))){
+			throw new FormInconsistenteException("Informe o valor do item.");
+		}
+		
+		itemCadastro.setDataMovimentacao(new Date());
+		itemCadastro.setTipoMovimentacao(TipoMovimentacaoEnum.COMPRA_OUTROS);
+		itemCadastro.setValorAtual(getSaldoAtual().subtract(itemCadastro.getValorMovimentado()));
+		getFinancaDao().insert(itemCadastro);
+		
+	}
 }

@@ -2,15 +2,15 @@
 Navicat MySQL Data Transfer
 
 Source Server         : local
-Source Server Version : 50522
+Source Server Version : 50612
 Source Host           : localhost:3306
 Source Database       : utmanager
 
 Target Server Type    : MYSQL
-Target Server Version : 50522
+Target Server Version : 50612
 File Encoding         : 65001
 
-Date: 2014-01-21 10:14:36
+Date: 2014-01-22 17:51:04
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -657,7 +657,7 @@ CREATE TABLE `tb_financa` (
   KEY `FKE63D3EE5363F5AD4` (`PARTIDA_FK`),
   CONSTRAINT `FKE63D3EE5363F5AD4` FOREIGN KEY (`PARTIDA_FK`) REFERENCES `tb_partida` (`ID`),
   CONSTRAINT `FKE63D3EE5676B2B4` FOREIGN KEY (`JOGADOR_FK`) REFERENCES `tb_jogadores_plantel` (`ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=53 DEFAULT CHARSET=latin1;
 
 -- ----------------------------
 -- Records of tb_financa
@@ -669,11 +669,44 @@ INSERT INTO `tb_financa` VALUES ('4', 'GANHO_PARTIDA', '17987.00', '450.00', '20
 INSERT INTO `tb_financa` VALUES ('5', 'GANHO_PARTIDA', '18486.00', '499.00', '2014-01-19 23:40:42', null, null, null);
 INSERT INTO `tb_financa` VALUES ('6', 'GANHO_PARTIDA', '18665.00', '179.00', '2014-01-19 23:47:37', null, null, null);
 INSERT INTO `tb_financa` VALUES ('7', 'GANHO_PARTIDA', '19155.00', '490.00', '2014-01-20 00:07:21', null, null, null);
-INSERT INTO `tb_financa` VALUES ('11', 'VENDA_JOGADOR', '20960.00', '1805.00', '2014-01-20 00:20:08', null, '70', null);
+INSERT INTO `tb_financa` VALUES ('11', 'VENDA_JOGADOR', '20960.00', '1805.00', '2014-01-20 00:20:08', 'Venda do jogador null - Sterling - null - null', '70', null);
 INSERT INTO `tb_financa` VALUES ('12', 'GANHO_PARTIDA', '21435.00', '475.00', '2014-01-20 00:51:20', null, null, null);
 INSERT INTO `tb_financa` VALUES ('13', 'GANHO_TORNEIO', '26435.00', '5000.00', '2014-01-20 00:53:11', null, null, null);
-INSERT INTO `tb_financa` VALUES ('14', null, '26854.00', '419.00', '2014-01-20 22:05:01', 'Herkot FC 2 X 0 Scoroz United A  em 20/01/2014 - 22:05', null, '8');
-INSERT INTO `tb_financa` VALUES ('15', null, '27297.00', '443.00', '2014-01-20 22:27:15', 'Haliyuu 3 X 1 Scoroz United A  em 20/01/2014 - 22:27', null, '9');
+INSERT INTO `tb_financa` VALUES ('14', 'GANHO_PARTIDA', '26854.00', '419.00', '2014-01-20 22:05:01', 'Herkot FC 2 X 0 Scoroz United A  em 20/01/2014 - 22:05', null, '8');
+INSERT INTO `tb_financa` VALUES ('15', 'GANHO_PARTIDA', '27297.00', '443.00', '2014-01-20 22:27:15', 'Haliyuu 3 X 1 Scoroz United A  em 20/01/2014 - 22:27', null, '9');
+INSERT INTO `tb_financa` VALUES ('16', 'COMPRA_JOGADOR', '24797.00', '2500.00', '2014-01-21 13:32:05', 'Compra do jogador null - Diego Costa - null - null', '129', null);
+INSERT INTO `tb_financa` VALUES ('20', 'VENDA_JOGADOR', '25129.50', '332.50', '2014-01-21 16:30:41', 'Venda do jogador null - Chambers - null - null', '71', null);
+INSERT INTO `tb_financa` VALUES ('21', 'VENDA_JOGADOR', '26032.00', '902.50', '2014-01-21 16:35:58', 'Venda do jogador null - Luiz Gustavo - null - null', '37', null);
+INSERT INTO `tb_financa` VALUES ('22', 'VENDA_JOGADOR', '27552.00', '1520.00', '2014-01-21 16:40:00', 'Venda do jogador null - Luiz Gustavo - null - null', '92', null);
+INSERT INTO `tb_financa` VALUES ('23', 'VENDA_JOGADOR', '28454.50', '902.50', '2014-01-21 16:40:46', 'Venda do jogador null - Cáceres - null - null', '111', null);
+INSERT INTO `tb_financa` VALUES ('24', 'VENDA_JOGADOR', '29309.50', '855.00', '2014-01-21 16:41:10', 'Venda do jogador null - Radu - null - null', '115', null);
+INSERT INTO `tb_financa` VALUES ('25', 'VENDA_JOGADOR', '32064.50', '2755.00', '2014-01-21 16:41:36', 'Venda do jogador null - Diego Costa - null - null', '129', null);
+INSERT INTO `tb_financa` VALUES ('26', 'COMPRA_JOGADOR', '28664.50', '3400.00', '2014-01-21 16:56:23', 'Compra do jogador null - Sturridge - null - null', '130', null);
+INSERT INTO `tb_financa` VALUES ('27', 'COMPRA_JOGADOR', '27464.50', '1200.00', '2014-01-21 17:53:32', 'Compra do jogador null - Fernando Torres - null - null', '131', null);
+INSERT INTO `tb_financa` VALUES ('28', 'COMPRA_JOGADOR', '26464.50', '1000.00', '2014-01-21 17:54:45', 'Compra do jogador null - Benteke - null - null', '132', null);
+INSERT INTO `tb_financa` VALUES ('29', 'COMPRA_JOGADOR', '25364.50', '1100.00', '2014-01-21 17:55:15', 'Compra do jogador null - Benteke - null - null', '133', null);
+INSERT INTO `tb_financa` VALUES ('30', 'COMPRA_JOGADOR', '24514.50', '850.00', '2014-01-21 17:56:36', 'Compra do jogador null - Coutinho - null - null', '134', null);
+INSERT INTO `tb_financa` VALUES ('31', 'VENDA_JOGADOR', '25274.50', '760.00', '2014-01-21 18:00:39', 'Venda do jogador null - Pastore - null - null', '65', null);
+INSERT INTO `tb_financa` VALUES ('32', 'VENDA_JOGADOR', '26319.50', '1045.00', '2014-01-21 18:01:01', 'Venda do jogador null - Mandzukic - null - null', '96', null);
+INSERT INTO `tb_financa` VALUES ('33', 'GANHO_PARTIDA', '26865.50', '546.00', '2014-01-22 09:21:37', 'Scoroz United  4 X 1 Campinho FC  em 22/01/2014 - 09:21', null, '10');
+INSERT INTO `tb_financa` VALUES ('34', 'GANHO_PARTIDA', '27296.50', '431.00', '2014-01-22 09:22:10', 'Scoroz United 1 X 2 craques   em 22/01/2014 - 09:22', null, '11');
+INSERT INTO `tb_financa` VALUES ('35', 'VENDA_JOGADOR', '28246.50', '950.00', '2014-01-22 09:22:55', 'Venda do jogador null - Klose - null - null', '95', null);
+INSERT INTO `tb_financa` VALUES ('36', 'VENDA_JOGADOR', '29006.50', '760.00', '2014-01-22 09:23:11', 'Venda do jogador null - Sokratis - null - null', '108', null);
+INSERT INTO `tb_financa` VALUES ('37', 'GANHO_PARTIDA', '29440.50', '434.00', '2014-01-22 09:24:12', 'Scoroz United 0 X 1 Bonsucesso FC  em 22/01/2014 - 09:24', null, '12');
+INSERT INTO `tb_financa` VALUES ('38', 'GANHO_PARTIDA', '29953.50', '513.00', '2014-01-22 09:24:34', 'Scoroz United 1 X 0 Jockos FC  em 22/01/2014 - 09:24', null, '13');
+INSERT INTO `tb_financa` VALUES ('39', 'GANHO_PARTIDA', '30474.00', '521.00', '2014-01-22 09:25:00', 'SCOROZ 3 x 1 CACIQUE FC', null, null);
+INSERT INTO `tb_financa` VALUES ('40', 'GANHO_PARTIDA', '30987.50', '513.00', '2014-01-22 09:25:10', 'Scoroz United 4 X 4 LSCRDYT   em 22/01/2014 - 09:25', null, '15');
+INSERT INTO `tb_financa` VALUES ('42', 'COMPRA_OUTROS', '30787.50', '200.00', '2014-01-22 10:00:00', 'Compra de Emblema do Boca Juniors', null, null);
+INSERT INTO `tb_financa` VALUES ('43', 'VENDA_JOGADOR', '31642.50', '855.00', '2014-01-22 10:03:59', 'Venda do jogador null - Ospina - null - null', '6', null);
+INSERT INTO `tb_financa` VALUES ('44', 'VENDA_JOGADOR', '34492.50', '2850.00', '2014-01-22 10:04:24', 'Venda do jogador null - Dante - null - null', '93', null);
+INSERT INTO `tb_financa` VALUES ('45', 'VENDA_JOGADOR', '35632.50', '1140.00', '2014-01-22 10:06:22', 'Venda do jogador null - Howedes - null - null', '100', null);
+INSERT INTO `tb_financa` VALUES ('46', 'VENDA_JOGADOR', '36060.00', '427.50', '2014-01-22 10:06:47', 'Venda do jogador null - Rolfes - null - null', '122', null);
+INSERT INTO `tb_financa` VALUES ('47', 'VENDA_JOGADOR', '36915.00', '855.00', '2014-01-22 11:35:00', 'Venda do jogador null - Samuel - null - null', '98', null);
+INSERT INTO `tb_financa` VALUES ('48', 'VENDA_JOGADOR', '38625.00', '1710.00', '2014-01-22 11:36:25', 'Venda do jogador null - Fernando Torres - null - null', '131', null);
+INSERT INTO `tb_financa` VALUES ('49', 'COMPRA_JOGADOR', '34925.00', '3700.00', '2014-01-22 12:11:53', 'Compra do jogador null - Walker - null - null', '135', null);
+INSERT INTO `tb_financa` VALUES ('50', 'COMPRA_JOGADOR', '33825.00', '1100.00', '2014-01-22 14:42:24', 'Compra do jogador null - Coutinho - null - null', '136', null);
+INSERT INTO `tb_financa` VALUES ('51', 'VENDA_JOGADOR', '34727.50', '902.50', '2014-01-22 15:36:19', 'Venda do jogador CAM - K. P. Boateng - Ganês - Germany 1. Bundesliga', '57', null);
+INSERT INTO `tb_financa` VALUES ('52', 'VENDA_JOGADOR', '35962.50', '1235.00', '2014-01-22 15:50:23', 'Venda do jogador CAM - Coutinho - Brasileiro - England Premier League', '136', null);
 
 -- ----------------------------
 -- Table structure for tb_jogadores_plantel
@@ -696,6 +729,7 @@ CREATE TABLE `tb_jogadores_plantel` (
   `NACIONALIDADE_FK` bigint(20) DEFAULT NULL,
   `DS_POSICAO` bigint(20) DEFAULT NULL,
   `STATUS_FK` bigint(20) DEFAULT NULL,
+  `FL_VENDIDO` tinyint(1) DEFAULT NULL,
   PRIMARY KEY (`ID`),
   KEY `FKB41BF3286C31934` (`NACIONALIDADE_FK`),
   KEY `FKB41BF3230330468` (`DS_POSICAO`),
@@ -703,140 +737,150 @@ CREATE TABLE `tb_jogadores_plantel` (
   KEY `FKB41BF321700EADE` (`CLUBE_FK`),
   KEY `FKB41BF32615AAA56` (`CATEGORIA_FK`),
   KEY `FKB41BF324B25C238` (`STATUS_FK`),
-  CONSTRAINT `FKB41BF324B25C238` FOREIGN KEY (`STATUS_FK`) REFERENCES `tb_status_jogador` (`ID`),
   CONSTRAINT `FKB41BF321700EADE` FOREIGN KEY (`CLUBE_FK`) REFERENCES `tb_clube` (`ID`),
   CONSTRAINT `FKB41BF3230330468` FOREIGN KEY (`DS_POSICAO`) REFERENCES `tb_pos_jogador` (`ID`),
+  CONSTRAINT `FKB41BF324B25C238` FOREIGN KEY (`STATUS_FK`) REFERENCES `tb_status_jogador` (`ID`),
   CONSTRAINT `FKB41BF32615AAA56` FOREIGN KEY (`CATEGORIA_FK`) REFERENCES `tb_categoria_jogador` (`ID`),
   CONSTRAINT `FKB41BF3286C31934` FOREIGN KEY (`NACIONALIDADE_FK`) REFERENCES `tb_nacionalidade_jogador` (`ID`),
   CONSTRAINT `FKB41BF32A53662E` FOREIGN KEY (`LIGA_FK`) REFERENCES `tb_liga` (`ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=127 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=137 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of tb_jogadores_plantel
 -- ----------------------------
-INSERT INTO `tb_jogadores_plantel` VALUES ('1', null, '2014-01-15 00:00:00', null, '0.00', 'Rensing', '76', '0.00', '0.00', '0.00', '2', '307', '17', '9', '1', '2');
-INSERT INTO `tb_jogadores_plantel` VALUES ('2', null, '2014-01-15 00:00:00', null, '0.00', 'Mignolet', '80', '0.00', '0.00', '0.00', '1', '160', '10', '6', '1', '1');
-INSERT INTO `tb_jogadores_plantel` VALUES ('3', null, '2014-01-15 00:00:00', null, '0.00', 'Begovic', '81', '0.00', '0.00', '0.00', '1', '167', '10', '18', '1', '1');
-INSERT INTO `tb_jogadores_plantel` VALUES ('4', '2014-01-19 11:36:03', '2014-01-15 00:00:00', '2014-01-19 11:36:03', '0.00', 'Jefferson', '82', '0.00', '0.00', '650.00', '1', '61', '4', '1', '1', '3');
-INSERT INTO `tb_jogadores_plantel` VALUES ('5', null, '2014-01-15 00:00:00', null, '0.00', 'Rafael', '77', '0.00', '0.00', '450.00', '2', '351', '19', '1', '1', '3');
-INSERT INTO `tb_jogadores_plantel` VALUES ('6', null, '2014-01-15 00:00:00', null, '0.00', 'Ospina', '75', '0.00', '0.00', '0.00', '2', '255', '14', '22', '1', '1');
-INSERT INTO `tb_jogadores_plantel` VALUES ('7', null, '2014-01-15 00:00:00', null, '0.00', 'Lee Chang Keun', '57', '0.00', '0.00', '0.00', '6', '545', '32', '7', '1', '1');
-INSERT INTO `tb_jogadores_plantel` VALUES ('8', null, '2014-01-15 00:00:00', null, '0.00', 'Jourdren', '76', '0.00', '0.00', '304.00', '2', '254', '14', '2', '1', '3');
-INSERT INTO `tb_jogadores_plantel` VALUES ('9', '2014-01-20 11:55:43', '2014-01-15 00:00:00', null, '0.00', 'Lloris', '84', '0.00', '0.00', '0.00', '1', '166', '10', '2', '1', '1');
-INSERT INTO `tb_jogadores_plantel` VALUES ('10', null, '2014-01-15 00:00:00', null, '0.00', 'Fabiansky', '76', '0.00', '0.00', '450.00', '2', '152', '10', '17', '1', '3');
-INSERT INTO `tb_jogadores_plantel` VALUES ('11', null, '2014-01-15 00:00:00', null, '0.00', 'Sorto', '58', '0.00', '0.00', '0.00', '6', '26', '2', '13', '2', '1');
-INSERT INTO `tb_jogadores_plantel` VALUES ('12', null, '2014-01-15 00:00:00', null, '0.00', 'Hugo Mallo', '75', '0.00', '0.00', '250.00', '2', '470', '27', '4', '2', '3');
-INSERT INTO `tb_jogadores_plantel` VALUES ('13', null, '2014-01-15 00:00:00', null, '0.00', 'Kelly', '75', '0.00', '0.00', '0.00', '2', '160', '10', '3', '2', '1');
-INSERT INTO `tb_jogadores_plantel` VALUES ('14', null, '2014-01-15 00:00:00', null, '0.00', 'Johnson', '79', '0.00', '0.00', '0.00', '1', '160', '10', '3', '2', '1');
-INSERT INTO `tb_jogadores_plantel` VALUES ('15', null, '2014-01-15 00:00:00', null, '0.00', 'Abate', '78', '0.00', '0.00', '0.00', '1', '350', '19', '5', '2', '1');
-INSERT INTO `tb_jogadores_plantel` VALUES ('16', null, '2014-01-15 00:00:00', null, '0.00', 'Vermaelen', '81', '0.00', '0.00', '0.00', '1', '152', '10', '6', '3', '4');
-INSERT INTO `tb_jogadores_plantel` VALUES ('17', null, '2014-01-15 00:00:00', null, '0.00', 'Manoel', '75', '0.00', '0.00', '450.00', '2', '59', '4', '1', '3', '3');
-INSERT INTO `tb_jogadores_plantel` VALUES ('18', null, '2014-01-15 00:00:00', null, '0.00', 'Rodholfo', '76', '0.00', '0.00', '0.00', '2', '69', '4', '1', '3', '2');
-INSERT INTO `tb_jogadores_plantel` VALUES ('19', null, '2014-01-15 00:00:00', null, '0.00', 'Henrique', '76', '0.00', '0.00', '0.00', '2', '583', '4', '1', '3', '2');
-INSERT INTO `tb_jogadores_plantel` VALUES ('20', null, '2014-01-15 00:00:00', null, '0.00', 'F. Santana', '77', '0.00', '0.00', '0.00', '1', '293', '16', '1', '3', '2');
-INSERT INTO `tb_jogadores_plantel` VALUES ('21', null, '2014-01-15 00:00:00', null, '0.00', 'Kim Tae Yoon', '60', '0.00', '0.00', '0.00', '6', '552', '32', '7', '3', '1');
-INSERT INTO `tb_jogadores_plantel` VALUES ('22', null, '2014-01-15 00:00:00', null, '0.00', 'Koscielny', '81', '0.00', '0.00', '0.00', '1', '152', '10', '2', '3', '1');
-INSERT INTO `tb_jogadores_plantel` VALUES ('23', null, '2014-01-15 00:00:00', null, '0.00', 'Koscielny', '81', '0.00', '0.00', '0.00', '1', '152', '10', '2', '3', '3');
-INSERT INTO `tb_jogadores_plantel` VALUES ('24', null, '2014-01-15 00:00:00', null, '0.00', 'Kaboul', '80', '0.00', '0.00', '0.00', '1', '166', '10', '2', '3', '1');
-INSERT INTO `tb_jogadores_plantel` VALUES ('25', null, '2014-01-15 00:00:00', null, '0.00', 'Smalling', '78', '0.00', '0.00', '0.00', '1', '162', '10', '3', '3', '1');
-INSERT INTO `tb_jogadores_plantel` VALUES ('26', null, '2014-01-15 00:00:00', null, '0.00', 'Chiriches', '75', '0.00', '0.00', '0.00', '2', '166', '10', '25', '3', '1');
-INSERT INTO `tb_jogadores_plantel` VALUES ('27', null, '2014-01-15 00:00:00', null, '0.00', 'Marcelo', '83', '0.00', '0.00', '0.00', '1', '480', '27', '1', '4', '1');
-INSERT INTO `tb_jogadores_plantel` VALUES ('28', null, '2014-01-15 00:00:00', null, '0.00', 'Balenziaga', '75', '0.00', '0.00', '0.00', '2', '467', '27', '4', '4', '1');
-INSERT INTO `tb_jogadores_plantel` VALUES ('29', null, '2014-01-15 00:00:00', null, '0.00', 'Clichy', '81', '0.00', '0.00', '0.00', '1', '161', '10', '2', '4', '1');
-INSERT INTO `tb_jogadores_plantel` VALUES ('30', null, '2014-01-15 00:00:00', null, '0.00', 'A. Cole', '85', '0.00', '0.00', '2200.00', '1', '155', '10', '3', '4', '3');
-INSERT INTO `tb_jogadores_plantel` VALUES ('31', '2014-01-18 20:36:25', '2014-01-15 00:00:00', '2014-01-18 20:36:25', '0.00', 'A. Cole', '85', '2090.00', '1900.00', '2100.00', '1', '155', '10', '3', '4', '3');
-INSERT INTO `tb_jogadores_plantel` VALUES ('32', null, '2014-01-15 00:00:00', null, '0.00', 'Horwood', '60', '0.00', '0.00', '0.00', '6', '217', '12', '3', '4', '1');
-INSERT INTO `tb_jogadores_plantel` VALUES ('33', null, '2014-01-15 00:00:00', null, '0.00', 'Crescenzi', '61', '0.00', '0.00', '0.00', '6', '244', '19', '5', '4', '1');
-INSERT INTO `tb_jogadores_plantel` VALUES ('34', null, '2014-01-15 00:00:00', null, '0.00', 'Garofalo', '63', '0.00', '0.00', '0.00', '6', '370', '20', '5', '4', '1');
-INSERT INTO `tb_jogadores_plantel` VALUES ('35', null, '2014-01-15 00:00:00', null, '0.00', 'Grillo', '63', '0.00', '0.00', '0.00', '6', '376', '20', '5', '4', '1');
-INSERT INTO `tb_jogadores_plantel` VALUES ('36', null, '2014-01-15 00:00:00', null, '0.00', 'Gustafsson', '62', '0.00', '0.00', '0.00', '6', '513', '29', '28', '4', '1');
-INSERT INTO `tb_jogadores_plantel` VALUES ('37', null, '2014-01-15 00:00:00', null, '0.00', 'Luiz Gustavo', '81', '770.00', '700.00', '0.00', '1', '300', '16', '1', '8', '2');
-INSERT INTO `tb_jogadores_plantel` VALUES ('38', null, '2014-01-15 00:00:00', null, '0.00', 'Mario Suarez', '79', '0.00', '0.00', '450.00', '2', '468', '27', '4', '8', '3');
-INSERT INTO `tb_jogadores_plantel` VALUES ('39', null, '2014-01-15 00:00:00', null, '0.00', 'Beobide', '63', '0.00', '0.00', '0.00', '6', '493', '28', '4', '8', '1');
-INSERT INTO `tb_jogadores_plantel` VALUES ('40', null, '2014-01-15 00:00:00', null, '0.00', 'Sergi Guilló', '60', '0.00', '0.00', '0.00', '6', '471', '27', '4', '8', '1');
-INSERT INTO `tb_jogadores_plantel` VALUES ('41', '2014-01-19 11:34:43', '2014-01-15 00:00:00', '2014-01-19 11:34:43', '0.00', 'Cañas', '77', '0.00', '0.00', '350.00', '2', '169', '10', '4', '8', '3');
-INSERT INTO `tb_jogadores_plantel` VALUES ('42', null, '2014-01-15 00:00:00', null, '0.00', 'Toulalan', '82', '0.00', '0.00', '0.00', '1', '245', '14', '2', '8', '3');
-INSERT INTO `tb_jogadores_plantel` VALUES ('43', '2014-01-20 12:01:55', '2014-01-15 00:00:00', null, '0.00', 'Saihi', '76', '0.00', '0.00', '0.00', '2', '254', '14', '24', '8', '2');
-INSERT INTO `tb_jogadores_plantel` VALUES ('44', null, '2014-01-15 00:00:00', null, '0.00', 'Cahill', '75', '0.00', '0.00', '0.00', '1', '29', '2', '8', '9', '2');
-INSERT INTO `tb_jogadores_plantel` VALUES ('45', null, '2014-01-15 00:00:00', null, '0.00', 'Fellaini', '81', '0.00', '0.00', '0.00', '1', '162', '10', '6', '9', '1');
-INSERT INTO `tb_jogadores_plantel` VALUES ('46', null, '2014-01-15 00:00:00', null, '0.00', 'Ramires', '80', '0.00', '0.00', '0.00', '1', '155', '10', '1', '9', '1');
-INSERT INTO `tb_jogadores_plantel` VALUES ('47', null, '2014-01-15 00:00:00', null, '0.00', 'Fernandinho', '81', '0.00', '0.00', '0.00', '2', '161', '10', '1', '9', '1');
-INSERT INTO `tb_jogadores_plantel` VALUES ('48', '2014-01-20 12:02:11', '2014-01-15 00:00:00', null, '0.00', 'Hetemaj', '75', '0.00', '0.00', '0.00', '2', '342', '19', '23', '9', '2');
-INSERT INTO `tb_jogadores_plantel` VALUES ('49', null, '2014-01-15 00:00:00', null, '0.00', 'Bodmer', '75', '0.00', '0.00', '250.00', '2', '257', '14', '2', '9', '3');
-INSERT INTO `tb_jogadores_plantel` VALUES ('50', null, '2014-01-15 00:00:00', null, '0.00', 'Strootman', '79', '0.00', '0.00', '400.00', '2', '353', '19', '12', '9', '3');
-INSERT INTO `tb_jogadores_plantel` VALUES ('51', null, '2014-01-15 00:00:00', null, '0.00', 'Rodwell', '77', '0.00', '0.00', '500.00', '2', '161', '10', '3', '9', '3');
-INSERT INTO `tb_jogadores_plantel` VALUES ('52', null, '2014-01-15 00:00:00', null, '0.00', 'Baselli', '61', '0.00', '0.00', '0.00', '6', '338', '19', '5', '9', '1');
-INSERT INTO `tb_jogadores_plantel` VALUES ('53', null, '2014-01-15 00:00:00', null, '0.00', 'Verre', '59', '0.00', '0.00', '0.00', '6', '373', '20', '5', '9', '1');
-INSERT INTO `tb_jogadores_plantel` VALUES ('54', null, '2014-01-15 00:00:00', null, '0.00', 'Cruzado', '73', '0.00', '0.00', '300.00', '4', '49', '3', '29', '9', '3');
-INSERT INTO `tb_jogadores_plantel` VALUES ('55', null, '2014-01-15 00:00:00', null, '0.00', 'D. Tardelli', '76', '0.00', '0.00', '550.00', '2', '58', '4', '1', '10', '3');
-INSERT INTO `tb_jogadores_plantel` VALUES ('56', null, '2014-01-15 00:00:00', null, '0.00', 'Koo', '76', '0.00', '0.00', '0.00', '2', '300', '16', '7', '10', '1');
-INSERT INTO `tb_jogadores_plantel` VALUES ('57', null, '2014-01-15 00:00:00', null, '0.00', 'K. P. Boateng', '81', '0.00', '0.00', '0.00', '1', '293', '16', '14', '10', '2');
-INSERT INTO `tb_jogadores_plantel` VALUES ('58', null, '2014-01-15 00:00:00', null, '0.00', 'Kone', '75', '0.00', '0.00', '500.00', '2', '339', '19', '20', '10', '3');
-INSERT INTO `tb_jogadores_plantel` VALUES ('59', '2014-01-18 20:33:33', '2014-01-15 00:00:00', '2014-01-18 20:33:33', '0.00', 'Rosicky', '80', '0.00', '0.00', '1000.00', '1', '152', '10', '19', '10', '3');
-INSERT INTO `tb_jogadores_plantel` VALUES ('60', null, '2014-01-15 00:00:00', null, '0.00', 'Schurrle', '80', '0.00', '0.00', '0.00', '1', '155', '10', '9', '14', '1');
-INSERT INTO `tb_jogadores_plantel` VALUES ('61', '2014-01-19 11:35:37', '2014-01-15 00:00:00', '2014-01-19 11:35:37', '0.00', 'John', '77', '0.00', '0.00', '400.00', '2', '425', '23', '12', '14', '3');
-INSERT INTO `tb_jogadores_plantel` VALUES ('62', null, '2014-01-15 00:00:00', null, '0.00', 'Evans', '57', '0.00', '0.00', '0.00', '6', '460', '26', '27', '14', '1');
-INSERT INTO `tb_jogadores_plantel` VALUES ('63', null, '2014-01-15 00:00:00', null, '0.00', 'Yaschuk', '55', '0.00', '0.00', '0.00', '6', '454', '25', '26', '14', '1');
-INSERT INTO `tb_jogadores_plantel` VALUES ('64', null, '2014-01-15 00:00:00', null, '0.00', 'Mirallas', '80', '0.00', '0.00', '0.00', '2', '157', '10', '6', '15', '1');
-INSERT INTO `tb_jogadores_plantel` VALUES ('65', null, '2014-01-15 00:00:00', null, '0.00', 'Pastore', '79', '0.00', '0.00', '0.00', '1', '257', '14', '2', '15', '2');
-INSERT INTO `tb_jogadores_plantel` VALUES ('66', null, '2014-01-15 00:00:00', null, '0.00', 'Isla', '77', '0.00', '0.00', '0.00', '2', '347', '19', '5', '15', '3');
-INSERT INTO `tb_jogadores_plantel` VALUES ('67', '2014-01-20 11:58:01', '2014-01-15 00:00:00', null, '0.00', 'Nani', '83', '0.00', '0.00', '0.00', '1', '162', '10', '15', '15', '1');
-INSERT INTO `tb_jogadores_plantel` VALUES ('68', '2014-01-20 12:14:35', '2014-01-15 00:00:00', null, '0.00', 'Pedro', '85', '4500.00', '0.00', '0.00', '1', '472', '27', '4', '18', '1');
-INSERT INTO `tb_jogadores_plantel` VALUES ('69', null, '2014-01-15 00:00:00', null, '0.00', 'Mounier', '77', '0.00', '0.00', '0.00', '2', '254', '14', '2', '19', '2');
-INSERT INTO `tb_jogadores_plantel` VALUES ('70', '2014-01-20 00:20:08', '2014-01-15 00:00:00', '2014-01-20 00:20:08', '1805.00', 'Sterling', '76', '0.00', '0.00', '1900.00', '1', '160', '10', '3', '19', '3');
-INSERT INTO `tb_jogadores_plantel` VALUES ('71', null, '2014-01-15 00:00:00', null, '0.00', 'Chambers', '60', '0.00', '0.00', '0.00', '6', '243', '13', '3', '19', '2');
-INSERT INTO `tb_jogadores_plantel` VALUES ('72', null, '2014-01-15 00:00:00', null, '0.00', 'Ngankam', '57', '0.00', '0.00', '0.00', '6', '292', '16', '9', '22', '1');
-INSERT INTO `tb_jogadores_plantel` VALUES ('73', null, '2014-01-15 00:00:00', null, '0.00', 'Belfodil', '75', '0.00', '0.00', '0.00', '2', '346', '19', '21', '22', '1');
-INSERT INTO `tb_jogadores_plantel` VALUES ('74', '2014-01-20 11:55:17', '2014-01-15 00:00:00', null, '0.00', 'Ruben', '75', '0.00', '0.00', '0.00', '2', '248', '14', '10', '22', '2');
-INSERT INTO `tb_jogadores_plantel` VALUES ('75', null, '2014-01-15 00:00:00', null, '0.00', 'Higuain', '84', '0.00', '0.00', '0.00', '1', '351', '19', '10', '22', '3');
-INSERT INTO `tb_jogadores_plantel` VALUES ('76', null, '2014-01-15 00:00:00', null, '0.00', 'Stella', '54', '0.00', '0.00', '0.00', '6', '538', '31', '8', '22', '1');
-INSERT INTO `tb_jogadores_plantel` VALUES ('77', null, '2014-01-15 00:00:00', null, '0.00', 'Gameiro', '62', '0.00', '0.00', '0.00', '6', '542', '31', '8', '22', '1');
-INSERT INTO `tb_jogadores_plantel` VALUES ('78', '2014-01-19 11:32:49', '2014-01-15 00:00:00', '2014-01-19 11:32:55', '0.00', 'Benteke', '79', '1100.00', '1000.00', '1600.00', '1', '153', '10', '6', '22', '3');
-INSERT INTO `tb_jogadores_plantel` VALUES ('79', null, '2014-01-15 00:00:00', null, '0.00', 'A. Pato', '80', '0.00', '0.00', '0.00', '1', '62', '4', '1', '22', '1');
-INSERT INTO `tb_jogadores_plantel` VALUES ('80', null, '2014-01-15 00:00:00', null, '0.00', 'Leandro', '75', '0.00', '0.00', '250.00', '2', '583', '4', '1', '22', '3');
-INSERT INTO `tb_jogadores_plantel` VALUES ('81', null, '2014-01-15 00:00:00', null, '0.00', 'Suazo', '76', '0.00', '0.00', '400.00', '2', '9', '1', '16', '22', '3');
-INSERT INTO `tb_jogadores_plantel` VALUES ('82', null, '2014-01-15 00:00:00', null, '0.00', 'Lucas Segovia', '62', '0.00', '0.00', '0.00', '6', '7', '7', '4', '22', '1');
-INSERT INTO `tb_jogadores_plantel` VALUES ('83', null, '2014-01-15 00:00:00', null, '0.00', 'F. Torres', '82', '0.00', '0.00', '0.00', '1', '155', '10', '4', '22', '1');
-INSERT INTO `tb_jogadores_plantel` VALUES ('84', null, '2014-01-15 00:00:00', null, '0.00', 'Pellé', '78', '0.00', '0.00', '0.00', '1', '326', '18', '5', '22', '2');
-INSERT INTO `tb_jogadores_plantel` VALUES ('85', null, '2014-01-15 00:00:00', null, '0.00', 'N\'Doye', '76', '0.00', '0.00', '304.00', '2', '448', '25', '11', '22', '3');
-INSERT INTO `tb_jogadores_plantel` VALUES ('86', null, '2014-01-15 00:00:00', null, '0.00', 'Cissé', '79', '0.00', '0.00', '0.00', '1', '163', '10', '11', '22', '1');
-INSERT INTO `tb_jogadores_plantel` VALUES ('87', null, '2014-01-15 00:00:00', null, '0.00', 'Donovan', '78', '0.00', '0.00', '0.00', '1', '26', '2', '13', '23', '2');
-INSERT INTO `tb_jogadores_plantel` VALUES ('88', null, '2014-01-15 00:00:00', null, '0.00', 'Carroll', '77', '0.00', '0.00', '0.00', '1', '171', '10', '3', '23', '3');
-INSERT INTO `tb_jogadores_plantel` VALUES ('92', '2014-01-20 11:49:04', '2014-01-15 00:00:00', null, '0.00', 'Luiz Gustavo', '81', '0.00', '700.00', '0.00', '1', '300', '16', '1', '10', '2');
-INSERT INTO `tb_jogadores_plantel` VALUES ('93', null, '2014-01-19 15:14:22', null, '0.00', 'Dante', '84', '0.00', '0.00', '0.00', '1', '291', '16', '1', '3', '1');
-INSERT INTO `tb_jogadores_plantel` VALUES ('94', null, '2014-01-19 15:15:47', null, '0.00', 'Balotelli', '84', '0.00', '0.00', '0.00', '1', '350', '19', '5', '22', '1');
-INSERT INTO `tb_jogadores_plantel` VALUES ('95', '2014-01-20 12:17:26', '2014-01-19 15:17:56', null, '0.00', 'Klose', '83', '1000.00', '0.00', '0.00', '1', '348', '19', '9', '22', '1');
-INSERT INTO `tb_jogadores_plantel` VALUES ('96', '2014-01-20 12:16:21', '2014-01-19 15:20:03', null, '0.00', 'Mandzukic', '83', '1000.00', '0.00', '0.00', '1', '291', '16', '9', '22', '1');
-INSERT INTO `tb_jogadores_plantel` VALUES ('97', '2014-01-20 12:15:19', '2014-01-19 15:21:01', null, '0.00', 'Negredo', '83', '2000.00', '0.00', '0.00', '1', '161', '10', '4', '22', '1');
-INSERT INTO `tb_jogadores_plantel` VALUES ('98', '2014-01-20 12:28:42', '2014-01-19 15:21:53', null, '0.00', 'Samuel', '82', '900.00', '0.00', '0.00', '1', '346', '19', '10', '3', '1');
-INSERT INTO `tb_jogadores_plantel` VALUES ('99', null, '2014-01-19 15:23:17', null, '0.00', 'Evra', '82', '0.00', '0.00', '0.00', '1', '162', '10', '2', '4', '1');
-INSERT INTO `tb_jogadores_plantel` VALUES ('100', '2014-01-20 12:19:03', '2014-01-19 15:27:37', null, '0.00', 'Howedes', '82', '900.00', '0.00', '0.00', '1', '293', '16', '9', '3', '1');
-INSERT INTO `tb_jogadores_plantel` VALUES ('101', null, '2014-01-19 15:34:51', null, '0.00', 'Vertonghen', '82', '0.00', '0.00', '0.00', '1', '166', '10', '6', '3', '1');
-INSERT INTO `tb_jogadores_plantel` VALUES ('102', null, '2014-01-19 15:36:25', null, '0.00', 'Sánchez', '82', '0.00', '0.00', '0.00', '1', '472', '27', '16', '18', '1');
-INSERT INTO `tb_jogadores_plantel` VALUES ('103', null, '2014-01-19 15:37:46', null, '0.00', 'Vorn', '81', '0.00', '0.00', '0.00', '1', '169', '10', '12', '1', '1');
-INSERT INTO `tb_jogadores_plantel` VALUES ('104', null, '2014-01-19 15:38:33', null, '0.00', 'Sandro', '81', '0.00', '0.00', '0.00', '1', '166', '10', '1', '8', '1');
-INSERT INTO `tb_jogadores_plantel` VALUES ('105', '2014-01-20 12:30:43', '2014-01-19 15:40:11', null, '0.00', 'Dempsey', '81', '800.00', '0.00', '0.00', '1', '34', '2', '13', '10', '1');
-INSERT INTO `tb_jogadores_plantel` VALUES ('106', '2014-01-20 12:29:31', '2014-01-19 15:43:42', null, '0.00', 'Mangala', '81', '700.00', '0.00', '0.00', '1', '418', '23', '2', '3', '1');
-INSERT INTO `tb_jogadores_plantel` VALUES ('107', '2014-01-20 12:36:59', '2014-01-19 15:45:00', null, '0.00', 'Doumbia', '80', '900.00', '0.00', '0.00', '1', '441', '25', '9', '22', '1');
-INSERT INTO `tb_jogadores_plantel` VALUES ('108', null, '2014-01-19 15:45:46', null, '0.00', 'Sokratis', '80', '0.00', '0.00', '0.00', '1', '286', '16', '20', '3', '1');
-INSERT INTO `tb_jogadores_plantel` VALUES ('109', '2014-01-20 12:34:31', '2014-01-19 15:46:45', null, '0.00', 'Witsel', '80', '1200.00', '0.00', '0.00', '1', '454', '25', '6', '9', '1');
-INSERT INTO `tb_jogadores_plantel` VALUES ('110', '2014-01-20 12:33:18', '2014-01-19 15:48:19', null, '0.00', 'Lucho Gonzalez', '80', '900.00', '0.00', '0.00', '1', '418', '23', '10', '9', '1');
-INSERT INTO `tb_jogadores_plantel` VALUES ('111', '2014-01-20 12:31:58', '2014-01-19 15:54:24', null, '0.00', 'Cáceres', '80', '1400.00', '0.00', '0.00', '1', '347', '19', '12', '3', '1');
-INSERT INTO `tb_jogadores_plantel` VALUES ('112', null, '2014-01-19 15:55:07', null, '0.00', 'Chivu', '78', '0.00', '0.00', '0.00', '1', '346', '19', '9', '3', '1');
-INSERT INTO `tb_jogadores_plantel` VALUES ('113', null, '2014-01-19 20:34:53', null, '0.00', 'Alex', '78', '0.00', '0.00', '0.00', '1', '70', '4', '1', '10', '1');
-INSERT INTO `tb_jogadores_plantel` VALUES ('114', null, '2014-01-19 20:35:27', null, '0.00', 'Déde', '78', '0.00', '0.00', '0.00', '1', '65', '4', '1', '3', '1');
-INSERT INTO `tb_jogadores_plantel` VALUES ('115', null, '2014-01-19 20:36:13', null, '0.00', 'Radu', '78', '0.00', '0.00', '0.00', '1', '348', '19', '18', '4', '1');
-INSERT INTO `tb_jogadores_plantel` VALUES ('116', null, '2014-01-19 20:36:56', null, '0.00', 'Fazio', '78', '0.00', '0.00', '0.00', '1', '483', '27', '10', '3', '1');
-INSERT INTO `tb_jogadores_plantel` VALUES ('117', null, '2014-01-19 20:38:22', null, '0.00', 'Wollscheid', '78', '0.00', '0.00', '0.00', '1', '285', '16', '9', '3', '1');
-INSERT INTO `tb_jogadores_plantel` VALUES ('118', null, '2014-01-19 20:39:00', null, '0.00', 'Crouch', '77', '0.00', '0.00', '0.00', '1', '167', '10', '3', '22', '1');
-INSERT INTO `tb_jogadores_plantel` VALUES ('119', null, '2014-01-19 20:40:02', null, '0.00', 'Kucka', '77', '0.00', '0.00', '0.00', '1', '344', '19', '9', '9', '1');
-INSERT INTO `tb_jogadores_plantel` VALUES ('120', null, '2014-01-19 20:40:43', null, '0.00', 'Diatike', '76', '0.00', '0.00', '0.00', '1', '168', '10', '2', '3', '1');
-INSERT INTO `tb_jogadores_plantel` VALUES ('121', null, '2014-01-19 20:41:39', null, '0.00', 'Atsu', '76', '0.00', '0.00', '0.00', '1', '337', '18', '14', '19', '1');
-INSERT INTO `tb_jogadores_plantel` VALUES ('122', null, '2014-01-19 20:46:50', null, '0.00', 'Rolfes', '79', '0.00', '0.00', '0.00', '2', '285', '16', '9', '8', '1');
-INSERT INTO `tb_jogadores_plantel` VALUES ('123', null, '2014-01-19 20:47:32', null, '0.00', 'Costil', '79', '0.00', '0.00', '0.00', '2', '260', '14', '2', '1', '1');
-INSERT INTO `tb_jogadores_plantel` VALUES ('124', null, '2014-01-19 20:48:35', null, '0.00', 'Simão', '76', '0.00', '0.00', '0.00', '2', '478', '27', '15', '14', '1');
-INSERT INTO `tb_jogadores_plantel` VALUES ('125', null, '2014-01-19 20:49:19', null, '0.00', 'Zaccardo', '75', '0.00', '0.00', '0.00', '2', '350', '19', '5', '3', '1');
-INSERT INTO `tb_jogadores_plantel` VALUES ('126', null, '2014-01-19 20:49:54', null, '0.00', 'Natali', '75', '0.00', '0.00', '0.00', '2', '339', '19', '5', '3', '1');
+INSERT INTO `tb_jogadores_plantel` VALUES ('1', null, '2014-01-15 00:00:00', null, '0.00', 'Rensing', '76', '0.00', '0.00', '0.00', '2', '307', '17', '9', '1', '2', '0');
+INSERT INTO `tb_jogadores_plantel` VALUES ('2', null, '2014-01-15 00:00:00', null, '0.00', 'Mignolet', '80', '0.00', '0.00', '0.00', '1', '160', '10', '6', '1', '1', '0');
+INSERT INTO `tb_jogadores_plantel` VALUES ('3', null, '2014-01-15 00:00:00', null, '0.00', 'Begovic', '81', '0.00', '0.00', '0.00', '1', '167', '10', '18', '1', '1', '0');
+INSERT INTO `tb_jogadores_plantel` VALUES ('4', '2014-01-21 16:04:39', '2014-01-15 00:00:00', '2014-01-19 11:36:03', '0.00', 'Jefferson', '82', '0.00', '0.00', '650.00', '1', '61', '4', '1', '1', '3', '1');
+INSERT INTO `tb_jogadores_plantel` VALUES ('5', null, '2014-01-15 00:00:00', null, '0.00', 'Rafael', '77', '0.00', '0.00', '450.00', '2', '351', '19', '1', '1', '3', '0');
+INSERT INTO `tb_jogadores_plantel` VALUES ('6', '2014-01-22 10:03:59', '2014-01-15 00:00:00', '2014-01-22 10:03:59', '855.00', 'Ospina', '75', '650.00', '0.00', '900.00', '2', '255', '14', '22', '1', '3', '0');
+INSERT INTO `tb_jogadores_plantel` VALUES ('7', null, '2014-01-15 00:00:00', null, '0.00', 'Lee Chang Keun', '57', '0.00', '0.00', '0.00', '6', '545', '32', '7', '1', '1', '0');
+INSERT INTO `tb_jogadores_plantel` VALUES ('8', null, '2014-01-15 00:00:00', null, '0.00', 'Jourdren', '76', '0.00', '0.00', '304.00', '2', '254', '14', '2', '1', '3', '0');
+INSERT INTO `tb_jogadores_plantel` VALUES ('9', '2014-01-20 11:55:43', '2014-01-15 00:00:00', null, '0.00', 'Lloris', '84', '0.00', '0.00', '0.00', '1', '166', '10', '2', '1', '1', '0');
+INSERT INTO `tb_jogadores_plantel` VALUES ('10', null, '2014-01-15 00:00:00', null, '0.00', 'Fabiansky', '76', '0.00', '0.00', '450.00', '2', '152', '10', '17', '1', '3', '0');
+INSERT INTO `tb_jogadores_plantel` VALUES ('11', null, '2014-01-15 00:00:00', null, '0.00', 'Sorto', '58', '0.00', '0.00', '0.00', '6', '26', '2', '13', '2', '1', '0');
+INSERT INTO `tb_jogadores_plantel` VALUES ('12', null, '2014-01-15 00:00:00', null, '0.00', 'Hugo Mallo', '75', '0.00', '0.00', '250.00', '2', '470', '27', '4', '2', '3', '0');
+INSERT INTO `tb_jogadores_plantel` VALUES ('13', null, '2014-01-15 00:00:00', null, '0.00', 'Kelly', '75', '0.00', '0.00', '0.00', '2', '160', '10', '3', '2', '1', '0');
+INSERT INTO `tb_jogadores_plantel` VALUES ('14', null, '2014-01-15 00:00:00', null, '0.00', 'Johnson', '79', '0.00', '0.00', '0.00', '1', '160', '10', '3', '2', '1', '0');
+INSERT INTO `tb_jogadores_plantel` VALUES ('15', null, '2014-01-15 00:00:00', null, '0.00', 'Abate', '78', '0.00', '0.00', '0.00', '1', '350', '19', '5', '2', '1', '0');
+INSERT INTO `tb_jogadores_plantel` VALUES ('16', null, '2014-01-15 00:00:00', null, '0.00', 'Vermaelen', '81', '0.00', '0.00', '0.00', '1', '152', '10', '6', '3', '4', '0');
+INSERT INTO `tb_jogadores_plantel` VALUES ('17', null, '2014-01-15 00:00:00', null, '0.00', 'Manoel', '75', '0.00', '0.00', '450.00', '2', '59', '4', '1', '3', '3', '0');
+INSERT INTO `tb_jogadores_plantel` VALUES ('18', null, '2014-01-15 00:00:00', null, '0.00', 'Rodholfo', '76', '0.00', '0.00', '0.00', '2', '69', '4', '1', '3', '2', '0');
+INSERT INTO `tb_jogadores_plantel` VALUES ('19', null, '2014-01-15 00:00:00', null, '0.00', 'Henrique', '76', '0.00', '0.00', '0.00', '2', '583', '4', '1', '3', '2', '0');
+INSERT INTO `tb_jogadores_plantel` VALUES ('20', null, '2014-01-15 00:00:00', null, '0.00', 'F. Santana', '77', '0.00', '0.00', '0.00', '1', '293', '16', '1', '3', '2', '0');
+INSERT INTO `tb_jogadores_plantel` VALUES ('21', null, '2014-01-15 00:00:00', null, '0.00', 'Kim Tae Yoon', '60', '0.00', '0.00', '0.00', '6', '552', '32', '7', '3', '1', '0');
+INSERT INTO `tb_jogadores_plantel` VALUES ('22', null, '2014-01-15 00:00:00', null, '0.00', 'Koscielny', '81', '0.00', '0.00', '0.00', '1', '152', '10', '2', '3', '1', '0');
+INSERT INTO `tb_jogadores_plantel` VALUES ('23', null, '2014-01-15 00:00:00', null, '0.00', 'Koscielny', '81', '0.00', '0.00', '0.00', '1', '152', '10', '2', '3', '3', '0');
+INSERT INTO `tb_jogadores_plantel` VALUES ('24', null, '2014-01-15 00:00:00', null, '0.00', 'Kaboul', '80', '0.00', '0.00', '0.00', '1', '166', '10', '2', '3', '1', '0');
+INSERT INTO `tb_jogadores_plantel` VALUES ('25', null, '2014-01-15 00:00:00', null, '0.00', 'Smalling', '78', '0.00', '0.00', '0.00', '1', '162', '10', '3', '3', '1', '0');
+INSERT INTO `tb_jogadores_plantel` VALUES ('26', null, '2014-01-15 00:00:00', null, '0.00', 'Chiriches', '75', '0.00', '0.00', '0.00', '2', '166', '10', '25', '3', '1', '0');
+INSERT INTO `tb_jogadores_plantel` VALUES ('27', null, '2014-01-15 00:00:00', null, '0.00', 'Marcelo', '83', '0.00', '0.00', '0.00', '1', '480', '27', '1', '4', '1', '0');
+INSERT INTO `tb_jogadores_plantel` VALUES ('28', null, '2014-01-15 00:00:00', null, '0.00', 'Balenziaga', '75', '0.00', '0.00', '0.00', '2', '467', '27', '4', '4', '1', '0');
+INSERT INTO `tb_jogadores_plantel` VALUES ('29', null, '2014-01-15 00:00:00', null, '0.00', 'Clichy', '81', '0.00', '0.00', '0.00', '1', '161', '10', '2', '4', '1', '0');
+INSERT INTO `tb_jogadores_plantel` VALUES ('30', null, '2014-01-15 00:00:00', null, '0.00', 'A. Cole', '85', '0.00', '0.00', '2200.00', '1', '155', '10', '3', '4', '3', '0');
+INSERT INTO `tb_jogadores_plantel` VALUES ('31', '2014-01-18 20:36:25', '2014-01-15 00:00:00', '2014-01-18 20:36:25', '0.00', 'A. Cole', '85', '2090.00', '1900.00', '2100.00', '1', '155', '10', '3', '4', '3', '1');
+INSERT INTO `tb_jogadores_plantel` VALUES ('32', null, '2014-01-15 00:00:00', null, '0.00', 'Horwood', '60', '0.00', '0.00', '0.00', '6', '217', '12', '3', '4', '1', '0');
+INSERT INTO `tb_jogadores_plantel` VALUES ('33', '2014-01-21 11:56:27', '2014-01-15 00:00:00', null, '0.00', 'Crescenzi', '61', '0.00', '0.00', '0.00', '6', '244', '14', '5', '4', '1', '0');
+INSERT INTO `tb_jogadores_plantel` VALUES ('34', null, '2014-01-15 00:00:00', null, '0.00', 'Garofalo', '63', '0.00', '0.00', '0.00', '6', '370', '20', '5', '4', '1', '0');
+INSERT INTO `tb_jogadores_plantel` VALUES ('35', null, '2014-01-15 00:00:00', null, '0.00', 'Grillo', '63', '0.00', '0.00', '0.00', '6', '376', '20', '5', '4', '1', '0');
+INSERT INTO `tb_jogadores_plantel` VALUES ('36', null, '2014-01-15 00:00:00', null, '0.00', 'Gustafsson', '62', '0.00', '0.00', '0.00', '6', '513', '29', '28', '4', '1', '0');
+INSERT INTO `tb_jogadores_plantel` VALUES ('37', '2014-01-21 16:35:58', '2014-01-15 00:00:00', '2014-01-21 16:35:58', '202.50', 'Luiz Gustavo', '81', '770.00', '700.00', '950.00', '1', '300', '16', '1', '8', '3', '0');
+INSERT INTO `tb_jogadores_plantel` VALUES ('38', null, '2014-01-15 00:00:00', null, '0.00', 'Mario Suarez', '79', '0.00', '0.00', '450.00', '2', '468', '27', '4', '8', '3', '0');
+INSERT INTO `tb_jogadores_plantel` VALUES ('39', null, '2014-01-15 00:00:00', null, '0.00', 'Beobide', '63', '0.00', '0.00', '0.00', '6', '493', '28', '4', '8', '1', '0');
+INSERT INTO `tb_jogadores_plantel` VALUES ('40', null, '2014-01-15 00:00:00', null, '0.00', 'Sergi Guilló', '60', '0.00', '0.00', '0.00', '6', '471', '27', '4', '8', '1', '0');
+INSERT INTO `tb_jogadores_plantel` VALUES ('41', '2014-01-19 11:34:43', '2014-01-15 00:00:00', '2014-01-19 11:34:43', '0.00', 'Cañas', '77', '0.00', '0.00', '350.00', '2', '169', '10', '4', '8', '3', '1');
+INSERT INTO `tb_jogadores_plantel` VALUES ('42', null, '2014-01-15 00:00:00', null, '0.00', 'Toulalan', '82', '0.00', '0.00', '0.00', '1', '245', '14', '2', '8', '3', '0');
+INSERT INTO `tb_jogadores_plantel` VALUES ('43', '2014-01-20 12:01:55', '2014-01-15 00:00:00', null, '0.00', 'Saihi', '76', '0.00', '0.00', '0.00', '2', '254', '14', '24', '8', '2', '0');
+INSERT INTO `tb_jogadores_plantel` VALUES ('44', null, '2014-01-15 00:00:00', null, '0.00', 'Cahill', '75', '0.00', '0.00', '0.00', '1', '29', '2', '8', '9', '2', '0');
+INSERT INTO `tb_jogadores_plantel` VALUES ('45', null, '2014-01-15 00:00:00', null, '0.00', 'Fellaini', '81', '0.00', '0.00', '0.00', '1', '162', '10', '6', '9', '1', '0');
+INSERT INTO `tb_jogadores_plantel` VALUES ('46', null, '2014-01-15 00:00:00', null, '0.00', 'Ramires', '80', '0.00', '0.00', '0.00', '1', '155', '10', '1', '9', '1', '0');
+INSERT INTO `tb_jogadores_plantel` VALUES ('47', null, '2014-01-15 00:00:00', null, '0.00', 'Fernandinho', '81', '0.00', '0.00', '0.00', '2', '161', '10', '1', '9', '1', '0');
+INSERT INTO `tb_jogadores_plantel` VALUES ('48', '2014-01-20 12:02:11', '2014-01-15 00:00:00', null, '0.00', 'Hetemaj', '75', '0.00', '0.00', '0.00', '2', '342', '19', '23', '9', '2', '0');
+INSERT INTO `tb_jogadores_plantel` VALUES ('49', null, '2014-01-15 00:00:00', null, '0.00', 'Bodmer', '75', '0.00', '0.00', '250.00', '2', '257', '14', '2', '9', '3', '0');
+INSERT INTO `tb_jogadores_plantel` VALUES ('50', null, '2014-01-15 00:00:00', null, '0.00', 'Strootman', '79', '0.00', '0.00', '400.00', '2', '353', '19', '12', '9', '3', '0');
+INSERT INTO `tb_jogadores_plantel` VALUES ('51', null, '2014-01-15 00:00:00', null, '0.00', 'Rodwell', '77', '0.00', '0.00', '500.00', '2', '161', '10', '3', '9', '3', '0');
+INSERT INTO `tb_jogadores_plantel` VALUES ('52', null, '2014-01-15 00:00:00', null, '0.00', 'Baselli', '61', '0.00', '0.00', '0.00', '6', '338', '19', '5', '9', '1', '0');
+INSERT INTO `tb_jogadores_plantel` VALUES ('53', null, '2014-01-15 00:00:00', null, '0.00', 'Verre', '59', '0.00', '0.00', '0.00', '6', '373', '20', '5', '9', '1', '0');
+INSERT INTO `tb_jogadores_plantel` VALUES ('54', null, '2014-01-15 00:00:00', null, '0.00', 'Cruzado', '73', '0.00', '0.00', '300.00', '4', '49', '3', '29', '9', '3', '0');
+INSERT INTO `tb_jogadores_plantel` VALUES ('55', null, '2014-01-15 00:00:00', null, '0.00', 'D. Tardelli', '76', '0.00', '0.00', '550.00', '2', '58', '4', '1', '10', '3', '0');
+INSERT INTO `tb_jogadores_plantel` VALUES ('56', null, '2014-01-15 00:00:00', null, '0.00', 'Koo', '76', '0.00', '0.00', '0.00', '2', '300', '16', '7', '10', '1', '0');
+INSERT INTO `tb_jogadores_plantel` VALUES ('57', '2014-01-22 15:36:19', '2014-01-15 00:00:00', '2014-01-22 15:36:19', '902.50', 'K. P. Boateng', '81', '0.00', '0.00', '950.00', '1', '293', '16', '14', '10', '3', '0');
+INSERT INTO `tb_jogadores_plantel` VALUES ('58', null, '2014-01-15 00:00:00', null, '0.00', 'Kone', '75', '0.00', '0.00', '500.00', '2', '339', '19', '20', '10', '3', '0');
+INSERT INTO `tb_jogadores_plantel` VALUES ('59', '2014-01-18 20:33:33', '2014-01-15 00:00:00', '2014-01-18 20:33:33', '0.00', 'Rosicky', '80', '0.00', '0.00', '1000.00', '1', '152', '10', '19', '10', '3', '1');
+INSERT INTO `tb_jogadores_plantel` VALUES ('60', null, '2014-01-15 00:00:00', null, '0.00', 'Schurrle', '80', '0.00', '0.00', '0.00', '1', '155', '10', '9', '14', '1', '0');
+INSERT INTO `tb_jogadores_plantel` VALUES ('61', '2014-01-19 11:35:37', '2014-01-15 00:00:00', '2014-01-19 11:35:37', '0.00', 'John', '77', '0.00', '0.00', '400.00', '2', '425', '23', '12', '14', '3', '1');
+INSERT INTO `tb_jogadores_plantel` VALUES ('62', null, '2014-01-15 00:00:00', null, '0.00', 'Evans', '57', '0.00', '0.00', '0.00', '6', '460', '26', '27', '14', '1', '0');
+INSERT INTO `tb_jogadores_plantel` VALUES ('63', null, '2014-01-15 00:00:00', null, '0.00', 'Yaschuk', '55', '0.00', '0.00', '0.00', '6', '454', '25', '26', '14', '1', '0');
+INSERT INTO `tb_jogadores_plantel` VALUES ('64', null, '2014-01-15 00:00:00', null, '0.00', 'Mirallas', '80', '0.00', '0.00', '0.00', '2', '157', '10', '6', '15', '1', '0');
+INSERT INTO `tb_jogadores_plantel` VALUES ('65', '2014-01-21 18:00:39', '2014-01-15 00:00:00', '2014-01-21 18:00:39', '760.00', 'Pastore', '79', '0.00', '0.00', '800.00', '1', '257', '14', '2', '15', '3', '0');
+INSERT INTO `tb_jogadores_plantel` VALUES ('66', null, '2014-01-15 00:00:00', null, '0.00', 'Isla', '77', '0.00', '0.00', '0.00', '2', '347', '19', '5', '15', '3', '0');
+INSERT INTO `tb_jogadores_plantel` VALUES ('67', '2014-01-20 11:58:01', '2014-01-15 00:00:00', null, '0.00', 'Nani', '83', '0.00', '0.00', '0.00', '1', '162', '10', '15', '15', '1', '0');
+INSERT INTO `tb_jogadores_plantel` VALUES ('68', '2014-01-20 12:14:35', '2014-01-15 00:00:00', null, '0.00', 'Pedro', '85', '4500.00', '0.00', '0.00', '1', '472', '27', '4', '18', '1', '0');
+INSERT INTO `tb_jogadores_plantel` VALUES ('69', null, '2014-01-15 00:00:00', null, '0.00', 'Mounier', '77', '0.00', '0.00', '0.00', '2', '254', '14', '2', '19', '2', '0');
+INSERT INTO `tb_jogadores_plantel` VALUES ('70', '2014-01-20 00:20:08', '2014-01-15 00:00:00', '2014-01-20 00:20:08', '1805.00', 'Sterling', '76', '0.00', '0.00', '1900.00', '1', '160', '10', '3', '19', '3', '1');
+INSERT INTO `tb_jogadores_plantel` VALUES ('71', '2014-01-21 16:30:41', '2014-01-15 00:00:00', '2014-01-21 16:30:41', '332.50', 'Chambers', '60', '0.00', '0.00', '350.00', '6', '243', '13', '3', '19', '3', '0');
+INSERT INTO `tb_jogadores_plantel` VALUES ('72', null, '2014-01-15 00:00:00', null, '0.00', 'Ngankam', '57', '0.00', '0.00', '0.00', '6', '292', '16', '9', '22', '1', '0');
+INSERT INTO `tb_jogadores_plantel` VALUES ('73', null, '2014-01-15 00:00:00', null, '0.00', 'Belfodil', '75', '0.00', '0.00', '0.00', '2', '346', '19', '21', '22', '1', '0');
+INSERT INTO `tb_jogadores_plantel` VALUES ('74', '2014-01-20 11:55:17', '2014-01-15 00:00:00', null, '0.00', 'Ruben', '75', '0.00', '0.00', '0.00', '2', '248', '14', '10', '22', '2', '0');
+INSERT INTO `tb_jogadores_plantel` VALUES ('75', null, '2014-01-15 00:00:00', null, '0.00', 'Higuain', '84', '0.00', '0.00', '0.00', '1', '351', '19', '10', '22', '3', '0');
+INSERT INTO `tb_jogadores_plantel` VALUES ('76', null, '2014-01-15 00:00:00', null, '0.00', 'Stella', '54', '0.00', '0.00', '0.00', '6', '538', '31', '8', '22', '1', '0');
+INSERT INTO `tb_jogadores_plantel` VALUES ('77', null, '2014-01-15 00:00:00', null, '0.00', 'Gameiro', '62', '0.00', '0.00', '0.00', '6', '542', '31', '8', '22', '1', '0');
+INSERT INTO `tb_jogadores_plantel` VALUES ('78', '2014-01-19 11:32:49', '2014-01-15 00:00:00', '2014-01-19 11:32:55', '0.00', 'Benteke', '79', '1100.00', '1000.00', '1600.00', '1', '153', '10', '6', '22', '3', '1');
+INSERT INTO `tb_jogadores_plantel` VALUES ('79', null, '2014-01-15 00:00:00', null, '0.00', 'A. Pato', '80', '0.00', '0.00', '0.00', '1', '62', '4', '1', '22', '1', '0');
+INSERT INTO `tb_jogadores_plantel` VALUES ('80', null, '2014-01-15 00:00:00', null, '0.00', 'Leandro', '75', '0.00', '0.00', '250.00', '2', '583', '4', '1', '22', '3', '0');
+INSERT INTO `tb_jogadores_plantel` VALUES ('81', null, '2014-01-15 00:00:00', null, '0.00', 'Suazo', '76', '0.00', '0.00', '400.00', '2', '9', '1', '16', '22', '3', '0');
+INSERT INTO `tb_jogadores_plantel` VALUES ('82', null, '2014-01-15 00:00:00', null, '0.00', 'Lucas Segovia', '62', '0.00', '0.00', '0.00', '6', '7', '7', '4', '22', '1', '0');
+INSERT INTO `tb_jogadores_plantel` VALUES ('83', null, '2014-01-15 00:00:00', null, '0.00', 'F. Torres', '82', '0.00', '0.00', '0.00', '1', '155', '10', '4', '22', '1', '0');
+INSERT INTO `tb_jogadores_plantel` VALUES ('84', null, '2014-01-15 00:00:00', null, '0.00', 'Pellé', '78', '0.00', '0.00', '0.00', '1', '326', '18', '5', '22', '2', '0');
+INSERT INTO `tb_jogadores_plantel` VALUES ('85', null, '2014-01-15 00:00:00', null, '0.00', 'N\'Doye', '76', '0.00', '0.00', '304.00', '2', '448', '25', '11', '22', '3', '0');
+INSERT INTO `tb_jogadores_plantel` VALUES ('86', null, '2014-01-15 00:00:00', null, '0.00', 'Cissé', '79', '0.00', '0.00', '0.00', '1', '163', '10', '11', '22', '1', '0');
+INSERT INTO `tb_jogadores_plantel` VALUES ('87', null, '2014-01-15 00:00:00', null, '0.00', 'Donovan', '78', '0.00', '0.00', '0.00', '1', '26', '2', '13', '23', '2', '0');
+INSERT INTO `tb_jogadores_plantel` VALUES ('88', null, '2014-01-15 00:00:00', null, '0.00', 'Carroll', '77', '0.00', '0.00', '0.00', '1', '171', '10', '3', '23', '3', '0');
+INSERT INTO `tb_jogadores_plantel` VALUES ('92', '2014-01-21 16:40:00', '2014-01-15 00:00:00', '2014-01-21 16:40:00', '820.00', 'Luiz Gustavo', '81', '0.00', '700.00', '1600.00', '1', '300', '16', '1', '10', '3', '0');
+INSERT INTO `tb_jogadores_plantel` VALUES ('93', '2014-01-22 10:04:24', '2014-01-19 15:14:22', '2014-01-22 10:04:24', '2850.00', 'Dante', '84', '3000.00', '0.00', '3000.00', '1', '291', '16', '1', '3', '3', '0');
+INSERT INTO `tb_jogadores_plantel` VALUES ('94', null, '2014-01-19 15:15:47', null, '0.00', 'Balotelli', '84', '0.00', '0.00', '0.00', '1', '350', '19', '5', '22', '1', '0');
+INSERT INTO `tb_jogadores_plantel` VALUES ('95', '2014-01-22 09:22:54', '2014-01-19 15:17:56', '2014-01-22 09:22:54', '950.00', 'Klose', '83', '1000.00', '0.00', '1000.00', '1', '348', '19', '9', '22', '3', '0');
+INSERT INTO `tb_jogadores_plantel` VALUES ('96', '2014-01-21 18:01:01', '2014-01-19 15:20:03', '2014-01-21 18:01:01', '1045.00', 'Mandzukic', '83', '1000.00', '0.00', '1100.00', '1', '291', '16', '9', '22', '3', '0');
+INSERT INTO `tb_jogadores_plantel` VALUES ('97', '2014-01-20 12:15:19', '2014-01-19 15:21:01', null, '0.00', 'Negredo', '83', '2000.00', '0.00', '0.00', '1', '161', '10', '4', '22', '1', '0');
+INSERT INTO `tb_jogadores_plantel` VALUES ('98', '2014-01-22 11:35:00', '2014-01-19 15:21:53', '2014-01-22 11:35:00', '855.00', 'Samuel', '82', '900.00', '0.00', '900.00', '1', '346', '19', '10', '3', '3', '0');
+INSERT INTO `tb_jogadores_plantel` VALUES ('99', null, '2014-01-19 15:23:17', null, '0.00', 'Evra', '82', '0.00', '0.00', '0.00', '1', '162', '10', '2', '4', '1', '0');
+INSERT INTO `tb_jogadores_plantel` VALUES ('100', '2014-01-22 10:06:22', '2014-01-19 15:27:37', '2014-01-22 10:06:22', '1140.00', 'Howedes', '82', '900.00', '0.00', '1200.00', '1', '293', '16', '9', '3', '3', '0');
+INSERT INTO `tb_jogadores_plantel` VALUES ('101', null, '2014-01-19 15:34:51', null, '0.00', 'Vertonghen', '82', '0.00', '0.00', '0.00', '1', '166', '10', '6', '3', '1', '0');
+INSERT INTO `tb_jogadores_plantel` VALUES ('102', null, '2014-01-19 15:36:25', null, '0.00', 'Sánchez', '82', '0.00', '0.00', '0.00', '1', '472', '27', '16', '18', '1', '0');
+INSERT INTO `tb_jogadores_plantel` VALUES ('103', null, '2014-01-19 15:37:46', null, '0.00', 'Vorn', '81', '0.00', '0.00', '0.00', '1', '169', '10', '12', '1', '1', '0');
+INSERT INTO `tb_jogadores_plantel` VALUES ('104', null, '2014-01-19 15:38:33', null, '0.00', 'Sandro', '81', '0.00', '0.00', '0.00', '1', '166', '10', '1', '8', '1', '0');
+INSERT INTO `tb_jogadores_plantel` VALUES ('105', '2014-01-20 12:30:43', '2014-01-19 15:40:11', null, '0.00', 'Dempsey', '81', '800.00', '0.00', '0.00', '1', '34', '2', '13', '10', '1', '0');
+INSERT INTO `tb_jogadores_plantel` VALUES ('106', '2014-01-20 12:29:31', '2014-01-19 15:43:42', null, '0.00', 'Mangala', '81', '700.00', '0.00', '0.00', '1', '418', '23', '2', '3', '1', '0');
+INSERT INTO `tb_jogadores_plantel` VALUES ('107', '2014-01-20 12:36:59', '2014-01-19 15:45:00', null, '0.00', 'Doumbia', '80', '900.00', '0.00', '0.00', '1', '441', '25', '9', '22', '1', '0');
+INSERT INTO `tb_jogadores_plantel` VALUES ('108', '2014-01-22 09:23:11', '2014-01-19 15:45:46', '2014-01-22 09:23:11', '760.00', 'Sokratis', '80', '800.00', '0.00', '800.00', '1', '286', '16', '20', '3', '3', '0');
+INSERT INTO `tb_jogadores_plantel` VALUES ('109', '2014-01-20 12:34:31', '2014-01-19 15:46:45', null, '0.00', 'Witsel', '80', '1200.00', '0.00', '0.00', '1', '454', '25', '6', '9', '1', '0');
+INSERT INTO `tb_jogadores_plantel` VALUES ('110', '2014-01-20 12:33:18', '2014-01-19 15:48:19', null, '0.00', 'Lucho Gonzalez', '80', '900.00', '0.00', '0.00', '1', '418', '23', '10', '9', '1', '0');
+INSERT INTO `tb_jogadores_plantel` VALUES ('111', '2014-01-21 16:40:46', '2014-01-19 15:54:24', '2014-01-21 16:40:46', '902.50', 'Cáceres', '80', '1000.00', '0.00', '950.00', '1', '347', '19', '12', '3', '3', '0');
+INSERT INTO `tb_jogadores_plantel` VALUES ('112', null, '2014-01-19 15:55:07', null, '0.00', 'Chivu', '78', '0.00', '0.00', '0.00', '1', '346', '19', '9', '3', '1', '0');
+INSERT INTO `tb_jogadores_plantel` VALUES ('113', null, '2014-01-19 20:34:53', null, '0.00', 'Alex', '78', '0.00', '0.00', '0.00', '1', '70', '4', '1', '10', '1', '0');
+INSERT INTO `tb_jogadores_plantel` VALUES ('114', null, '2014-01-19 20:35:27', null, '0.00', 'Déde', '78', '0.00', '0.00', '0.00', '1', '65', '4', '1', '3', '1', '0');
+INSERT INTO `tb_jogadores_plantel` VALUES ('115', '2014-01-21 16:41:10', '2014-01-19 20:36:13', '2014-01-21 16:41:10', '855.00', 'Radu', '78', '900.00', '0.00', '900.00', '1', '348', '19', '18', '4', '3', '0');
+INSERT INTO `tb_jogadores_plantel` VALUES ('116', null, '2014-01-19 20:36:56', null, '0.00', 'Fazio', '78', '0.00', '0.00', '0.00', '1', '483', '27', '10', '3', '1', '0');
+INSERT INTO `tb_jogadores_plantel` VALUES ('117', '2014-01-21 11:45:41', '2014-01-19 20:38:22', null, '0.00', 'Wollscheid', '78', '750.00', '0.00', '0.00', '1', '285', '16', '9', '3', '2', '0');
+INSERT INTO `tb_jogadores_plantel` VALUES ('118', null, '2014-01-19 20:39:00', null, '0.00', 'Crouch', '77', '0.00', '0.00', '0.00', '1', '167', '10', '3', '22', '1', '0');
+INSERT INTO `tb_jogadores_plantel` VALUES ('119', null, '2014-01-19 20:40:02', null, '0.00', 'Kucka', '77', '0.00', '0.00', '0.00', '1', '344', '19', '9', '9', '1', '0');
+INSERT INTO `tb_jogadores_plantel` VALUES ('120', null, '2014-01-19 20:40:43', null, '0.00', 'Diatike', '76', '0.00', '0.00', '0.00', '1', '168', '10', '2', '3', '1', '0');
+INSERT INTO `tb_jogadores_plantel` VALUES ('121', '2014-01-21 12:03:53', '2014-01-19 20:41:39', null, '0.00', 'Atsu', '76', '750.00', '0.00', '0.00', '1', '337', '18', '14', '19', '2', '0');
+INSERT INTO `tb_jogadores_plantel` VALUES ('122', '2014-01-22 10:06:47', '2014-01-19 20:46:50', '2014-01-22 10:06:47', '427.50', 'Rolfes', '79', '450.00', '0.00', '450.00', '2', '285', '16', '9', '8', '3', '0');
+INSERT INTO `tb_jogadores_plantel` VALUES ('123', '2014-01-21 11:58:44', '2014-01-19 20:47:32', null, '0.00', 'Costil', '78', '450.00', '0.00', '0.00', '2', '260', '14', '2', '1', '2', '0');
+INSERT INTO `tb_jogadores_plantel` VALUES ('124', null, '2014-01-19 20:48:35', null, '0.00', 'Simão', '76', '0.00', '0.00', '0.00', '2', '478', '27', '15', '14', '1', '0');
+INSERT INTO `tb_jogadores_plantel` VALUES ('125', null, '2014-01-19 20:49:19', null, '0.00', 'Zaccardo', '75', '0.00', '0.00', '0.00', '2', '350', '19', '5', '3', '1', '0');
+INSERT INTO `tb_jogadores_plantel` VALUES ('126', null, '2014-01-19 20:49:54', null, '0.00', 'Natali', '75', '0.00', '0.00', '0.00', '2', '339', '19', '5', '3', '1', '0');
+INSERT INTO `tb_jogadores_plantel` VALUES ('127', null, '2014-01-21 11:54:47', null, null, 'Zebina', '75', '350.00', '0.00', '0.00', '2', '262', '14', '2', '3', '2', '0');
+INSERT INTO `tb_jogadores_plantel` VALUES ('128', null, '2014-01-21 12:27:06', null, null, 'Jobson', '72', '40000.00', '0.00', '0.00', '3', '564', '33', '1', '22', '4', '0');
+INSERT INTO `tb_jogadores_plantel` VALUES ('129', '2014-01-21 16:41:36', '2014-01-21 13:32:05', '2014-01-21 16:41:36', '255.00', 'Diego Costa', '83', '2900.00', '2500.00', '2900.00', '1', '468', '27', '1', '22', '3', '0');
+INSERT INTO `tb_jogadores_plantel` VALUES ('130', null, '2014-01-21 16:55:59', null, '0.00', 'Sturridge', '80', '0.00', '3400.00', '0.00', '1', '160', '10', '3', '22', '2', '0');
+INSERT INTO `tb_jogadores_plantel` VALUES ('131', '2014-01-22 11:36:25', '2014-01-21 17:53:32', '2014-01-22 11:36:25', '510.00', 'Fernando Torres', '82', '0.00', '1200.00', '1800.00', '1', '155', '10', '4', '22', '3', '0');
+INSERT INTO `tb_jogadores_plantel` VALUES ('132', null, '2014-01-21 17:54:45', null, '0.00', 'Benteke', '79', '0.00', '1000.00', '0.00', '1', '153', '10', '6', '22', '2', '0');
+INSERT INTO `tb_jogadores_plantel` VALUES ('133', null, '2014-01-21 17:55:15', null, '0.00', 'Benteke', '79', '0.00', '1100.00', '0.00', '1', '153', '10', '6', '22', '2', '0');
+INSERT INTO `tb_jogadores_plantel` VALUES ('134', null, '2014-01-21 17:56:36', null, '0.00', 'Coutinho', '80', '0.00', '850.00', '0.00', '1', '160', '10', '1', '10', '1', '0');
+INSERT INTO `tb_jogadores_plantel` VALUES ('135', null, '2014-01-22 12:11:53', null, '0.00', 'Walker', '79', '4300.00', '3700.00', '0.00', '1', '166', '10', '3', '2', '2', '0');
+INSERT INTO `tb_jogadores_plantel` VALUES ('136', '2014-01-22 15:50:23', '2014-01-22 14:42:24', '2014-01-22 15:50:23', '135.00', 'Coutinho', '80', '1300.00', '1100.00', '1300.00', '2', '160', '10', '1', '10', '3', '0');
 
 -- ----------------------------
 -- Table structure for tb_liga
@@ -942,7 +986,7 @@ CREATE TABLE `tb_partida` (
   `DS_TIME_VISITANTE` varchar(255) DEFAULT NULL,
   `VL_GANHO_PARTIDA` decimal(19,2) DEFAULT NULL,
   PRIMARY KEY (`ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=latin1;
 
 -- ----------------------------
 -- Records of tb_partida
@@ -956,6 +1000,12 @@ INSERT INTO `tb_partida` VALUES ('6', '2014-01-20 02:07:09', '1', '2', 'powergui
 INSERT INTO `tb_partida` VALUES ('7', '2014-01-20 02:51:26', '2', '2', 'Class On Grass', 'Scoroz United A', '475.00');
 INSERT INTO `tb_partida` VALUES ('8', '2014-01-20 22:05:00', '2', '0', 'Herkot FC', 'Scoroz United A', '419.00');
 INSERT INTO `tb_partida` VALUES ('9', '2014-01-20 22:27:14', '3', '1', 'Haliyuu', 'Scoroz United A', '443.00');
+INSERT INTO `tb_partida` VALUES ('10', '2014-01-22 09:21:37', '4', '1', 'Scoroz United ', 'Campinho FC', '546.00');
+INSERT INTO `tb_partida` VALUES ('11', '2014-01-22 09:22:09', '1', '2', 'Scoroz United', 'craques ', '431.00');
+INSERT INTO `tb_partida` VALUES ('12', '2014-01-22 09:24:12', '0', '1', 'Scoroz United', 'Bonsucesso FC', '434.00');
+INSERT INTO `tb_partida` VALUES ('13', '2014-01-22 09:24:33', '1', '0', 'Scoroz United', 'Jockos FC', '513.00');
+INSERT INTO `tb_partida` VALUES ('14', '2014-01-22 09:24:52', '3', '1', 'Scoroz United', 'CACIQUE FC', '521.00');
+INSERT INTO `tb_partida` VALUES ('15', '2014-01-22 09:25:09', '4', '4', 'Scoroz United', 'LSCRDYT ', '511.00');
 
 -- ----------------------------
 -- Table structure for tb_pos_jogador

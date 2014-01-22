@@ -76,13 +76,12 @@ public class Jogador implements Serializable{
 	@Column(name = "DT_SAIDA")
 	private Date dataSaida;
 
-	@Transient
-	private boolean leilao;
+	@Column(name = "FL_VENDIDO")
+	private boolean vendido;
 	
 	public Jogador() {
-		// TODO Auto-generated constructor stub
-	}
 
+	}
 
 	public Long getId() {
 		return id;
@@ -243,18 +242,22 @@ public class Jogador implements Serializable{
 	}
 
 	@Transient
-	public boolean isVendido(){
-		return getDataSaida()==null?false:true;
+	private TipoMovimentacaoEnum tipoMovJogador;
+	public TipoMovimentacaoEnum getTipoMovJogador() {
+		return tipoMovJogador;
+	}
+
+	public void setTipoMovJogador(TipoMovimentacaoEnum tipoMovJogador) {
+		this.tipoMovJogador = tipoMovJogador;
+	}
+
+	public boolean isVendido() {
+		return vendido;
+	}
+
+	public void setVendido(boolean vendido) {
+		this.vendido = vendido;
 	}
 
 
-	public boolean isLeilao() {
-		return leilao;
-	}
-
-
-	public void setLeilao(boolean leilao) {
-		this.leilao = leilao;
-	}
-	
 }

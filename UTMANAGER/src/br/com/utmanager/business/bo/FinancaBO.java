@@ -25,4 +25,6 @@ public interface FinancaBO {
 
 	void adicionarPremiacao(Financa premiacaoCadastro);
 
+	void adicionarItemClube(Financa itemCadastro);
+
 }
