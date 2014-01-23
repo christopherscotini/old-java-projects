@@ -2,15 +2,15 @@
 Navicat MySQL Data Transfer
 
 Source Server         : local
-Source Server Version : 50612
+Source Server Version : 50522
 Source Host           : localhost:3306
 Source Database       : utmanager
 
 Target Server Type    : MYSQL
-Target Server Version : 50612
+Target Server Version : 50522
 File Encoding         : 65001
 
-Date: 2014-01-22 17:51:04
+Date: 2014-01-23 09:03:30
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -657,7 +657,7 @@ CREATE TABLE `tb_financa` (
   KEY `FKE63D3EE5363F5AD4` (`PARTIDA_FK`),
   CONSTRAINT `FKE63D3EE5363F5AD4` FOREIGN KEY (`PARTIDA_FK`) REFERENCES `tb_partida` (`ID`),
   CONSTRAINT `FKE63D3EE5676B2B4` FOREIGN KEY (`JOGADOR_FK`) REFERENCES `tb_jogadores_plantel` (`ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=53 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=58 DEFAULT CHARSET=latin1;
 
 -- ----------------------------
 -- Records of tb_financa
@@ -707,6 +707,11 @@ INSERT INTO `tb_financa` VALUES ('49', 'COMPRA_JOGADOR', '34925.00', '3700.00', 
 INSERT INTO `tb_financa` VALUES ('50', 'COMPRA_JOGADOR', '33825.00', '1100.00', '2014-01-22 14:42:24', 'Compra do jogador null - Coutinho - null - null', '136', null);
 INSERT INTO `tb_financa` VALUES ('51', 'VENDA_JOGADOR', '34727.50', '902.50', '2014-01-22 15:36:19', 'Venda do jogador CAM - K. P. Boateng - Ganês - Germany 1. Bundesliga', '57', null);
 INSERT INTO `tb_financa` VALUES ('52', 'VENDA_JOGADOR', '35962.50', '1235.00', '2014-01-22 15:50:23', 'Venda do jogador CAM - Coutinho - Brasileiro - England Premier League', '136', null);
+INSERT INTO `tb_financa` VALUES ('53', 'COMPRA_JOGADOR', '34662.50', '1300.00', '2014-01-22 21:53:18', 'Compra do jogador CAM - Diego - Brasileiro - Germany 1. Bundesliga', '137', null);
+INSERT INTO `tb_financa` VALUES ('54', 'COMPRA_JOGADOR', '33362.50', '1300.00', '2014-01-22 21:54:06', 'Compra do jogador CAM - Diego - Brasileiro - Germany 1. Bundesliga', '138', null);
+INSERT INTO `tb_financa` VALUES ('55', 'COMPRA_JOGADOR', '30262.50', '3100.00', '2014-01-23 00:03:52', 'Compra do jogador ST - Diego Costa - Brasileiro - Spain Primera Division', '139', null);
+INSERT INTO `tb_financa` VALUES ('56', 'COMPRA_JOGADOR', '29162.50', '1100.00', '2014-01-23 00:10:31', 'Compra do jogador CAM - Coutinho - Brasileiro - England Premier League', '140', null);
+INSERT INTO `tb_financa` VALUES ('57', 'COMPRA_JOGADOR', '28062.50', '1100.00', '2014-01-23 00:14:10', 'Compra do jogador CAM - Coutinho - Brasileiro - England Premier League', '141', null);
 
 -- ----------------------------
 -- Table structure for tb_jogadores_plantel
@@ -743,7 +748,7 @@ CREATE TABLE `tb_jogadores_plantel` (
   CONSTRAINT `FKB41BF32615AAA56` FOREIGN KEY (`CATEGORIA_FK`) REFERENCES `tb_categoria_jogador` (`ID`),
   CONSTRAINT `FKB41BF3286C31934` FOREIGN KEY (`NACIONALIDADE_FK`) REFERENCES `tb_nacionalidade_jogador` (`ID`),
   CONSTRAINT `FKB41BF32A53662E` FOREIGN KEY (`LIGA_FK`) REFERENCES `tb_liga` (`ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=137 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=142 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of tb_jogadores_plantel
@@ -881,6 +886,11 @@ INSERT INTO `tb_jogadores_plantel` VALUES ('133', null, '2014-01-21 17:55:15', n
 INSERT INTO `tb_jogadores_plantel` VALUES ('134', null, '2014-01-21 17:56:36', null, '0.00', 'Coutinho', '80', '0.00', '850.00', '0.00', '1', '160', '10', '1', '10', '1', '0');
 INSERT INTO `tb_jogadores_plantel` VALUES ('135', null, '2014-01-22 12:11:53', null, '0.00', 'Walker', '79', '4300.00', '3700.00', '0.00', '1', '166', '10', '3', '2', '2', '0');
 INSERT INTO `tb_jogadores_plantel` VALUES ('136', '2014-01-22 15:50:23', '2014-01-22 14:42:24', '2014-01-22 15:50:23', '135.00', 'Coutinho', '80', '1300.00', '1100.00', '1300.00', '2', '160', '10', '1', '10', '3', '0');
+INSERT INTO `tb_jogadores_plantel` VALUES ('137', null, '2014-01-22 21:53:18', null, '0.00', 'Diego', '84', '0.00', '1300.00', '0.00', '1', '300', '16', '1', '10', '2', '0');
+INSERT INTO `tb_jogadores_plantel` VALUES ('138', null, '2014-01-22 21:54:05', null, '0.00', 'Diego', '84', '0.00', '1300.00', '0.00', '1', '300', '16', '1', '10', '2', '0');
+INSERT INTO `tb_jogadores_plantel` VALUES ('139', null, '2014-01-23 00:03:52', null, '0.00', 'Diego Costa', '83', '0.00', '3100.00', '0.00', '1', '468', '27', '1', '22', '2', '0');
+INSERT INTO `tb_jogadores_plantel` VALUES ('140', null, '2014-01-23 00:10:31', null, '0.00', 'Coutinho', '80', '0.00', '1100.00', '0.00', '1', '160', '10', '1', '10', '2', '0');
+INSERT INTO `tb_jogadores_plantel` VALUES ('141', null, '2014-01-23 00:14:10', null, '0.00', 'Coutinho', '80', '0.00', '1100.00', '0.00', '1', '160', '10', '1', '10', '2', '0');
 
 -- ----------------------------
 -- Table structure for tb_liga
