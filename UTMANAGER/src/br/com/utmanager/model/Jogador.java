@@ -78,6 +78,9 @@ public class Jogador implements Serializable{
 
 	@Column(name = "FL_VENDIDO")
 	private boolean vendido;
+
+	@Transient
+	private boolean quickSell;
 	
 	public Jogador() {
 
@@ -257,6 +260,14 @@ public class Jogador implements Serializable{
 
 	public void setVendido(boolean vendido) {
 		this.vendido = vendido;
+	}
+
+	public boolean isQuickSell() {
+		return quickSell;
+	}
+
+	public void setQuickSell(boolean quickSell) {
+		this.quickSell = quickSell;
 	}
 
 

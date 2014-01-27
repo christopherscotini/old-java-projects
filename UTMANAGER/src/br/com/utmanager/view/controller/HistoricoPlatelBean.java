@@ -97,6 +97,11 @@ public class HistoricoPlatelBean extends AbstractGenericBean{
 		return iniciarTela();
 	}
 	
+	public void calcularValorSugeridoVenda(){
+		BigDecimal lucroPorcent = new BigDecimal("0.1");
+		jogadorCadastro.setValorMinSugeridoVenda(jogadorCadastro.getValorPago().multiply(new BigDecimal("1.05")).multiply(lucroPorcent));
+	}
+	
 	private void verificaTipoMovimentacaoJogador() {
 		if(jogadorCadastro.getStatus().getId().equals(StatusJogadorEnum.NO_CLUBE.getCodigo()) || jogadorCadastro.getStatus().getId().equals(StatusJogadorEnum.A_VENDA.getCodigo())){
 			if(jogadorCadastro.getId() == null){

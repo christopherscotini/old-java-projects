@@ -1,6 +1,7 @@
 package br.com.utmanager.persistence.jpa.impl;
 
 import java.math.BigDecimal;
+import java.util.Date;
 import java.util.List;
 
 import javax.persistence.NoResultException;
@@ -13,6 +14,7 @@ import br.com.utmanager.model.Jogador;
 import br.com.utmanager.model.TipoMovimentacaoEnum;
 import br.com.utmanager.persistence.dao.FinancaDAO;
 import br.com.utmanager.persistence.jpa.JpaGenericDao;
+import br.com.utmanager.view.utils.DataUtils;
 
 @Repository
 public class FinancaDAOImpl extends JpaGenericDao<Financa, Long> implements FinancaDAO{
@@ -136,5 +138,5 @@ public class FinancaDAOImpl extends JpaGenericDao<Financa, Long> implements Fina
 		
 		return (BigDecimal) getEntityManager().createQuery(query.toString()).getSingleResult();
 	}
-
+	
 }

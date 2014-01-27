@@ -19,7 +19,7 @@
 				<p:dataTable id="dataTableContrato"
 					value="#{historicoPartidasBean.partidas}" var="result"
 					filteredValue="#{historicoPartidasBean.filteredPartidas}"
-					rowKey="#{result}" rows="50" paginator="true"
+					rowKey="#{result}" rows="10" paginator="true"
 					paginatorPosition="bottom" emptyMessage="Dados não encontrados">
 					
 					<p:column headerText="PARTIDA" sortBy="#{result.descricaoPartida}" width="50%" styleClass="colCenter" >

@@ -18,6 +18,7 @@ public class FinancasBean extends AbstractGenericBean{
 
 	private final String TELA_DASHBOARD_FINANCAS = "/content/dashboard-financas/dashboardFinancas.xhtml";
 	private final String TELA_ADICONAR_PREMIACAO_FINANCAS = "/content/adicionarPremiacao.xhtml";
+	private final String TELA_ADICIONAR_ITEM_CLUBE = "/content/adicionarItemClube.xhtml";
 	
 	private BigDecimal lucroTotalTransferencias;
 	private BigDecimal gastoTotalTransferencias;
@@ -28,6 +29,7 @@ public class FinancasBean extends AbstractGenericBean{
 	private BigDecimal gastoTotalOutros;
 	private List<Financa>extrato;
 	private Financa premiacaoCadastro;
+	private Financa itemCadastro;
 	
 	@PostConstruct
 	public void init(){
@@ -69,6 +71,25 @@ public class FinancasBean extends AbstractGenericBean{
 		}
 		return iniciarTela();
 	}
+	
+	public String adicionarItem(){
+		itemCadastro = new Financa();
+		
+		return TELA_ADICIONAR_ITEM_CLUBE;
+	}
+	
+	public String salvarItemClube(){
+
+		try{
+			getFinancaBO().adicionarItemClube(itemCadastro);
+		}catch(BusinessException b){
+			Messages.addError(null, b.getMessage());
+			return "";
+		}
+		
+		return iniciarTela();
+	}
+	
 	
 	public BigDecimal getSaldoFinanceiro() {
 		return getFinancaBO().getSaldoAtual();
@@ -136,6 +157,14 @@ public class FinancasBean extends AbstractGenericBean{
 
 	public void setPremiacaoCadastro(Financa premiacaoCadastro) {
 		this.premiacaoCadastro = premiacaoCadastro;
+	}
+
+	public Financa getItemCadastro() {
+		return itemCadastro;
+	}
+
+	public void setItemCadastro(Financa itemCadastro) {
+		this.itemCadastro = itemCadastro;
 	}
 
 }

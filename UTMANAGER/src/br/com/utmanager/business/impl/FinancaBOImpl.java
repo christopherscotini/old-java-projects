@@ -81,4 +81,5 @@ public class FinancaBOImpl extends GenericBO implements FinancaBO{
 		getFinancaDao().insert(itemCadastro);
 		
 	}
+	
 }

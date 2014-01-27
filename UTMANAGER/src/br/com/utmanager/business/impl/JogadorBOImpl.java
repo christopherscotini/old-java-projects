@@ -27,28 +27,33 @@ public class JogadorBOImpl extends GenericBO implements JogadorBO{
 		
 		if(jogador.getTipoMovJogador().getCodigo().equals(TipoMovimentacaoEnum.VENDA_JOGADOR)){
 			jogador.setDataSaida(new Date());
+			jogador.setVendido(true);
 			calculoLucroJogador(jogador);
 		}
 		
+		boolean quickSell = jogador.isQuickSell();
 		jogador = getJogadorDao().insert(jogador);
+		jogador.setQuickSell(quickSell);
 		
 		atualizarFinanceiro(jogador);
 		
-//		calculaFinancas(jogador, TipoMovimentacaoEnum.COMPRA_JOGADOR);
 	}
 
 	@Override
 	public void editar(Jogador jogador) {
 		verificaForm(jogador);
-		
-		jogador.setDataAlteracao(new Date());
-		if(jogador.getStatus().getId().equals(StatusJogadorEnum.VENDIDO.getCodigo())){
-			jogador.setDataSaida(jogador.getDataSaida()==null?new Date():jogador.getDataSaida());
-			calculoLucroJogador(jogador);
+		if(!jogador.isVendido()){
+			jogador.setDataAlteracao(new Date());
+			if(jogador.getStatus().getId().equals(StatusJogadorEnum.VENDIDO.getCodigo())){
+				jogador.setDataSaida(jogador.getDataSaida()==null?new Date():jogador.getDataSaida());
+				jogador.setVendido(true);
+				calculoLucroJogador(jogador);
+			}
 		}
 		
+		boolean quickSell = jogador.isQuickSell();
 		jogador = getJogadorDao().update(jogador);
-		
+		jogador.setQuickSell(quickSell);
 		atualizarFinanceiro(jogador);
 	}
 	
@@ -66,7 +71,6 @@ public class JogadorBOImpl extends GenericBO implements JogadorBO{
 	
 	private void atualizarFinanceiro(Jogador jogador) {
 		Financa financa = new Financa();
-		if(!jogador.isVendido()){
 			if(jogador.getTipoMovJogador() != null){
 				if(jogador.getTipoMovJogador().getCodigo().equals(TipoMovimentacaoEnum.VENDA_JOGADOR.getCodigo())){
 					calcularFinanceiroVenda(jogador, financa);
@@ -74,13 +78,10 @@ public class JogadorBOImpl extends GenericBO implements JogadorBO{
 					calcularFinanceiroCompra(jogador, financa);
 				}
 			}
-		}else{
 //			calculaValorMovimentadoFinanca(financa, jogador);
 //			financa.setValorAtual(financa.getValorAtual().add(financa.getValorMovimentado()));
 //			addDescricaoFinanca(financa, tipoMov);
 //			getFinancaDao().update(financa);
-		}
-		
 	}
 	
 
@@ -96,7 +97,7 @@ public class JogadorBOImpl extends GenericBO implements JogadorBO{
 	}
 
 	private void calcularFinanceiroVenda(Jogador jogador, Financa financa) {
-		BigDecimal valorVenda5Porcento = GlobalUtils.verificaBigDecimalNulo(jogador.getValorVenda()).multiply(new BigDecimal("0.05"));
+		BigDecimal valorVenda5Porcento = GlobalUtils.verificaBigDecimalNulo(jogador.getValorVenda()).multiply(jogador.isQuickSell()?new BigDecimal("0.00"):new BigDecimal("0.05"));
 		BigDecimal valorVendaDescontado = GlobalUtils.verificaBigDecimalNulo(jogador.getValorVenda()).subtract(valorVenda5Porcento);
 		financa.setValorMovimentado(valorVendaDescontado);
 		financa.setValorAtual(getFinancaDao().getSaldoAtual().add(financa.getValorMovimentado()));
@@ -110,7 +111,7 @@ public class JogadorBOImpl extends GenericBO implements JogadorBO{
 
 
 	private void calculoLucroJogador(Jogador jogador){
-		BigDecimal valorVenda5Porcento = jogador.getValorVenda().multiply(new BigDecimal("0.05"));
+		BigDecimal valorVenda5Porcento = jogador.getValorVenda().multiply(jogador.isQuickSell()?new BigDecimal("0.00"):new BigDecimal("0.05"));
 		BigDecimal valorVendaDescontado = jogador.getValorVenda().subtract(valorVenda5Porcento);
 		jogador.setLucro(valorVendaDescontado.subtract(jogador.getValorPago()));
 	

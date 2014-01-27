@@ -22,6 +22,9 @@
 					rowKey="#{result}" rows="50" paginator="true" 
 					paginatorPosition="bottom" emptyMessage="Dados não encontrados">
 					
+					<p:column headerText="ID" sortBy="#{result.id}" width="2%" styleClass="colCenter" >
+						<h:outputText value="#{result.id}" />
+					</p:column>
 					<p:column headerText="POS" sortBy="#{result.posicao.id}" width="5%" styleClass="colCenter" >
 						<h:outputText value="#{result.posicao.sigla}" />
 					</p:column>

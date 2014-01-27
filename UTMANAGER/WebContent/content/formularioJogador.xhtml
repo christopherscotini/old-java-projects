@@ -73,14 +73,15 @@
 						Valor Pago<br />
 						<h:inputText id="txtValorPago" alt="decimal" size="10" disabled="#{not empty historicoPlatelBean.jogadorCadastro.id}"
 							value="#{historicoPlatelBean.jogadorCadastro.valorPago}" styleClass="rowCollunmInputData" >
+							<p:ajax event="blur" listener="#{historicoPlatelBean.calcularValorSugeridoVenda()}" update="txtVlrSugeridoVenda" />
 							<f:converter converterId="decimalConverter" />
 						</h:inputText>
 					</label>
 					<label class="rowCollunmData">
 						Valor sugerido de venda<br />
-						<h:inputText id="txtVlrSugeridoVenda" alt="decimal" size="10" value="#{historicoPlatelBean.jogadorCadastro.valorMinSugeridoVenda}" styleClass="rowCollunmInputData" >
+						<h:outputText id="txtVlrSugeridoVenda" value="#{historicoPlatelBean.jogadorCadastro.valorMinSugeridoVenda}" styleClass="rowCollunmInputData" >
 							<f:converter converterId="decimalConverter" />
-						</h:inputText>
+						</h:outputText>
 					</label>
 				</div>
 				<div class="rowData">
@@ -98,6 +99,11 @@
 							</h:outputText>
 						</label>
 					</h:panelGroup>
+				</div>
+				<div class="rowData">
+					<label class="rowCollunmData">
+						Quick Sell: <h:selectBooleanCheckbox value="#{historicoPlatelBean.jogadorCadastro.quickSell}" disabled="#{historicoPlatelBean.jogadorCadastro.vendido}"/>
+					</label>
 				</div>
 			</fieldset>
 			

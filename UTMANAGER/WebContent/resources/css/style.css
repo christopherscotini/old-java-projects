@@ -45,8 +45,8 @@ h1.titulo img { float: left; padding: 1px 10px 0 0;width: 32px;height: 32px; }
 #menuFinancas:hover { background: #315787 url(../images/menu-financas-icon.png) no-repeat center bottom; color: #FFF; }
 #menuSimulador { background: url(../images/menu-simulador-icon.png) no-repeat center bottom; }
 #menuSimulador:hover { background: #315787 url(../images/menu-simulador-icon.png) no-repeat center bottom; color: #FFF; }
-#menuDashboardTrading { background: url(../images/menu-trading-icon.jpg) no-repeat center bottom; }
-#menuDashboardTrading:hover { background: #315787 url(../images/menu-trading-icon.jpg) no-repeat center bottom; color: #FFF; }
+#menuDashboardTrading { background: url(../images/menu-trading-icon.png) no-repeat center bottom; }
+#menuDashboardTrading:hover { background: #315787 url(../images/menu-trading-icon.png) no-repeat center bottom; color: #FFF; }
 
 .content { margin: 20px; display: block; overflow: hidden; }
 .content table { width: 100% !important; }

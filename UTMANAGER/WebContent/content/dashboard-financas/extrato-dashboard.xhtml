@@ -13,13 +13,20 @@
 				rowKey="#{result}" rows="10" paginator="true" 
 				paginatorPosition="bottom" emptyMessage="Dados não encontrados">
 				
-			<p:column headerText="DESCRIÇÃO" sortBy="#{result.descricao}" width="60%" styleClass="colCenter" >
+			<p:column headerText="DESCRIÇÃO" sortBy="#{result.descricao}" width="60%" styleClass="colLeft" >
 				<h:outputText value="#{result.descricao}" />
 			</p:column>
 
 			<p:column headerText="VALOR" sortBy="#{result.valorMovimentado}" width="20%" styleClass="colCenter" >
 				<h:outputText value="R$ " />
 				<h:outputText value="#{result.valorMovimentado}" >
+					<f:converter converterId="decimalConverter" />
+				</h:outputText>
+			</p:column>
+
+			<p:column headerText="SALDO" sortBy="#{result.valorAtual}" width="20%" styleClass="colCenter" >
+				<h:outputText value="R$ " />
+				<h:outputText value="#{result.valorAtual}" >
 					<f:converter converterId="decimalConverter" />
 				</h:outputText>
 			</p:column>
