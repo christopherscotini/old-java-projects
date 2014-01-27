@@ -2,15 +2,15 @@
 Navicat MySQL Data Transfer
 
 Source Server         : local
-Source Server Version : 50612
+Source Server Version : 50522
 Source Host           : localhost:3306
 Source Database       : utmanager
 
 Target Server Type    : MYSQL
-Target Server Version : 50612
+Target Server Version : 50522
 File Encoding         : 65001
 
-Date: 2014-01-24 16:13:20
+Date: 2014-01-27 16:59:29
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -657,7 +657,7 @@ CREATE TABLE `tb_financa` (
   KEY `FKE63D3EE5363F5AD4` (`PARTIDA_FK`),
   CONSTRAINT `FKE63D3EE5363F5AD4` FOREIGN KEY (`PARTIDA_FK`) REFERENCES `tb_partida` (`ID`),
   CONSTRAINT `FKE63D3EE5676B2B4` FOREIGN KEY (`JOGADOR_FK`) REFERENCES `tb_jogadores_plantel` (`ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=114 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=191 DEFAULT CHARSET=latin1;
 
 -- ----------------------------
 -- Records of tb_financa
@@ -760,6 +760,83 @@ INSERT INTO `tb_financa` VALUES ('110', 'VENDA_JOGADOR', '30619.50', '1805.00', 
 INSERT INTO `tb_financa` VALUES ('111', 'VENDA_JOGADOR', '32139.50', '1520.00', '2014-01-24 10:29:51', 'Venda do jogador ST - Fernando Torres - Espanhol - England Premier League', '150', null);
 INSERT INTO `tb_financa` VALUES ('112', 'VENDA_JOGADOR', '34704.50', '2565.00', '2014-01-24 11:43:35', 'Venda do jogador CB  - Dante - Brasileiro - Germany 1. Bundesliga', '153', null);
 INSERT INTO `tb_financa` VALUES ('113', 'VENDA_JOGADOR', '37554.50', '2850.00', '2014-01-24 13:06:32', 'Venda do jogador CB  - Dante - Brasileiro - Germany 1. Bundesliga', '152', null);
+INSERT INTO `tb_financa` VALUES ('114', 'VENDA_JOGADOR', '38194.50', '640.00', '2014-01-24 18:49:53', 'Venda do jogador CM - Lucho Gonzalez - Argentino - Portugal Liga ZON SAGRES', '110', null);
+INSERT INTO `tb_financa` VALUES ('115', 'VENDA_JOGADOR', '38818.50', '624.00', '2014-01-24 18:55:48', 'Venda do jogador CB  - Déde - Brasileiro - Liga do Brasil', '114', null);
+INSERT INTO `tb_financa` VALUES ('116', 'COMPRA_OUTROS', '38668.50', '150.00', '2014-01-24 19:20:07', 'Uniforme 1 Boca Jrs. ', null, null);
+INSERT INTO `tb_financa` VALUES ('117', 'COMPRA_OUTROS', '38468.50', '200.00', '2014-01-24 19:20:28', 'Uniforme 2 Boca Jrs. ', null, null);
+INSERT INTO `tb_financa` VALUES ('118', 'COMPRA_OUTROS', '38118.50', '350.00', '2014-01-24 19:21:16', 'Fisioterapeuta - Perna 15% - Y. Blais', null, null);
+INSERT INTO `tb_financa` VALUES ('119', 'COMPRA_OUTROS', '37768.50', '350.00', '2014-01-24 19:21:41', 'Fisioterapeuta - Costas 15% - D. Schneider', null, null);
+INSERT INTO `tb_financa` VALUES ('120', 'COMPRA_OUTROS', '37468.50', '300.00', '2014-01-24 19:22:21', 'Fisioterapeuta - Joelho 15% - M. Cree', null, null);
+INSERT INTO `tb_financa` VALUES ('121', 'GANHO_PARTIDA', '37868.50', '400.00', '2014-01-24 20:02:58', 'Scoroz United 0 X 4 MARTINS FC  em 24/01/2014 - 20:02', null, '18');
+INSERT INTO `tb_financa` VALUES ('122', 'VENDA_JOGADOR', '38533.50', '665.00', '2014-01-24 20:04:21', 'Venda do jogador LW - Atsu - Ganês - Holland Eredivisie', '121', null);
+INSERT INTO `tb_financa` VALUES ('123', 'GANHO_PARTIDA', '39036.50', '503.00', '2014-01-24 20:26:51', 'Scoroz United 3 X 2 Malok12 FC  em 24/01/2014 - 20:26', null, '19');
+INSERT INTO `tb_financa` VALUES ('124', 'GANHO_PARTIDA', '39291.50', '255.00', '2014-01-24 20:37:08', 'Pipoca Doce FC 0 X 1 Scoroz United  em 24/01/2014 - 20:37', null, '20');
+INSERT INTO `tb_financa` VALUES ('125', 'GANHO_PARTIDA', '39750.00', '458.50', '2014-01-24 20:58:28', 'Scoroz United 1 X 1 S FURRENTS  em 24/01/2014 - 20:58', null, '21');
+INSERT INTO `tb_financa` VALUES ('126', 'COMPRA_JOGADOR', '16250.00', '23500.00', '2014-01-24 22:06:57', 'Compra do jogador ST - Eto\'o - Camaronês - England Premier League', '159', null);
+INSERT INTO `tb_financa` VALUES ('127', 'VENDA_JOGADOR', '16582.50', '332.50', '2014-01-24 23:22:22', 'Venda do jogador LW - Mounier - Francês - France Ligue 1', '69', null);
+INSERT INTO `tb_financa` VALUES ('128', 'GANHO_PARTIDA', '16965.50', '383.00', '2014-01-24 23:51:15', 'Scoroz United 0 X 4 Rock n Roll Utd  em 24/01/2014 - 23:51', null, '22');
+INSERT INTO `tb_financa` VALUES ('129', 'GANHO_PARTIDA', '17467.50', '502.00', '2014-01-25 00:20:54', 'Scoroz United 2 X 0 ASTROS FC  em 25/01/2014 - 00:20', null, '23');
+INSERT INTO `tb_financa` VALUES ('130', 'GANHO_PARTIDA', '18057.50', '590.00', '2014-01-25 00:46:30', 'corta pa nois 0 X 6 Scoroz United  em 25/01/2014 - 00:46', null, '24');
+INSERT INTO `tb_financa` VALUES ('131', 'GANHO_PARTIDA', '18471.50', '414.00', '2014-01-25 01:06:18', 'Scoroz United 1 X 2 JOGA 10 FC  em 25/01/2014 - 01:06', null, '25');
+INSERT INTO `tb_financa` VALUES ('132', 'GANHO_PARTIDA', '18931.50', '460.00', '2014-01-25 01:26:53', 'Scoroz United 2 X 1 Corinthians FC  em 25/01/2014 - 01:26', null, '26');
+INSERT INTO `tb_financa` VALUES ('133', 'GANHO_TORNEIO', '23731.50', '4800.00', '2014-01-25 01:28:00', 'Premiação Tem. 6 Online', null, null);
+INSERT INTO `tb_financa` VALUES ('134', 'GANHO_PARTIDA', '24210.50', '479.00', '2014-01-25 01:52:36', 'Scoroz United 3 X 1 GLORIOUS FC  em 25/01/2014 - 01:52', null, '27');
+INSERT INTO `tb_financa` VALUES ('135', 'GANHO_PARTIDA', '24649.50', '439.00', '2014-01-25 02:12:26', 'Scoroz United 1 X 1 foo fighters   em 25/01/2014 - 02:12', null, '28');
+INSERT INTO `tb_financa` VALUES ('136', 'GANHO_PARTIDA', '25090.50', '441.00', '2014-01-25 02:34:54', 'Scoroz United 1 X 1 EC Carmosina  em 25/01/2014 - 02:34', null, '29');
+INSERT INTO `tb_financa` VALUES ('137', 'GANHO_PARTIDA', '25631.50', '541.00', '2014-01-25 02:54:10', 'Scoroz United 5 X 1 Gidaro FC  em 25/01/2014 - 02:54', null, '30');
+INSERT INTO `tb_financa` VALUES ('138', 'GANHO_PARTIDA', '26132.50', '501.00', '2014-01-25 03:14:45', 'galaticos cf 1 X 3 Scoroz United  em 25/01/2014 - 03:14', null, '31');
+INSERT INTO `tb_financa` VALUES ('139', 'GANHO_PARTIDA', '26540.50', '408.00', '2014-01-25 03:36:12', 'Scoroz United 0 X 1 vovo FC  em 25/01/2014 - 03:36', null, '32');
+INSERT INTO `tb_financa` VALUES ('140', 'GANHO_PARTIDA', '27102.50', '562.00', '2014-01-25 04:00:19', 'Scoroz United 9 X 2 Schmeat FC  em 25/01/2014 - 04:00', null, '33');
+INSERT INTO `tb_financa` VALUES ('141', 'GANHO_PARTIDA', '27725.50', '623.00', '2014-01-25 04:25:04', 'GUILHERME FC 0 X 9 Scoroz United  em 25/01/2014 - 04:25', null, '34');
+INSERT INTO `tb_financa` VALUES ('142', 'VENDA_JOGADOR', '34850.50', '7125.00', '2014-01-25 09:33:39', 'Venda do jogador RM - Hulk - Brasileiro - Russia Premier League', '157', null);
+INSERT INTO `tb_financa` VALUES ('143', 'COMPRA_JOGADOR', '24100.50', '10750.00', '2014-01-25 09:55:30', 'Compra do jogador CAM - Nasri - Francês - England Premier League', '160', null);
+INSERT INTO `tb_financa` VALUES ('144', 'GANHO_PARTIDA', '24543.50', '443.00', '2014-01-25 11:55:04', 'Scoroz United 1 X 1 Atletico Garcia  em 25/01/2014 - 11:55', null, '35');
+INSERT INTO `tb_financa` VALUES ('145', 'GANHO_PARTIDA', '24969.50', '426.00', '2014-01-25 12:14:45', 'Scoroz United 0 X 1 Tiguez FC  em 25/01/2014 - 12:14', null, '36');
+INSERT INTO `tb_financa` VALUES ('146', 'GANHO_TORNEIO', '30569.50', '5600.00', '2014-01-25 12:16:10', 'Premiação Tem. 5 Online', null, null);
+INSERT INTO `tb_financa` VALUES ('147', 'GANHO_PARTIDA', '30995.50', '426.00', '2014-01-25 12:37:08', 'Timao FC 2 X 1 Scoroz United  em 25/01/2014 - 12:37', null, '37');
+INSERT INTO `tb_financa` VALUES ('148', 'GANHO_PARTIDA', '31524.50', '529.00', '2014-01-25 12:59:13', 'Scoroz United 1 X 0 IPIAU FUTEBOL  em 25/01/2014 - 12:59', null, '38');
+INSERT INTO `tb_financa` VALUES ('149', 'GANHO_PARTIDA', '31945.50', '421.00', '2014-01-25 13:18:14', 'Scoroz United 2 X 4 spirit  em 25/01/2014 - 13:18', null, '39');
+INSERT INTO `tb_financa` VALUES ('150', 'GANHO_PARTIDA', '32566.50', '621.00', '2014-01-25 13:37:35', 'Yolo FC 0 X 4 Scoroz United  em 25/01/2014 - 13:37', null, '40');
+INSERT INTO `tb_financa` VALUES ('151', 'VENDA_JOGADOR', '40071.50', '7505.00', '2014-01-25 17:34:47', 'Venda do jogador RM - Hulk - Brasileiro - Russia Premier League', '156', null);
+INSERT INTO `tb_financa` VALUES ('152', 'VENDA_JOGADOR', '40784.00', '712.50', '2014-01-25 17:35:11', 'Venda do jogador CM - Witsel - Belga - Russia Premier League', '109', null);
+INSERT INTO `tb_financa` VALUES ('153', 'VENDA_JOGADOR', '42494.00', '1710.00', '2014-01-25 17:46:05', 'Venda do jogador ST - Negredo - Espanhol - England Premier League', '97', null);
+INSERT INTO `tb_financa` VALUES ('154', 'VENDA_JOGADOR', '43539.00', '1045.00', '2014-01-25 17:46:39', 'Venda do jogador LB  - Evra - Francês - England Premier League', '99', null);
+INSERT INTO `tb_financa` VALUES ('155', 'COMPRA_JOGADOR', '43539.00', '0.00', '2014-01-25 17:48:31', 'Compra do jogador RW - Sanchez - Chileno - Spain Primera Division', '161', null);
+INSERT INTO `tb_financa` VALUES ('156', 'VENDA_JOGADOR', '44964.00', '1425.00', '2014-01-25 17:48:52', 'Venda do jogador RW - Sanchez - Chileno - Spain Primera Division', '161', null);
+INSERT INTO `tb_financa` VALUES ('157', 'VENDA_JOGADOR', '45629.00', '665.00', '2014-01-25 17:49:16', 'Venda do jogador GK  - Vorn - Holandês - England Premier League', '103', null);
+INSERT INTO `tb_financa` VALUES ('158', 'VENDA_JOGADOR', '46389.00', '760.00', '2014-01-25 17:49:38', 'Venda do jogador CB  - Mangala - Francês - Portugal Liga ZON SAGRES', '106', null);
+INSERT INTO `tb_financa` VALUES ('159', 'COMPRA_JOGADOR', '44889.00', '1500.00', '2014-01-25 17:55:15', 'Compra do jogador CM - Paulinho - Brasileiro - England Premier League', '162', null);
+INSERT INTO `tb_financa` VALUES ('160', 'COMPRA_JOGADOR', '4139.00', '40750.00', '2014-01-25 18:01:35', 'Compra do jogador CF - Rooney - Inglês - England Premier League', '163', null);
+INSERT INTO `tb_financa` VALUES ('161', 'GANHO_PARTIDA', '4683.00', '544.00', '2014-01-25 18:31:07', 'Scoroz United 4 X 0 tri mundial  em 25/01/2014 - 18:31', null, '41');
+INSERT INTO `tb_financa` VALUES ('162', 'GANHO_PARTIDA', '5141.00', '458.00', '2014-01-25 19:03:53', 'Scoroz United 2 X 1 GRANDES FAMOSOS  em 25/01/2014 - 19:03', null, '42');
+INSERT INTO `tb_financa` VALUES ('163', 'GANHO_PARTIDA', '5470.00', '329.00', '2014-01-25 19:16:11', 'Scoroz United 3 X 0 Parque Orlanda1  em 25/01/2014 - 19:16', null, '43');
+INSERT INTO `tb_financa` VALUES ('164', 'GANHO_PARTIDA', '5871.00', '401.00', '2014-01-25 19:34:57', 'Adelaide FC 2 X 1 Scoroz United  em 25/01/2014 - 19:34', null, '44');
+INSERT INTO `tb_financa` VALUES ('165', 'GANHO_PARTIDA', '6340.00', '469.00', '2014-01-25 19:58:21', 'Scoroz United 3 X 2 Quase Perdi FC  em 25/01/2014 - 19:58', null, '45');
+INSERT INTO `tb_financa` VALUES ('166', 'GANHO_TORNEIO', '13540.00', '7200.00', '2014-01-25 19:59:04', 'Premiação Tem. 3 Online', null, null);
+INSERT INTO `tb_financa` VALUES ('167', 'VENDA_JOGADOR', '37527.50', '23987.50', '2014-01-25 20:00:50', 'Venda do jogador ST - Eto\'o - Camaronês - England Premier League', '159', null);
+INSERT INTO `tb_financa` VALUES ('168', 'VENDA_JOGADOR', '38192.50', '665.00', '2014-01-25 20:01:28', 'Venda do jogador ST - Doumbia - Alemão - Russia Premier League', '107', null);
+INSERT INTO `tb_financa` VALUES ('169', 'VENDA_JOGADOR', '38857.50', '665.00', '2014-01-25 20:01:51', 'Venda do jogador CB  - Diatike - Francês - England Premier League', '120', null);
+INSERT INTO `tb_financa` VALUES ('170', 'GANHO_PARTIDA', '39503.00', '646.00', '2014-01-25 20:27:10', 'Scoroz United 7 X 1 Maniadeser FC  em 25/01/2014 - 20:27', null, '46');
+INSERT INTO `tb_financa` VALUES ('171', 'GANHO_PARTIDA', '39969.00', '466.00', '2014-01-26 12:04:24', 'Scoroz United 0 X 0 ESTRAGA DOMINGO  em 26/01/2014 - 12:04', null, '47');
+INSERT INTO `tb_financa` VALUES ('172', 'GANHO_PARTIDA', '40466.00', '497.00', '2014-01-26 12:28:24', 'Scoroz United 1 X 0 Annihilation  em 26/01/2014 - 12:28', null, '48');
+INSERT INTO `tb_financa` VALUES ('173', 'GANHO_PARTIDA', '40910.00', '444.00', '2014-01-26 13:46:23', 'Scoroz United 1 X 1 Dragons FC  em 26/01/2014 - 13:46', null, '49');
+INSERT INTO `tb_financa` VALUES ('174', 'GANHO_PARTIDA', '41399.00', '489.00', '2014-01-26 14:06:07', 'Vista Alegre 2 X 3 Scoroz United  em 26/01/2014 - 14:06', null, '50');
+INSERT INTO `tb_financa` VALUES ('175', 'GANHO_PARTIDA', '41866.00', '467.00', '2014-01-26 14:25:20', 'Scoroz United 2 X 2 PASQUALI FBPA  em 26/01/2014 - 14:25', null, '51');
+INSERT INTO `tb_financa` VALUES ('176', 'COMPRA_JOGADOR', '32866.00', '9000.00', '2014-01-26 14:38:26', 'Compra do jogador CB  - David Luiz - Brasileiro - England Premier League', '164', null);
+INSERT INTO `tb_financa` VALUES ('177', 'GANHO_PARTIDA', '33271.00', '405.00', '2014-01-26 15:05:21', 'W13 1 X 0 Scoroz United  em 26/01/2014 - 15:05', null, '52');
+INSERT INTO `tb_financa` VALUES ('178', 'GANHO_PARTIDA', '33665.00', '394.00', '2014-01-26 15:24:28', 'Scoroz United 0 X 3 PANICO NA LIVE  em 26/01/2014 - 15:24', null, '53');
+INSERT INTO `tb_financa` VALUES ('179', 'GANHO_PARTIDA', '34181.00', '516.00', '2014-01-26 15:43:51', 'Scoroz United 3 X 2 letzgettricky  em 26/01/2014 - 15:43', null, '54');
+INSERT INTO `tb_financa` VALUES ('180', 'GANHO_PARTIDA', '34604.00', '423.00', '2014-01-26 16:03:03', 'nalim united 1 X 0 Scoroz United  em 26/01/2014 - 16:03', null, '55');
+INSERT INTO `tb_financa` VALUES ('181', 'GANHO_TORNEIO', '40804.00', '6200.00', '2014-01-26 16:03:50', 'Premiação Tem. 3 Online', null, null);
+INSERT INTO `tb_financa` VALUES ('182', 'VENDA_JOGADOR', '41469.00', '665.00', '2014-01-26 16:04:36', 'Venda do jogador ST - Crouch - Inglês - England Premier League', '118', null);
+INSERT INTO `tb_financa` VALUES ('183', 'GANHO_PARTIDA', '41928.00', '459.00', '2014-01-26 16:50:38', 'Real Favela FC 1 X 1 Scoroz United  em 26/01/2014 - 16:50', null, '56');
+INSERT INTO `tb_financa` VALUES ('184', 'GANHO_PARTIDA', '42363.00', '435.00', '2014-01-26 17:11:27', 'Chaanuz FC 3 X 1 Scoroz United  em 26/01/2014 - 17:11', null, '57');
+INSERT INTO `tb_financa` VALUES ('185', 'GANHO_PARTIDA', '42969.00', '606.00', '2014-01-26 17:32:59', 'GLORIOUS FC 0 X 4 Scoroz United  em 26/01/2014 - 17:32', null, '58');
+INSERT INTO `tb_financa` VALUES ('186', 'GANHO_PARTIDA', '43542.00', '573.00', '2014-01-26 17:54:12', 'Scoroz United 6 X 2 AmigosDoMessi  em 26/01/2014 - 17:54', null, '59');
+INSERT INTO `tb_financa` VALUES ('187', 'GANHO_PARTIDA', '43998.00', '456.00', '2014-01-26 18:24:33', 'Gladiadores 1 X 1 Scoroz United  em 26/01/2014 - 18:24', null, '60');
+INSERT INTO `tb_financa` VALUES ('188', 'GANHO_PARTIDA', '44439.00', '441.00', '2014-01-26 18:44:00', 'coXa DoiDo FC 1 X 1 Scoroz United  em 26/01/2014 - 18:44', null, '61');
+INSERT INTO `tb_financa` VALUES ('189', 'VENDA_JOGADOR', '45056.50', '617.50', '2014-01-26 22:29:20', 'Venda do jogador ST - Cissé - Senegalês - England Premier League', '86', null);
+INSERT INTO `tb_financa` VALUES ('190', 'VENDA_JOGADOR', '45674.00', '617.50', '2014-01-26 23:30:22', 'Venda do jogador CAM - Dempsey - Americano - USA Major League Soccer', '105', null);
 
 -- ----------------------------
 -- Table structure for tb_jogadores_plantel
@@ -796,7 +873,7 @@ CREATE TABLE `tb_jogadores_plantel` (
   CONSTRAINT `FKB41BF32615AAA56` FOREIGN KEY (`CATEGORIA_FK`) REFERENCES `tb_categoria_jogador` (`ID`),
   CONSTRAINT `FKB41BF3286C31934` FOREIGN KEY (`NACIONALIDADE_FK`) REFERENCES `tb_nacionalidade_jogador` (`ID`),
   CONSTRAINT `FKB41BF32A53662E` FOREIGN KEY (`LIGA_FK`) REFERENCES `tb_liga` (`ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=159 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=165 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of tb_jogadores_plantel
@@ -869,7 +946,7 @@ INSERT INTO `tb_jogadores_plantel` VALUES ('65', '2014-01-21 18:00:39', '2014-01
 INSERT INTO `tb_jogadores_plantel` VALUES ('66', null, '2014-01-15 00:00:00', null, '0.00', 'Isla', '77', '0.00', '0.00', '0.00', '2', '347', '19', '5', '15', '3', '0');
 INSERT INTO `tb_jogadores_plantel` VALUES ('67', '2014-01-20 11:58:01', '2014-01-15 00:00:00', null, '0.00', 'Nani', '83', '0.00', '0.00', '0.00', '1', '162', '10', '15', '15', '1', '0');
 INSERT INTO `tb_jogadores_plantel` VALUES ('68', '2014-01-20 12:14:35', '2014-01-15 00:00:00', null, '0.00', 'Pedro', '85', '4500.00', '0.00', '0.00', '1', '472', '27', '4', '18', '1', '0');
-INSERT INTO `tb_jogadores_plantel` VALUES ('69', null, '2014-01-15 00:00:00', null, '0.00', 'Mounier', '77', '0.00', '0.00', '0.00', '2', '254', '14', '2', '19', '2', '0');
+INSERT INTO `tb_jogadores_plantel` VALUES ('69', '2014-01-24 23:22:22', '2014-01-15 00:00:00', '2014-01-24 23:22:22', '332.50', 'Mounier', '77', '0.00', '0.00', '350.00', '2', '254', '14', '2', '19', '3', '1');
 INSERT INTO `tb_jogadores_plantel` VALUES ('70', '2014-01-20 00:20:08', '2014-01-15 00:00:00', '2014-01-20 00:20:08', '1805.00', 'Sterling', '76', '0.00', '0.00', '1900.00', '1', '160', '10', '3', '19', '3', '1');
 INSERT INTO `tb_jogadores_plantel` VALUES ('71', '2014-01-21 16:30:41', '2014-01-15 00:00:00', '2014-01-21 16:30:41', '332.50', 'Chambers', '60', '0.00', '0.00', '350.00', '6', '243', '13', '3', '19', '3', '1');
 INSERT INTO `tb_jogadores_plantel` VALUES ('72', null, '2014-01-15 00:00:00', null, '0.00', 'Ngankam', '57', '0.00', '0.00', '0.00', '6', '292', '16', '9', '22', '1', '0');
@@ -886,7 +963,7 @@ INSERT INTO `tb_jogadores_plantel` VALUES ('82', null, '2014-01-15 00:00:00', nu
 INSERT INTO `tb_jogadores_plantel` VALUES ('83', null, '2014-01-15 00:00:00', null, '0.00', 'F. Torres', '82', '0.00', '0.00', '0.00', '1', '155', '10', '4', '22', '1', '0');
 INSERT INTO `tb_jogadores_plantel` VALUES ('84', '2014-01-23 11:01:37', '2014-01-15 00:00:00', '2014-01-23 11:01:37', '570.00', 'Pellé', '78', '0.00', '0.00', '600.00', '1', '326', '18', '5', '22', '3', '1');
 INSERT INTO `tb_jogadores_plantel` VALUES ('85', null, '2014-01-15 00:00:00', null, '0.00', 'N\'Doye', '76', '0.00', '0.00', '304.00', '2', '448', '25', '11', '22', '3', '0');
-INSERT INTO `tb_jogadores_plantel` VALUES ('86', null, '2014-01-15 00:00:00', null, '0.00', 'Cissé', '79', '0.00', '0.00', '0.00', '1', '163', '10', '11', '22', '1', '0');
+INSERT INTO `tb_jogadores_plantel` VALUES ('86', '2014-01-26 22:29:20', '2014-01-15 00:00:00', '2014-01-26 22:29:20', '617.50', 'Cissé', '79', '0.00', '0.00', '650.00', '1', '163', '10', '11', '22', '3', '1');
 INSERT INTO `tb_jogadores_plantel` VALUES ('87', '2014-01-23 11:01:03', '2014-01-15 00:00:00', '2014-01-23 11:01:03', '617.50', 'Donovan', '78', '0.00', '0.00', '650.00', '1', '26', '2', '13', '23', '3', '1');
 INSERT INTO `tb_jogadores_plantel` VALUES ('88', null, '2014-01-15 00:00:00', null, '0.00', 'Carroll', '77', '0.00', '0.00', '0.00', '1', '171', '10', '3', '23', '3', '0');
 INSERT INTO `tb_jogadores_plantel` VALUES ('92', '2014-01-21 16:40:00', '2014-01-15 00:00:00', '2014-01-21 16:40:00', '820.00', 'Luiz Gustavo', '81', '0.00', '700.00', '1600.00', '1', '300', '16', '1', '10', '3', '1');
@@ -894,31 +971,31 @@ INSERT INTO `tb_jogadores_plantel` VALUES ('93', '2014-01-22 10:04:24', '2014-01
 INSERT INTO `tb_jogadores_plantel` VALUES ('94', null, '2014-01-19 15:15:47', null, '0.00', 'Balotelli', '84', '0.00', '0.00', '0.00', '1', '350', '19', '5', '22', '1', '0');
 INSERT INTO `tb_jogadores_plantel` VALUES ('95', '2014-01-22 09:22:54', '2014-01-19 15:17:56', '2014-01-22 09:22:54', '950.00', 'Klose', '83', '1000.00', '0.00', '1000.00', '1', '348', '19', '9', '22', '3', '1');
 INSERT INTO `tb_jogadores_plantel` VALUES ('96', '2014-01-21 18:01:01', '2014-01-19 15:20:03', '2014-01-21 18:01:01', '1045.00', 'Mandzukic', '83', '1000.00', '0.00', '1100.00', '1', '291', '16', '9', '22', '3', '1');
-INSERT INTO `tb_jogadores_plantel` VALUES ('97', '2014-01-20 12:15:19', '2014-01-19 15:21:01', null, '0.00', 'Negredo', '83', '2000.00', '0.00', '0.00', '1', '161', '10', '4', '22', '1', '0');
+INSERT INTO `tb_jogadores_plantel` VALUES ('97', '2014-01-25 17:46:05', '2014-01-19 15:21:01', '2014-01-25 17:46:05', '1710.00', 'Negredo', '83', '2000.00', '0.00', '1800.00', '1', '161', '10', '4', '22', '3', '1');
 INSERT INTO `tb_jogadores_plantel` VALUES ('98', '2014-01-22 11:35:00', '2014-01-19 15:21:53', '2014-01-22 11:35:00', '855.00', 'Samuel', '82', '900.00', '0.00', '900.00', '1', '346', '19', '10', '3', '3', '1');
-INSERT INTO `tb_jogadores_plantel` VALUES ('99', null, '2014-01-19 15:23:17', null, '0.00', 'Evra', '82', '0.00', '0.00', '0.00', '1', '162', '10', '2', '4', '1', '0');
+INSERT INTO `tb_jogadores_plantel` VALUES ('99', '2014-01-25 17:46:39', '2014-01-19 15:23:17', '2014-01-25 17:46:39', '1045.00', 'Evra', '82', '0.00', '0.00', '1100.00', '1', '162', '10', '2', '4', '3', '1');
 INSERT INTO `tb_jogadores_plantel` VALUES ('100', '2014-01-22 10:06:22', '2014-01-19 15:27:37', '2014-01-22 10:06:22', '1140.00', 'Howedes', '82', '900.00', '0.00', '1200.00', '1', '293', '16', '9', '3', '3', '1');
 INSERT INTO `tb_jogadores_plantel` VALUES ('101', null, '2014-01-19 15:34:51', null, '0.00', 'Vertonghen', '82', '0.00', '0.00', '0.00', '1', '166', '10', '6', '3', '1', '0');
 INSERT INTO `tb_jogadores_plantel` VALUES ('102', null, '2014-01-19 15:36:25', null, '0.00', 'Sánchez', '82', '0.00', '0.00', '0.00', '1', '472', '27', '16', '18', '1', '0');
-INSERT INTO `tb_jogadores_plantel` VALUES ('103', null, '2014-01-19 15:37:46', null, '0.00', 'Vorn', '81', '0.00', '0.00', '0.00', '1', '169', '10', '12', '1', '1', '0');
+INSERT INTO `tb_jogadores_plantel` VALUES ('103', '2014-01-25 17:49:16', '2014-01-19 15:37:46', '2014-01-25 17:49:16', '665.00', 'Vorn', '81', '0.00', '0.00', '700.00', '1', '169', '10', '12', '1', '3', '1');
 INSERT INTO `tb_jogadores_plantel` VALUES ('104', null, '2014-01-19 15:38:33', null, '0.00', 'Sandro', '81', '0.00', '0.00', '0.00', '1', '166', '10', '1', '8', '1', '0');
-INSERT INTO `tb_jogadores_plantel` VALUES ('105', '2014-01-20 12:30:43', '2014-01-19 15:40:11', null, '0.00', 'Dempsey', '81', '800.00', '0.00', '0.00', '1', '34', '2', '13', '10', '1', '0');
-INSERT INTO `tb_jogadores_plantel` VALUES ('106', '2014-01-20 12:29:31', '2014-01-19 15:43:42', null, '0.00', 'Mangala', '81', '700.00', '0.00', '0.00', '1', '418', '23', '2', '3', '1', '0');
-INSERT INTO `tb_jogadores_plantel` VALUES ('107', '2014-01-20 12:36:59', '2014-01-19 15:45:00', null, '0.00', 'Doumbia', '80', '900.00', '0.00', '0.00', '1', '441', '25', '9', '22', '1', '0');
+INSERT INTO `tb_jogadores_plantel` VALUES ('105', '2014-01-26 23:30:21', '2014-01-19 15:40:11', '2014-01-26 23:30:21', '617.50', 'Dempsey', '81', '800.00', '0.00', '650.00', '1', '34', '2', '13', '10', '3', '1');
+INSERT INTO `tb_jogadores_plantel` VALUES ('106', '2014-01-25 17:49:37', '2014-01-19 15:43:42', '2014-01-25 17:49:37', '760.00', 'Mangala', '81', '700.00', '0.00', '800.00', '1', '418', '23', '2', '3', '3', '1');
+INSERT INTO `tb_jogadores_plantel` VALUES ('107', '2014-01-25 20:01:28', '2014-01-19 15:45:00', '2014-01-25 20:01:28', '665.00', 'Doumbia', '80', '900.00', '0.00', '700.00', '1', '441', '25', '9', '22', '3', '1');
 INSERT INTO `tb_jogadores_plantel` VALUES ('108', '2014-01-22 09:23:11', '2014-01-19 15:45:46', '2014-01-22 09:23:11', '760.00', 'Sokratis', '80', '800.00', '0.00', '800.00', '1', '286', '16', '20', '3', '3', '1');
-INSERT INTO `tb_jogadores_plantel` VALUES ('109', '2014-01-20 12:34:31', '2014-01-19 15:46:45', null, '0.00', 'Witsel', '80', '1200.00', '0.00', '0.00', '1', '454', '25', '6', '9', '1', '0');
-INSERT INTO `tb_jogadores_plantel` VALUES ('110', '2014-01-24 11:54:47', '2014-01-19 15:48:19', null, '0.00', 'Lucho Gonzalez', '80', '900.00', '0.00', '0.00', '1', '418', '23', '10', '9', '2', '0');
+INSERT INTO `tb_jogadores_plantel` VALUES ('109', '2014-01-25 17:35:11', '2014-01-19 15:46:45', '2014-01-25 17:35:11', '712.50', 'Witsel', '80', '1200.00', '0.00', '750.00', '1', '454', '25', '6', '9', '3', '1');
+INSERT INTO `tb_jogadores_plantel` VALUES ('110', '2014-01-24 18:49:53', '2014-01-19 15:48:19', '2014-01-24 18:49:53', '640.00', 'Lucho Gonzalez', '80', '900.00', '0.00', '640.00', '1', '418', '23', '10', '9', '3', '1');
 INSERT INTO `tb_jogadores_plantel` VALUES ('111', '2014-01-21 16:40:46', '2014-01-19 15:54:24', '2014-01-21 16:40:46', '902.50', 'Cáceres', '80', '1000.00', '0.00', '950.00', '1', '347', '19', '12', '3', '3', '1');
 INSERT INTO `tb_jogadores_plantel` VALUES ('112', '2014-01-24 11:54:57', '2014-01-19 15:55:07', null, '0.00', 'Chivu', '78', '0.00', '0.00', '0.00', '1', '346', '19', '9', '3', '2', '0');
 INSERT INTO `tb_jogadores_plantel` VALUES ('113', '2014-01-24 11:55:17', '2014-01-19 20:34:53', null, '0.00', 'Alex', '78', '0.00', '0.00', '0.00', '1', '70', '4', '1', '10', '2', '0');
-INSERT INTO `tb_jogadores_plantel` VALUES ('114', '2014-01-24 11:55:32', '2014-01-19 20:35:27', null, '0.00', 'Déde', '78', '0.00', '0.00', '0.00', '1', '65', '4', '1', '3', '2', '0');
+INSERT INTO `tb_jogadores_plantel` VALUES ('114', '2014-01-24 18:55:48', '2014-01-19 20:35:27', '2014-01-24 18:55:48', '624.00', 'Déde', '78', '0.00', '0.00', '624.00', '1', '65', '4', '1', '3', '3', '1');
 INSERT INTO `tb_jogadores_plantel` VALUES ('115', '2014-01-21 16:41:10', '2014-01-19 20:36:13', '2014-01-21 16:41:10', '855.00', 'Radu', '78', '900.00', '0.00', '900.00', '1', '348', '19', '18', '4', '3', '1');
 INSERT INTO `tb_jogadores_plantel` VALUES ('116', null, '2014-01-19 20:36:56', null, '0.00', 'Fazio', '78', '0.00', '0.00', '0.00', '1', '483', '27', '10', '3', '1', '0');
 INSERT INTO `tb_jogadores_plantel` VALUES ('117', '2014-01-21 11:45:41', '2014-01-19 20:38:22', null, '0.00', 'Wollscheid', '78', '750.00', '0.00', '0.00', '1', '285', '16', '9', '3', '2', '0');
-INSERT INTO `tb_jogadores_plantel` VALUES ('118', '2014-01-24 11:55:53', '2014-01-19 20:39:00', null, '0.00', 'Crouch', '77', '0.00', '0.00', '0.00', '1', '167', '10', '3', '22', '2', '0');
+INSERT INTO `tb_jogadores_plantel` VALUES ('118', '2014-01-26 16:04:36', '2014-01-19 20:39:00', '2014-01-26 16:04:36', '665.00', 'Crouch', '77', '0.00', '0.00', '700.00', '1', '167', '10', '3', '22', '3', '1');
 INSERT INTO `tb_jogadores_plantel` VALUES ('119', null, '2014-01-19 20:40:02', null, '0.00', 'Kucka', '77', '0.00', '0.00', '0.00', '1', '344', '19', '9', '9', '1', '0');
-INSERT INTO `tb_jogadores_plantel` VALUES ('120', null, '2014-01-19 20:40:43', null, '0.00', 'Diatike', '76', '0.00', '0.00', '0.00', '1', '168', '10', '2', '3', '1', '0');
-INSERT INTO `tb_jogadores_plantel` VALUES ('121', '2014-01-21 12:03:53', '2014-01-19 20:41:39', null, '0.00', 'Atsu', '76', '750.00', '0.00', '0.00', '1', '337', '18', '14', '19', '2', '0');
+INSERT INTO `tb_jogadores_plantel` VALUES ('120', '2014-01-25 20:01:51', '2014-01-19 20:40:43', '2014-01-25 20:01:51', '665.00', 'Diatike', '76', '0.00', '0.00', '700.00', '1', '168', '10', '2', '3', '3', '1');
+INSERT INTO `tb_jogadores_plantel` VALUES ('121', '2014-01-24 20:04:21', '2014-01-19 20:41:39', '2014-01-24 20:04:21', '665.00', 'Atsu', '76', '750.00', '0.00', '700.00', '1', '337', '18', '14', '19', '3', '1');
 INSERT INTO `tb_jogadores_plantel` VALUES ('122', '2014-01-22 10:06:47', '2014-01-19 20:46:50', '2014-01-22 10:06:47', '427.50', 'Rolfes', '79', '450.00', '0.00', '450.00', '2', '285', '16', '9', '8', '3', '1');
 INSERT INTO `tb_jogadores_plantel` VALUES ('123', '2014-01-23 09:24:33', '2014-01-19 20:47:32', '2014-01-23 09:24:33', '712.50', 'Costil', '78', '450.00', '0.00', '750.00', '2', '260', '14', '2', '1', '3', '1');
 INSERT INTO `tb_jogadores_plantel` VALUES ('124', null, '2014-01-19 20:48:35', null, '0.00', 'Simão', '76', '0.00', '0.00', '0.00', '2', '478', '27', '15', '14', '1', '0');
@@ -952,9 +1029,15 @@ INSERT INTO `tb_jogadores_plantel` VALUES ('152', '2014-01-24 13:06:32', '2014-0
 INSERT INTO `tb_jogadores_plantel` VALUES ('153', '2014-01-24 11:43:35', '2014-01-24 09:42:31', '2014-01-24 11:43:35', '165.00', 'Dante', '84', '0.00', '2400.00', '2700.00', '1', '291', '16', '1', '3', '3', '1');
 INSERT INTO `tb_jogadores_plantel` VALUES ('154', '2014-01-24 10:26:40', '2014-01-24 09:43:47', '2014-01-24 10:26:40', '165.00', 'Dante', '84', '0.00', '2400.00', '2700.00', '1', '291', '16', '1', '3', '3', '1');
 INSERT INTO `tb_jogadores_plantel` VALUES ('155', '2014-01-24 10:26:14', '2014-01-24 09:44:17', '2014-01-24 10:26:14', '165.00', 'Dante', '84', '0.00', '2400.00', '2700.00', '1', '291', '16', '1', '3', '3', '1');
-INSERT INTO `tb_jogadores_plantel` VALUES ('156', null, '2014-01-24 09:45:40', null, '0.00', 'Hulk', '84', '0.00', '6900.00', '0.00', '1', '454', '25', '1', '15', '2', '0');
-INSERT INTO `tb_jogadores_plantel` VALUES ('157', null, '2014-01-24 09:48:17', null, '0.00', 'Hulk', '84', '0.00', '6800.00', '0.00', '1', '454', '25', '1', '15', '2', '0');
+INSERT INTO `tb_jogadores_plantel` VALUES ('156', '2014-01-25 17:34:47', '2014-01-24 09:45:40', '2014-01-25 17:34:47', '605.00', 'Hulk', '84', '0.00', '6900.00', '7900.00', '1', '454', '25', '1', '15', '3', '1');
+INSERT INTO `tb_jogadores_plantel` VALUES ('157', '2014-01-25 09:33:37', '2014-01-24 09:48:17', '2014-01-25 09:33:37', '325.00', 'Hulk', '84', '0.00', '6800.00', '7500.00', '1', '454', '25', '1', '15', '3', '1');
 INSERT INTO `tb_jogadores_plantel` VALUES ('158', '2014-01-24 09:49:19', '2014-01-24 09:49:05', '2014-01-24 09:49:19', '550.00', 'Tevez', '86', '0.00', '12750.00', '14000.00', '1', '347', '19', '10', '9', '3', '1');
+INSERT INTO `tb_jogadores_plantel` VALUES ('159', '2014-01-25 20:00:50', '2014-01-24 22:06:57', '2014-01-25 20:00:50', '487.50', 'Eto\'o', '84', '2415.00', '23500.00', '25250.00', '1', '155', '10', '32', '22', '3', '1');
+INSERT INTO `tb_jogadores_plantel` VALUES ('160', null, '2014-01-25 09:55:30', null, '0.00', 'Nasri', '84', '1128.75', '10750.00', '0.00', '1', '161', '10', '2', '10', '1', '0');
+INSERT INTO `tb_jogadores_plantel` VALUES ('161', '2014-01-25 17:48:52', '2014-01-25 17:48:31', '2014-01-25 17:48:52', '1425.00', 'Sanchez', '82', '0.00', '0.00', '1500.00', '1', '472', '27', '16', '18', '3', '1');
+INSERT INTO `tb_jogadores_plantel` VALUES ('162', null, '2014-01-25 17:55:15', null, '0.00', 'Paulinho', '81', '157.50', '1500.00', '0.00', '1', '166', '10', '1', '9', '1', '0');
+INSERT INTO `tb_jogadores_plantel` VALUES ('163', null, '2014-01-25 18:01:35', null, '0.00', 'Rooney', '87', '4278.75', '40750.00', '0.00', '1', '162', '10', '3', '23', '2', '0');
+INSERT INTO `tb_jogadores_plantel` VALUES ('164', null, '2014-01-26 14:38:26', null, '0.00', 'David Luiz', '82', '945.00', '9000.00', '0.00', '1', '155', '10', '1', '3', '1', '0');
 
 -- ----------------------------
 -- Table structure for tb_liga
@@ -1062,7 +1145,7 @@ CREATE TABLE `tb_partida` (
   `DS_TIME_VISITANTE` varchar(255) DEFAULT NULL,
   `VL_GANHO_PARTIDA` decimal(19,2) DEFAULT NULL,
   PRIMARY KEY (`ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=62 DEFAULT CHARSET=latin1;
 
 -- ----------------------------
 -- Records of tb_partida
@@ -1084,6 +1167,50 @@ INSERT INTO `tb_partida` VALUES ('14', '2014-01-22 09:24:52', '3', '1', 'Scoroz 
 INSERT INTO `tb_partida` VALUES ('15', '2014-01-22 09:25:09', '4', '4', 'Scoroz United', 'LSCRDYT ', '511.00');
 INSERT INTO `tb_partida` VALUES ('16', '2014-01-24 09:15:25', '2', '0', 'Scoroz United', 'Kingdons FC', '553.00');
 INSERT INTO `tb_partida` VALUES ('17', '2014-01-24 09:15:47', '1', '1', 'SANTOS FTBC', 'Scoroz United', '464.00');
+INSERT INTO `tb_partida` VALUES ('18', '2014-01-24 20:02:57', '0', '4', 'Scoroz United', 'MARTINS FC', '400.00');
+INSERT INTO `tb_partida` VALUES ('19', '2014-01-24 20:26:51', '3', '2', 'Scoroz United', 'Malok12 FC', '503.00');
+INSERT INTO `tb_partida` VALUES ('20', '2014-01-24 20:37:08', '0', '1', 'Pipoca Doce FC', 'Scoroz United', '255.00');
+INSERT INTO `tb_partida` VALUES ('21', '2014-01-24 20:58:28', '1', '1', 'Scoroz United', 'S FURRENTS', '456.00');
+INSERT INTO `tb_partida` VALUES ('22', '2014-01-24 23:51:15', '0', '4', 'Scoroz United', 'Rock n Roll Utd', '383.00');
+INSERT INTO `tb_partida` VALUES ('23', '2014-01-25 00:20:54', '2', '0', 'Scoroz United', 'ASTROS FC', '502.00');
+INSERT INTO `tb_partida` VALUES ('24', '2014-01-25 00:46:30', '0', '6', 'corta pa nois', 'Scoroz United', '590.00');
+INSERT INTO `tb_partida` VALUES ('25', '2014-01-25 01:06:18', '1', '2', 'Scoroz United', 'JOGA 10 FC', '414.00');
+INSERT INTO `tb_partida` VALUES ('26', '2014-01-25 01:26:53', '2', '1', 'Scoroz United', 'Corinthians FC', '460.00');
+INSERT INTO `tb_partida` VALUES ('27', '2014-01-25 01:52:36', '3', '1', 'Scoroz United', 'GLORIOUS FC', '479.00');
+INSERT INTO `tb_partida` VALUES ('28', '2014-01-25 02:12:26', '1', '1', 'Scoroz United', 'foo fighters ', '439.00');
+INSERT INTO `tb_partida` VALUES ('29', '2014-01-25 02:34:54', '1', '1', 'Scoroz United', 'EC Carmosina', '441.00');
+INSERT INTO `tb_partida` VALUES ('30', '2014-01-25 02:54:10', '5', '1', 'Scoroz United', 'Gidaro FC', '541.00');
+INSERT INTO `tb_partida` VALUES ('31', '2014-01-25 03:14:45', '1', '3', 'galaticos cf', 'Scoroz United', '501.00');
+INSERT INTO `tb_partida` VALUES ('32', '2014-01-25 03:36:12', '0', '1', 'Scoroz United', 'vovo FC', '408.00');
+INSERT INTO `tb_partida` VALUES ('33', '2014-01-25 04:00:19', '9', '2', 'Scoroz United', 'Schmeat FC', '562.00');
+INSERT INTO `tb_partida` VALUES ('34', '2014-01-25 04:25:04', '0', '9', 'GUILHERME FC', 'Scoroz United', '623.00');
+INSERT INTO `tb_partida` VALUES ('35', '2014-01-25 11:55:04', '1', '1', 'Scoroz United', 'Atletico Garcia', '443.00');
+INSERT INTO `tb_partida` VALUES ('36', '2014-01-25 12:14:45', '0', '1', 'Scoroz United', 'Tiguez FC', '426.00');
+INSERT INTO `tb_partida` VALUES ('37', '2014-01-25 12:37:08', '2', '1', 'Timao FC', 'Scoroz United', '426.00');
+INSERT INTO `tb_partida` VALUES ('38', '2014-01-25 12:59:13', '1', '0', 'Scoroz United', 'IPIAU FUTEBOL', '529.00');
+INSERT INTO `tb_partida` VALUES ('39', '2014-01-25 13:18:14', '2', '4', 'Scoroz United', 'spirit', '421.00');
+INSERT INTO `tb_partida` VALUES ('40', '2014-01-25 13:37:35', '0', '4', 'Yolo FC', 'Scoroz United', '621.00');
+INSERT INTO `tb_partida` VALUES ('41', '2014-01-25 18:31:07', '4', '0', 'Scoroz United', 'tri mundial', '544.00');
+INSERT INTO `tb_partida` VALUES ('42', '2014-01-25 19:03:53', '2', '1', 'Scoroz United', 'GRANDES FAMOSOS', '458.00');
+INSERT INTO `tb_partida` VALUES ('43', '2014-01-25 19:16:11', '3', '0', 'Scoroz United', 'Parque Orlanda1', '329.00');
+INSERT INTO `tb_partida` VALUES ('44', '2014-01-25 19:34:57', '2', '1', 'Adelaide FC', 'Scoroz United', '401.00');
+INSERT INTO `tb_partida` VALUES ('45', '2014-01-25 19:58:21', '3', '2', 'Scoroz United', 'Quase Perdi FC', '469.00');
+INSERT INTO `tb_partida` VALUES ('46', '2014-01-25 20:27:10', '7', '1', 'Scoroz United', 'Maniadeser FC', '543.00');
+INSERT INTO `tb_partida` VALUES ('47', '2014-01-26 12:04:23', '0', '0', 'Scoroz United', 'ESTRAGA DOMINGO', '466.00');
+INSERT INTO `tb_partida` VALUES ('48', '2014-01-26 12:28:24', '1', '0', 'Scoroz United', 'Annihilation', '497.00');
+INSERT INTO `tb_partida` VALUES ('49', '2014-01-26 13:46:22', '1', '1', 'Scoroz United', 'Dragons FC', '444.00');
+INSERT INTO `tb_partida` VALUES ('50', '2014-01-26 14:06:07', '2', '3', 'Vista Alegre', 'Scoroz United', '489.00');
+INSERT INTO `tb_partida` VALUES ('51', '2014-01-26 14:25:20', '2', '2', 'Scoroz United', 'PASQUALI FBPA', '467.00');
+INSERT INTO `tb_partida` VALUES ('52', '2014-01-26 15:05:21', '1', '0', 'W13', 'Scoroz United', '405.00');
+INSERT INTO `tb_partida` VALUES ('53', '2014-01-26 15:24:28', '0', '3', 'Scoroz United', 'PANICO NA LIVE', '394.00');
+INSERT INTO `tb_partida` VALUES ('54', '2014-01-26 15:43:51', '3', '2', 'Scoroz United', 'letzgettricky', '516.00');
+INSERT INTO `tb_partida` VALUES ('55', '2014-01-26 16:03:03', '1', '0', 'nalim united', 'Scoroz United', '423.00');
+INSERT INTO `tb_partida` VALUES ('56', '2014-01-26 16:50:38', '1', '1', 'Real Favela FC', 'Scoroz United', '459.00');
+INSERT INTO `tb_partida` VALUES ('57', '2014-01-26 17:11:26', '3', '1', 'Chaanuz FC', 'Scoroz United', '435.00');
+INSERT INTO `tb_partida` VALUES ('58', '2014-01-26 17:32:59', '0', '4', 'GLORIOUS FC', 'Scoroz United', '606.00');
+INSERT INTO `tb_partida` VALUES ('59', '2014-01-26 17:54:12', '6', '2', 'Scoroz United', 'AmigosDoMessi', '573.00');
+INSERT INTO `tb_partida` VALUES ('60', '2014-01-26 18:24:33', '1', '1', 'Gladiadores', 'Scoroz United', '456.00');
+INSERT INTO `tb_partida` VALUES ('61', '2014-01-26 18:44:00', '1', '1', 'coXa DoiDo FC', 'Scoroz United', '441.00');
 
 -- ----------------------------
 -- Table structure for tb_pos_jogador
