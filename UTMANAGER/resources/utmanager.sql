@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50522
 File Encoding         : 65001
 
-Date: 2014-01-27 16:59:29
+Date: 2014-01-28 09:09:20
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -657,7 +657,7 @@ CREATE TABLE `tb_financa` (
   KEY `FKE63D3EE5363F5AD4` (`PARTIDA_FK`),
   CONSTRAINT `FKE63D3EE5363F5AD4` FOREIGN KEY (`PARTIDA_FK`) REFERENCES `tb_partida` (`ID`),
   CONSTRAINT `FKE63D3EE5676B2B4` FOREIGN KEY (`JOGADOR_FK`) REFERENCES `tb_jogadores_plantel` (`ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=191 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=204 DEFAULT CHARSET=latin1;
 
 -- ----------------------------
 -- Records of tb_financa
@@ -837,6 +837,19 @@ INSERT INTO `tb_financa` VALUES ('187', 'GANHO_PARTIDA', '43998.00', '456.00', '
 INSERT INTO `tb_financa` VALUES ('188', 'GANHO_PARTIDA', '44439.00', '441.00', '2014-01-26 18:44:00', 'coXa DoiDo FC 1 X 1 Scoroz United  em 26/01/2014 - 18:44', null, '61');
 INSERT INTO `tb_financa` VALUES ('189', 'VENDA_JOGADOR', '45056.50', '617.50', '2014-01-26 22:29:20', 'Venda do jogador ST - Cissé - Senegalês - England Premier League', '86', null);
 INSERT INTO `tb_financa` VALUES ('190', 'VENDA_JOGADOR', '45674.00', '617.50', '2014-01-26 23:30:22', 'Venda do jogador CAM - Dempsey - Americano - USA Major League Soccer', '105', null);
+INSERT INTO `tb_financa` VALUES ('191', 'COMPRA_JOGADOR', '44374.00', '1300.00', '2014-01-27 20:20:38', 'Compra do jogador ST - Fernando Torres - Espanhol - England Premier League', '165', null);
+INSERT INTO `tb_financa` VALUES ('192', 'COMPRA_JOGADOR', '43074.00', '1300.00', '2014-01-27 20:21:09', 'Compra do jogador ST - Fernando Torres - Espanhol - England Premier League', '166', null);
+INSERT INTO `tb_financa` VALUES ('193', 'COMPRA_JOGADOR', '41774.00', '1300.00', '2014-01-27 20:21:37', 'Compra do jogador ST - Fernando Torres - Espanhol - England Premier League', '167', null);
+INSERT INTO `tb_financa` VALUES ('194', 'GANHO_PARTIDA', '41874.00', '100.00', '2014-01-27 20:33:50', 'GUARULHOS FCA 0 X 0 Scoroz United  em 27/01/2014 - 20:33', null, '62');
+INSERT INTO `tb_financa` VALUES ('195', 'GANHO_PARTIDA', '42339.00', '465.00', '2014-01-27 20:55:25', 'Scoroz United 2 X 1 Sefton Vale  em 27/01/2014 - 20:55', null, '63');
+INSERT INTO `tb_financa` VALUES ('196', 'GANHO_PARTIDA', '42518.00', '179.00', '2014-01-27 21:03:23', 'The very bests 0 X 0 Scoroz United  em 27/01/2014 - 21:03', null, '64');
+INSERT INTO `tb_financa` VALUES ('197', 'VENDA_JOGADOR', '44228.00', '1710.00', '2014-01-27 21:08:23', 'Venda do jogador ST - Fernando Torres - Espanhol - England Premier League', '167', null);
+INSERT INTO `tb_financa` VALUES ('198', 'COMPRA_OUTROS', '39629.00', '4599.00', '2014-01-27 21:24:04', 'Compras de Contrato Golden Premium', null, null);
+INSERT INTO `tb_financa` VALUES ('199', 'COMPRA_OUTROS', '33829.00', '5800.00', '2014-01-27 21:37:52', 'Compra de Trainning Cards x11', null, null);
+INSERT INTO `tb_financa` VALUES ('200', 'GANHO_PARTIDA', '34287.00', '458.00', '2014-01-27 21:59:57', 'Virgilio Tigers 0 X 0 Scoroz United  em 27/01/2014 - 21:59', null, '65');
+INSERT INTO `tb_financa` VALUES ('201', 'GANHO_PARTIDA', '34763.00', '476.00', '2014-01-27 22:20:15', 'GLADIADORES 1 X 1 Scoroz United  em 27/01/2014 - 22:20', null, '66');
+INSERT INTO `tb_financa` VALUES ('202', 'GANHO_TORNEIO', '40963.00', '6200.00', '2014-01-27 22:21:02', 'Premiação Tem. 3 Online', null, null);
+INSERT INTO `tb_financa` VALUES ('203', 'VENDA_JOGADOR', '42673.00', '1710.00', '2014-01-28 07:15:22', 'Venda do jogador ST - Fernando Torres - Espanhol - England Premier League', '166', null);
 
 -- ----------------------------
 -- Table structure for tb_jogadores_plantel
@@ -873,7 +886,7 @@ CREATE TABLE `tb_jogadores_plantel` (
   CONSTRAINT `FKB41BF32615AAA56` FOREIGN KEY (`CATEGORIA_FK`) REFERENCES `tb_categoria_jogador` (`ID`),
   CONSTRAINT `FKB41BF3286C31934` FOREIGN KEY (`NACIONALIDADE_FK`) REFERENCES `tb_nacionalidade_jogador` (`ID`),
   CONSTRAINT `FKB41BF32A53662E` FOREIGN KEY (`LIGA_FK`) REFERENCES `tb_liga` (`ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=165 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=168 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of tb_jogadores_plantel
@@ -1038,6 +1051,9 @@ INSERT INTO `tb_jogadores_plantel` VALUES ('161', '2014-01-25 17:48:52', '2014-0
 INSERT INTO `tb_jogadores_plantel` VALUES ('162', null, '2014-01-25 17:55:15', null, '0.00', 'Paulinho', '81', '157.50', '1500.00', '0.00', '1', '166', '10', '1', '9', '1', '0');
 INSERT INTO `tb_jogadores_plantel` VALUES ('163', null, '2014-01-25 18:01:35', null, '0.00', 'Rooney', '87', '4278.75', '40750.00', '0.00', '1', '162', '10', '3', '23', '2', '0');
 INSERT INTO `tb_jogadores_plantel` VALUES ('164', null, '2014-01-26 14:38:26', null, '0.00', 'David Luiz', '82', '945.00', '9000.00', '0.00', '1', '155', '10', '1', '3', '1', '0');
+INSERT INTO `tb_jogadores_plantel` VALUES ('165', null, '2014-01-27 20:20:38', null, '0.00', 'Fernando Torres', '82', '136.50', '1300.00', '0.00', '1', '155', '10', '4', '22', '2', '0');
+INSERT INTO `tb_jogadores_plantel` VALUES ('166', '2014-01-28 07:15:21', '2014-01-27 20:21:09', '2014-01-28 07:15:21', '410.00', 'Fernando Torres', '82', '136.50', '1300.00', '1800.00', '1', '155', '10', '4', '22', '3', '1');
+INSERT INTO `tb_jogadores_plantel` VALUES ('167', '2014-01-27 21:08:23', '2014-01-27 20:21:36', '2014-01-27 21:08:23', '410.00', 'Fernando Torres', '82', '136.50', '1300.00', '1800.00', '1', '155', '10', '4', '22', '3', '1');
 
 -- ----------------------------
 -- Table structure for tb_liga
@@ -1145,7 +1161,7 @@ CREATE TABLE `tb_partida` (
   `DS_TIME_VISITANTE` varchar(255) DEFAULT NULL,
   `VL_GANHO_PARTIDA` decimal(19,2) DEFAULT NULL,
   PRIMARY KEY (`ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=62 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=67 DEFAULT CHARSET=latin1;
 
 -- ----------------------------
 -- Records of tb_partida
@@ -1211,6 +1227,11 @@ INSERT INTO `tb_partida` VALUES ('58', '2014-01-26 17:32:59', '0', '4', 'GLORIOU
 INSERT INTO `tb_partida` VALUES ('59', '2014-01-26 17:54:12', '6', '2', 'Scoroz United', 'AmigosDoMessi', '573.00');
 INSERT INTO `tb_partida` VALUES ('60', '2014-01-26 18:24:33', '1', '1', 'Gladiadores', 'Scoroz United', '456.00');
 INSERT INTO `tb_partida` VALUES ('61', '2014-01-26 18:44:00', '1', '1', 'coXa DoiDo FC', 'Scoroz United', '441.00');
+INSERT INTO `tb_partida` VALUES ('62', '2014-01-27 20:33:50', '0', '0', 'GUARULHOS FCA', 'Scoroz United', '100.00');
+INSERT INTO `tb_partida` VALUES ('63', '2014-01-27 20:55:25', '2', '1', 'Scoroz United', 'Sefton Vale', '465.00');
+INSERT INTO `tb_partida` VALUES ('64', '2014-01-27 21:03:23', '0', '0', 'The very bests', 'Scoroz United', '179.00');
+INSERT INTO `tb_partida` VALUES ('65', '2014-01-27 21:59:56', '0', '0', 'Virgilio Tigers', 'Scoroz United', '458.00');
+INSERT INTO `tb_partida` VALUES ('66', '2014-01-27 22:20:14', '1', '1', 'GLADIADORES', 'Scoroz United', '476.00');
 
 -- ----------------------------
 -- Table structure for tb_pos_jogador
